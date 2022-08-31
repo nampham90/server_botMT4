@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 
-app.listen(80);
+app.listen(3000);
 
 // r59FrrlOIxXUDlh3
 //connect database------------------------------
