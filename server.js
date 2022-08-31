@@ -33,9 +33,7 @@ app.use(express.json());
 const order = require("./model/order");
 
 const axios = require("axios");
-app.get('/',(req,res)=>{
-  res.send("nam pham");
-})
+
 require("./routers/order.route")(app);
 require("./routers/account.route")(app);
 require("./routers/lenhcho.route")(app);
