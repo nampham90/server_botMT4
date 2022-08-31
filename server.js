@@ -28,11 +28,21 @@ const bodyParser = require("body-parser")
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.json());
+app.use(function (req, res, next) {
+  // res.setHeader('Access-Control-Allow-Origin', 'https://batdongsan-hue-new.herokuapp.com');
+   res.setHeader('Access-Control-Allow-Origin', '*');
+   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+   res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-With,content-type,Accept,application/x-www-form-urlencoded,application/json,text/plain');
+   res.setHeader('Access-Control-Allow-Credentials', true);
+   next();
+});
 //mode
 const order = require("./model/order");
 
 const axios = require("axios");
-
+app.get('/',(req,res)=>{
+  res.send("nam pham");
+})
 require("./routers/order.route")(app);
 require("./routers/account.route")(app);
 require("./routers/lenhcho.route")(app);
