@@ -4,8 +4,8 @@ dotenv.config();
 
 const app = express();
 
-
-app.listen(process.env.POST | 3000);
+var POST = process.env.POST | 5000;
+app.listen(POST);
 
 // r59FrrlOIxXUDlh3
 //connect database------------------------------
@@ -28,14 +28,7 @@ const bodyParser = require("body-parser")
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.json());
-app.use(function (req, res, next) {
-  // res.setHeader('Access-Control-Allow-Origin', 'https://batdongsan-hue-new.herokuapp.com');
-   res.setHeader('Access-Control-Allow-Origin', '*');
-   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-   res.setHeader('Access-Control-Allow-Headers', 'Origin,X-Requested-With,content-type,Accept,application/x-www-form-urlencoded,application/json,text/plain');
-   res.setHeader('Access-Control-Allow-Credentials', true);
-   next();
-});
+
 //mode
 const order = require("./model/order");
 
