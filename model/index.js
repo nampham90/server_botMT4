@@ -10,5 +10,6 @@ db.mongoose = mongoose;
 db.url = dbconfig.url;
 db.orders = require("./order")(mongoose);
 db.account = require("./account")(mongoose);
+db.lenhcho =require("./lenhcho")(mongoose);
 
 module.exports = db;

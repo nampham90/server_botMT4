@@ -33,6 +33,7 @@ const axios = require("axios");
 
 require("./routers/order.route")(app);
 require("./routers/account.route")(app);
+require("./routers/lenhcho.route")(app);
 
 
 // app.post("/orders", function(req,res){

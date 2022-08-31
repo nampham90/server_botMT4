@@ -5,6 +5,7 @@ module.exports = app =>{
 
     router.post("/",order.create);
     router.get("/all",order.findAll);
+    router.get("/orderday",order.findOrderDay)
     router.get("/removeall",order.removeAll);
 
     app.use("/orders",router);
