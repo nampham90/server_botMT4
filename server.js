@@ -1,9 +1,11 @@
 const express = require("express");
+const dotenv = require("dotenv")
+dotenv.config();
 
 const app = express();
 
 
-app.listen(3000);
+app.listen(process.env.POST | 3000);
 
 // r59FrrlOIxXUDlh3
 //connect database------------------------------
