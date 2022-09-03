@@ -4,8 +4,7 @@ dotenv.config();
 
 const app = express();
 
-var POST = process.env.POST | 5000;
-app.listen(POST);
+app.listen(80);
 
 
 const db = require("./model");

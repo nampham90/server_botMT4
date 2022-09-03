@@ -19,6 +19,7 @@
 module.exports = mongoose => {
     let schema = mongoose.Schema(
       {
+        index: Number | String,
         ticket: {type:String, unique:true},
         pair: String,
         direction: String,
