@@ -1,11 +1,14 @@
+const createError = require('http-errors');
+const dotenv = require('dotenv');
+const path = require('path');
 const express = require("express");
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
+const cors = require('cors')
 const app = express();
-
-
-app.listen(80);
-
-// r59FrrlOIxXUDlh3
+app.use(cors());
+dotenv.config();
 //connect database------------------------------
 const db = require("./model");
 db.mongoose
@@ -20,67 +23,81 @@ db.mongoose
     console.log("Cannot connect to the database!", err);
     process.exit();
   });
-
+const Role = db.role;
+Role.find({}).then(res => {
+  let lst = res;
+  if(lst.length == 0){
+    let newRoleAdmin =new Role({rolename: "Admin"});
+    let newRoleUser =new Role({rolename: "User"});
+    let newRoleDev =new Role({rolename: "Dev"});
+    newRoleAdmin.save(async function(e){
+      if(e){
+        console.log(e.message);
+      }else {
+        console.log("Save role admin ");
+      }
+    });
+    newRoleUser.save(async function(e){
+      if(e){}else {
+        console.log("Save role user ");
+      }
+    });
+    newRoleDev.save(async function(e){
+      if(e){}else {
+        console.log("Save role Dev ");
+      }
+    });
+  }
+},err =>{
+  console.log("err. "+ err.message)
+})
 
 const bodyParser = require("body-parser")
-
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.json());
-//mode
-const order = require("./model/order");
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(logger('dev'));
+app.use(function (req, res, next) {
+  // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
-const axios = require("axios");
+  // Request methods you wish to allow
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+  // Request headers you wish to allow
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+  // Set to true if you need the website to include cookies in the requests sent
+  // to the API (e.g. in case you use sessions)
+  res.setHeader('Access-Control-Allow-Credentials', true);
+
+  // Pass to next layer of middleware
+  next();
+});
 
 require("./routers/order.route")(app);
 require("./routers/account.route")(app);
+require("./routers/user.route")(app);
+require("./routers/lenhcho.route")(app);
 
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
 
-// app.post("/orders", function(req,res){
-//     let stringFromServer = JSON.stringify(req.body);
-//     stringFromServer = stringFromServer.substring(2);
-//     stringFromServer = stringFromServer.replace('}\\u0000":""','');
-//     stringFromServer = stringFromServer.replace(/\\/g,'');
-//     stringFromServer = stringFromServer.replace('u0000":""','');
-//     let json = JSON.parse(stringFromServer);
-//     if(json.orders){
-//         json.orders.forEach(function(o){
-//             if(o.sl != "0" && o.tp != "0"){
-//                 let orderType = "SELL";
-//                 if(o.direction != 1) {
-//                     orderType = "BUY";
-//                 } 
-//                 let newOrder = new order({
-//                     ticket: o.ticket,
-//                     pair: o.pair,
-//                     direction: orderType,
-//                     lot: o.lot,
-//                     price: o.price,
-//                     sl: o.sl,
-//                     tp: o.tp,
-//                     opentime: o.opentime,
-//                     comment: o.comment,
-//                     orderProfit: o.orderProfit
-//                 })
-//                 newOrder.save(function(e){
-//                     if(e){}
-//                     else{
-        
-//                         //5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M
-//                         //BotNamPhamTelegram
-//                         //username
-//                         //BotNamPhamTelegram_bot
-//                         //https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/getUpdates
-//                         //https://api.telegram.org/botbot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-635826973&text={notification_text}
-        
-//                         //-635826973
-//                         let content = "Order " + newOrder.ticket + " " + newOrder.pair + " " + newOrder.direction + " Price " + newOrder.price + " SL " + newOrder.sl + " TP " + newOrder.tp;
-//                         let stringTelegram = "https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-635826973&text="+content;
-//                         axios.get(stringTelegram).then((res)=>{console.log("send thanh cong")}).catch((e2)=>{console.log(e2.message)});
-//                     }
-//                 })
-//             }
-//         });
-//     }
-    
-//     res.end();
-// })
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 505);
+  res.json({
+    message: err.message,
+    error: err
+  });
+});
+
+module.exports = app;

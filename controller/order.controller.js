@@ -1,8 +1,10 @@
 const db = require("../model");
 const axios = require("axios");
 const e = require("express");
+const common = require("../common/functionCommon");
 const Order = db.orders;
 const Account = db.account;
+const Lenhcho = db.lenhcho;
 
 exports.create =  async(req,res)=>{
     if(!req.body){
@@ -16,178 +18,21 @@ exports.create =  async(req,res)=>{
         stringFromServer = stringFromServer.replace('u0000":""','');
 
         let json = JSON.parse(stringFromServer);
+        let nowdayt = common.dateNow(); 
+        let listOrder =await Order.find({});
+        let listAccount = await  Account.find({}).populate('Order_id');
         
-        let listOrder =await axios.get("http://117.2.200.164/orders/all");
-        let listAccount = await axios.get("http://117.2.200.164/account/all");
-        if(listOrder.data.length > 0){
-            for(const element of listOrder.data){
-                if(element.status === false) {
-                    let checkOrder = false;
-                    if(json.orders){
-                        for(const elementOrder of json.orders) {
-                            if(element.ticket == elementOrder.ticket) {
-                                checkOrder = true;
-                                break;
-                            }
-                         }
-                    }else if(json.ordershistory){
-                        let count = 0;
-                        for(const elementOrderHistory of json.ordershistory){
-                            if(element.ticket == elementOrderHistory.ticket){
-                                console.log(element.ticket + "Close");
-                                count = count + 1;
-                                break;
-                            }     
-                        }
-                        if(count === 0){
-                            checkOrder = true;
-                        }
-                    }
-                    if(checkOrder === false){
-                        Order.updateOne({ticket:element.ticket},{$set: {status:true}})
-                        .then(data => {
-                            console.log(data.modifiedCount + " update status " + element.ticket);
-                            if(data.modifiedCount == 1){
-                                let content = "Close Order " + element.ticket + " " + element.pair + " " + element.direction + " Price " + element.price + " SL " + element.sl + " TP " + element.tp + " Close on orderProfit " +element.orderProfit +"$";
-                                let stringTelegram = "https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-635826973&text="+content;
-                                axios.get(stringTelegram).then((info)=>{console.log("send thanh cong")}).catch((e2)=>{console.log(e2.message)});
-                            }
-                        })
-                        .catch(err=>{
-                            console.log(err.message);
-                        });
-                    }
-                }
-            }
-        }
-        if(listAccount.data.length > 0){
-            for(const element of listAccount.data) {
-                if(json.accNumber == element.accNumber && json.accBalance != element.accBalance) {
-                    Account.updateOne({accNumber:json.accNumber},{$set:{accBalance:json.accBalance,accEquity:json.accEquity}})
-                    .then(data=>{
-                        console.log(data.modifiedCount + " Update acc " + json.accNumber);
-                    })
-                    .catch(err=>{
-                        console.log(err.message);
-                    })
-                }
-            }
-        }
-        if(json.orders){
-            json.orders.forEach(async function(o){
-                let listAccountNew = await  axios.get("http://117.2.200.164/account/all");
-                let check = false;
-                if(listOrder.data.length > 0) {
-                    for(const element of listOrder.data){
-                        if(o.ticket == element.ticket) {
-                           check = true;
-                           if(o.orderProfit != element.orderProfit){
-                                Order.updateOne({ticket:o.ticket},{$set:{orderProfit:o.orderProfit}})
-                                .then(data=>{
-                                    console.log(data.modifiedCount + " Update profit ticket " + o.ticket + " new profit " + o.orderProfit + "$");
-                                })
-                                .catch(err => {
-                                    console.log(err.message);
-                                })
-                           }
-                        }
-                     }
-                }
+        let listLc = await Lenhcho.find({createdAt:{$gte:(nowdayt)}});
 
-                if(o.sl != "0" && o.tp != "0" && check === false){
-                    let orderType = "SELL";
-                    if(o.direction != 1) {
-                        orderType = "BUY";
-                    } 
-                    const newOrder = new Order({
-                        ticket: o.ticket,
-                        pair: o.pair,
-                        direction: orderType,
-                        lot: o.lot,
-                        price: o.price,
-                        sl: o.sl,
-                        tp: o.tp,
-                        opentime: o.opentime,
-                        comment: o.comment,
-                        orderProfit: o.orderProfit,
-                        status:false
-                    })
-                    console.log(newOrder.pair);
-                    newOrder.save(async function(e){
-                        if(e) {}
-                        else {
-                            console.log(listAccountNew.data);
-                            if (listAccountNew.data.length == 0) {
-                                let listIdOrder = [];
-                                listIdOrder = listIdOrder.concat(newOrder.id)
-                                const newAccount = new Account ({
-                                    server: json.server,
-                                    total: json.total,
-                                    accKhoitao: json.accBalance,
-                                    accBalance: json.accBalance,
-                                    accEquity:json.accEquity,
-                                    accNumber:json.accNumber,
-                                    donbay:json.donbay,
-                                    accServer: json.accServer,
-                                    Order_id: listIdOrder
-                                });
-                                await newAccount.save();
-                                
-                            }else {
-                                let checkAccount = false;
-                                for(const element of listAccountNew.data){
-                                     if(json.accNumber == element.accNumber) {
-                                        Account.updateOne({accNumber:element.accNumber},{$push:{Order_id:newOrder.id}})
-                                           .then(data =>{
-                                               console.log(data.modifiedCount + " Add order " + newOrder.id);
-                                           })
-                                           .catch(err=>{
-                                               console.log(err.message);
-                                           })                                                                                  
-                                        checkAccount = true;
-                                        console.log(checkAccount);
-                                         break;
-                                     }
-                                }
-                                if(checkAccount === false) {
-                                    let listIdOrder = [];
-                                    listIdOrder = listIdOrder.concat(newOrder.id)
-                                    const newAccount = new Account({
-                                        server: json.server,
-                                        total: json.total,
-                                        accKhoitao: json.accBalance,
-                                        accBalance: json.accBalance,
-                                        accEquity:json.accEquity,
-                                        accNumber:json.accNumber,
-                                        donbay:json.donbay,
-                                        accServer: json.accServer,
-                                        Order_id: listIdOrder
-                                    });
-                                    newAccount.save();
-                                }
-                            }
-                            
-                            //5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M
-                            //BotNamPhamTelegram
-                            //username
-                            //BotNamPhamTelegram_bot
-                            //https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/getUpdates
-                            //https://api.telegram.org/botbot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-635826973&text={notification_text}
-            
-                            //-635826973
-                            let content = "Order " + newOrder.ticket + " " + newOrder.pair + " " + newOrder.direction + " Price " + newOrder.price + " SL " + newOrder.sl + " TP " + newOrder.tp;
-                            let stringTelegram = "https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-635826973&text="+content;
-                            axios.get(stringTelegram).then((info)=>{console.log("send thanh cong")}).catch((e2)=>{console.log(e2.message)});
-                        }            
-                    });
-                   
-                }
-            });
+        switch(json.accNumber){
+            case "70060301" : common.controlMessageTelegram(json,nowdayt,listOrder,listAccount,listLc,"1001589294497",Order,Account,Lenhcho,axios,"70060301");break;
+            case "70060302" : common.controlMessageTelegram(json,nowdayt,listOrder,listAccount,listLc,"1001686087745",Order,Account,Lenhcho,axios,"70060302");break;
+            case "70060303" : common.controlMessageTelegram(json,nowdayt,listOrder,listAccount,listLc,"1001511689931",Order,Account,Lenhcho,axios,"70060303");break;
+            default:  common.controlMessageTelegram(json,nowdayt,listOrder,listAccount,listLc,"635826973",Order,Account,Lenhcho,axios,"8496774");
         }
         res.end();
     }
 }
-
 
 exports.findAll = (req, res) => {
     Order.find()
@@ -222,4 +67,36 @@ exports.removeAll = (req,res) => {
         });
       });
    // Order.find()
+}
+// list order đang chạy theo accNumber
+exports.findOrderRunAcc = (req,res) =>{
+    let accNum = req.body.accNumber;
+    console.log(accNum);
+    Order.find({accNumber: accNum, status: false})
+    .then(data=>{
+        res.send(data);
+   })
+   .catch(err=>{
+       res.status(500).send({
+            message :
+            err.message || "ome error occurred while retrieving tutorials."
+       });
+   })
+}
+// list order đã đóng trong ngày hiện tại
+exports.findOffinDay = (req,res) => {
+    let accNum = req.body.accNumber;
+    let day = req.body.day;
+    let nowday = common.dateNow();
+    console.log(req.body);
+    Order.find({accNumber: accNum, status: true,createdAt:{$gte:(nowday)}})
+    .then(data=>{
+        res.send(data);
+    })
+    .catch(err=>{
+       res.status(500).send({
+            message :
+            err.message || "ome error occurred while retrieving tutorials."
+       });
+    })
 }
