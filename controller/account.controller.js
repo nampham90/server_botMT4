@@ -1,21 +1,16 @@
 const db = require("../model");
-
+let Responses = require('../common/response');
+let Response = Responses.Response
 const Account = db.account;
 
 exports.findAll = (req,res) => {
-    // let token = JSON.stringify(req.headers.authorization);
-    // // token = token.replace('Bearer ');
-    // console.log(token);
     Account.find()
      .populate('Order_id')
      .then(data =>{
-         res.send(data);
+         res.status(200).send(new Response(0, "data Sucess !", data));
      })
      .catch(err =>{
-        res.status(501).send({
-            message :
-            err.message || "ome error occurred while retrieving tutorials."
-       });
+        res.status(501).send(new Response(1010, err.message, null));
      })
 }
 
