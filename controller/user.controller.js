@@ -2,6 +2,8 @@ const db = require("../model");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
+let menus = require('../common/menu');
+
 let Responses = require('../common/response');
 let Response = Responses.Response;
 const User = db.user;
@@ -86,6 +88,19 @@ exports.login =  async(req,res)=>{
 
 exports.getRoles = async(req, res) => {
    let listRole = await Role.find({});
-   if(listRole.length == 0) { return res.status(422).send({message: 'Role chưa được khởi tạo !'});}
-   return res.status(200).send({listRole});
+   if(listRole.length == 0) {
+     let response = new Response(1010, "Role chưa được khởi tạo !", null)
+     return res.status(422).send({message: 'Role chưa được khởi tạo !'});
+   }
+   let response = new Response(1010, "Data sucess !", listRole)
+   return res.status(200).send(response);
+}
+
+exports.getMenu = async(req, res) => {
+   let menu = menus.getMenu();
+   if(menu.length > 0) {
+     let response = new Response(0, "sucess data !", menu);
+     return  res.status(200).send(response);
+   }
+   return res.status(422).send(new Response(1010,"not data Menu",null));
 }

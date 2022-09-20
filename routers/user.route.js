@@ -6,8 +6,8 @@ module.exports = app =>{
 
     router.post("/login", user.login);
     router.post("/register", user.register);
-    router.get("/getroles", verifyDevadmin, user.getRoles)
+    router.get("/getroles", verifyDevadmin, user.getRoles);
+    router.get("/menu",user.getMenu);
 
     app.use("/user",router);
-
 }
