@@ -26,7 +26,8 @@ module.exports = mongoose => {
         account_id:[{
           type: mongoose.Schema.Types.ObjectId,
           ref:"account"
-        }]
+        }],
+        menulist: []
       },
       { timestamps: true }
     );

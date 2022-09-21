@@ -8,6 +8,7 @@ let Responses = require('../common/response');
 let Response = Responses.Response;
 const User = db.user;
 const Role = db.role;
+const Menu = db.menu;
 const { registerValidator } = require('./../validations/auth');
 
 exports.register =  async(req,res)=>{
@@ -50,11 +51,9 @@ exports.register =  async(req,res)=>{
     } catch (err) {
         res.status(400).send(err);
     }
-
 }
 
 exports.login =  async(req,res)=>{
-    let listRole = [];
     const user = await User.findOne({email: req.body.email});
     if (!user) {
         let response = new Response(1010,'Email chưa đăng ký !',null);
@@ -66,23 +65,20 @@ exports.login =  async(req,res)=>{
         let response = new Response(1010,'Password không đúng !',null);
         return res.status(422).send(response);
     } 
-   
-    for(const element of user.role_id){
-        const role = await Role.findOne({_id: element});
-        listRole = listRole.concat(role.rolename);
+
+    let arraycode = "";
+    let num =0;
+    if(user.menulist.length > 0) {
+        user.menulist.forEach(async function(m){
+            if(num > 0){
+                arraycode += ","
+            }
+            arraycode += m.code;
+            num ++;
+        })
     }
-    
-    const token = await jwt.sign({_id: user._id, role: listRole}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
-    const data = {
-        token,
-        user: {
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-            role: listRole
-        }
-    }
-    let response = new Response(0,'Login successfully !',data);
+    const token = await jwt.sign({_id: user._id, rol: arraycode}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
+    let response = new Response(0,'Login successfully !',token);
     return res.status(200).send(response);
 }
 
@@ -90,17 +86,61 @@ exports.getRoles = async(req, res) => {
    let listRole = await Role.find({});
    if(listRole.length == 0) {
      let response = new Response(1010, "Role chưa được khởi tạo !", null)
-     return res.status(422).send({message: 'Role chưa được khởi tạo !'});
+     return res.status(422).send(response);
    }
-   let response = new Response(1010, "Data sucess !", listRole)
+   let response = new Response(0, "Data sucess !", listRole)
    return res.status(200).send(response);
 }
 
 exports.getMenu = async(req, res) => {
-   let menu = menus.getMenu();
-   if(menu.length > 0) {
-     let response = new Response(0, "sucess data !", menu);
-     return  res.status(200).send(response);
+//    let menu = menus.getMenu();
+//    let menuDB = await Menu.find({});
+//    User.updateOne({_id: req.userID},{$set:{menulist:menuDB}})
+//    .then(data =>{
+//       console.log(data.modifiedCount + " update Menu user " + User.menulist);
+//   })
+//   .catch(err=>{
+//       console.log(err.message);
+//   })  
+//    if(menu.length > 0) {
+//      let user = await User.findOne({_id: req.userID});
+//      if(user.menulist.length == 0) {
+//         menu.forEach(async function(m){
+//             User.updateOne({_id: req.userID},{$push:{menulist:m}})
+//              .then(data =>{
+//                 console.log(data.modifiedCount + " Add new menu " + m.id);
+//             })
+//             .catch(err=>{
+//                 console.log(err.message);
+//             })  
+//         });
+//      }
+//      let data = {
+//         "total" : user.menulist.length,
+//         "list" : user.menulist
+//      }
+//      let response = new Response(0, "sucess data !", data);
+//      return  res.status(200).send(response);
+//    }
+   let user = await User.findOne({_id: req.userID});
+   if(user.menulist.length > 0){
+       return res.status(422).send(new Response(0,"Data sucess ",user.menulist));
    }
    return res.status(422).send(new Response(1010,"not data Menu",null));
+}
+
+exports.getDetailMenu= async(req,res)=> {
+    console.log(req.body);
+    let menuid = req.body.menuId;
+    if (menuid) {
+        let user = await User.findOne({_id: req.userID});
+        if(user.menulist.length > 0) {
+            user.menulist.forEach(async function(m){
+               if(m.id === menuid){
+                  
+               }
+            })
+        }
+    }
+    res.status(200).send(new Response(0, " data succss", req.userID));
 }

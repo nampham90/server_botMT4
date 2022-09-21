@@ -7,7 +7,8 @@ module.exports = app =>{
     router.post("/login", user.login);
     router.post("/register", user.register);
     router.get("/getroles", verifyDevadmin, user.getRoles);
-    router.get("/menu",user.getMenu);
+    router.get("/menu", verifyToken, user.getMenu);
+    router.post("/detailmenu", verifyToken,user.getDetailMenu);
 
     app.use("/user",router);
 }
