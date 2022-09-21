@@ -28,45 +28,6 @@ const Menu = db.menu;
 const User = db.user;
 let menus = require('./common/menu');
 let menu = menus.getMenu();
-// Menu.remove({}).then(data => {
-//    console.log(data);
-// },err => {
-//    console.log(err);
-// });
-// let menu = menus.getMenu();
-//    User.updateOne({_id: req.userID},{$set:{menulist:menu}})
-//    .then(data =>{
-//       console.log(data.modifiedCount + " update Menu user " + User.menulist);
-//   })
-
-// menu.forEach(async function(m){
-//     let newMenu = new Menu({
-//       id: m.id,
-//       menuName: m.menuName,
-//       code: m.code,
-//       fatherId: m.fatherId,
-//       orderNum: m.orderNum,
-//       path: m.path,
-//       menuType: m.menuType,
-//       visible: m.visible,
-//       status: m.status,
-//       icon: m.icon,
-//       alIcon: m.alIcon,
-//       newLinkFlag: m.newLinkFlag
-//     })
-//     newMenu.save(async function(e){
-//       if(e){}
-//       else {
-//           console.log(newMenu._id);
-//       }
-//     });
-// });
-Menu.find({})
-.then(data => {
-   console.log(data);
-},err => {
-   console.log(err);
-});
 
 Role.find({}).then(res => {
   let lst = res;

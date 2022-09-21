@@ -71,15 +71,15 @@ exports.login =  async(req,res)=>{
     if(user.menulist.length > 0) {
         user.menulist.forEach(async function(m){
             if(num > 0){
-                arraycode += ","
+                arraycode = arraycode + ","
             }
-            arraycode += m.code;
+            arraycode = arraycode + m.code;
             num ++;
         })
     }
     const token = await jwt.sign({_id: user._id, rol: arraycode}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
-    let response = new Response(0,'Login successfully !',token);
-    return res.status(200).send(response);
+    console.log(token);
+    return res.status(200).send(new Response(0,'Login successfully !',token));
 }
 
 exports.getRoles = async(req, res) => {
@@ -93,54 +93,49 @@ exports.getRoles = async(req, res) => {
 }
 
 exports.getMenu = async(req, res) => {
-//    let menu = menus.getMenu();
-//    let menuDB = await Menu.find({});
-//    User.updateOne({_id: req.userID},{$set:{menulist:menuDB}})
-//    .then(data =>{
-//       console.log(data.modifiedCount + " update Menu user " + User.menulist);
-//   })
-//   .catch(err=>{
-//       console.log(err.message);
-//   })  
-//    if(menu.length > 0) {
-//      let user = await User.findOne({_id: req.userID});
-//      if(user.menulist.length == 0) {
-//         menu.forEach(async function(m){
-//             User.updateOne({_id: req.userID},{$push:{menulist:m}})
-//              .then(data =>{
-//                 console.log(data.modifiedCount + " Add new menu " + m.id);
-//             })
-//             .catch(err=>{
-//                 console.log(err.message);
-//             })  
-//         });
-//      }
-//      let data = {
-//         "total" : user.menulist.length,
-//         "list" : user.menulist
-//      }
-//      let response = new Response(0, "sucess data !", data);
-//      return  res.status(200).send(response);
-//    }
    let user = await User.findOne({_id: req.userID});
    if(user.menulist.length > 0){
-       return res.status(422).send(new Response(0,"Data sucess ",user.menulist));
+       return res.status(200).send(new Response(0,"Data sucess ",user.menulist));
    }
    return res.status(422).send(new Response(1010,"not data Menu",null));
 }
 
+exports.getListMenu = async(req, res) => {
+    let user = await User.findOne({_id: req.userID});
+    if(!user) return res.status(400).send(new Response(1000,"Bạn không có quyền truy cập vào Module này", null));
+    if(user.menulist.length > 0){
+        let data = {
+            "total": user.menulist.length,
+            "list" : user.menulist
+        }
+        return res.status(200).send(new Response(0,"Data sucess ",data));
+    } else {
+       return res.status(400).send(new Response(1001,"Menu Của Bạn Chưa được khởi tạo", null));
+    }
+}
+
 exports.getDetailMenu= async(req,res)=> {
-    console.log(req.body);
     let menuid = req.body.menuId;
     if (menuid) {
         let user = await User.findOne({_id: req.userID});
         if(user.menulist.length > 0) {
+            let check = false;
+            let menusend = {};
             user.menulist.forEach(async function(m){
-               if(m.id === menuid){
-                  
+               if(m._id == menuid){
+                  check = true;
+                  menusend = m;
                }
             })
+            if(check === true) {
+                return  res.status(200).send(new Response(0, " data succss", menusend));
+            }else{
+                return  res.status(422).send(new Response(1010, "Id Menu khong ton tai ",null));
+            }
+        } else{
+            return  res.status(422).send(new Response(1010, "menu khong ton tai",null));
         }
-    }
-    res.status(200).send(new Response(0, " data succss", req.userID));
+    }else {
+      return  res.status(422).send(new Response(1010, "clien send data null",null));
+    }   
 }

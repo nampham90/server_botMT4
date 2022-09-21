@@ -9,6 +9,7 @@ module.exports = app =>{
     router.get("/getroles", verifyDevadmin, user.getRoles);
     router.get("/menu", verifyToken, user.getMenu);
     router.post("/detailmenu", verifyToken,user.getDetailMenu);
+    router.post("/listmenu",verifyToken, user.getListMenu);
 
     app.use("/user",router);
 }
