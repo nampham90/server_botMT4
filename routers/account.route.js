@@ -5,5 +5,5 @@ module.exports = app => {
 
     route.get("/all",verifyToken,Account.findAll);
 
-    app.use("/account",route);
+    app.use("/api/account",route);
 }

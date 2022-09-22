@@ -11,5 +11,5 @@ module.exports = app =>{
     router.post("/detailmenu", verifyToken,user.getDetailMenu);
     router.post("/listmenu",verifyToken, user.getListMenu);
 
-    app.use("/user",router);
+    app.use("/api/user",router);
 }

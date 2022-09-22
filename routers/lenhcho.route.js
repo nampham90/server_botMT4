@@ -4,5 +4,5 @@ module.exports = app => {
 
     route.get("/all",Lenhcho.findAll);
 
-    app.use("/lenhcho",route);
+    app.use("/api/lenhcho",route);
 }

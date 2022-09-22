@@ -7,11 +7,18 @@ module.exports = mongoose => {
             min: 6,
             max: 255
         },
+        available: Boolean,
+        sex: Number,
         email: {
             type: String,
             required: true,
             min: 6,
             max: 225
+        },
+        dienthoai: {
+            type: String,
+            required: true,
+            max: 12
         },
         password: {
             type: String,

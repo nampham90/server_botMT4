@@ -9,6 +9,6 @@ module.exports = app =>{
     router.post("/runorder",verifyToken,order.findOrderRunAcc);
     router.post("/offinday",verifyToken,order.findOffinDay);
 
-    app.use("/orders",router);
+    app.use("/api/orders",router);
 
 }

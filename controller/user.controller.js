@@ -78,7 +78,6 @@ exports.login =  async(req,res)=>{
         })
     }
     const token = await jwt.sign({_id: user._id, rol: arraycode}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
-    console.log(token);
     return res.status(200).send(new Response(0,'Login successfully !',token));
 }
 

@@ -108,11 +108,10 @@ app.use(function (err, req, res, next) {
 });
 
 
-commonfun.checkAndremoveIdMenu("6321fe53c26d4024dd312437","632aaa31c8093b9a2007d143").then(data => {
-  console.log(data.length);
-})
-.catch(err => {console.log(err)})
-
-console.log(menu.length);
+// text commonfun.checkAndremoveIdMenu("6321fe53c26d4024dd312437","632aaa31c8093b9a2007d143").then(data => {
+// text  console.log(data.length);
+// text})
+// text .catch(err => {console.log(err)})
+// console.log(menu.length);
 
 module.exports = app;
