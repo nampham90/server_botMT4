@@ -4,6 +4,7 @@ const path = require('path');
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+var _ = require('lodash');
 
 const cors = require('cors')
 const app = express();
@@ -27,6 +28,7 @@ const Role = db.role;
 const Menu = db.menu;
 const User = db.user;
 let menus = require('./common/menu');
+let commonfun = require('./common/functionCommon');
 let menu = menus.getMenu();
 
 Role.find({}).then(res => {
@@ -104,5 +106,13 @@ app.use(function (err, req, res, next) {
     error: err
   });
 });
+
+
+commonfun.checkAndremoveIdMenu("6321fe53c26d4024dd312437","632aaa31c8093b9a2007d143").then(data => {
+  console.log(data.length);
+})
+.catch(err => {console.log(err)})
+
+console.log(menu.length);
 
 module.exports = app;

@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 let menus = require('../common/menu');
-
+let commonfun = require('../common/functionCommon');
 let Responses = require('../common/response');
 let Response = Responses.Response;
 const User = db.user;
@@ -136,6 +136,22 @@ exports.getDetailMenu= async(req,res)=> {
             return  res.status(422).send(new Response(1010, "menu khong ton tai",null));
         }
     }else {
-      return  res.status(422).send(new Response(1010, "clien send data null",null));
+      return  res.status(500).send(new Response(1050, "clien send data null",null));
     }   
+}
+
+exports.deleteMenu = async (req, res) => {
+    let ids = req.body.ids;
+    if (ids.length == 0 || ids == null) return res.status(500).send(new Response(1050, "clien send data null",null));
+    ids.forEach(async function(id){
+       let lst = await commonfun.checkAndremoveIdMenu(req.userID,id);
+       await User.updateOne({_id: req.userID},{$set: {menulist:lst}});
+       console.log(lst.length);
+    //    promise.then(data=>{console.log("count new list :"+data.length)})
+    //    .catch(err =>{console.log("errol remove item list")})
+    })
+
+
+    
+    
 }

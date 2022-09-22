@@ -1,4 +1,49 @@
 
+const db = require('../model');
+var _ = require('lodash');
+const User = db.user;
+
+// funcon kiem tra và xóa menu ra khỏi danh sách
+exports.checkAndremoveIdMenu = async (idUser,idmenu) => {
+   let listmenu = [];
+   let u = await User.findOne({_id: idUser});
+   if(!u) return listmenu;
+   listmenu = u.menulist;
+   let check = false;
+   if(listmenu.length > 0) {
+    listmenu.forEach(element => {
+        if(element._id == idmenu){
+          check = true;
+        }
+    })
+   }
+   if(check === true) {
+      let newlst = _.remove(listmenu, function(m) {
+        return m._id != idmenu;
+      });
+      return newlst;
+   }
+   return listmenu;
+}
+// function kiem tra id menu có trong danh sach hay khong
+exports.checkIdMenu = async (idUser,idmenu) => {
+    let u = await User.findOne({_id: idUser});
+    if(!u) return false;
+    let listmenu = u.listmenu;
+    let check = false;
+    listmenu.forEach(element => {
+       if(element._id == idmenu){
+         check = true;
+       }
+    })
+    if(check === true) {
+       return true;
+    }
+    return false;
+ }
+
+
+
 exports.dateNow = () => {
     let date = new Date()
     let nowday = "";
