@@ -87,6 +87,9 @@ require("./routers/order.route")(app);
 require("./routers/account.route")(app);
 require("./routers/user.route")(app);
 require("./routers/lenhcho.route")(app);
+require("./routers/role.route")(app);
+require("./routers/menu.route")(app);
+require("./routers/phongban.route")(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -113,5 +116,6 @@ app.use(function (err, req, res, next) {
 // text})
 // text .catch(err => {console.log(err)})
 // console.log(menu.length);
+
 
 module.exports = app;

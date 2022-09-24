@@ -6,10 +6,33 @@ let menus = require('../common/menu');
 let commonfun = require('../common/functionCommon');
 let Responses = require('../common/response');
 let Response = Responses.Response;
+let DataResponse = Responses.DataResponse;
 const User = db.user;
 const Role = db.role;
 const Menu = db.menu;
 const { registerValidator } = require('./../validations/auth');
+
+exports.getAllUser = async (req,res) => {
+    let lst = await User.find({});
+    if(lst.length > 0) {
+        let data = commonfun.dataReponse(lst,req.body.pageNum,req.body.pageSize);
+        res.status(200).send(new Response(0,"data sucess",data));
+    }else {
+        res.status(500).send(new Response(1000,"data null",null));
+    }
+}
+
+exports.getDetailUser = async(req,res) => {
+    let id = req.params.id;
+    let user = await User.findOne({_id:id});
+    if(!user) return res.status(500).send(new Response(1001,"User không tồn tại !",null));
+    return res.status(200).send(new Response(0,"Data sucess ", user));
+}
+
+exports.editDetailUser =async (req,res) => {
+    console.log(req);
+}
+
 
 exports.register =  async(req,res)=>{
     const { error } = registerValidator(req.body);

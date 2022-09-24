@@ -20,6 +20,7 @@ module.exports = mongoose => {
             required: true,
             max: 12
         },
+        zalo: String,
         password: {
             type: String,
             required: true,
@@ -34,7 +35,9 @@ module.exports = mongoose => {
           type: mongoose.Schema.Types.ObjectId,
           ref:"account"
         }],
-        menulist: []
+        menulist: [],
+        phongban_id: String,
+        lastLoginTime: Date
       },
       { timestamps: true }
     );

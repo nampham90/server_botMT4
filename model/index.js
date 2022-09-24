@@ -14,4 +14,6 @@ db.user = require("./User")(mongoose);
 db.lenhcho =require("./lenhcho")(mongoose);
 db.role =require("./role")(mongoose);
 db.menu =require("./menu")(mongoose);
+db.screenpc =require("./screenpc")(mongoose);
+db.phongban =require("./phongban")(mongoose);
 module.exports = db;

@@ -1,7 +1,144 @@
 
 const db = require('../model');
-var _ = require('lodash');
+const _ = require('lodash');
+let Responses = require('../common/response');
 const User = db.user;
+
+let DataResponse = Responses.DataResponse;
+
+
+exports.dataReponse = (data,pageNum,pageSize) =>{
+    if(pageNum == 0 && pageSize == 0) {
+        let datares =new DataResponse(data,pageNum,pageSize,
+            data.length,1,data.length,0,0,0,false,true,false,false,0,[],0,0);
+        return datares;
+    }else{
+        let total = data.length;
+        let pages =getPages(total,pageSize);
+        let endRow = getEndrow(total,pageNum,pageSize,pages);
+        let hasNextPage = gethasNextPage(total,pageNum,pageSize,pages);
+        let hasPreviousPage = gethasPreviousPage(pages);
+        let isFirstPage = getisFirstPage(pageNum,pages);
+        let isLastPage = getisLastPage(pages);
+        let navigateFirstPage = 1;
+        let navigateLastPage = pages;
+        let navigatePages = 8;
+        let navigatepageNums = getnavigatePages(pages);
+        let nextPage = getnextPage(pageNum,pages);
+
+        let prePage = pageNum -1;
+        let size = getSize(total,pageNum,pageSize,pages);
+        let startRow = getstartRow(pageNum,pageSize);
+
+        let datares = new DataResponse(data,pageNum,pageSize,size,startRow,endRow,pages,prePage,nextPage,isFirstPage,
+            isLastPage,hasPreviousPage,hasNextPage,navigatePages,navigatepageNums,navigateFirstPage,navigateLastPage);
+        return datares;
+    }
+}
+
+function getstartRow(pageNum,pageSize){
+    let startRow;
+    if(pageNum == 1) {
+        startRow = 1;
+    }else {
+        startRow = (pageNum * pageSize) - (pageSize-1);
+    }
+    return startRow;
+}
+
+function getSize(total,pageNum,pageSize,pages) {
+     let size;
+     if(total < pageSize) {
+         size = total;
+     }else if(pages == pageNum && pages > 1) {
+        size = total % pageSize;
+     } else {
+         size = pageSize;
+     }
+     return size;
+}
+function getnextPage(pageNum,pages) {
+    let nextPage;
+    if(pageNum == pages){
+        nextPage = 0;
+    }else {
+        nextPage = pageNum + 1;
+    }
+    return nextPage;
+}
+
+function getnavigatePages(pages){
+    let navigatePages = [];
+    for(let i=0;i<pages;i++) {
+        navigatePages.push(i+1);
+    }
+    return navigatePages;
+}
+
+function getisLastPage(pages){
+    let isLastPage;
+    if(pages == 1) {
+        isLastPage = false;
+    }else {
+        isLastPage = true;
+    }
+    return isLastPage;
+}
+function getPages(total, pageSize){
+   let pages = 0;
+   let phan_nguyen = _.floor((total/pageSize));
+   if(total % pageSize == 0){
+       pages = phan_nguyen;
+   }else {
+       pages = phan_nguyen + 1;
+   }
+   return pages;
+}
+
+function getEndrow(total,pageNum,pageSize,pages){
+    let endRow =0;
+    if(pages == 1) {
+        endRow = total;
+    } else if(pages == pageNum) {
+        endRow = total % pageSize;
+    }else {
+        endRow =pageSize;
+    }
+    return endRow;
+}
+
+function gethasNextPage(total,pageNum,pageSize,pages){
+   let hasNextPage;
+   if(pages == 1 && total < pageSize) {
+       hasNextPage = false;
+   } else if(pages == pageNum) {
+       hasNextPage = false;
+   } else {
+       hasNextPage = true;
+   }
+   return hasNextPage;
+}
+
+function gethasPreviousPage(pages){
+    let hasPreviousPage;
+    if(pages == 1) {
+        hasPreviousPage = false;
+    } else {
+        hasPreviousPage = true;
+    }
+    return hasPreviousPage;
+}
+
+function getisFirstPage(pageNum,pages){
+    let isFirstPage;
+    if(pages == pageNum) {
+        isFirstPage = false;
+    }else {
+        isFirstPage = true;
+    }
+
+    return isFirstPage;
+}
 
 // funcon kiem tra và xóa menu ra khỏi danh sách
 exports.checkAndremoveIdMenu = async (idUser,idmenu) => {
