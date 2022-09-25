@@ -8,7 +8,7 @@ let DataResponse = Responses.DataResponse;
 
 
 exports.dataReponse = (data,pageNum,pageSize) =>{
-    if(pageNum == 0 && pageSize == 0) {
+    if(pageNum == 0 && pageSize == 0 || data.length == 0) {
         let datares =new DataResponse(data,pageNum,pageSize,
             data.length,1,data.length,0,0,0,false,true,false,false,0,[],0,0);
         return datares;

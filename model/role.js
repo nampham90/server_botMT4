@@ -7,6 +7,12 @@ module.exports = mongoose => {
             min: 3,
             max: 255
         },
+        mota: {
+          type: String,
+          required: true,
+          min: 3,
+          max: 255
+        }
       
       },
       { timestamps: true }

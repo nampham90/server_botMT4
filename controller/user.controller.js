@@ -1,6 +1,7 @@
 const db = require("../model");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const _ = require("lodash")
 
 let menus = require('../common/menu');
 let commonfun = require('../common/functionCommon');
@@ -12,14 +13,51 @@ const Role = db.role;
 const Menu = db.menu;
 const { registerValidator } = require('./../validations/auth');
 
+exports.checkEmail = async (req,res) => {
+    let checkEmail = await User.findOne({email: req.body.email});
+    if(checkEmail) return res.status(200).send(new Response(0,"Email tồn tại !", checkEmail));
+    return res.status(200).send(new Response(0,"email chưa có ai đăng ký !", null));
+}
+
+exports.checkName = async (req,res) => {
+    let checkName = await User.findOne({name: req.body.name});
+    if(checkName) return res.status(200).send(new Response(0,"name tồn tại !", checkName));
+    return res.status(200).send(new Response(0,"name chưa có ai đăng ký !", null));
+}
+
+exports.addDetailUser= async(req,res) =>{
+    let dataNow = _.now()
+    const salt = await bcrypt.genSalt(10);
+    const hashPassword = await bcrypt.hash(req.body.password, salt);
+    let newUser = new User({
+        name: req.body.name,
+        available: req.body.available,
+        sex: req.body.sex,
+        email: req.body.email,
+        dienthoai: req.body.dienthoai,
+        zalo: req.body.zalo,
+        password:hashPassword,
+        role_id: req.body.role_id,
+        account_id: [],
+        menulist: [],
+        phongban_id: req.body.phongban_id,
+        lastLoginTime:dataNow
+        
+    });
+    newUser.save(async function(e){
+        if(e){
+            return res.status(501).send(new Response(1001,"Error save User !", null));
+        }else {
+            return res.status(200).send(new Response(0,"user save sucess !", newUser));
+        }
+    })
+}
+
 exports.getAllUser = async (req,res) => {
-    let lst = await User.find({});
-    if(lst.length > 0) {
-        let data = commonfun.dataReponse(lst,req.body.pageNum,req.body.pageSize);
-        res.status(200).send(new Response(0,"data sucess",data));
-    }else {
-        res.status(500).send(new Response(1000,"data null",null));
-    }
+    let lst = await User.find(req.body.filters);
+    let data = commonfun.dataReponse(lst,req.body.pageNum,req.body.pageSize);
+    res.status(200).send(new Response(0,"data sucess",data));
+
 }
 
 exports.getDetailUser = async(req,res) => {
@@ -30,7 +68,28 @@ exports.getDetailUser = async(req,res) => {
 }
 
 exports.editDetailUser =async (req,res) => {
-    console.log(req);
+    console.log(req.body);
+    User.updateOne(
+    {_id: req.body.id},
+    {
+        $set: {
+            name: req.body.name,
+            sex: req.body.sex,
+            available: req.body.available,
+            zalo: req.body.zalo,
+            dienthoai: req.body.dienthoai,
+            email: req.body.email,
+            role_id: req.body.role_id,
+            phongban_id: req.body.phongban_id
+        }
+    })
+    .then(data => {
+        if(data.modifiedCount == 1) {
+            res.status(200).send(new Response(0,"update sucess data",data));
+        }
+    },err => {
+        res.status(400).send(new Response(1001,"Error update User",null));
+    })
 }
 
 
