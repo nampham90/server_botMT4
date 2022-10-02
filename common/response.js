@@ -4,9 +4,9 @@ function Response(code,msg,data) {
     this.data = data;
 }
 
-function DataResponse(list,pageNum,pageSize,size,startRow,endRow,pages,prePage,nextPage,isFirstPage,isLastPage,hasPreviousPage,hasNextPage,navigatePages,
+function DataResponse(allData,list,pageNum,pageSize,size,startRow,endRow,pages,prePage,nextPage,isFirstPage,isLastPage,hasPreviousPage,hasNextPage,navigatePages,
     navigatepageNums,navigateFirstPage,navigateLastPage){
-    this.total = list.length;
+    this.total = allData.length;
     this.list = list;
     this.pageNum = pageNum;
     this.pageSize = pageSize;
@@ -25,9 +25,16 @@ function DataResponse(list,pageNum,pageSize,size,startRow,endRow,pages,prePage,n
     this.navigateFirstPage = navigateFirstPage;
     this.navigateLastPage = navigateLastPage;
 }
+
+function ObjectDataSC(stt,title1,title2) {
+    this.stt = stt;
+    this.title1 = title1;
+    this.title2 = title2;
+}
  
 // now we export the class, so other modules can create Cat objects
 module.exports = {
     Response: Response,
-    DataResponse : DataResponse
+    DataResponse: DataResponse,
+    ObjectDataSC: ObjectDataSC
 }

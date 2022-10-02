@@ -7,13 +7,13 @@ const User = db.user;
 let DataResponse = Responses.DataResponse;
 
 
-exports.dataReponse = (data,pageNum,pageSize) =>{
+exports.dataReponse = (allData,data,pageNum,pageSize) =>{
     if(pageNum == 0 && pageSize == 0 || data.length == 0) {
-        let datares =new DataResponse(data,pageNum,pageSize,
+        let datares =new DataResponse(allData,allData,pageNum,pageSize,
             data.length,1,data.length,0,0,0,false,true,false,false,0,[],0,0);
         return datares;
     }else{
-        let total = data.length;
+        let total = allData.length;
         let pages =getPages(total,pageSize);
         let endRow = getEndrow(total,pageNum,pageSize,pages);
         let hasNextPage = gethasNextPage(total,pageNum,pageSize,pages);
@@ -30,7 +30,7 @@ exports.dataReponse = (data,pageNum,pageSize) =>{
         let size = getSize(total,pageNum,pageSize,pages);
         let startRow = getstartRow(pageNum,pageSize);
 
-        let datares = new DataResponse(data,pageNum,pageSize,size,startRow,endRow,pages,prePage,nextPage,isFirstPage,
+        let datares = new DataResponse(allData,data,pageNum,pageSize,size,startRow,endRow,pages,prePage,nextPage,isFirstPage,
             isLastPage,hasPreviousPage,hasNextPage,navigatePages,navigatepageNums,navigateFirstPage,navigateLastPage);
         return datares;
     }

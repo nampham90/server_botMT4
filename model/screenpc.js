@@ -1,7 +1,7 @@
 module.exports = mongoose => {
     let schema = mongoose.Schema(
       {
-        idmenu: String,
+        idmenu:String,
         lang:String,
         title1: String,
         title2: String,

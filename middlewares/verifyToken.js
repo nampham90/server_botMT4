@@ -13,7 +13,7 @@ module.exports = (request, response, next) => {
                 //console.log(err);
                 response.status(401).send({message: 'Access Denied'});
             } else {
-                request.userID = decoded._id;
+                request.userID = decoded.userId;
                 request.isLoggedIn = true;
                 let role = decoded.role;
                 console.log(role);

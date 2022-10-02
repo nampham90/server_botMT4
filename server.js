@@ -34,9 +34,9 @@ let menu = menus.getMenu();
 Role.find({}).then(res => {
   let lst = res;
   if(lst.length == 0){
-    let newRoleAdmin =new Role({rolename: "Admin"});
-    let newRoleUser =new Role({rolename: "User"});
-    let newRoleDev =new Role({rolename: "Dev"});
+    let newRoleAdmin =new Role({rolename: "Admin",mota: "Role Admin",dacquyen:[]});
+    let newRoleUser =new Role({rolename: "User",mota: "Role User",dacquyen:[]});
+    let newRoleDev =new Role({rolename: "Dev",mota: "Role Dev",dacquyen:[]});
     newRoleAdmin.save(async function(e){
       if(e){
         console.log(e.message);
@@ -90,6 +90,7 @@ require("./routers/lenhcho.route")(app);
 require("./routers/role.route")(app);
 require("./routers/menu.route")(app);
 require("./routers/phongban.route")(app);
+require("./routers/screenpc.route")(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -117,5 +118,16 @@ app.use(function (err, req, res, next) {
 // text .catch(err => {console.log(err)})
 // console.log(menu.length);
 
+// 6331b3ce65e0507984482ba9
+// Menu.find({})
+// .then(async data => {
+//    let lstm = [];
+//    for(let element of data) {
+//      lstm.push(element._id);
+//    }
+//    await Role.updateOne({_id: "6331b3ce65e0507984482ba7"},{$set: {dacquyen:[]}})
+// },err => {
+//   console.log("err !")
+// })
 
 module.exports = app;

@@ -54,8 +54,10 @@ exports.addDetailUser= async(req,res) =>{
 }
 
 exports.getAllUser = async (req,res) => {
-    let lst = await User.find(req.body.filters);
-    let data = commonfun.dataReponse(lst,req.body.pageNum,req.body.pageSize);
+    let allData = await User.find(req.body.filters);
+    let n = req.body.pageNum - 1;
+    let lst = await User.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n);
+    let data = commonfun.dataReponse(allData,lst,req.body.pageNum,req.body.pageSize);
     res.status(200).send(new Response(0,"data sucess",data));
 
 }
@@ -136,13 +138,12 @@ exports.register =  async(req,res)=>{
 }
 
 exports.login =  async(req,res)=>{
-    const user = await User.findOne({email: req.body.email});
+    const user = await User.findOne({email: req.body.email}).populate("role_id");
     if (!user) {
         let response = new Response(1010,'Email chưa đăng ký !',null);
         return res.status(422).send(response);
     } 
     const checkPassword = await bcrypt.compare(req.body.password, user.password);
-    console.log(checkPassword);
     if (!checkPassword){
         let response = new Response(1010,'Password không đúng !',null);
         return res.status(422).send(response);
@@ -150,16 +151,44 @@ exports.login =  async(req,res)=>{
 
     let arraycode = "";
     let num =0;
-    if(user.menulist.length > 0) {
-        user.menulist.forEach(async function(m){
+    //console.log(user.role_id)
+    if(user.role_id.length == 1){
+        let idRole = user.role_id[0]._id
+        let role = await Role.findOne({_id:idRole}).populate("dacquyen");
+        role.dacquyen.forEach(function(m){
             if(num > 0){
                 arraycode = arraycode + ","
             }
             arraycode = arraycode + m.code;
             num ++;
         })
+    }else {
+        let pemiss = [];
+        for(let element of user.role_id) {
+            let i = 0;
+            let idRole = element._id;
+            let role = await Role.findOne({_id: idRole}).populate("dacquyen");
+            let check = false;
+            for (let e of pemiss) {
+                if (e._id == role.dacquyen[i]._id) {
+                    check = true;
+                }
+            }
+            if (check === false) {
+                pemiss.push(role.dacquyen[i]);
+            }
+            i ++
+        }
+        pemiss.forEach(function(m){
+            if (num > 0) {
+                arraycode = arraycode + ","
+            }
+            arraycode = arraycode + m.code;
+            num ++;
+        })
     }
-    const token = await jwt.sign({_id: user._id, rol: arraycode}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
+    
+    const token = await jwt.sign({userId: user._id, rol: arraycode}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
     return res.status(200).send(new Response(0,'Login successfully !',token));
 }
 
@@ -174,65 +203,41 @@ exports.getRoles = async(req, res) => {
 }
 
 exports.getMenu = async(req, res) => {
-   let user = await User.findOne({_id: req.userID});
-   if(user.menulist.length > 0){
-       return res.status(200).send(new Response(0,"Data sucess ",user.menulist));
-   }
-   return res.status(422).send(new Response(1010,"not data Menu",null));
-}
-
-exports.getListMenu = async(req, res) => {
-    let user = await User.findOne({_id: req.userID});
+    let user = await User.findOne({_id: req.userID}).populate("role_id");
     if(!user) return res.status(400).send(new Response(1000,"Bạn không có quyền truy cập vào Module này", null));
-    if(user.menulist.length > 0){
+    if(user.role_id.length == 1){
+        let idRole = user.role_id[0]._id
+        let role = await Role.findOne({_id:idRole}).populate("dacquyen");
         let data = {
-            "total": user.menulist.length,
-            "list" : user.menulist
+            "total": role.dacquyen.length,
+            "list" : role.dacquyen
         }
-        return res.status(200).send(new Response(0,"Data sucess ",data));
-    } else {
-       return res.status(400).send(new Response(1001,"Menu Của Bạn Chưa được khởi tạo", null));
-    }
-}
-
-exports.getDetailMenu= async(req,res)=> {
-    let menuid = req.body.menuId;
-    if (menuid) {
-        let user = await User.findOne({_id: req.userID});
-        if(user.menulist.length > 0) {
-            let check = false;
-            let menusend = {};
-            user.menulist.forEach(async function(m){
-               if(m._id == menuid){
-                  check = true;
-                  menusend = m;
-               }
-            })
-            if(check === true) {
-                return  res.status(200).send(new Response(0, " data succss", menusend));
-            }else{
-                return  res.status(422).send(new Response(1010, "Id Menu khong ton tai ",null));
-            }
-        } else{
-            return  res.status(422).send(new Response(1010, "menu khong ton tai",null));
-        }
+        return res.status(200).send(new Response(0,"Data sucess ",role.dacquyen));
     }else {
-      return  res.status(500).send(new Response(1050, "clien send data null",null));
-    }   
-}
-
-exports.deleteMenu = async (req, res) => {
-    let ids = req.body.ids;
-    if (ids.length == 0 || ids == null) return res.status(500).send(new Response(1050, "clien send data null",null));
-    ids.forEach(async function(id){
-       let lst = await commonfun.checkAndremoveIdMenu(req.userID,id);
-       await User.updateOne({_id: req.userID},{$set: {menulist:lst}});
-       console.log(lst.length);
-    //    promise.then(data=>{console.log("count new list :"+data.length)})
-    //    .catch(err =>{console.log("errol remove item list")})
-    })
-
-
-    
-    
+        let pemiss = [];
+        for(let element of user.role_id) {
+            let i = 0;
+            let idRole = element._id;
+            let role = await Role.findOne({_id: idRole}).populate("dacquyen");
+            if(pemiss.length == 0) {
+               pemiss.push(role.dacquyen[i]);
+            }else {
+              let check = false;
+               for(let e of pemiss) {
+                   if(e._id == role.dacquyen[i]._id) {
+                       check = true;
+                   }
+               }
+               if(check === false) {
+                pemiss.push(role.dacquyen[i]);
+               }
+            }
+            i ++
+        }
+        let data = {
+            "total": pemiss.length,
+            "list" : pemiss
+        }
+        return res.status(200).send(new Response(0,"Data sucess ",pemiss));
+    }
 }

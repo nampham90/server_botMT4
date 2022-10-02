@@ -6,7 +6,7 @@ module.exports = mongoose => {
         code: String,
         fatherId: Number | String,
         orderNum: Number | String,
-        path: String,
+        path:  {type:String, unique:true},
         menuType: String,
         visible: Boolean,
         status: Boolean,

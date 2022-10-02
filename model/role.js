@@ -12,7 +12,11 @@ module.exports = mongoose => {
           required: true,
           min: 3,
           max: 255
-        }
+        },
+        dacquyen: [{
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"menu"
+       }]
       
       },
       { timestamps: true }

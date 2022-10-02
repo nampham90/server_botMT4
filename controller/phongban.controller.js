@@ -66,7 +66,7 @@ exports.getAllPhongban = async (req,res) => {
    let pageSize = req.body.pageSize;
 
    if(lst.length > 0)  {
-      let commonfun = common.dataReponse(lst,pageNum,pageSize);
+      let commonfun = common.dataReponse(lst,lst,pageNum,pageSize);
       res.status(200).send(new Response(0,"data sucess !", commonfun));
    } else {
       res.status(500).send(new Response(1001,"not all data phòng ban !", null));
