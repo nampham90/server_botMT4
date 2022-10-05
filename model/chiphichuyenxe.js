@@ -1,0 +1,22 @@
+
+module.exports = mongoose => {
+    let schema = mongoose.Schema(
+      {
+        idchuyen: String, // mã chuyến xe
+        tenchiphi:String, // tên chi phí
+        sotien: Number, // tiền chi trả
+        ghichu: String, // ghi chú chi trả vd: tiền ăn, tiền cafe
+
+      },
+      { timestamps: true }
+    );
+  
+    schema.method("toJSON", function() {
+      const { __v, _id, ...object } = this.toObject();
+      object.id = _id;
+      return object;
+    });
+  
+    const chiphichuyenxe = mongoose.model("chiphichuyenxe", schema);
+    return chiphichuyenxe;// chi phi cho 1 chuyến xe
+};

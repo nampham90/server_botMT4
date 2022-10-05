@@ -91,6 +91,13 @@ require("./routers/role.route")(app);
 require("./routers/menu.route")(app);
 require("./routers/phongban.route")(app);
 require("./routers/screenpc.route")(app);
+require("./routers/xe.route")(app);
+require("./routers/chuyen.route")(app);
+require("./routers/chiphichuyenxe.route")(app);
+require("./routers/phieunhaphang.route")(app);
+require("./routers/hoadonnhaphang.route")(app);
+require("./routers/nhatkytrano.route")(app);
+require("./routers/common.route")(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

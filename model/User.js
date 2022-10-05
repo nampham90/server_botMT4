@@ -21,6 +21,8 @@ module.exports = mongoose => {
             max: 12
         },
         zalo: String,
+        diachi:String,
+        sotienno:Number,
         password: {
             type: String,
             required: true,
