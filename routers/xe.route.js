@@ -3,5 +3,9 @@ module.exports = app => {
     const route = require("express").Router();
     const verifyToken = require('../middlewares/verifyToken');
 
+    route.post('/xeAnt100getAll',verifyToken,Xe.PostAllXe);
+    route.post('/xeAnt100create',verifyToken,Xe.CreateXe);
+    route.get('/xeAnt100get/:id',verifyToken,Xe.getDetail)
+
     app.use("/api/xe",route);
 }
