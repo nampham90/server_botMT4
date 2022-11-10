@@ -25,12 +25,24 @@ exports.GetDetailRole = async (req,res)=>{
     if(role) {
         return res.status(200).send(new Response(0,"Data sucess", role));
     }else {
-        return res.status(500).send(new Response(1001,"Data null", null));
+        let newRole = new Role({
+            rolename: req.body.rolename,
+            mota: req.body.mota,
+            dacquyen: []
+        });
     }
 }
 
 exports.AddDetailRole = async (req,res)=>{
-    
+    console.log(req.body);
+    let checkRole = await Role.findOne({rolename: req.body.rolename});
+    if(checkRole) {
+        return res.status(500).send(new Response(1001,"Role đã tồn tại !", null));
+    } else {
+
+
+    }
+
 }
 
 exports.EditDetailRole = async (req,res)=>{
