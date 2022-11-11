@@ -30,7 +30,23 @@ exports.GetDetailRole = async (req,res)=>{
 }
 
 exports.AddDetailRole = async (req,res)=>{
-    
+    let role = await Role.findOne({rolename: req.body.rolename});
+    if (role) {
+        return res.status(200).send(new Response(1001,"Role đã tồn tại", null));
+    } else {
+        let newRole = new Role({
+            rolename: req.body.rolename,
+            mota: req.body.mota,
+            dacquyen: []
+        });
+        newRole.save(async function(e){
+            if(e){
+                return res.status(200).send(new Response(1002,"Insert erorr ", null));
+            } else {
+                return res.status(200).send(new Response(0, "Data sucess", newRole));
+            }
+        })
+    }
 }
 
 exports.EditDetailRole = async (req,res)=>{
