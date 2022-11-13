@@ -6,11 +6,17 @@ const Xe = db.xe;
 
 
 exports.PostAllXe = async (req,res) => {
-    let n = req.body.pageNum - 1;
-    let alldata = await Xe.find(req.body.filters);
-    let lst = await Xe.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n);
-    let data = commonfun.dataReponse(alldata,lst,req.body.pageNum,req.body.pageSize);
-    return res.status(200).send(new Response(0,"Data sucess", data));
+    if(req.body.pageSize == 0 && req.body.pageNum == 0) {
+        let alldata = await Xe.find({});
+        return res.status(200).send(new Response(0,"Data sucess", alldata));
+    } else {
+        let n = req.body.pageNum - 1;
+        let alldata = await Xe.find(req.body.filters);
+        let lst = await Xe.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n);
+        let data = commonfun.dataReponse(alldata,lst,req.body.pageNum,req.body.pageSize);
+        return res.status(200).send(new Response(0,"Data sucess", data));
+    }
+
 }
 //https://xekinhdoanh24h.com/wp-content/uploads/2021/11/cropped-shipping-icon.png
 exports.CreateXe = async (req,res) => {

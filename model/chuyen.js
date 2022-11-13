@@ -5,9 +5,18 @@ module.exports = mongoose => {
         ngaydi: Date,
         ngayve:Date,
         tienxe: Number, // tiền đưa trước
-        biensoxe: String,
-        idtai: String,
-        idphu: String,
+        biensoxe: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"xe"
+        },
+        idtai: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"user"
+        },
+        idphu: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"user"
+        },
         changduong: String // điểm khởi hành và điểm kết thúc
       },
       { timestamps: true }

@@ -3,13 +3,24 @@ const { string } = require("joi");
 module.exports = mongoose => {
     let schema = mongoose.Schema(
       {
-         idchuyen: String, // mã chyến hàng
-         biensoxe: String, // biến số xe
-         iduser: String,// mã khách hàng
+         idchuyen: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"chuyen"
+         }, // mã chyến hàng
+         biensoxe: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"xe"
+         }, // biến số xe
+         iduser: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"user"
+         },// mã khách hàng
          tiencuoc:Number,// tiền cươc xe của 1 loại hàng
          lotrinh: String, // lộ trình vận chuyển đi hay lộ trình hàng về
          ngaynhap: Date,
          noidungdonhang:String, // nôi dung đơn hàng. vd: gửi gạch đi phú quốc
+         diadiembohang:String,  // Địa chỉ bọc hàng
+         hinhthucthanhtoan:String, // ghi no => 1, truc tiep => 2, thanh toan khi nhan hang => 3 
          ghichu: String // ghi chú đơn hàng
       },
       { timestamps: true }
