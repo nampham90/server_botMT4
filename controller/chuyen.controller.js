@@ -101,7 +101,11 @@ exports.updateChuyen = async (req,res) => {
 exports.getDetailChuyen = async (req,res) => {
     console.log(req.params.id);
     let id = req.params.id;
-    let c = await Chuyen.findOne({_id:id});
+    let c = await Chuyen.findOne({_id:id})
+    .populate('biensoxe')
+    .populate('idtai')
+    .populate('idphu');
+    console.log(c);
     if(!c) return res.status(401).send(new Response(1001,"User không tồn tại !",null));
     return res.status(200).send(new Response(0,"Data sucess ", c)); 
 }
