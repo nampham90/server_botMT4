@@ -55,11 +55,14 @@ exports.addDetailUser= async(req,res) =>{
 
 exports.getAllUser = async (req,res) => {
     let allData = await User.find(req.body.filters);
-    let n = req.body.pageNum - 1;
-    let lst = await User.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n);
-    let data = commonfun.dataReponse(allData,lst,req.body.pageNum,req.body.pageSize);
-    res.status(200).send(new Response(0,"data sucess",data));
-
+    if(req.body.pageNum == 0 && req.body.pageSize ==0) {
+        res.status(200).send(new Response(0,"data sucess",allData));
+    } else {
+        let n = req.body.pageNum - 1;
+        let lst = await User.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n);
+        let data = commonfun.dataReponse(allData,lst,req.body.pageNum,req.body.pageSize);
+        res.status(200).send(new Response(0,"data sucess",data));
+    }
 }
 
 exports.getDetailUser = async(req,res) => {

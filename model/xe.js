@@ -3,8 +3,10 @@ module.exports = mongoose => {
     let schema = mongoose.Schema(
       {
         biensoxe: {type:String, unique:true},
+        anhdaidien: String,
         tenxegoinho: String,
-        trongtai: String
+        trongtai: String,
+        trangthai: Boolean // true dang chay, false nghi
       },
       { timestamps: true }
     );

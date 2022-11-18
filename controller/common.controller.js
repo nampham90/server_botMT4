@@ -14,5 +14,8 @@ const Phieunhaphang = db.phieunhaphang;
 const Hoadonnhaphang = db.hoadonnhaphang;
 const Nhatkytrano = db.nhatkytrano;
 
-
-
+exports.checkBiensoxe = async (biensoxe) => {
+   let xe = await Xe.findOne({biensoxe:biensoxe});
+   if(!xe) return "";
+   return xe._id;
+}

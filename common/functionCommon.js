@@ -4,9 +4,12 @@ const _ = require('lodash');
 let Responses = require('../common/response');
 const User = db.user;
 
+
 let DataResponse = Responses.DataResponse;
 
-
+exports.checkStrId = (str) => {
+   return str.length === 24;
+}
 exports.dataReponse = (allData,data,pageNum,pageSize) =>{
     if(pageNum == 0 && pageSize == 0 || data.length == 0) {
         let datares =new DataResponse(allData,allData,pageNum,pageSize,

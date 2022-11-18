@@ -25,7 +25,11 @@ exports.GetDetailRole = async (req,res)=>{
     if(role) {
         return res.status(200).send(new Response(0,"Data sucess", role));
     }else {
-        return res.status(500).send(new Response(1001,"Data null", null));
+        let newRole = new Role({
+            rolename: req.body.rolename,
+            mota: req.body.mota,
+            dacquyen: []
+        });
     }
 }
 
