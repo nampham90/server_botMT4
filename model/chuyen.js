@@ -17,7 +17,8 @@ module.exports = mongoose => {
           type: mongoose.Schema.Types.ObjectId,
           ref:"user"
         },
-        changduong: String // điểm khởi hành và điểm kết thúc
+        changduong: String, // điểm khởi hành và điểm kết thúc
+        trangthai: Number // 0 ke hoach bóc. 1.boc hàng lên xe. 2. kiểm hàng
       },
       { timestamps: true }
     );

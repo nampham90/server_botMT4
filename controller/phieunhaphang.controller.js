@@ -10,7 +10,7 @@ exports.savemathang = async (req,res) => {
     let newPnh = Phieunhaphang({
         idchuyen : req.body.idchuyen,
         biensoxe: req.body.biensoxe,
-        iduser: req.body.makh,// mã khách hàng
+        iduser: req.body.iduser,// mã khách hàng
         tiencuoc:req.body.tiencuoc,// tiền cươc xe của 1 loại hàng
         lotrinh: req.body.lotrinh, // lộ trình vận chuyển đi hay lộ trình hàng về
         ngaynhap: _.now(),
@@ -26,5 +26,57 @@ exports.savemathang = async (req,res) => {
         } else {
             return res.status(200).send(new Response(0,"lưu thành công ", newPnh));
         }
+    })
+}
+
+exports.getLists = async (req,res) => {
+    console.log(req.body);
+    let allData = await Phieunhaphang.find(req.body.filters)
+    .populate('iduser');
+    if(req.body.pageNum == 0 && req.body.pageSize ==0) {
+        res.status(200).send(new Response(0,"data sucess",allData));
+    } else {
+        let n = req.body.pageNum - 1;
+        let lst = await Phieunhaphang.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n)
+        .populate('iduser');
+        let data = commonfun.dataReponse(allData,lst,req.body.pageNum,req.body.pageSize);
+        res.status(200).send(new Response(0,"data sucess",data));
+    }
+}
+
+exports.getDetail = async (req,res) => {
+    console.log(req.params.id);
+    let pnh = await Phieunhaphang.findOne({_id: req.params.id});
+    if(pnh) {
+        res.status(200).send(new Response(0,"data sucess",pnh));
+    } else {
+        res.status(200).send(new Response(0,"data null",null));
+    }
+}
+
+exports.update = async (req,res) => {
+
+    Phieunhaphang.updateOne({_id:req.body.id},{$set:{
+        iduser:req.body.iduser,
+        noidungdonhang:req.body.noidungdonhang,
+        tiencuoc:req.body.tiencuoc,
+        diadiembochang:req.body.diadiembochang,
+        hinhthucthanhtoan: req.body.hinhthucthanhtoan,
+        lotrinh: req.body.lotrinh,
+        ghichu: req.body.ghichu
+    }})
+    .then(data => {
+        console.log(data.modifiedCount + " Update Product " + req.body.id);
+        return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
+    })  
+}
+
+exports.delete = async (req, res) => {
+    let id = req.body.ids;
+    Phieunhaphang.deleteOne({_id:id})
+    .then(data => {
+        res.status(200).send(new Response(0,"delete success !", data));
+    },err=>{
+        res.status(200).send(new Response(1001,"error delete !", null));
     })
 }
