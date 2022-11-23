@@ -3,6 +3,7 @@ const db = require('../model');
 const _ = require('lodash');
 let Responses = require('../common/response');
 const User = db.user;
+const Xe = db.xe;
 
 
 let DataResponse = Responses.DataResponse;
@@ -211,6 +212,17 @@ exports.getDateparam = (param) => {
     nowday = nowday + "" + year + "-" + thang + "-" + day;
     return nowday;
 }
+
+exports.UpdateTrangthaiXe = (id,trangthai) => {
+    Xe.updateOne({_id:id},{$set: {trangthai: trangthai}})
+    .then(data => {
+        console.log(data.modifiedCount + " Update Trang thái Xe " + id);
+        return true;
+    },err=>{
+        return false;
+    })
+}
+
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {
     const url ="https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-";
    const urltext = "&text=";

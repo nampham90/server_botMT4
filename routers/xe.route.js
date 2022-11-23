@@ -6,7 +6,9 @@ module.exports = app => {
     route.post('/xeAnt100getAll',verifyToken,Xe.PostAllXe);
     route.post('/xeAnt100create',verifyToken,Xe.CreateXe);
     route.get('/xeAnt100get/:id',verifyToken,Xe.getDetail);
-    route.post('/xeAnt100updateTrangthai',verifyToken, Xe.Updatetrangthai)
+    route.post('/xeAnt100updateTrangthai',verifyToken, Xe.Updatetrangthai);
+    route.get('/xeAnt100getlistfree',verifyToken ,Xe.getlistXefree);
+    route.get('/xeAnt100getlistrun',verifyToken,Xe.getlistXerun)
 
     app.use("/api/xe",route);
 }

@@ -18,6 +18,19 @@ exports.PostAllXe = async (req,res) => {
     }
 
 }
+
+//list xe free
+exports.getlistXefree = async (req,res) => {
+   let listxefree =   await Xe.find({trangthai: false});
+   return res.status(200).send(new Response(0,"Data sucess", listxefree));
+}
+
+//list xe runing
+exports.getlistXerun = async (req,res) => {
+   let listxerun =   await Xe.find({trangthai: true});
+   return res.status(200).send(new Response(0,"Data sucess", listxerun));
+}
+
 //https://xekinhdoanh24h.com/wp-content/uploads/2021/11/cropped-shipping-icon.png
 exports.CreateXe = async (req,res) => {
     console.log(req.body)

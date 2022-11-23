@@ -80,6 +80,7 @@ exports.createChuyen = async (req,res) => {
         if(e) {
            return res.status(200).send(new Response(1001,"save error", null)); 
         } else {
+           commonfun.UpdateTrangthaiXe(req.body.biensoxe,true);
            return res.status(200).send(new Response(0,"Data sucess", newchuyen));
         }
     })
@@ -87,6 +88,7 @@ exports.createChuyen = async (req,res) => {
 
 exports.updateChuyen = async (req,res) => {
     console.log(req.body);
+    let c = await Chuyen.findOne({_id:req.body.id});
     Chuyen.updateOne({_id:req.body.id},{$set:{
         ngaydi:req.body.ngaydi,
         ngayve:req.body.ngayve,
@@ -99,6 +101,8 @@ exports.updateChuyen = async (req,res) => {
     }})
     .then(data => {
         console.log(data.modifiedCount + " Update Chuyen " + req.body.id);
+        commonfun.UpdateTrangthaiXe(c.biensoxe,false);
+        commonfun.UpdateTrangthaiXe(req.body.biensoxe,true);
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
     })
 }
@@ -118,8 +122,11 @@ exports.getDetailChuyen = async (req,res) => {
 exports.deleteChuyen = async (req,res) => {
     console.log(req.body.ids);
     let id = req.body.ids;
+    let c = await Chuyen.findOne({_id:id});
+    console.log(c);
     Chuyen.deleteOne({_id:id})
     .then(data => {
+        commonfun.UpdateTrangthaiXe(c.biensoxe,false);
         res.status(200).send(new Response(0,"delete sucess !", data));
     },err=>{
         res.status(500).send(new Response(1001,"Lỗi xóa phòng ban !", null));
@@ -129,10 +136,15 @@ exports.deleteChuyen = async (req,res) => {
 exports.updateTrangthai = async (req,res) => {
     console.log(req.body.id);
     let id = req.body.id;
+    let c = await Chuyen.findOne({_id:id});
+    console.log(c);
     let trangthai = req.body.trangthai
     Chuyen.updateOne({_id:id}, {$set: {trangthai: trangthai}})
     .then(data => {
         console.log(data.modifiedCount + " Update Chuyen " + req.body.id);
+        if(trangthai == 3) {
+            commonfun.UpdateTrangthaiXe(c.biensoxe,false);
+        }
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
     },err=>{
         res.status(200).send(new Response(1001,"thực hiện không thành công !", 0));
