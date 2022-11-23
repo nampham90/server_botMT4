@@ -33,10 +33,13 @@ exports.getLists = async (req,res) => {
     console.log(req.body);
     let allData = await Phieunhaphang.find(req.body.filters)
     .populate('iduser');
-    if(req.body.pageNum == 0 && req.body.pageSize ==0) {
+    if(req.body.pageNum == 0 && req.body.pageSize == 0) {
         res.status(200).send(new Response(0,"data sucess",allData));
     } else {
-        let n = req.body.pageNum - 1;
+        let n = 0
+        if(req.body.pageNum == 1) {
+            n = req.body.pageNum - 1;
+        }
         let lst = await Phieunhaphang.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n)
         .populate('iduser');
         let data = commonfun.dataReponse(allData,lst,req.body.pageNum,req.body.pageSize);
@@ -72,6 +75,7 @@ exports.update = async (req,res) => {
 }
 
 exports.delete = async (req, res) => {
+    console.log(req.body);
     let id = req.body.ids;
     Phieunhaphang.deleteOne({_id:id})
     .then(data => {

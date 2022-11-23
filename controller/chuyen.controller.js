@@ -18,6 +18,9 @@ exports.getAllChuyen = async (req,res) => {
         lt = filters.ngayketthuc;
     }
     sreach.ngaydi = {$gte:gt,$lt:lt};
+    if(filters.trangthai) {
+        sreach.trangthai = filters.trangthai;
+    }
     if(filters.biensoxe && filters.biensoxe != '') {
         let xe = await Xe.findOne({biensoxe:filters.biensoxe});
         if(xe) {
@@ -70,7 +73,8 @@ exports.createChuyen = async (req,res) => {
         biensoxe:req.body.biensoxe,
         idtai: req.body.idtai,
         idphu: req.body.idphu,
-        changduong: req.body.changduong
+        changduong: req.body.changduong,
+        trangthai: 0
     });
     newchuyen.save(async function(e){
         if(e) {
@@ -90,7 +94,8 @@ exports.updateChuyen = async (req,res) => {
         tienxe:req.body.tienxe,
         idtai: req.body.idtai,
         idphu: req.body.idphu,
-        changduong: req.body.changduong
+        changduong: req.body.changduong,
+        
     }})
     .then(data => {
         console.log(data.modifiedCount + " Update Chuyen " + req.body.id);
@@ -118,5 +123,18 @@ exports.deleteChuyen = async (req,res) => {
         res.status(200).send(new Response(0,"delete sucess !", data));
     },err=>{
         res.status(500).send(new Response(1001,"Lỗi xóa phòng ban !", null));
+    })
+}
+
+exports.updateTrangthai = async (req,res) => {
+    console.log(req.body.id);
+    let id = req.body.id;
+    let trangthai = req.body.trangthai
+    Chuyen.updateOne({_id:id}, {$set: {trangthai: trangthai}})
+    .then(data => {
+        console.log(data.modifiedCount + " Update Chuyen " + req.body.id);
+        return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
+    },err=>{
+        res.status(200).send(new Response(1001,"thực hiện không thành công !", 0));
     })
 }

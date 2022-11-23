@@ -6,7 +6,8 @@ module.exports = mongoose => {
         anhdaidien: String,
         tenxegoinho: String,
         trongtai: String,
-        trangthai: Boolean // true dang chay, false nghi
+        trangthai: Boolean, // true dang chay, false nghi
+        vitrihientai: String // vi tri hien tai của xe
       },
       { timestamps: true }
     );
