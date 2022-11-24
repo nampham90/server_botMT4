@@ -137,6 +137,12 @@ exports.updateTrangthai = async (req,res) => {
     console.log(req.body.id);
     let id = req.body.id;
     let c = await Chuyen.findOne({_id:id});
+    let listkn = req.body.listkhachno
+    if(listkn.length > 0) {
+        for(let element of listkn) {
+            commonfun.ghiNhatkyNo(element.idkhachhang,id,element.tiencuoc,"Nợ");
+        }
+    }
     console.log(c);
     let trangthai = req.body.trangthai
     Chuyen.updateOne({_id:id}, {$set: {trangthai: trangthai}})

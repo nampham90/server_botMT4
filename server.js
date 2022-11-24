@@ -96,7 +96,7 @@ require("./routers/chuyen.route")(app);
 require("./routers/chiphichuyenxe.route")(app);
 require("./routers/phieunhaphang.route")(app);
 require("./routers/hoadonnhaphang.route")(app);
-require("./routers/nhatkytrano.route")(app);
+require("./routers/nhatkykh.route")(app);
 require("./routers/common.route")(app);
 
 // catch 404 and forward to error handler

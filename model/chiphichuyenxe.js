@@ -20,3 +20,11 @@ module.exports = mongoose => {
     const chiphichuyenxe = mongoose.model("chiphichuyenxe", schema);
     return chiphichuyenxe;// chi phi cho 1 chuyến xe
 };
+
+// tiền ăn
+// tiên bãi
+// tiền dầu
+// sữa chữa
+// cầu đường
+// công an
+// chi phí khác

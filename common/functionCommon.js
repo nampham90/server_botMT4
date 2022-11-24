@@ -4,6 +4,7 @@ const _ = require('lodash');
 let Responses = require('../common/response');
 const User = db.user;
 const Xe = db.xe;
+const Nhatkykh = db.nhatkykh;
 
 
 let DataResponse = Responses.DataResponse;
@@ -202,7 +203,6 @@ exports.take_decimal_number = (num,n) => {
 }
 
 exports.getDateparam = (param) => {
-    
     let date = new Date(param);
     let nowday = "";
     let day = date.getDate();
@@ -211,6 +211,47 @@ exports.getDateparam = (param) => {
     let year = date.getFullYear();
     nowday = nowday + "" + year + "-" + thang + "-" + day;
     return nowday;
+}
+
+// ghi nhật ký khách hàng
+exports.ghiNhatkyNo = (idUser,idChuyen,sotieno,ghichu) => {
+    let newNk = new Nhatkykh({
+        iduser: idUser, // mã khách hàng
+        trangthai: 0, // 0 nợ, 1 trả
+        sotien: sotieno, // số tiền nợ hoặc trả
+        idchuyen: idChuyen,
+        hinhthucthanhtoan: null, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
+        ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
+        ghichu: ghichu // ghi chu cần thiết. để đối chiếu với khách hàng
+    });
+    newNk.save(async function(e){
+        if(e) {
+            return false;
+        } else {
+            console.log("ghi nợ thành công ! :" + idUser)
+            return true;
+        }
+    })
+}
+// ghi nhật ký khách hàng
+exports.ghiNhatkyTra = (idUser,hinhthucthanhtoan,sotientra,ghichu) => {
+    let newNk = new Nhatkykh({
+        iduser: idUser, // mã khách hàng
+        trangthai: 1, // 0 nợ, 1 trả
+        sotien: sotientra, // số tiền nợ hoặc trả
+        idchuyen: null,
+        hinhthucthanhtoan: hinhthucthanhtoan, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
+        ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
+        ghichu: ghichu // ghi chu cần thiết. để đối chiếu với khách hàng
+    });
+    newNk.save(async function(e){
+        if(e) {
+            return false;
+        } else {
+            console.log("ghi trả thành công ! :" + idUser)
+            return true;
+        }
+    })
 }
 
 exports.UpdateTrangthaiXe = (id,trangthai) => {
