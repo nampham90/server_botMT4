@@ -5,6 +5,7 @@ let Responses = require('../common/response');
 const User = db.user;
 const Xe = db.xe;
 const Nhatkykh = db.nhatkykh;
+const Pnh = db.phieunhaphang;
 
 
 let DataResponse = Responses.DataResponse;
@@ -254,6 +255,7 @@ exports.ghiNhatkyTra = (idUser,hinhthucthanhtoan,sotientra,ghichu) => {
     })
 }
 
+// cập nhật trạng thái xe
 exports.UpdateTrangthaiXe = (id,trangthai) => {
     Xe.updateOne({_id:id},{$set: {trangthai: trangthai}})
     .then(data => {
@@ -262,6 +264,14 @@ exports.UpdateTrangthaiXe = (id,trangthai) => {
     },err=>{
         return false;
     })
+}
+
+// dach sách khách nợ trong chuyến hàng
+exports.getDanhsachkhachnotrongchuyenhang = async (idchuyen) => {
+   let lst = await Pnh.find({idchuyen: idchuyen, hinhthucthanhtoan:2});
+   if(lst.length > 0) {
+      return lst;
+   } else return [] 
 }
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {

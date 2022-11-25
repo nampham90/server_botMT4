@@ -4,6 +4,7 @@ let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const Chuyen = db.chuyen;
 const Xe = db.xe;
+const Chiphi = db.chiphichuyenxe;
 
 
 exports.getAllChuyen = async (req,res) => {
@@ -136,15 +137,33 @@ exports.deleteChuyen = async (req,res) => {
 exports.updateTrangthai = async (req,res) => {
     console.log(req.body.id);
     let id = req.body.id;
+    let trangthai = req.body.trangthai
     let c = await Chuyen.findOne({_id:id});
-    let listkn = req.body.listkhachno
-    if(listkn.length > 0) {
-        for(let element of listkn) {
-            commonfun.ghiNhatkyNo(element.idkhachhang,id,element.tiencuoc,"Nợ");
+    if(trangthai == 2) {
+        let listkn = req.body.listkhachno
+        if(listkn != undefined && listkn.length > 0) {
+            for(let element of listkn) {
+                commonfun.ghiNhatkyNo(element.idkhachhang,id,element.tiencuoc,"Nợ");
+            }
+        } else {
+            listkn = commonfun.getDanhsachkhachnotrongchuyenhang(id);
+            for(let element of listkn) {
+                commonfun.ghiNhatkyNo(element.idkhachhang,id,element.tiencuoc,"Nợ");
+            }
         }
     }
-    console.log(c);
-    let trangthai = req.body.trangthai
+    if(trangthai == 4) {
+       let lstcp = req.body.lstchiphi;
+       for(let element of lstcp) {
+          let cp = new Chiphi({
+             idchuyen: id,
+             tenchiphi: element.tenchiphi,
+             sotien: element.sotien,
+             ghichu: element.ghichu
+          });
+          await cp.save();
+       }
+    }
     Chuyen.updateOne({_id:id}, {$set: {trangthai: trangthai}})
     .then(data => {
         console.log(data.modifiedCount + " Update Chuyen " + req.body.id);
