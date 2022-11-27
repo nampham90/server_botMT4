@@ -3,7 +3,7 @@ module.exports = app => {
     const route = require("express").Router();
     const verifyToken = require('../middlewares/verifyToken');
 
-    //route.post('',verifyToken, Nhatkykh.ghiNhatky);
+    route.post('/nhatkykhAnt100getAll',verifyToken, Nhatkykh.getLists);
 
     app.use("/api/nhatkykh",route);
 }

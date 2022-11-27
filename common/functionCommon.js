@@ -6,6 +6,7 @@ const User = db.user;
 const Xe = db.xe;
 const Nhatkykh = db.nhatkykh;
 const Pnh = db.phieunhaphang;
+const Cpc = db.chiphichuyenxe;
 
 
 let DataResponse = Responses.DataResponse;
@@ -221,6 +222,7 @@ exports.ghiNhatkyNo = (idUser,idChuyen,sotieno,ghichu) => {
         trangthai: 0, // 0 nợ, 1 trả
         sotien: sotieno, // số tiền nợ hoặc trả
         idchuyen: idChuyen,
+        chukyno: 0,
         hinhthucthanhtoan: null, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: ghichu // ghi chu cần thiết. để đối chiếu với khách hàng
@@ -234,8 +236,8 @@ exports.ghiNhatkyNo = (idUser,idChuyen,sotieno,ghichu) => {
         }
     })
 }
-// ghi nhật ký khách hàng
-exports.ghiNhatkyTra = (idUser,hinhthucthanhtoan,sotientra,ghichu) => {
+// ghi nhật ký khách hàng trả nơ
+exports.ghiNhatkyTra = (idUser,hinhthucthanhtoan,sotientra) => {
     let newNk = new Nhatkykh({
         iduser: idUser, // mã khách hàng
         trangthai: 1, // 0 nợ, 1 trả
@@ -243,13 +245,38 @@ exports.ghiNhatkyTra = (idUser,hinhthucthanhtoan,sotientra,ghichu) => {
         idchuyen: null,
         hinhthucthanhtoan: hinhthucthanhtoan, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
-        ghichu: ghichu // ghi chu cần thiết. để đối chiếu với khách hàng
+        ghichu: "tra", // ghi chu cần thiết. để đối chiếu với khách hàng
+        chukyno: 0
     });
     newNk.save(async function(e){
         if(e) {
             return false;
         } else {
             console.log("ghi trả thành công ! :" + idUser)
+            return true;
+        }
+    })
+}
+
+// ghi nhật ký khách hàng tất toán
+exports.ghiNhatkyTatToan = async (idUser,hinhthucthanhtoan,sotientra) => {
+    let newNk = new Nhatkykh({
+        iduser: idUser, // mã khách hàng
+        trangthai: 1, // 0 nợ, 1 trả
+        sotien: sotientra, // số tiền nợ hoặc trả
+        idchuyen: null,
+        hinhthucthanhtoan: hinhthucthanhtoan, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
+        ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
+        ghichu: "Tất toán", // ghi chu cần thiết. để đối chiếu với khách hàng
+        chukyno: 1
+    });
+    newNk.save(async function(e){
+        if(e) {
+            return false;
+        } else {
+            console.log("ghi trả thành công ! :" + idUser)
+            //update tất cả chu kỳ nợ = 1;
+            await Nhatkykh.updateMany({iduser:idUser, chukyno: 0},{set: {chukyno:1}});
             return true;
         }
     })
@@ -273,6 +300,55 @@ exports.getDanhsachkhachnotrongchuyenhang = async (idchuyen) => {
       return lst;
    } else return [] 
 }
+
+// tinh tong cuoc cua chuyen xe
+exports.tinhtongcuoc = async (idchuyen) => {
+    let total = 0;
+    let lst = await Pnh.find({idchuyen:idchuyen});
+    if(lst.length > 0) {
+        for(let element of lst) {
+            total = total + element.tiencuoc;
+        }
+    }
+    console.log("tongc:" + total);
+    return total;
+}
+
+// tinh tong chi phi cua chuyen xe
+exports.tinhtongchiphi = async (idchuyen) => {
+    let total = 0;
+    let lst = await Cpc.find({idchuyen:idchuyen});
+    if(lst.length > 0) {
+        for(let element of lst) {
+            total = total + element.sotien;
+        }
+    }
+    console.log("tongcp:" + total);
+    return total;
+}
+// tính tổng nợ của một khách hàng
+exports.tongno = async (iduser) => {
+    let total = 0;
+    let totalno = 0;
+    let totaltra = 0;
+    let lstno = await Nhatkykh.find({iduser:iduser, trangthai: 0, chukyno: 0});
+    if(lstno.length > 0) {
+        for(let element of lstno) {
+            totalno = totalno + element.sotien;
+        }
+    }
+    let lsttra = await Nhatkykh.find({iduser:iduser, trangthai: 1, chukyno: 0});
+    if(lsttra.length > 0) {
+        for(let element of lsttra) {
+            totaltra = totaltra + element.sotien;
+        }
+    }
+    total = totalno - totaltra;
+    console.log("tongcp:" + total);
+    return total;
+}
+
+
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {
     const url ="https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-";

@@ -1,3 +1,5 @@
+const { string } = require("joi");
+
 module.exports = mongoose => {
     let schema = mongoose.Schema(
       {
@@ -23,6 +25,7 @@ module.exports = mongoose => {
         zalo: String,
         diachi:String,
         sotienno:Number,
+        groupid:String,
         password: {
             type: String,
             required: true,
@@ -43,7 +46,8 @@ module.exports = mongoose => {
       },
       { timestamps: true }
     );
-  
+    
+    schema.index({'name': 'text'});
     schema.method("toJSON", function() {
       const { __v, _id, ...object } = this.toObject();
       object.id = _id;
@@ -51,5 +55,6 @@ module.exports = mongoose => {
     });
   
     const user = mongoose.model("user", schema);
+    
     return user;
 };

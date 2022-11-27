@@ -6,6 +6,19 @@ const Chuyen = db.chuyen;
 const Xe = db.xe;
 const Chiphi = db.chiphichuyenxe;
 
+function ChuyenObject() {
+    this.id = "";
+    this.ngaydi = ""; 
+    this.ngayve = "";
+    this.tienxe = 0; // tiền đưa trước
+    this.biensoxe = {};
+    this.idtai = {};
+    this.idphu = {};
+    this.changduong = ""; // điểm khởi hành và điểm kết thúc
+    this.trangthai = 0; // 0 ke hoach bóc. 1.boc hàng lên xe. 2. kiểm hàng
+    this.tongcuoc = 0;
+    this.tongchiphi = 0;
+}
 
 exports.getAllChuyen = async (req,res) => {
     let filters = req.body.filters;
@@ -62,6 +75,25 @@ exports.getAllChuyen = async (req,res) => {
     .populate('idtai')
     .populate('idphu');
     let data = commonfun.dataReponse(alldata,lst,req.body.pageNum,req.body.pageSize);
+    let list = [];    
+    for(let element of data.list) {
+        let obj = new ChuyenObject();
+        obj.id = element._id;
+        obj.ngaydi = element.ngaydi;
+        obj.ngayve = element.ngayve;
+        obj.tienxe = element.tienxe;
+        obj.biensoxe = element.biensoxe;
+        obj.idtai = element.idtai;
+        obj.idphu = element.idphu;
+        obj.changduong = element.changduong;
+        obj.trangthai = element.trangthai;
+        if(element.trangthai == 5) {
+            obj.tongcuoc = await  commonfun.tinhtongcuoc(element._id);
+            obj.tongchiphi = await  commonfun.tinhtongchiphi(element._id);
+        }
+        list.push(obj);
+    }
+    data.list = list;
     return res.status(200).send(new Response(0,"Data sucess", data));
 }
 
@@ -143,12 +175,12 @@ exports.updateTrangthai = async (req,res) => {
         let listkn = req.body.listkhachno
         if(listkn != undefined && listkn.length > 0) {
             for(let element of listkn) {
-                commonfun.ghiNhatkyNo(element.idkhachhang,id,element.tiencuoc,"Nợ");
+              await  commonfun.ghiNhatkyNo(element.idkhachhang,id,element.tiencuoc,"Nợ");
             }
         } else {
-            listkn = commonfun.getDanhsachkhachnotrongchuyenhang(id);
+            listkn = await commonfun.getDanhsachkhachnotrongchuyenhang(id);
             for(let element of listkn) {
-                commonfun.ghiNhatkyNo(element.idkhachhang,id,element.tiencuoc,"Nợ");
+               await commonfun.ghiNhatkyNo(element.idkhachhang,id,element.tiencuoc,"Nợ");
             }
         }
     }

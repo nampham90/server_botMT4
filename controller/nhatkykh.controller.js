@@ -4,6 +4,6 @@ let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const nhatkykh = db.nhatkykh;
 
-// exports.ghiNhatky = async (req,res) => {
-//     console.log(req.body);
-// }
+exports.getLists = async (req,res) => {
+    console.log(req.body);
+}
