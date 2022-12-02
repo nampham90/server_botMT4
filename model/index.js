@@ -22,4 +22,5 @@ db.chiphichuyenxe = require("./chiphichuyenxe")(mongoose);
 db.phieunhaphang = require("./phieunhaphang")(mongoose);
 db.hoadonnhaphang = require("./hoadonnhaphang")(mongoose);
 db.nhatkykh = require("./nhatkykh")(mongoose);
+db.nhatkyhethong = require("./nhatkyhethong")(mongoose)
 module.exports = db;

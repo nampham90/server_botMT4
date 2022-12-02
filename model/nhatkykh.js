@@ -6,11 +6,15 @@ module.exports = mongoose => {
           type: mongoose.Schema.Types.ObjectId,
           ref:"user"
         }, // mã khách hàng
-        trangthai: Number, // 0 nợ, 1 trả
+        trangthai: Number, // 0 nợ, 1 trả, 2 duyệt trả
         sotien: Number, // số tiền nợ hoặc trả
         idchuyen: {  // nếu nợ có id chuyến. nếu trả id = null
           type: mongoose.Schema.Types.ObjectId,
           ref:"chuyen"
+        },
+        idphieunhaphang: {  // id phiếu nhập hàng => để biết thông tin đơn hàng đó
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"phieunhaphang"
         },
         hinhthucthanhtoan: Number, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: Date, // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại

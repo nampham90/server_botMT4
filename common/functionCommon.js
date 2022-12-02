@@ -7,6 +7,7 @@ const Xe = db.xe;
 const Nhatkykh = db.nhatkykh;
 const Pnh = db.phieunhaphang;
 const Cpc = db.chiphichuyenxe;
+const Nkht = db.nhatkyhethong;
 
 
 let DataResponse = Responses.DataResponse;
@@ -216,12 +217,13 @@ exports.getDateparam = (param) => {
 }
 
 // ghi nhật ký khách hàng
-exports.ghiNhatkyNo = (idUser,idChuyen,sotieno,ghichu) => {
+exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu) => {
     let newNk = new Nhatkykh({
         iduser: idUser, // mã khách hàng
         trangthai: 0, // 0 nợ, 1 trả
         sotien: sotieno, // số tiền nợ hoặc trả
         idchuyen: idChuyen,
+        idphieunhaphang: idphieunhaphang,
         chukyno: 0,
         hinhthucthanhtoan: null, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
@@ -236,13 +238,15 @@ exports.ghiNhatkyNo = (idUser,idChuyen,sotieno,ghichu) => {
         }
     })
 }
+
 // ghi nhật ký khách hàng trả nơ
-exports.ghiNhatkyTra = (idUser,hinhthucthanhtoan,sotientra) => {
+exports.ghiNhatkyTra = (idUser,idphieunhaphang,hinhthucthanhtoan,sotientra) => {
     let newNk = new Nhatkykh({
         iduser: idUser, // mã khách hàng
         trangthai: 1, // 0 nợ, 1 trả
         sotien: sotientra, // số tiền nợ hoặc trả
         idchuyen: null,
+        idphieunhaphang: idphieunhaphang,
         hinhthucthanhtoan: hinhthucthanhtoan, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: "tra", // ghi chu cần thiết. để đối chiếu với khách hàng
@@ -259,24 +263,43 @@ exports.ghiNhatkyTra = (idUser,hinhthucthanhtoan,sotientra) => {
 }
 
 // ghi nhật ký khách hàng tất toán
-exports.ghiNhatkyTatToan = async (idUser,hinhthucthanhtoan,sotientra) => {
+exports.ghiNhatkyTatToan = async (idUser,sotientra) => {
     let newNk = new Nhatkykh({
         iduser: idUser, // mã khách hàng
-        trangthai: 1, // 0 nợ, 1 trả
+        trangthai: 1, // 0 nợ, 1 trả, 2 xác nhận quản lý
         sotien: sotientra, // số tiền nợ hoặc trả
         idchuyen: null,
-        hinhthucthanhtoan: hinhthucthanhtoan, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
+        idphieunhaphang: null,
+        hinhthucthanhtoan: null, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: "Tất toán", // ghi chu cần thiết. để đối chiếu với khách hàng
         chukyno: 1
     });
-    newNk.save(async function(e){
+    await newNk.save(async function(e){
         if(e) {
             return false;
         } else {
             console.log("ghi trả thành công ! :" + idUser)
             //update tất cả chu kỳ nợ = 1;
-            await Nhatkykh.updateMany({iduser:idUser, chukyno: 0},{set: {chukyno:1}});
+            await Nhatkykh.updateMany({iduser:idUser, trangthai: 0},{$set: {chukyno: 1, ghichu: "Đã thanh toán"}});
+            return true;
+        }
+    })
+}
+
+// ghi nhật ký hệ thống
+exports.ghiNhatkyhethong = async (iduser,hanhdong,table) => {
+    let nkht = new Nkht({
+        iduser: iduser,
+        hanhdong:hanhdong,
+        table: table,
+        ngay: _.now()
+    })
+    nkht.save( async function(e){
+        if(e) {
+            return false;
+        } else {
+            console.log("ghi nhật ký thành công");
             return true;
         }
     })
@@ -310,7 +333,6 @@ exports.tinhtongcuoc = async (idchuyen) => {
             total = total + element.tiencuoc;
         }
     }
-    console.log("tongc:" + total);
     return total;
 }
 
@@ -326,6 +348,7 @@ exports.tinhtongchiphi = async (idchuyen) => {
     console.log("tongcp:" + total);
     return total;
 }
+
 // tính tổng nợ của một khách hàng
 exports.tongno = async (iduser) => {
     let total = 0;

@@ -99,6 +99,7 @@ require("./routers/hoadonnhaphang.route")(app);
 require("./routers/nhatkykh.route")(app);
 require("./routers/common.route")(app);
 require("./routers/khachhang.router")(app);
+require("./routers/nhatkyhethong.route")(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

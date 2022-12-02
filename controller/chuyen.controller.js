@@ -175,12 +175,12 @@ exports.updateTrangthai = async (req,res) => {
         let listkn = req.body.listkhachno
         if(listkn != undefined && listkn.length > 0) {
             for(let element of listkn) {
-              await  commonfun.ghiNhatkyNo(element.idkhachhang,id,element.tiencuoc,"Nợ");
+              await  commonfun.ghiNhatkyNo(element.idkhachhang,id,element.id,element.tiencuoc,"Nợ");
             }
         } else {
             listkn = await commonfun.getDanhsachkhachnotrongchuyenhang(id);
             for(let element of listkn) {
-               await commonfun.ghiNhatkyNo(element.idkhachhang,id,element.tiencuoc,"Nợ");
+               await commonfun.ghiNhatkyNo(element.iduser,id,element._id,element.tiencuoc,"Nợ");
             }
         }
     }
