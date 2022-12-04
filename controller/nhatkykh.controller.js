@@ -9,15 +9,16 @@ exports.getLists = async (req,res) => {
     let gt = "01/01/1970";
     let lt = "01/01/2100";
     if(req.body.filters.ngaybatdau) {
-        gt = filters.ngaybatdau;
+        gt = req.body.filters.ngaybatdau;
     }
     if(req.body.filters.ngayketthuc) {
-        lt = filters.ngayketthuc;
+        lt = req.body.filters.ngayketthuc;
     }
     let sreach = {};
     sreach.ngay = {$gte:gt,$lt:lt};
     sreach.trangthai = req.body.filters.trangthai;
     sreach.iduser = req.body.filters.iduser;
+    sreach.ghichu = req.body.filters.ghichu;
     console.log(sreach);
     let allData = await Nhatkykh.find(sreach)
     .populate('idphieunhaphang');
