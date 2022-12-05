@@ -62,7 +62,7 @@ exports.getAllChuyen = async (req,res) => {
     }
     console.log(sreach);
     let n = req.body.pageNum - 1;
-    let alldata = await Chuyen.find(sreach)
+    let alldata = await Chuyen.find(sreach).sort( { "ngaydi": -1 } )
     .populate('biensoxe')
     .populate('idtai')
     .populate('idphu');
@@ -70,7 +70,8 @@ exports.getAllChuyen = async (req,res) => {
         let data = commonfun.dataReponse(alldata,[],req.body.pageNum,req.body.pageSize);
         return res.status(200).send(new Response(0,"Không có dữ liệu", data));
     }
-    let lst = await Chuyen.find(sreach).limit(req.body.pageSize).skip(req.body.pageSize*n)
+    let lst = await Chuyen.find(sreach).sort( { "ngaydi": -1 } )
+    .limit(req.body.pageSize).skip(req.body.pageSize*n)
     .populate('biensoxe')
     .populate('idtai')
     .populate('idphu');

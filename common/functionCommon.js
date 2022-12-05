@@ -371,7 +371,15 @@ exports.tongno = async (iduser) => {
     return total;
 }
 
+// function tính tổng doanh thu trong năm // param: năm
 
+// function tính tổng doanh thu trong tháng // param: tháng
+
+// function tính tổng chi phí theo loại chi phí trong năm
+
+// function tính tông chi phí theo loại chi phí trong tháng
+
+// 
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {
     const url ="https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-";
