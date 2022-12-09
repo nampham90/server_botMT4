@@ -120,6 +120,9 @@ app.use(function (err, req, res, next) {
   });
 });
 
+app.get("/", (req,res) => {
+   res.send("nam pham");
+})
 
 // text commonfun.checkAndremoveIdMenu("6321fe53c26d4024dd312437","632aaa31c8093b9a2007d143").then(data => {
 // text  console.log(data.length);

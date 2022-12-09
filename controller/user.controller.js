@@ -144,12 +144,12 @@ exports.login =  async(req,res)=>{
     const user = await User.findOne({email: req.body.email}).populate("role_id");
     if (!user) {
         let response = new Response(1010,'Email chưa đăng ký !',null);
-        return res.status(422).send(response);
+        return res.status(200).send(response);
     } 
     const checkPassword = await bcrypt.compare(req.body.password, user.password);
     if (!checkPassword){
         let response = new Response(1010,'Password không đúng !',null);
-        return res.status(422).send(response);
+        return res.status(200).send(response);
     } 
 
     let arraycode = "";
