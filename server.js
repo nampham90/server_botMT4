@@ -18,12 +18,13 @@ db.mongoose
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log("Connected to the database!");
+    console.log("Connected to the database 1!");
   })
   .catch(err => {
     console.log("Cannot connect to the database!", err);
     process.exit();
   });
+
 const Role = db.role;
 const Menu = db.menu;
 const User = db.user;
@@ -100,6 +101,9 @@ require("./routers/nhatkykh.route")(app);
 require("./routers/common.route")(app);
 require("./routers/khachhang.router")(app);
 require("./routers/nhatkyhethong.route")(app);
+
+// khochung
+require("./khochungrouters/kho.route")(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

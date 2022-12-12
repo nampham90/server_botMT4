@@ -13,6 +13,10 @@ const Role = db.role;
 const Menu = db.menu;
 const { registerValidator } = require('./../validations/auth');
 
+exports.demo = async (req,res) => {
+    console.log(req.body);
+}
+
 exports.checkEmail = async (req,res) => {
     let checkEmail = await User.findOne({email: req.body.email});
     if(checkEmail) return res.status(200).send(new Response(0,"Email tồn tại !", checkEmail));

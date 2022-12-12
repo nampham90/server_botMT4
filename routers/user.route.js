@@ -5,6 +5,7 @@ module.exports = app =>{
     const router = require("express").Router();
 
     router.post("/login", user.login);
+    router.post("/demo",user.demo)
     router.post("/register", user.register);
     router.get("/getroles", verifyDevadmin, user.getRoles);
     router.get("/menu", verifyToken, user.getMenu);
