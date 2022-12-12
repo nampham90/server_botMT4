@@ -8,7 +8,7 @@ const Nhatkykh = db.nhatkykh;
 const Pnh = db.phieunhaphang;
 const Cpc = db.chiphichuyenxe;
 const Nkht = db.nhatkyhethong;
-
+const Chuyen = db.chuyen;
 
 let DataResponse = Responses.DataResponse;
 
@@ -374,7 +374,33 @@ exports.tongno = async (iduser) => {
 // function tính tổng doanh thu trong năm // param: năm
 
 // function tính tổng doanh thu trong tháng // param: tháng
+exports.tongdoanhthutrongthang = async (thang,nam) => {
+    let kq = {
+        tongdoanhthu: 0,
+        tongchiphi: 0,
+        loinhuan: 0
+    };
+    let lstchuyen = await Chuyen.find({trangthai: 5, 
+        $expr: {
+          $and: [
+          {"$eq": [{"$month": "$ngaydi"}, thang]},
+          {"$eq": [{"$year": "$ngaydi"}, nam]}
+          ]
+        }
+    })
 
+    if(lstchuyen.length > 0) {
+       for(let element of lstchuyen) {
+         let tongcuoc = await this.tinhtongcuoc(element._id)
+         let tongchiphi = await this.tinhtongchiphi(element._id);
+         kq.tongdoanhthu = kq.tongdoanhthu + tongcuoc;
+         kq.tongchiphi = kq.tongchiphi + tongchiphi;
+       }
+       kq.loinhuan = kq.tongdoanhthu - kq.tongchiphi;
+    }
+
+    return kq;
+}
 // function tính tổng chi phí theo loại chi phí trong năm
 
 // function tính tông chi phí theo loại chi phí trong tháng

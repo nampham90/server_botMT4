@@ -28,6 +28,7 @@ db.mongoose
 const Role = db.role;
 const Menu = db.menu;
 const User = db.user;
+const Chuyen = db.chuyen;
 let menus = require('./common/menu');
 let commonfun = require('./common/functionCommon');
 let menu = menus.getMenu();
@@ -127,6 +128,20 @@ app.use(function (err, req, res, next) {
 app.get("/", (req,res) => {
    res.send("nam pham");
 })
+
+
+// Chuyen.find({trangthai: 5, 
+//     $expr: {
+//       $and: [
+//       {"$eq": [{"$month": "$ngaydi"},11]},
+//       {"$eq": [{"$year": "$ngaydi"},2022]}
+//       ]
+//     }
+// }).then(data => {
+//   console.log(data);
+// },err=>{
+//   console.log(err.message);
+// })
 
 // text commonfun.checkAndremoveIdMenu("6321fe53c26d4024dd312437","632aaa31c8093b9a2007d143").then(data => {
 // text  console.log(data.length);
