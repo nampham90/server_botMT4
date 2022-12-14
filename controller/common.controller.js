@@ -20,6 +20,7 @@ exports.checkBiensoxe = async (biensoxe) => {
    return xe._id;
 }
 
+// thông kê tài chinh doanh thu, lợi nhuận , chi phi của từng tháng res => list tứng tháng
 exports.listtaichinhthang = async (req,res) => {
    let nam = req.body.nam;
    let listln = [];
@@ -60,4 +61,26 @@ exports.listtaichinhthang = async (req,res) => {
    listln.push(lnthang11);
    listln.push(lnthang12);
    return res.status(200).send(new Response(0,"data", listln));
+}
+
+// thông kê tài chính trong năm . gồm doanh thu chi phí . lợi nhuận
+exports.thongketaichinhtrongnam = async (req, res) => {
+   let nam = req.body.nam;
+   let kq = await commonfun.tongdoanhthutrongnam(nam);
+   return res.status(200).send(new Response(0,"data", kq));
+}
+
+// get tông chuyến hàng trong nam
+exports.Tongchuyenhangtrongnam = async (req,res) => {
+   let nam = req.body.nam;
+   let kq = await commonfun.tongchuyenhangtrongnam(nam);
+   return res.status(200).send(new Response(0,"data", kq));
+}
+
+// get Tổng nợ tất cả khách hàng 
+exports.gettongnoAll = async (req,res) => {
+   let idKhachhang = req.body.idKhachhang
+   let kq = await commonfun.tongnoAll(idKhachhang);
+   console.log(kq);
+   return res.status(200).send(new Response(0,"data", kq));
 }

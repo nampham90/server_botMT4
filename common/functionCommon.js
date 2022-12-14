@@ -345,7 +345,6 @@ exports.tinhtongchiphi = async (idchuyen) => {
             total = total + element.sotien;
         }
     }
-    console.log("tongcp:" + total);
     return total;
 }
 
@@ -372,6 +371,28 @@ exports.tongno = async (iduser) => {
 }
 
 // function tính tổng doanh thu trong năm // param: năm
+exports.tongdoanhthutrongnam = async (nam) => {
+    let kq = {
+        tongdoanhthu: 0,
+        tongchiphi: 0,
+        loinhuan: 0
+    };
+    let lstchuyen = await Chuyen.find({trangthai: 5, 
+        $expr: {
+            "$eq": [{"$year": "$ngaydi"}, nam]
+        }
+    })
+    if(lstchuyen.length > 0) {
+        for(let element of lstchuyen) {
+          let tongcuoc = await this.tinhtongcuoc(element._id)
+          let tongchiphi = await this.tinhtongchiphi(element._id);
+          kq.tongdoanhthu = kq.tongdoanhthu + tongcuoc;
+          kq.tongchiphi = kq.tongchiphi + tongchiphi;
+        }
+        kq.loinhuan = kq.tongdoanhthu - kq.tongchiphi;
+    }
+    return kq;
+} 
 
 // function tính tổng doanh thu trong tháng // param: tháng
 exports.tongdoanhthutrongthang = async (thang,nam) => {
@@ -401,10 +422,31 @@ exports.tongdoanhthutrongthang = async (thang,nam) => {
 
     return kq;
 }
-// function tính tổng chi phí theo loại chi phí trong năm
 
-// function tính tông chi phí theo loại chi phí trong tháng
+// function tính tổng chuyến hàng trong năm
+exports.tongchuyenhangtrongnam = async (nam) => {
+    let tong = 0;
+    let lstchuyen = await Chuyen.find({trangthai: 5, 
+        $expr: {
+            "$eq": [{"$year": "$ngaydi"}, nam]
+        }
+    })
+    tong = lstchuyen.length;
+    return tong;
+}
 
+// function tính tông nợ tất cả khách hàng
+exports.tongnoAll = async (idKhachhang) => {
+   let tongno = 0;
+   let lstkh = await User.find({phongban_id: idKhachhang});
+   if (lstkh.length > 0) {
+       for(let element of lstkh) {
+           let tnkh = await this.tongno(element._id)
+           tongno = tongno + tnkh;
+       }
+   }
+   return tongno;
+}
 // 
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {

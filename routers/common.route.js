@@ -4,6 +4,9 @@ module.exports = app => {
     const verifyToken = require('../middlewares/verifyToken');
 
     route.post('/commonAnt100Listloinhanthang',Common.listtaichinhthang);
+    route.post('/commonAnt100Thongketaichinhnam',Common.thongketaichinhtrongnam);
+    route.post('/commonAnt100Tongchuyenhangtrongnam',Common.Tongchuyenhangtrongnam);
+    route.post('/commonAnt100Tongnoall',Common.gettongnoAll);
     
     app.use("/api/common",route);
 }
