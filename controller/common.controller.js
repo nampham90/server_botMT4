@@ -1,4 +1,5 @@
 const db = require("../model");
+const Const = require('../common/const');
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
@@ -81,6 +82,15 @@ exports.Tongchuyenhangtrongnam = async (req,res) => {
 exports.gettongnoAll = async (req,res) => {
    let idKhachhang = req.body.idKhachhang
    let kq = await commonfun.tongnoAll(idKhachhang);
-   console.log(kq);
+   //console.log(kq);
    return res.status(200).send(new Response(0,"data", kq));
+}
+
+// list 10 khach hàng có doanh thu cao nhất trong năm
+exports.listtop10khachangcodoanhthucaonhat = async (req,res) => {
+   let idkhachhang = Const.idKhachhang;
+   let nam = req.body.nam;
+   let lstkh = await commonfun.getListtop10khachhangcodoanhthucaonhat(idkhachhang,nam);
+   //console.log(lstkh);
+   return res.status(200).send(new Response(0, "data", lstkh));
 }

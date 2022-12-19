@@ -348,6 +348,69 @@ exports.tinhtongchiphi = async (idchuyen) => {
     return total;
 }
 
+// tính tổng doanh thu của một khách hàng trong năm
+exports.tongdoanhthucuamotkhachhangtrongnam = async (iduser,nam) => {
+    let total = 0;
+    let lst = await Pnh.find({iduser:iduser,
+        $expr: {
+            "$eq": [{"$year": "$ngaynhap"}, nam]
+        }
+    });
+    if(lst.length > 0) {
+        for(let element of lst) {
+            total = total + element.tiencuoc;
+        }
+    }
+    return total;
+}
+
+// return list 10 khách hàng có doanh thu cao nhất trong năm
+exports.getListtop10khachhangcodoanhthucaonhat = async (idkhachhang,nam) =>{
+   let lst = [];
+   let listkh = await User.find({phongban_id:idkhachhang});
+   for(let element of listkh) {
+      let tongdoanhthu = await this.tongdoanhthucuamotkhachhangtrongnam(element._id,nam);
+      let res = {
+        id: element._id,
+        name: element.name,
+        tongdoanhthu: tongdoanhthu
+      }
+      // lst nhỏ hơn 10 thì add item
+      if (lst.length < 10) {
+        lst.push(res);
+      } else {
+        // tìm index nhỏ nhất trong mãng
+        let index = this.minElement(lst,"tongdoanhthu");
+        // lây tong doanh thu của khách hàng thứ 11 so sanh với tong doanh thu của khách hàng nhỏ nhất
+        // if lơn hơn thì update khach hàng dó
+        if(lst[index].tongdoanhthu < res.tongdoanhthu) {
+            // update
+            lst[index].id = res.id;
+            lst[index].name = res.name;
+            lst[index].tongdoanhthu = res.tongdoanhthu;
+        }
+      }
+   }
+   lst = lst.sort(function(a,b){
+      return b.tongdoanhthu - a.tongdoanhthu;
+   });
+
+   return lst;
+}
+
+// tìm phần tử nhỏ nhất trong mảng
+exports.minElement = (array,field) => {
+   let min = array[0];
+   let min_index = 0;
+   for(let i = 1; i < array.length; ++i) {
+     if(min[field] > array[i][field]) {
+        min = array[i];
+        min_index = i;
+     }
+   }
+   return min_index;
+}
+
 // tính tổng nợ của một khách hàng
 exports.tongno = async (iduser) => {
     let total = 0;
