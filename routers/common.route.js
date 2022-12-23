@@ -8,6 +8,8 @@ module.exports = app => {
     route.post('/commonAnt100Tongchuyenhangtrongnam',Common.Tongchuyenhangtrongnam);
     route.post('/commonAnt100Tongnoall',Common.gettongnoAll);
     route.post('/commonAnt100Listtopdoanhthu', Common.listtop10khachangcodoanhthucaonhat);
+    route.post('/commonAnt100Listtopchiphi', Common.listtopchiphicaonhat);
+    route.post('/commonAnt100Listtongcuoctungxe', Common.listtongcuoccuatungxetaitrongnam);
     
     app.use("/api/common",route);
 }

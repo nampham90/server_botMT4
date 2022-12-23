@@ -94,3 +94,27 @@ exports.listtop10khachangcodoanhthucaonhat = async (req,res) => {
    //console.log(lstkh);
    return res.status(200).send(new Response(0, "data", lstkh));
 }
+
+// list top chi phi giam dần
+exports.listtopchiphicaonhat = async (req, res) => {
+   let nam = req.body.nam;
+   let lst = await commonfun.getlistchiphigiamdan(nam);
+   return res.status(200).send(new Response(0, "data", lst));
+}
+
+// list tong cuoc của từng xe tải trong nam
+exports.listtongcuoccuatungxetaitrongnam = async (req, res) => {
+   let nam = req.body.nam;
+   let lst = await commonfun.doanhthucuatungxe(nam);
+   let listmegre = [];
+   for(let element of lst) {
+      if(element._id != null) {
+         let item = {
+            type: element._id,
+            value: element.total
+         }
+         listmegre.push(item);
+      }
+   }
+   return res.status(200).send(new Response(0, "data", listmegre));
+}

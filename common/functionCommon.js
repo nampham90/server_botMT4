@@ -510,7 +510,45 @@ exports.tongnoAll = async (idKhachhang) => {
    }
    return tongno;
 }
-// 
+
+// fn create list thứ tự chi phí giảm dần
+exports.getlistchiphigiamdan = async (nam) => {
+   //db.teams.aggregate([{$group: {_id:"$team", sum_val:{$sum:"$points"}}}])
+   let lst = await Cpc.aggregate([
+      {
+        $match: { $expr: {
+            "$eq": [{"$year": "$createdAt"}, nam]
+        } }
+      },
+      {
+        $group: {_id:"$tenchiphi",total:{$sum:"$sotien"}}
+      }
+    ]);
+   if (lst.length > 0) {
+        lst = lst.sort(function(a,b){
+            return b.total - a.total;
+        });
+   } else {
+        lst = [];
+   }
+   return lst;
+}
+
+// list doanh thu của từng xe trong nam
+exports.doanhthucuatungxe = async (nam) => {
+    let lst = await Pnh.aggregate([
+        {
+          $match: { $expr: {
+              "$eq": [{"$year": "$createdAt"}, nam]
+          } }
+        },
+        {
+          $group: {_id:"$biensoxe",total:{$sum:"$tiencuoc"}}
+        }
+    ]);
+
+    return lst;
+}
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {
     const url ="https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-";
