@@ -5,16 +5,16 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 var port = normalizePort(process.env.PORT || '3000');
-//app.listen(port, ()=>{console.log("serve open post"+ port)});
-app.set('port', port);
+app.listen(port, ()=>{console.log("server open post:"+ port)});
+//app.set('port', port);
 
-var server = http.createServer(app);
+//var server = http.createServer(app);
 
-server.listen(port,() => {
-    console.log("server open port " + port);
-});
-server.on('error', onError);
-server.on('listening', onListening);
+//server.listen(port,() => {
+  //  console.log("server open port " + port);
+//});
+//server.on('error', onError);
+//server.on('listening', onListening);
 
 
 function normalizePort(val) {

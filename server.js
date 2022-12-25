@@ -5,7 +5,7 @@ const express = require("express");
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 var _ = require('lodash');
-
+const bcrypt = require('bcryptjs');
 const cors = require('cors')
 const app = express();
 app.use(cors());
@@ -42,6 +42,38 @@ Role.find({}).then(res => {
         console.log(e.message);
       }else {
         console.log("Save role admin ");
+        let listIdrole = [];
+        let r = await Role.findOne({rolename:"Admin"});
+        listIdrole.push(r._id);
+        User.find({}).then(async data => {
+          let lst = data;
+          if(lst.length == 0){
+            let dataNow = _.now()
+            const salt = await bcrypt.genSalt(10);
+            const hashPassword = await bcrypt.hash("A123456", salt);
+            let newUser = new User({
+                name: "Admin",
+                available: true,
+                sex: 1,
+                email: "admin@gmail.com",
+                dienthoai: "0909999999",
+                zalo: "0909999999",
+                password:hashPassword,
+                role_id: listIdrole,
+                account_id: [],
+                menulist: [],
+                phongban_id: '',
+                lastLoginTime:dataNow
+            });
+            newUser.save(async function(e){
+                if(e){
+                  console.log("not Save  user " + e);
+                }else {
+                  console.log("Save  user ");
+                }
+            })
+          }
+        })
       }
     });
     newRoleUser.save(async function(e){
@@ -58,6 +90,7 @@ Role.find({}).then(res => {
 },err =>{
   console.log("err. "+ err.message)
 })
+
 
 const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({extended:false}));

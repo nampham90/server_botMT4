@@ -32,7 +32,7 @@ exports.addMenu = async (req, res) => {
     })
     newMenu.save(async function(e){
         if(e) {
-           res.status(500).send(new Response(1001,"không thể lưu menu", null));
+           res.status(200).send(new Response(1001,"không thể lưu menu", null));
         } else {
            res.status(200).send(new Response(0,"Lưu thành công", newMenu));
         }
