@@ -18,15 +18,17 @@ db.mongoose
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log("Connected to the database!");
+    console.log("Connected to the database 1!");
   })
   .catch(err => {
     console.log("Cannot connect to the database!", err);
     process.exit();
   });
+
 const Role = db.role;
 const Menu = db.menu;
 const User = db.user;
+const Chuyen = db.chuyen;
 let menus = require('./common/menu');
 let commonfun = require('./common/functionCommon');
 let menu = menus.getMenu();
@@ -134,6 +136,9 @@ require("./routers/common.route")(app);
 require("./routers/khachhang.router")(app);
 require("./routers/nhatkyhethong.route")(app);
 
+// khochung
+require("./khochungrouters/kho.route")(app);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
@@ -153,6 +158,23 @@ app.use(function (err, req, res, next) {
   });
 });
 
+app.get("/", (req,res) => {
+   res.send("nam pham");
+})
+
+
+// Chuyen.find({trangthai: 5, 
+//     $expr: {
+//       $and: [
+//       {"$eq": [{"$month": "$ngaydi"},11]},
+//       {"$eq": [{"$year": "$ngaydi"},2022]}
+//       ]
+//     }
+// }).then(data => {
+//   console.log(data);
+// },err=>{
+//   console.log(err.message);
+// })
 
 // text commonfun.checkAndremoveIdMenu("6321fe53c26d4024dd312437","632aaa31c8093b9a2007d143").then(data => {
 // text  console.log(data.length);

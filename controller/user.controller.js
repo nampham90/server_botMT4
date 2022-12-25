@@ -13,6 +13,10 @@ const Role = db.role;
 const Menu = db.menu;
 const { registerValidator } = require('./../validations/auth');
 
+exports.demo = async (req,res) => {
+    console.log(req.body);
+}
+
 exports.checkEmail = async (req,res) => {
     let checkEmail = await User.findOne({email: req.body.email});
     if(checkEmail) return res.status(200).send(new Response(0,"Email tồn tại !", checkEmail));
@@ -144,12 +148,12 @@ exports.login =  async(req,res)=>{
     const user = await User.findOne({email: req.body.email}).populate("role_id");
     if (!user) {
         let response = new Response(1010,'Email chưa đăng ký !',null);
-        return res.status(422).send(response);
+        return res.status(200).send(response);
     } 
     const checkPassword = await bcrypt.compare(req.body.password, user.password);
     if (!checkPassword){
         let response = new Response(1010,'Password không đúng !',null);
-        return res.status(422).send(response);
+        return res.status(200).send(response);
     } 
 
     let arraycode = "";
@@ -191,7 +195,7 @@ exports.login =  async(req,res)=>{
         })
     }
     
-    const token = await jwt.sign({userId: user._id, rol: arraycode}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
+    const token = await jwt.sign({userId: user._id, rol: arraycode, username: user.name, email: user.email}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
     return res.status(200).send(new Response(0,'Login successfully !',token));
 }
 

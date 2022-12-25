@@ -8,7 +8,7 @@ const Nhatkykh = db.nhatkykh;
 const Pnh = db.phieunhaphang;
 const Cpc = db.chiphichuyenxe;
 const Nkht = db.nhatkyhethong;
-
+const Chuyen = db.chuyen;
 
 let DataResponse = Responses.DataResponse;
 
@@ -345,8 +345,70 @@ exports.tinhtongchiphi = async (idchuyen) => {
             total = total + element.sotien;
         }
     }
-    console.log("tongcp:" + total);
     return total;
+}
+
+// tính tổng doanh thu của một khách hàng trong năm
+exports.tongdoanhthucuamotkhachhangtrongnam = async (iduser,nam) => {
+    let total = 0;
+    let lst = await Pnh.find({iduser:iduser,
+        $expr: {
+            "$eq": [{"$year": "$ngaynhap"}, nam]
+        }
+    });
+    if(lst.length > 0) {
+        for(let element of lst) {
+            total = total + element.tiencuoc;
+        }
+    }
+    return total;
+}
+
+// return list 10 khách hàng có doanh thu cao nhất trong năm
+exports.getListtop10khachhangcodoanhthucaonhat = async (idkhachhang,nam) =>{
+   let lst = [];
+   let listkh = await User.find({phongban_id:idkhachhang});
+   for(let element of listkh) {
+      let tongdoanhthu = await this.tongdoanhthucuamotkhachhangtrongnam(element._id,nam);
+      let res = {
+        id: element._id,
+        name: element.name,
+        tongdoanhthu: tongdoanhthu
+      }
+      // lst nhỏ hơn 10 thì add item
+      if (lst.length < 10) {
+        lst.push(res);
+      } else {
+        // tìm index nhỏ nhất trong mãng
+        let index = this.minElement(lst,"tongdoanhthu");
+        // lây tong doanh thu của khách hàng thứ 11 so sanh với tong doanh thu của khách hàng nhỏ nhất
+        // if lơn hơn thì update khach hàng dó
+        if(lst[index].tongdoanhthu < res.tongdoanhthu) {
+            // update
+            lst[index].id = res.id;
+            lst[index].name = res.name;
+            lst[index].tongdoanhthu = res.tongdoanhthu;
+        }
+      }
+   }
+   lst = lst.sort(function(a,b){
+      return b.tongdoanhthu - a.tongdoanhthu;
+   });
+
+   return lst;
+}
+
+// tìm phần tử nhỏ nhất trong mảng
+exports.minElement = (array,field) => {
+   let min = array[0];
+   let min_index = 0;
+   for(let i = 1; i < array.length; ++i) {
+     if(min[field] > array[i][field]) {
+        min = array[i];
+        min_index = i;
+     }
+   }
+   return min_index;
 }
 
 // tính tổng nợ của một khách hàng
@@ -372,14 +434,121 @@ exports.tongno = async (iduser) => {
 }
 
 // function tính tổng doanh thu trong năm // param: năm
+exports.tongdoanhthutrongnam = async (nam) => {
+    let kq = {
+        tongdoanhthu: 0,
+        tongchiphi: 0,
+        loinhuan: 0
+    };
+    let lstchuyen = await Chuyen.find({trangthai: 5, 
+        $expr: {
+            "$eq": [{"$year": "$ngaydi"}, nam]
+        }
+    })
+    if(lstchuyen.length > 0) {
+        for(let element of lstchuyen) {
+          let tongcuoc = await this.tinhtongcuoc(element._id)
+          let tongchiphi = await this.tinhtongchiphi(element._id);
+          kq.tongdoanhthu = kq.tongdoanhthu + tongcuoc;
+          kq.tongchiphi = kq.tongchiphi + tongchiphi;
+        }
+        kq.loinhuan = kq.tongdoanhthu - kq.tongchiphi;
+    }
+    return kq;
+} 
 
 // function tính tổng doanh thu trong tháng // param: tháng
+exports.tongdoanhthutrongthang = async (thang,nam) => {
+    let kq = {
+        tongdoanhthu: 0,
+        tongchiphi: 0,
+        loinhuan: 0
+    };
+    let lstchuyen = await Chuyen.find({trangthai: 5, 
+        $expr: {
+          $and: [
+          {"$eq": [{"$month": "$ngaydi"}, thang]},
+          {"$eq": [{"$year": "$ngaydi"}, nam]}
+          ]
+        }
+    })
 
-// function tính tổng chi phí theo loại chi phí trong năm
+    if(lstchuyen.length > 0) {
+       for(let element of lstchuyen) {
+         let tongcuoc = await this.tinhtongcuoc(element._id)
+         let tongchiphi = await this.tinhtongchiphi(element._id);
+         kq.tongdoanhthu = kq.tongdoanhthu + tongcuoc;
+         kq.tongchiphi = kq.tongchiphi + tongchiphi;
+       }
+       kq.loinhuan = kq.tongdoanhthu - kq.tongchiphi;
+    }
 
-// function tính tông chi phí theo loại chi phí trong tháng
+    return kq;
+}
 
-// 
+// function tính tổng chuyến hàng trong năm
+exports.tongchuyenhangtrongnam = async (nam) => {
+    let tong = 0;
+    let lstchuyen = await Chuyen.find({trangthai: 5, 
+        $expr: {
+            "$eq": [{"$year": "$ngaydi"}, nam]
+        }
+    })
+    tong = lstchuyen.length;
+    return tong;
+}
+
+// function tính tông nợ tất cả khách hàng
+exports.tongnoAll = async (idKhachhang) => {
+   let tongno = 0;
+   let lstkh = await User.find({phongban_id: idKhachhang});
+   if (lstkh.length > 0) {
+       for(let element of lstkh) {
+           let tnkh = await this.tongno(element._id)
+           tongno = tongno + tnkh;
+       }
+   }
+   return tongno;
+}
+
+// fn create list thứ tự chi phí giảm dần
+exports.getlistchiphigiamdan = async (nam) => {
+   //db.teams.aggregate([{$group: {_id:"$team", sum_val:{$sum:"$points"}}}])
+   let lst = await Cpc.aggregate([
+      {
+        $match: { $expr: {
+            "$eq": [{"$year": "$createdAt"}, nam]
+        } }
+      },
+      {
+        $group: {_id:"$tenchiphi",total:{$sum:"$sotien"}}
+      }
+    ]);
+   if (lst.length > 0) {
+        lst = lst.sort(function(a,b){
+            return b.total - a.total;
+        });
+   } else {
+        lst = [];
+   }
+   return lst;
+}
+
+// list doanh thu của từng xe trong nam
+exports.doanhthucuatungxe = async (nam) => {
+    let lst = await Pnh.aggregate([
+        {
+          $match: { $expr: {
+              "$eq": [{"$year": "$createdAt"}, nam]
+          } }
+        },
+        {
+          $group: {_id:"$biensoxe",total:{$sum:"$tiencuoc"}}
+        }
+    ]);
+
+    return lst;
+}
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {
     const url ="https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-";
