@@ -31,6 +31,7 @@ exports.getDetail = async (req,res) => {
         } else {
             Khang.groupid = "";
         }
+        Khang.sotienno =  await commonfun.tongno(kh._id);
         res.status(200).send(new Response(0,"Data success",Khang));
     } else {
         res.status(200).send(new Response(1001,"Khách hàng không tồn tại",null));

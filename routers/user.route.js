@@ -16,6 +16,9 @@ module.exports = app =>{
     router.post("/ant100CheckEmailUser",verifyToken,user.checkEmail);
     router.post("/ant100CheckNameUser",verifyToken,user.checkName);
 
+    // login từ app 
+    router.post("/login-app", user.loginApp)
+
 
     app.use("/api/user",router);
 }
