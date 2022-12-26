@@ -172,7 +172,7 @@ exports.updateTrangthai = async (req,res) => {
     let id = req.body.id;
     let trangthai = req.body.trangthai
     let c = await Chuyen.findOne({_id:id});
-    if(trangthai == 2) {
+    if(trangthai == 3) {
         let listkn = req.body.listkhachno
         if(listkn != undefined && listkn.length > 0) {
             for(let element of listkn) {
