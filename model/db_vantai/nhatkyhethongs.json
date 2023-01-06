@@ -1,0 +1,276 @@
+[{
+  "_id": {
+    "$oid": "6389b524a283cc151e9c080c"
+  },
+  "iduser": {
+    "$oid": "6321fe53c26d4024dd312437"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1669969188190"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669969188200"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669969188200"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389b5c00896619214ea1a91"
+  },
+  "iduser": {
+    "$oid": "6321fe53c26d4024dd312437"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1669969344363"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669969344370"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669969344370"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389b9ece88c44483a05c456"
+  },
+  "iduser": {
+    "$oid": "6321fe53c26d4024dd312437"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1669970412193"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669970412205"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669970412205"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389bb22799114c94e274271"
+  },
+  "iduser": {
+    "$oid": "6321fe53c26d4024dd312437"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1669970722217"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669970722223"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669970722223"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389bda9c1cdafba741e54b9"
+  },
+  "iduser": {
+    "$oid": "6321fe53c26d4024dd312437"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1669971369653"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669971369655"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669971369655"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389c06fc1cdafba741e54f0"
+  },
+  "iduser": {
+    "$oid": "6321fe53c26d4024dd312437"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1669972079412"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669972079414"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669972079414"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d59a58ce5a3789605944b"
+  },
+  "iduser": {
+    "$oid": "6321fe53c26d4024dd312437"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1670207909883"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207909884"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207909884"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d732407f4d04ee98735fe"
+  },
+  "iduser": {
+    "$oid": "6321fe53c26d4024dd312437"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1670214436614"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670214436616"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670214436616"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a903c3e83b4ef3908072a3"
+  },
+  "iduser": {
+    "$oid": "6390b7949202869fc3d2350b"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1672020931703"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672020931704"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672020931704"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a903d6e83b4ef3908072ae"
+  },
+  "iduser": {
+    "$oid": "6390b7949202869fc3d2350b"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1672020950301"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672020950303"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672020950303"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9122f77ffca0b15f3d455"
+  },
+  "iduser": {
+    "$oid": "6390b7949202869fc3d2350b"
+  },
+  "hanhdong": "Tất toán nợ cho id 637ed12455e0ca1071a48021",
+  "table": "nhatkykh",
+  "ngay": {
+    "$date": {
+      "$numberLong": "1672024623878"
+    }
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024623880"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024623880"
+    }
+  },
+  "__v": 0
+}]

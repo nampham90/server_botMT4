@@ -1,0 +1,621 @@
+[{
+  "_id": {
+    "$oid": "6337d0af525c232f38fc2245"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu dề 1",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602287264"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602287264"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6337d0af525c232f38fc2247"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 2",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602287348"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602287348"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6337d13c525c232f38fc224a"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 3",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602428155"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602428155"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6337d13c525c232f38fc224c"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 4",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602428228"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602428228"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6337d13c525c232f38fc224e"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 5",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602428300"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602428300"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6337d13c525c232f38fc2250"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 6",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602428373"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602428373"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6337d13c525c232f38fc2252"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 7",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602428445"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602428445"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6337d13c525c232f38fc2254"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 8",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602428522"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602428522"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6337d13c525c232f38fc2256"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 9",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602428596"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602428596"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6337d13c525c232f38fc2258"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 10",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602428668"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602428668"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6337d13c525c232f38fc225a"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 12",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664602428742"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664602428742"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6338f4a5610ef03a3b91a0c3"
+  },
+  "idmenu": "6333e539021398275a67d83d",
+  "lang": "VNI",
+  "title1": "tiêu đề 15",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664677029138"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664677029138"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "633c26f1aca9fb72b2c1115a"
+  },
+  "idmenu": "632aaa31c8093b9a2007d170",
+  "lang": "VNI",
+  "title1": "Home",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664886513885"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664886513885"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "633c26f1aca9fb72b2c1115c"
+  },
+  "idmenu": "632aaa31c8093b9a2007d170",
+  "lang": "VNI",
+  "title1": "Dashboard",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664886513964"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664886513964"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "633c26f2aca9fb72b2c1115e"
+  },
+  "idmenu": "632aaa31c8093b9a2007d170",
+  "lang": "VNI",
+  "title1": "Trang giám sát",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664886514033"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664886514033"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "633c2f27aca9fb72b2c111b3"
+  },
+  "idmenu": "632aaa31c8093b9a2007d170",
+  "lang": "VNI",
+  "title1": "tieu de 1",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664888615332"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664888615332"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63424ab8334471db6e1b9a47"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Home",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665288888405"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665288888405"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63424ab8334471db6e1b9a49"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Quản lý hệ thống",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665288888481"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665288888481"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63424ab8334471db6e1b9a4b"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Quản lý xe",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665288888550"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665288888550"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63424ab8334471db6e1b9a4d"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Tìm kiếm",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665288888619"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665288888619"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63424ab8334471db6e1b9a4f"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Cài lại",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665288888688"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665288888688"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63424ab8334471db6e1b9a51"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Kết quả tìm kiếm",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665288888759"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665288888759"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63424ab8334471db6e1b9a53"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Biển số xe",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665288888829"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665288888829"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63424ab8334471db6e1b9a55"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Tên gợi nhợ",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665288888899"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665288888899"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63424ab8334471db6e1b9a57"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Trọng tải",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665288888969"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665288888969"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63425483334471db6e1b9a79"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Tên gợi nhớ",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665291395154"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665291395154"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63425483334471db6e1b9a7b"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Trạng thái",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665291395227"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665291395227"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63425483334471db6e1b9a7d"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Biển số xe",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665291395307"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665291395307"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63427718334471db6e1b9aa8"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Cập nhật",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665300248379"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665300248379"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63427718334471db6e1b9aaa"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Xóa",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665300248452"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665300248452"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63427718334471db6e1b9aac"
+  },
+  "idmenu": "6342463f334471db6e1b9a03",
+  "lang": "VNI",
+  "title1": "Thêm mới",
+  "title2": "",
+  "status": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665300248522"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1665300248522"
+    }
+  },
+  "__v": 0
+}]

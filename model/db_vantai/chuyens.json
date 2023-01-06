@@ -1,0 +1,926 @@
+[{
+  "_id": {
+    "$oid": "636fb58890a4812a86b7c51e"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1668265334402"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669781927137"
+    }
+  },
+  "tienxe": 1500,
+  "biensoxe": {
+    "$oid": "6342cfd03c129fcdf6a6c2a2"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668265352549"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669369769603"
+    }
+  },
+  "__v": 0,
+  "trangthai": 5
+},{
+  "_id": {
+    "$oid": "637d91b2affdcc8975001c22"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669173635219"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669778436928"
+    }
+  },
+  "tienxe": 2000,
+  "biensoxe": {
+    "$oid": "636659cec47bcbeca3aaa3a1"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669173682820"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472145321"
+    }
+  },
+  "__v": 0,
+  "trangthai": 5
+},{
+  "_id": {
+    "$oid": "637e3fe7a11095a556fbf009"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669218258730"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669823060090"
+    }
+  },
+  "tienxe": 900,
+  "biensoxe": {
+    "$oid": "636fad3cb7ece2a19b3c8cb9"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669218279588"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472192829"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "637ec8fc55e0ca1071a47f91"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669253352513"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669339753659"
+    }
+  },
+  "tienxe": 500,
+  "biensoxe": {
+    "$oid": "6342cfd03c129fcdf6a6c2a2"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669253372837"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472232722"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "637ecfa855e0ca1071a47ffa"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669255062529"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669341465742"
+    }
+  },
+  "tienxe": 800,
+  "biensoxe": {
+    "$oid": "636fad3cb7ece2a19b3c8cb9"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669255080357"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474931679"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638163ee7f2f08ae865651df"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669424094268"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669769697570"
+    }
+  },
+  "tienxe": 500,
+  "biensoxe": {
+    "$oid": "6342cfd03c129fcdf6a6c2a2"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669424110232"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474919679"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821a672b69986428b5bf9b"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669470772124"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669816383760"
+    }
+  },
+  "tienxe": 1000,
+  "biensoxe": {
+    "$oid": "636659cec47bcbeca3aaa3a1"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669470823217"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472521462"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638227a72b69986428b5c2b5"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669474201720"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669819802743"
+    }
+  },
+  "tienxe": 1000,
+  "biensoxe": {
+    "$oid": "636659cec47bcbeca3aaa3a1"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474215345"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474940487"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822abdb1eda344414e4058"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669474994469"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669820595668"
+    }
+  },
+  "tienxe": 300,
+  "biensoxe": {
+    "$oid": "636fad3cb7ece2a19b3c8cb9"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475005222"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475144969"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822bd0b1eda344414e4133"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1667747265607"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669475267037"
+    }
+  },
+  "tienxe": 500,
+  "biensoxe": {
+    "$oid": "636fad3cb7ece2a19b3c8cb9"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475280457"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475787221"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822d08b1eda344414e4251"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1667315581417"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1669475583134"
+    }
+  },
+  "tienxe": 300,
+  "biensoxe": {
+    "$oid": "6342cfd03c129fcdf6a6c2a2"
+  },
+  "idtai": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "idphu": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475592402"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475791213"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63888ce846d17d032282b5f1"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669893340244"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672485341295"
+    }
+  },
+  "tienxe": 200,
+  "biensoxe": {
+    "$oid": "6342cfd03c129fcdf6a6c2a2"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669893352072"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669893439630"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63888f1346d17d032282b719"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669893892185"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1670671494251"
+    }
+  },
+  "tienxe": 100,
+  "biensoxe": {
+    "$oid": "6342cfd03c129fcdf6a6c2a2"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669893907588"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984255023"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63894a68fa5b243dd9c858c1"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669941828075"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1671756229393"
+    }
+  },
+  "tienxe": 1000,
+  "biensoxe": {
+    "$oid": "636659cec47bcbeca3aaa3a1"
+  },
+  "idtai": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669941864949"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984258207"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63896dea8e113426f85e43f5"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669950940074"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1671506141355"
+    }
+  },
+  "tienxe": 300,
+  "biensoxe": {
+    "$oid": "636fad3cb7ece2a19b3c8cb9"
+  },
+  "idtai": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "idphu": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669950954373"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984267716"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389f0ad86a073eee340b9ec"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1669984404151"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672230813065"
+    }
+  },
+  "tienxe": 2000,
+  "biensoxe": {
+    "$oid": "6342cfd03c129fcdf6a6c2a2"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Năng - Sai gon",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984429618"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207776072"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d43116057cfc0207606c2"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1670202111765"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672189313986"
+    }
+  },
+  "tienxe": 1000,
+  "biensoxe": {
+    "$oid": "636659cec47bcbeca3aaa3a1"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670202129261"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207737026"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d6fcd07f4d04ee9873597"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1670213564677"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672114365906"
+    }
+  },
+  "tienxe": 1000,
+  "biensoxe": {
+    "$oid": "6342cfd03c129fcdf6a6c2a2"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670213581355"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670428655138"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639975870694d2eb3f3f163b"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1671001428203"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672297429296"
+    }
+  },
+  "tienxe": 3000,
+  "biensoxe": {
+    "$oid": "636659cec47bcbeca3aaa3a1"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671001479914"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671001573660"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a8f6b61489e0e2ec175906"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1672017543693"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672449545050"
+    }
+  },
+  "tienxe": 2000,
+  "biensoxe": {
+    "$oid": "6342cfd03c129fcdf6a6c2a2"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672017590970"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024005042"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9018fe83b4ef390807185"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1672020345338"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672452349446"
+    }
+  },
+  "tienxe": 1600,
+  "biensoxe": {
+    "$oid": "636fad3cb7ece2a19b3c8cb9"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672020367107"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023991971"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a905c2e83b4ef390807371"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1672021428618"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672453430318"
+    }
+  },
+  "tienxe": 1100,
+  "biensoxe": {
+    "$oid": "636659cec47bcbeca3aaa3a1"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672021442951"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023982006"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fdc77ffca0b15f3d38a"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1672024013210"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672456016311"
+    }
+  },
+  "tienxe": 1000,
+  "biensoxe": {
+    "$oid": "636fad3cb7ece2a19b3c8cb9"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024028170"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024746290"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9141077ffca0b15f3d559"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1672025083639"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672457087394"
+    }
+  },
+  "tienxe": 400,
+  "biensoxe": {
+    "$oid": "636659cec47bcbeca3aaa3a1"
+  },
+  "idtai": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "idphu": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672025104860"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672036473436"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a94a8477ffca0b15f3e55e"
+  },
+  "ngaydi": {
+    "$date": {
+      "$numberLong": "1672039028875"
+    }
+  },
+  "ngayve": {
+    "$date": {
+      "$numberLong": "1672471031001"
+    }
+  },
+  "tienxe": 600,
+  "biensoxe": {
+    "$oid": "636659cec47bcbeca3aaa3a1"
+  },
+  "idtai": {
+    "$oid": "6330422427ad9a97dd9b3039"
+  },
+  "idphu": {
+    "$oid": "6330429127ad9a97dd9b3042"
+  },
+  "changduong": "Đà Nẵng - Huế",
+  "trangthai": 5,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672039044897"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672045551706"
+    }
+  },
+  "__v": 0
+}]

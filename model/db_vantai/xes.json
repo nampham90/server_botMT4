@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "6342cfd03c129fcdf6a6c2a2"
+  },
+  "biensoxe": "43B11231",
+  "anhdaidien": "https://xekinhdoanh24h.com/wp-content/uploads/2021/11/cropped-shipping-icon.png",
+  "tenxegoinho": "HINO",
+  "trongtai": "15 Tấn",
+  "trangthai": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1665322960063"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023997615"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636659cec47bcbeca3aaa3a1"
+  },
+  "biensoxe": "43B3434",
+  "anhdaidien": "https://xekinhdoanh24h.com/wp-content/uploads/2021/11/cropped-shipping-icon.png",
+  "tenxegoinho": "Ban tai",
+  "trongtai": "8 Tấn",
+  "trangthai": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1667652046417"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672042530754"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636fad3cb7ece2a19b3c8cb9"
+  },
+  "biensoxe": "43A123123",
+  "anhdaidien": "https://xekinhdoanh24h.com/wp-content/uploads/2021/11/cropped-shipping-icon.png",
+  "tenxegoinho": "Xe Tải Nhe",
+  "trongtai": "1.5 Tấn",
+  "trangthai": false,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668263228549"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024659897"
+    }
+  },
+  "__v": 0
+}]

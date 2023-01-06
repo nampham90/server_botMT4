@@ -1,0 +1,3326 @@
+[{
+  "_id": {
+    "$oid": "63804efecb35f60c72250cb3"
+  },
+  "idchuyen": "636fb58890a4812a86b7c51e",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353214094"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669353214094"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804efecb35f60c72250cb5"
+  },
+  "idchuyen": "636fb58890a4812a86b7c51e",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353214165"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669353214165"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804efecb35f60c72250cb7"
+  },
+  "idchuyen": "636fb58890a4812a86b7c51e",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353214226"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669353214226"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804efecb35f60c72250cb9"
+  },
+  "idchuyen": "636fb58890a4812a86b7c51e",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353214290"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669353214290"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804efecb35f60c72250cbb"
+  },
+  "idchuyen": "636fb58890a4812a86b7c51e",
+  "tenchiphi": "Cầu đường",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353214353"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669353214353"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804efecb35f60c72250cbd"
+  },
+  "idchuyen": "636fb58890a4812a86b7c51e",
+  "tenchiphi": "Công an",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353214416"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669353214416"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804efecb35f60c72250cbf"
+  },
+  "idchuyen": "636fb58890a4812a86b7c51e",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353214479"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669353214479"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804fe1cb35f60c72250cdd"
+  },
+  "idchuyen": "637d91b2affdcc8975001c22",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 100,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353441880"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669374753872"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804fe1cb35f60c72250cdf"
+  },
+  "idchuyen": "637d91b2affdcc8975001c22",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353441943"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669374753933"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804fe2cb35f60c72250ce1"
+  },
+  "idchuyen": "637d91b2affdcc8975001c22",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 200,
+  "ghichu": "Đổ đầu",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353442006"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669374753997"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804fe2cb35f60c72250ce3"
+  },
+  "idchuyen": "637d91b2affdcc8975001c22",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353442073"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669374754060"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804fe2cb35f60c72250ce5"
+  },
+  "idchuyen": "637d91b2affdcc8975001c22",
+  "tenchiphi": "Cầu đường",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353442136"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669374754151"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804fe2cb35f60c72250ce7"
+  },
+  "idchuyen": "637d91b2affdcc8975001c22",
+  "tenchiphi": "Công an",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353442198"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669374754236"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63804fe2cb35f60c72250ce9"
+  },
+  "idchuyen": "637d91b2affdcc8975001c22",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669353442264"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669374754297"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63807096b440569ea8dd513d"
+  },
+  "idchuyen": "637e3fe7a11095a556fbf009",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 1100,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669361814491"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669367882021"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63807096b440569ea8dd513f"
+  },
+  "idchuyen": "637e3fe7a11095a556fbf009",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669361814564"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669367882087"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63807096b440569ea8dd5141"
+  },
+  "idchuyen": "637e3fe7a11095a556fbf009",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669361814628"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669367882150"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63807096b440569ea8dd5143"
+  },
+  "idchuyen": "637e3fe7a11095a556fbf009",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669361814704"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669367882210"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63807096b440569ea8dd5145"
+  },
+  "idchuyen": "637e3fe7a11095a556fbf009",
+  "tenchiphi": "Cầu đường",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669361814762"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669367882272"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63807096b440569ea8dd5147"
+  },
+  "idchuyen": "637e3fe7a11095a556fbf009",
+  "tenchiphi": "Công an",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669361814827"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669367882383"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63807096b440569ea8dd5149"
+  },
+  "idchuyen": "637e3fe7a11095a556fbf009",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669361814885"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669367882445"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821b4a2b69986428b5bffa"
+  },
+  "idchuyen": "63821a672b69986428b5bf9b",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471050456"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471343974"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821b4a2b69986428b5bffc"
+  },
+  "idchuyen": "63821a672b69986428b5bf9b",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471050555"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471344071"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821b4a2b69986428b5bffe"
+  },
+  "idchuyen": "63821a672b69986428b5bf9b",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471050975"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471344169"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821b4b2b69986428b5c000"
+  },
+  "idchuyen": "63821a672b69986428b5bf9b",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471051086"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471344264"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821b4b2b69986428b5c002"
+  },
+  "idchuyen": "63821a672b69986428b5bf9b",
+  "tenchiphi": "Cầu đường",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471051177"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471344366"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821b4b2b69986428b5c004"
+  },
+  "idchuyen": "63821a672b69986428b5bf9b",
+  "tenchiphi": "Công an",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471051273"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471345100"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821b4b2b69986428b5c006"
+  },
+  "idchuyen": "63821a672b69986428b5bf9b",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471051359"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471345197"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821eb32b69986428b5c0ab"
+  },
+  "idchuyen": "637ecfa855e0ca1071a47ffa",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471923642"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471991506"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821eb32b69986428b5c0ad"
+  },
+  "idchuyen": "637ecfa855e0ca1071a47ffa",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471923747"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471992619"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821eb32b69986428b5c0af"
+  },
+  "idchuyen": "637ecfa855e0ca1071a47ffa",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471923846"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471992726"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821eb32b69986428b5c0b1"
+  },
+  "idchuyen": "637ecfa855e0ca1071a47ffa",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471923952"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471992850"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821eb42b69986428b5c0b3"
+  },
+  "idchuyen": "637ecfa855e0ca1071a47ffa",
+  "tenchiphi": "Cầu đường",
+  "sotien": 100,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471924051"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471993269"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821eb42b69986428b5c0b5"
+  },
+  "idchuyen": "637ecfa855e0ca1071a47ffa",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471924468"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471993371"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821eb42b69986428b5c0b7"
+  },
+  "idchuyen": "637ecfa855e0ca1071a47ffa",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669471924560"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669471993473"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821fe12b69986428b5c128"
+  },
+  "idchuyen": "637ec8fc55e0ca1071a47f91",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669472225564"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472225564"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821fe12b69986428b5c12a"
+  },
+  "idchuyen": "637ec8fc55e0ca1071a47f91",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669472225658"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472225658"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821fe12b69986428b5c12c"
+  },
+  "idchuyen": "637ec8fc55e0ca1071a47f91",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669472225749"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472225749"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821fe12b69986428b5c12e"
+  },
+  "idchuyen": "637ec8fc55e0ca1071a47f91",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 100,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669472225848"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472225848"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821fe12b69986428b5c130"
+  },
+  "idchuyen": "637ec8fc55e0ca1071a47f91",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669472225947"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472225947"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821fe22b69986428b5c132"
+  },
+  "idchuyen": "637ec8fc55e0ca1071a47f91",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669472226052"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472226052"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63821fe22b69986428b5c134"
+  },
+  "idchuyen": "637ec8fc55e0ca1071a47f91",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669472226157"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669472226157"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a42b1eda344414e3fa3"
+  },
+  "idchuyen": "638227a72b69986428b5c2b5",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474882269"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474882269"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a42b1eda344414e3fa5"
+  },
+  "idchuyen": "638227a72b69986428b5c2b5",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474882363"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474882363"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a42b1eda344414e3fa7"
+  },
+  "idchuyen": "638227a72b69986428b5c2b5",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474882458"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474882458"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a42b1eda344414e3fa9"
+  },
+  "idchuyen": "638227a72b69986428b5c2b5",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474882560"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474882560"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a42b1eda344414e3fab"
+  },
+  "idchuyen": "638227a72b69986428b5c2b5",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474882655"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474882655"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a42b1eda344414e3fad"
+  },
+  "idchuyen": "638227a72b69986428b5c2b5",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474882757"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474882757"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a43b1eda344414e3faf"
+  },
+  "idchuyen": "638227a72b69986428b5c2b5",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474883477"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474883477"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a53b1eda344414e3fc5"
+  },
+  "idchuyen": "638163ee7f2f08ae865651df",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474899499"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474899499"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a53b1eda344414e3fc7"
+  },
+  "idchuyen": "638163ee7f2f08ae865651df",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474899960"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474899960"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a54b1eda344414e3fc9"
+  },
+  "idchuyen": "638163ee7f2f08ae865651df",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474900083"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474900083"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a54b1eda344414e3fcb"
+  },
+  "idchuyen": "638163ee7f2f08ae865651df",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474900205"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474900205"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a54b1eda344414e3fcd"
+  },
+  "idchuyen": "638163ee7f2f08ae865651df",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474900328"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474900328"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a54b1eda344414e3fcf"
+  },
+  "idchuyen": "638163ee7f2f08ae865651df",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474900449"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474900449"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822a54b1eda344414e3fd1"
+  },
+  "idchuyen": "638163ee7f2f08ae865651df",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669474900569"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669474900569"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822b37b1eda344414e40d5"
+  },
+  "idchuyen": "63822abdb1eda344414e4058",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 100,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475127739"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475127739"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822b38b1eda344414e40d7"
+  },
+  "idchuyen": "63822abdb1eda344414e4058",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475128154"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475128154"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822b38b1eda344414e40d9"
+  },
+  "idchuyen": "63822abdb1eda344414e4058",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475128254"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475128254"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822b38b1eda344414e40db"
+  },
+  "idchuyen": "63822abdb1eda344414e4058",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475128351"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475128351"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822b38b1eda344414e40dd"
+  },
+  "idchuyen": "63822abdb1eda344414e4058",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475128462"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475128462"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822b38b1eda344414e40df"
+  },
+  "idchuyen": "63822abdb1eda344414e4058",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475128560"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475128560"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822b38b1eda344414e40e1"
+  },
+  "idchuyen": "63822abdb1eda344414e4058",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475128656"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475128656"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822ce1b1eda344414e4226"
+  },
+  "idchuyen": "63822bd0b1eda344414e4133",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475553710"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475553710"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822ce1b1eda344414e4228"
+  },
+  "idchuyen": "63822bd0b1eda344414e4133",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475553801"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475553801"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822ce1b1eda344414e422a"
+  },
+  "idchuyen": "63822bd0b1eda344414e4133",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475553884"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475553884"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822ce1b1eda344414e422c"
+  },
+  "idchuyen": "63822bd0b1eda344414e4133",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475553961"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475553961"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822ce2b1eda344414e422e"
+  },
+  "idchuyen": "63822bd0b1eda344414e4133",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475554034"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475554034"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822ce2b1eda344414e4230"
+  },
+  "idchuyen": "63822bd0b1eda344414e4133",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475554110"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475554110"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822ce2b1eda344414e4232"
+  },
+  "idchuyen": "63822bd0b1eda344414e4133",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475554192"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475554192"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822d8bb1eda344414e4308"
+  },
+  "idchuyen": "63822d08b1eda344414e4251",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 100,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475723446"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475723446"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822d8bb1eda344414e430a"
+  },
+  "idchuyen": "63822d08b1eda344414e4251",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475723526"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475723526"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822d8bb1eda344414e430c"
+  },
+  "idchuyen": "63822d08b1eda344414e4251",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475723611"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475723611"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822d8bb1eda344414e430e"
+  },
+  "idchuyen": "63822d08b1eda344414e4251",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475723693"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475723693"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822d8bb1eda344414e4310"
+  },
+  "idchuyen": "63822d08b1eda344414e4251",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475723760"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475723760"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822d8bb1eda344414e4312"
+  },
+  "idchuyen": "63822d08b1eda344414e4251",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475723830"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475723830"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63822d8bb1eda344414e4314"
+  },
+  "idchuyen": "63822d08b1eda344414e4251",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669475723908"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669475723908"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63888d3746d17d032282b664"
+  },
+  "idchuyen": "63888ce846d17d032282b5f1",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669893431053"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669893431053"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63888d3746d17d032282b666"
+  },
+  "idchuyen": "63888ce846d17d032282b5f1",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669893431121"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669893431121"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63888d3746d17d032282b668"
+  },
+  "idchuyen": "63888ce846d17d032282b5f1",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669893431186"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669893431186"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63888d3746d17d032282b66a"
+  },
+  "idchuyen": "63888ce846d17d032282b5f1",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669893431247"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669893431247"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63888d3746d17d032282b66c"
+  },
+  "idchuyen": "63888ce846d17d032282b5f1",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669893431308"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669893431308"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63888d3746d17d032282b66e"
+  },
+  "idchuyen": "63888ce846d17d032282b5f1",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669893431370"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669893431370"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63888d3746d17d032282b670"
+  },
+  "idchuyen": "63888ce846d17d032282b5f1",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669893431431"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669893431431"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389efef86a073eee340b935"
+  },
+  "idchuyen": "63888f1346d17d032282b719",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 100,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984239489"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984239489"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389efef86a073eee340b937"
+  },
+  "idchuyen": "63888f1346d17d032282b719",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984239552"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984239552"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389efef86a073eee340b939"
+  },
+  "idchuyen": "63888f1346d17d032282b719",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984239615"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984239615"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389efef86a073eee340b93b"
+  },
+  "idchuyen": "63888f1346d17d032282b719",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984239672"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984239672"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389efef86a073eee340b93d"
+  },
+  "idchuyen": "63888f1346d17d032282b719",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984239730"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984239730"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389efef86a073eee340b93f"
+  },
+  "idchuyen": "63888f1346d17d032282b719",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984239786"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984239786"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389efef86a073eee340b941"
+  },
+  "idchuyen": "63888f1346d17d032282b719",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984239843"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984239843"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389effc86a073eee340b960"
+  },
+  "idchuyen": "63894a68fa5b243dd9c858c1",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984252121"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984252121"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389effc86a073eee340b962"
+  },
+  "idchuyen": "63894a68fa5b243dd9c858c1",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 100,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984252179"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984252179"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389effc86a073eee340b964"
+  },
+  "idchuyen": "63894a68fa5b243dd9c858c1",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984252237"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984252237"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389effc86a073eee340b966"
+  },
+  "idchuyen": "63894a68fa5b243dd9c858c1",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984252294"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984252294"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389effc86a073eee340b968"
+  },
+  "idchuyen": "63894a68fa5b243dd9c858c1",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984252352"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984252352"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389effc86a073eee340b96a"
+  },
+  "idchuyen": "63894a68fa5b243dd9c858c1",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984252409"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984252409"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389effc86a073eee340b96c"
+  },
+  "idchuyen": "63894a68fa5b243dd9c858c1",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984252466"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984252466"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389f00986a073eee340b9b1"
+  },
+  "idchuyen": "63896dea8e113426f85e43f5",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984265402"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984265402"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389f00986a073eee340b9b3"
+  },
+  "idchuyen": "63896dea8e113426f85e43f5",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 100,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984265460"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984265460"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389f00986a073eee340b9b5"
+  },
+  "idchuyen": "63896dea8e113426f85e43f5",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984265525"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984265525"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389f00986a073eee340b9b7"
+  },
+  "idchuyen": "63896dea8e113426f85e43f5",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984265583"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984265583"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389f00986a073eee340b9b9"
+  },
+  "idchuyen": "63896dea8e113426f85e43f5",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984265641"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984265641"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389f00986a073eee340b9bb"
+  },
+  "idchuyen": "63896dea8e113426f85e43f5",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984265699"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984265699"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6389f00986a073eee340b9bd"
+  },
+  "idchuyen": "63896dea8e113426f85e43f5",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669984265759"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669984265759"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58d18ce5a378960593a6"
+  },
+  "idchuyen": "6389f0ad86a073eee340b9ec",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207697536"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207769995"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58d18ce5a378960593a8"
+  },
+  "idchuyen": "6389f0ad86a073eee340b9ec",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207697612"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207770053"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58d18ce5a378960593aa"
+  },
+  "idchuyen": "6389f0ad86a073eee340b9ec",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207697686"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207770111"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58d18ce5a378960593ac"
+  },
+  "idchuyen": "6389f0ad86a073eee340b9ec",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207697763"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207770173"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58d18ce5a378960593ae"
+  },
+  "idchuyen": "6389f0ad86a073eee340b9ec",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207697850"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207770236"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58d18ce5a378960593b0"
+  },
+  "idchuyen": "6389f0ad86a073eee340b9ec",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207697928"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207770299"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58d28ce5a378960593b2"
+  },
+  "idchuyen": "6389f0ad86a073eee340b9ec",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207698007"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207770363"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58de8ce5a378960593c3"
+  },
+  "idchuyen": "638d43116057cfc0207606c2",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207710834"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207727261"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58de8ce5a378960593c5"
+  },
+  "idchuyen": "638d43116057cfc0207606c2",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207710891"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207727323"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58de8ce5a378960593c7"
+  },
+  "idchuyen": "638d43116057cfc0207606c2",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207710949"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207727393"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58df8ce5a378960593c9"
+  },
+  "idchuyen": "638d43116057cfc0207606c2",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207711007"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207727462"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58df8ce5a378960593cb"
+  },
+  "idchuyen": "638d43116057cfc0207606c2",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207711069"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207727522"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58df8ce5a378960593cd"
+  },
+  "idchuyen": "638d43116057cfc0207606c2",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207711127"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207727579"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638d58df8ce5a378960593cf"
+  },
+  "idchuyen": "638d43116057cfc0207606c2",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670207711184"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670207727642"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6390b7ec9202869fc3d23561"
+  },
+  "idchuyen": "638d6fcd07f4d04ee9873597",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670428652011"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670428652011"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6390b7ec9202869fc3d23563"
+  },
+  "idchuyen": "638d6fcd07f4d04ee9873597",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670428652022"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670428652022"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6390b7ec9202869fc3d23565"
+  },
+  "idchuyen": "638d6fcd07f4d04ee9873597",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670428652028"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670428652028"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6390b7ec9202869fc3d23567"
+  },
+  "idchuyen": "638d6fcd07f4d04ee9873597",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670428652034"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670428652034"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6390b7ec9202869fc3d23569"
+  },
+  "idchuyen": "638d6fcd07f4d04ee9873597",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670428652041"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670428652041"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6390b7ec9202869fc3d2356b"
+  },
+  "idchuyen": "638d6fcd07f4d04ee9873597",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670428652047"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670428652047"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6390b7ec9202869fc3d2356d"
+  },
+  "idchuyen": "638d6fcd07f4d04ee9873597",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670428652053"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670428652053"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639975df0694d2eb3f3f16c4"
+  },
+  "idchuyen": "639975870694d2eb3f3f163b",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671001567786"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671001567786"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639975df0694d2eb3f3f16c6"
+  },
+  "idchuyen": "639975870694d2eb3f3f163b",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671001567853"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671001567853"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639975df0694d2eb3f3f16c8"
+  },
+  "idchuyen": "639975870694d2eb3f3f163b",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671001567924"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671001567924"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639975df0694d2eb3f3f16ca"
+  },
+  "idchuyen": "639975870694d2eb3f3f163b",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671001567992"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671001567992"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639975e00694d2eb3f3f16cc"
+  },
+  "idchuyen": "639975870694d2eb3f3f163b",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671001568056"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671001568056"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639975e00694d2eb3f3f16ce"
+  },
+  "idchuyen": "639975870694d2eb3f3f163b",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671001568119"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671001568119"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "639975e00694d2eb3f3f16d0"
+  },
+  "idchuyen": "639975870694d2eb3f3f163b",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1671001568180"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1671001568180"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fab77ffca0b15f3d279"
+  },
+  "idchuyen": "63a905c2e83b4ef390807371",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023979626"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023979626"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fab77ffca0b15f3d27b"
+  },
+  "idchuyen": "63a905c2e83b4ef390807371",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023979665"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023979665"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fab77ffca0b15f3d27d"
+  },
+  "idchuyen": "63a905c2e83b4ef390807371",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023979700"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023979700"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fab77ffca0b15f3d27f"
+  },
+  "idchuyen": "63a905c2e83b4ef390807371",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023979736"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023979736"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fab77ffca0b15f3d281"
+  },
+  "idchuyen": "63a905c2e83b4ef390807371",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023979773"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023979773"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fab77ffca0b15f3d283"
+  },
+  "idchuyen": "63a905c2e83b4ef390807371",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023979814"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023979814"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fab77ffca0b15f3d285"
+  },
+  "idchuyen": "63a905c2e83b4ef390807371",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023979850"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023979850"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fb577ffca0b15f3d2db"
+  },
+  "idchuyen": "63a9018fe83b4ef390807185",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023989672"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023989672"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fb577ffca0b15f3d2dd"
+  },
+  "idchuyen": "63a9018fe83b4ef390807185",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023989709"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023989709"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fb577ffca0b15f3d2df"
+  },
+  "idchuyen": "63a9018fe83b4ef390807185",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023989748"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023989748"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fb577ffca0b15f3d2e1"
+  },
+  "idchuyen": "63a9018fe83b4ef390807185",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023989788"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023989788"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fb577ffca0b15f3d2e3"
+  },
+  "idchuyen": "63a9018fe83b4ef390807185",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023989831"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023989831"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fb577ffca0b15f3d2e5"
+  },
+  "idchuyen": "63a9018fe83b4ef390807185",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023989870"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023989870"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fb577ffca0b15f3d2e7"
+  },
+  "idchuyen": "63a9018fe83b4ef390807185",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672023989905"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672023989905"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fc277ffca0b15f3d341"
+  },
+  "idchuyen": "63a8f6b61489e0e2ec175906",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024002946"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024002946"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fc277ffca0b15f3d343"
+  },
+  "idchuyen": "63a8f6b61489e0e2ec175906",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024002985"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024002985"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fc377ffca0b15f3d345"
+  },
+  "idchuyen": "63a8f6b61489e0e2ec175906",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024003020"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024003020"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fc377ffca0b15f3d347"
+  },
+  "idchuyen": "63a8f6b61489e0e2ec175906",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024003054"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024003054"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fc377ffca0b15f3d349"
+  },
+  "idchuyen": "63a8f6b61489e0e2ec175906",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024003098"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024003098"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fc377ffca0b15f3d34b"
+  },
+  "idchuyen": "63a8f6b61489e0e2ec175906",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024003136"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024003136"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a90fc377ffca0b15f3d34d"
+  },
+  "idchuyen": "63a8f6b61489e0e2ec175906",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024003171"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024003171"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9129a77ffca0b15f3d49c"
+  },
+  "idchuyen": "63a90fdc77ffca0b15f3d38a",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 500,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024730829"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024741033"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9129a77ffca0b15f3d49e"
+  },
+  "idchuyen": "63a90fdc77ffca0b15f3d38a",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 200,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024730865"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024741076"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9129a77ffca0b15f3d4a0"
+  },
+  "idchuyen": "63a90fdc77ffca0b15f3d38a",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024730900"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024741111"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9129a77ffca0b15f3d4a2"
+  },
+  "idchuyen": "63a90fdc77ffca0b15f3d38a",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024730934"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024741146"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9129a77ffca0b15f3d4a4"
+  },
+  "idchuyen": "63a90fdc77ffca0b15f3d38a",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024730973"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024741183"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9129b77ffca0b15f3d4a6"
+  },
+  "idchuyen": "63a90fdc77ffca0b15f3d38a",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024731026"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024741218"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9129b77ffca0b15f3d4a8"
+  },
+  "idchuyen": "63a90fdc77ffca0b15f3d38a",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672024731062"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672024741254"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9407677ffca0b15f3e06a"
+  },
+  "idchuyen": "63a9141077ffca0b15f3d559",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 400,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672036470788"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672036470788"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9407677ffca0b15f3e06c"
+  },
+  "idchuyen": "63a9141077ffca0b15f3d559",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672036470838"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672036470838"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9407677ffca0b15f3e06e"
+  },
+  "idchuyen": "63a9141077ffca0b15f3d559",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672036470876"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672036470876"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9407677ffca0b15f3e070"
+  },
+  "idchuyen": "63a9141077ffca0b15f3d559",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672036470916"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672036470916"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9407677ffca0b15f3e072"
+  },
+  "idchuyen": "63a9141077ffca0b15f3d559",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672036470962"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672036470962"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9407777ffca0b15f3e074"
+  },
+  "idchuyen": "63a9141077ffca0b15f3d559",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672036471007"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672036471007"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a9407777ffca0b15f3e076"
+  },
+  "idchuyen": "63a9141077ffca0b15f3d559",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672036471045"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672036471045"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a963ec77ffca0b15f3ef67"
+  },
+  "idchuyen": "63a94a8477ffca0b15f3e55e",
+  "tenchiphi": "Tiền ăn",
+  "sotien": 300,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672045548198"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672045548198"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a963ec77ffca0b15f3ef69"
+  },
+  "idchuyen": "63a94a8477ffca0b15f3e55e",
+  "tenchiphi": "Tiền bãi",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672045548253"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672045548253"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a963ec77ffca0b15f3ef6b"
+  },
+  "idchuyen": "63a94a8477ffca0b15f3e55e",
+  "tenchiphi": "Tiền dầu",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672045548291"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672045548291"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a963ec77ffca0b15f3ef6d"
+  },
+  "idchuyen": "63a94a8477ffca0b15f3e55e",
+  "tenchiphi": "Sữa chữa",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672045548327"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672045548327"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a963ec77ffca0b15f3ef6f"
+  },
+  "idchuyen": "63a94a8477ffca0b15f3e55e",
+  "tenchiphi": "Cầu đường",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672045548362"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672045548362"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a963ec77ffca0b15f3ef71"
+  },
+  "idchuyen": "63a94a8477ffca0b15f3e55e",
+  "tenchiphi": "Công an",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672045548400"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672045548400"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63a963ec77ffca0b15f3ef73"
+  },
+  "idchuyen": "63a94a8477ffca0b15f3e55e",
+  "tenchiphi": "Chi phí khác",
+  "sotien": 0,
+  "ghichu": "",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1672045548445"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1672045548445"
+    }
+  },
+  "__v": 0
+}]
