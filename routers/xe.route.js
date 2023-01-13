@@ -9,6 +9,7 @@ module.exports = app => {
     route.post('/xeAnt100updateTrangthai',verifyToken, Xe.Updatetrangthai);
     route.get('/xeAnt100getlistfree',verifyToken ,Xe.getlistXefree);
     route.get('/xeAnt100getlistrun',verifyToken,Xe.getlistXerun)
+    route.put('/xeAnt100update', Xe.updateXe);
 
     app.use("/api/xe",route);
 }

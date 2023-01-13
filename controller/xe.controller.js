@@ -31,10 +31,9 @@ exports.getlistXerun = async (req,res) => {
    return res.status(200).send(new Response(0,"Data sucess", listxerun));
 }
 
-//https://xekinhdoanh24h.com/wp-content/uploads/2021/11/cropped-shipping-icon.png
 exports.CreateXe = async (req,res) => {
     console.log(req.body)
-    let image = "https://xekinhdoanh24h.com/wp-content/uploads/2021/11/cropped-shipping-icon.png";
+    let image = "/public/img/iconxetai.png";
     let newXe = new Xe({
         biensoxe: req.body.biensoxe,
         anhdaidien: image,
@@ -73,3 +72,12 @@ exports.Updatetrangthai = async (req,res) => {
     })
 }
 
+exports.updateXe = async (req,res) => {
+    Xe.updateOne({_id: req.body.id},{$set: {biensoxe: req.body.biensoxe, tenxegoinho: req.body.tenxegoinho, trongtai: req.body.trongtai, anhdaidien: "/public/img/iconxetai.png"}})
+    .then(data => {
+        console.log(data.modifiedCount + " Update Xe success " + req.body.id);
+        return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
+    }, err => {
+        res.status(200).send(new Response(1001,"error Update !", null));
+    })
+}
