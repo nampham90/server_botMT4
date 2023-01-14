@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "6392e870f5afb83fd61da304"
+  },
+  "tenkho": "Kho KDP",
+  "diachikho": "120 Nam Pham . Đà Nẵng",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670572144458"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670572144458"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6392ecc37ecab6ad577dbfef"
+  },
+  "tenkho": "Kho Hoang Linh",
+  "diachikho": "120 Nam Pham . Đà Nẵng",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670573251005"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670573251005"
+    }
+  },
+  "__v": 0
+}]

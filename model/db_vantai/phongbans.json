@@ -1,0 +1,115 @@
+[{
+  "_id": {
+    "$oid": "632eaa27587987101675d399"
+  },
+  "tenphongban": "Quản lý nhân sự",
+  "fatherId": 0,
+  "state": true,
+  "orderNum": 1,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664002599071"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664002599071"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "632ebaa07e9ad9aeef4e3d24"
+  },
+  "tenphongban": "Quản Lý Khách Hàng",
+  "fatherId": 0,
+  "state": true,
+  "orderNum": 1,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664006816270"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664006816270"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "632ebaf77e9ad9aeef4e3d27"
+  },
+  "tenphongban": "Khách Hàng ",
+  "fatherId": 0,
+  "state": true,
+  "orderNum": 1,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664006903762"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664006903762"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "632ebb0c7e9ad9aeef4e3d2a"
+  },
+  "tenphongban": "Khách Hàng Vip",
+  "fatherId": "632ebaf77e9ad9aeef4e3d27",
+  "state": true,
+  "orderNum": 2,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664006924430"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664006924430"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "632ebb3b7e9ad9aeef4e3d2d"
+  },
+  "tenphongban": "Khách Hàng Đăng Ký",
+  "fatherId": "632ebaf77e9ad9aeef4e3d27",
+  "state": true,
+  "orderNum": 2,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1664006971072"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1664006971072"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cf775974c56587047691e"
+  },
+  "tenphongban": "Tài Xế",
+  "fatherId": 0,
+  "state": true,
+  "orderNum": 2,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668085621518"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668085621518"
+    }
+  },
+  "__v": 0
+}]
