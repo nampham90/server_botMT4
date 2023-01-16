@@ -560,9 +560,20 @@ exports.fnSendMessageTelegram =  (idgroup, content, axios) => {
     let urltext = process.env.CONTENT_TELEGRAM;
 
     let strTelegram = url + token + urlgroupid + idgroup + urltext + content;
+    strTelegram = fixedEncodeURI(strTelegram)
     console.log(strTelegram);
     axios.get(strTelegram).then((info)=>{console.log("send thanh cong")}).catch((e2)=>{console.log(e2.message)});
 
+}
+
+function fixedEncodeURI(str) {
+    return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']');
+}
+
+function fixedEncodeURIComponent(str) {
+    return encodeURIComponent(str).replace(/[!'()*]/g, function(c) {
+      return '%' + c.charCodeAt(0).toString(16);
+    });
 }
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {
