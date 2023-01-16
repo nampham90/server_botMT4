@@ -2,6 +2,8 @@
 const db = require('../model');
 const _ = require('lodash');
 let Responses = require('../common/response');
+const dotenv = require('dotenv');
+dotenv.config();
 const User = db.user;
 const Xe = db.xe;
 const Nhatkykh = db.nhatkykh;
@@ -279,7 +281,7 @@ exports.ghiNhatkyTatToan = async (idUser,sotientra) => {
         if(e) {
             return false;
         } else {
-            console.log("ghi trả thành công ! :" + idUser)
+            console.log("ghi trả thành công ! :" + idUser);
             //update tất cả chu kỳ nợ = 1;
             await Nhatkykh.updateMany({iduser:idUser, trangthai: 0},{$set: {chukyno: 1, ghichu: "Đã thanh toán"}});
             return true;
@@ -548,6 +550,19 @@ exports.doanhthucuatungxe = async (nam) => {
     ]);
 
     return lst;
+}
+
+// function send message telegram
+exports.fnSendMessageTelegram =  (idgroup, content, axios) => {
+    let url = process.env.URL_TELEGRAM;
+    let token = process.env.TOKEN_TELEGRAM;
+    let urlgroupid = process.env.GROUPID_TELEGRAM;
+    let urltext = process.env.CONTENT_TELEGRAM;
+
+    let strTelegram = url + token + urlgroupid + idgroup + urltext + content;
+    console.log(strTelegram);
+    axios.get(strTelegram).then((info)=>{console.log("send thanh cong")}).catch((e2)=>{console.log(e2.message)});
+
 }
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {

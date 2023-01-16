@@ -2,7 +2,9 @@ const db = require("../model");
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
+const axios = require("axios");
 const Nhatkykh = db.nhatkykh;
+const User = db.user;
 
 exports.getLists = async (req,res) => {
     console.log({userId:req.userID})
@@ -42,8 +44,15 @@ exports.tatToan = async (req,res) => {
     console.log(req.body);
     let iduser = req.body.iduser;
     let sotientra = req.body.sotientra;
-    await commonfun.ghiNhatkyTatToan(iduser,sotientra);
-    await commonfun.ghiNhatkyhethong(nth,"Tất toán nợ cho id " + iduser, "nhatkykh");
+   // await commonfun.ghiNhatkyTatToan(iduser,sotientra);
+    //await commonfun.ghiNhatkyhethong(nth,"Tất toán nợ cho id " + iduser, "nhatkykh");
+    let u = await User.findOne({_id: iduser});
+    if(u) {
+        console.log(u);
+        let content = "" + u.name + " Đã thanh toán số tiền: " + sotientra;
+        commonfun.fnSendMessageTelegram(u.groupid, content, axios);
+    }
+
     res.status(200).send(new Response(0,"data sucess",1));
 }
 
