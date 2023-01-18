@@ -147,7 +147,7 @@ exports.register =  async(req,res)=>{
 
 // login 
 exports.login =  async (req,res) => {
-    if (req.body.MODE && req.body.MODE == 'mobile') {
+    if (req.body.mode && req.body.mode == 'mobile') {
        await this.loginMobile(req,res);
        return;
     }
