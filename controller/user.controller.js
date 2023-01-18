@@ -156,6 +156,11 @@ exports.login =  async (req,res) => {
         let response = new Response(1010,'Email chưa đăng ký !',null);
         return res.status(200).send(response);
     } 
+    if(Const.idTaixe == user.phongban_id) {
+        let response = new Response(1010,'Vui lòng chọn Đăng nhập Tài Xế !',null);
+        return res.status(200).send(response);
+    }
+
     const checkPassword = await bcrypt.compare(req.body.password, user.password);
     if (!checkPassword){
         let response = new Response(1010,'Password không đúng !',null);
