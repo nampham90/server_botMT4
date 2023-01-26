@@ -9,7 +9,10 @@ const Chuyen = db.chuyen;
 const Pnh = db.phieunhaphang;
 
 exports.getChuyen = async (req, res) => {
-    let c = await Chuyen.findOne({idtai: req.userID, trangthai: {$gte:0, $lte : 3}});
+    let c = await Chuyen.findOne({idtai: req.userID, trangthai: {$gte:0, $lte : 3}})
+    .populate("biensoxe")
+    .populate("idtai")
+    .populate("idphu");
     let data = {
         resdataChuyen: null,
         reslistHangdi: [],
