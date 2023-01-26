@@ -570,6 +570,22 @@ function fixedEncodeURI(str) {
     return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']');
 }
 
+exports.checkOrder = async (idphieunhaphang,userID) => {
+    let pnh = await Pnh.findOne({_id:idphieunhaphang});
+    if (pnh) {
+        // tim ma chuyen
+        let idChuyen = pnh.idchuyen.toString();
+        let c = await Chuyen.findOne({_id: idChuyen});
+        if(c.idtai.toString() == userID) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {
     const url ="https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-";
    const urltext = "&text=";

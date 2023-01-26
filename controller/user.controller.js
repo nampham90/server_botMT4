@@ -230,7 +230,7 @@ exports.loginMobile = async (req, res) => {
         return res.status(200).send(response);
     } 
     let arraycode = "1,2,3";
-    const token = await jwt.sign({userId: user._id, rol: arraycode, username: user.name, email: user.email}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
+    const token = await jwt.sign({userId: user._id, rol: arraycode, username: user.name, email: user.email, idPhongban: user.phongban_id}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
     return res.status(200).send(new Response(0,'Login Tài xế successfully !',token));
 }
 
