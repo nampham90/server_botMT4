@@ -4,7 +4,7 @@ var http = require('http');
 const dotenv = require('dotenv');
 dotenv.config();
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3001');
 app.listen(port, ()=>{console.log("server open post:"+ port)});
 //app.set('port', port);
 
