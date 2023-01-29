@@ -23,8 +23,10 @@ exports.getChuyen = async (req, res) => {
         let countId = c._id.toString().length;
         if (countId == Const.lengthId) {
             data.resdataChuyen = c;
-            data.reslistHangdi = await Pnh.find({idchuyen: c._id, lotrinh: Const.hangdi});
-            data.reslistHangve = await Pnh.find({idchuyen: c._id, lotrinh: Const.hangve});
+            data.reslistHangdi = await Pnh.find({idchuyen: c._id, lotrinh: Const.hangdi})
+            .populate("iduser");
+            data.reslistHangve = await Pnh.find({idchuyen: c._id, lotrinh: Const.hangve})
+            .populate("iduser");
             return res.status(200).send(new Response(0,"Data sucess", data));
         } else {
             return res.status(200).send(new Response(0,"Data rổng ", []));
