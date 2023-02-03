@@ -13,13 +13,13 @@ module.exports = mongoose => {
           ref:"user"
          },// mã khách hàng
          tiencuoc:Number,// tiền cươc xe của 1 loại hàng
-         lotrinh: String, // lộ trình vận chuyển đi hay lộ trình hàng về
+         lotrinh: String, // lộ trình vận chuyển đi hay lộ trình hàng về (0 : hàng đi, 1 : hàng về)
          ngaynhap: Date,
          noidungdonhang:String, // nôi dung đơn hàng. vd: gửi gạch đi phú quốc
          diadiembochang:String,  // Địa chỉ bọc hàng
          hinhthucthanhtoan:Number, // ghi no => 1, truc tiep => 2, thanh toan khi nhan hang => 3 
          ghichu: String, // ghi chú đơn hàng
-         trangthai: Number // 0 lưu dự định nhập. 1 hoàn thành việc nhập. 2, khóa chuyến hàng
+         trangthai: Number // 0 lưu dự định nhập. 1 đã bóc hang lên xe. 2, đã hàng hàng
       },
       { timestamps: true }
     );

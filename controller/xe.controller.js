@@ -73,3 +73,12 @@ exports.Updatetrangthai = async (req,res) => {
     })
 }
 
+exports.updateXe = async (req,res) => {
+    Xe.updateOne({_id: req.body.id},{$set: {biensoxe: req.body.biensoxe, tenxegoinho: req.body.tenxegoinho, trongtai: req.body.trongtai, anhdaidien: "/public/img/iconxetai.png"}})
+    .then(data => {
+        console.log(data.modifiedCount + " Update Xe success " + req.body.id);
+        return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
+    }, err => {
+        res.status(200).send(new Response(1001,"error Update !", null));
+    })
+}

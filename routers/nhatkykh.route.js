@@ -4,7 +4,7 @@ module.exports = app => {
     const verifyToken = require('../middlewares/verifyToken');
 
     route.post('/nhatkykhAnt100getAll',verifyToken, Nhatkykh.getLists);
-    route.post('/nhatkykhAnt100postTattoan',verifyToken, Nhatkykh.tatToan);
+    route.post('/nhatkykhAnt100postTattoan', Nhatkykh.tatToan);
     route.post('/nhatkykhAnt100postThanhtoanmotphan',verifyToken, Nhatkykh.thanhtoanmotphan);
     route.post('/nhatkykhAnt100postThanhtoan', verifyToken, Nhatkykh.thanhtoan);
     app.use("/api/nhatkykh",route);

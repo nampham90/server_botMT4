@@ -197,6 +197,10 @@ exports.updateTrangthai = async (req,res) => {
           await cp.save();
        }
     }
+    if(trangthai == 5) {
+        let dateNow = commonfun.dateNow();
+        await  Chuyen.updateOne({_id: id}, {$set: {ngayve: dateNow}});
+    }
     Chuyen.updateOne({_id:id}, {$set: {trangthai: trangthai}})
     .then(data => {
         console.log(data.modifiedCount + " Update Chuyen " + req.body.id);

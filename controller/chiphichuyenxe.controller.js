@@ -20,7 +20,7 @@ exports.updateLists = async (req,res) => {
     if(lst.length > 0 && req.body.trangthai == 4) {
        let i = 0;
        for(let element of lst) {
-         let n = await  ChiphiChuyenxe.updateOne({idchuyen:idchuyen,tenchiphi:element.tenchiphi},{$set: {sotien:element.sotien}});
+         let n = await  ChiphiChuyenxe.updateOne({idchuyen:idchuyen,tenchiphi:element.tenchiphi},{$set: {sotien:element.sotien, ghichu:element.ghichu}});
          if(n.modifiedCount == 1) {
             i++;
          }
