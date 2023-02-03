@@ -18,7 +18,7 @@ db.mongoose
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log("Connected to the database 1!");
+    console.log("Connected to the database vantai_hlxv !");
   })
   .catch(err => {
     console.log("Cannot connect to the database!", err);
