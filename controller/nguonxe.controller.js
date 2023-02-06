@@ -29,6 +29,10 @@ exports.PostCreateNguonXe = async (req,res) => {
             datacd: req.body.datacd,
             datanm: req.body.datanm,
             datarnm: req.body.datarnm,
+            sodienthoai: req.body.sodienthoai,
+            diachi: req.body.diachi,
+            thongtinthanhtoan1: req.body.thongtinthanhtoan1,
+            thongtinthanhtoan2: req.body.thongtinthanhtoan2,
             status01: 0,
             status02: 0,
             status03: 0,
@@ -49,7 +53,7 @@ exports.PostCreateNguonXe = async (req,res) => {
 // update nguon xe
 exports.PostUpdateNguonXe = async (req,res) => {
     console.log(req);
-    Nguonxe.updateOne({_id: req.body.id},{$set: {datacd: req.body.datacd, datanm: req.body.datanm, datarnm: req.body.datarnm}})
+    Nguonxe.updateOne({_id: req.body.id},{$set: {datacd: req.body.datacd, datanm: req.body.datanm, datarnm: req.body.datarnm, sodienthoai: req.body.sodienthoai, diachi: req.body.diachi, thongtinthanhtoan1: req.body.thongtinthanhtoan1, thongtinthanhtoan2: req.body.thongtinthanhtoan2}})
     .then(data => {
         console.log(data.modifiedCount + " Update Xe success " + req.body.id);
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
