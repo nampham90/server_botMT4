@@ -2,14 +2,14 @@
 module.exports = mongoose => {
     let schema = mongoose.Schema(
       {
-        datacd: String,
+        datacd:  {type:String, unique:true},
         datanm: String,
         datarnm: String,
-        stataus01: Number,
-        stataus02: Number,
-        stataus03: Number,
-        stataus04: Number,
-        stataus05: Number
+        status01: Number,// status01 = 0; nguồn nhà =1 nguồn từ bên ngoài
+        status02: Number,
+        status03: Number,
+        status04: Number,
+        status05: Number
       },
       { timestamps: true }
     );

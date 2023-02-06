@@ -2,54 +2,58 @@ const db = require("../model");
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
-const Nguonxe = db.nguonxe;
+const Chuyenngoai = db.chuyenngoai;
 
-// list all nguon xe
-exports.PostAllNguonXe = async (req,res) => {
+// list all 
+exports.PostAllChuyenngoai = async (req,res) => {
     if(req.body.pageSize == 0 && req.body.pageNum == 0) {
-        let alldata = await Nguonxe.find({});
+        let alldata = await Chuyenngoai.find({});
         return res.status(200).send(new Response(0,"Data sucess", alldata));
     } else {
         let n = req.body.pageNum - 1;
-        let alldata = await Nguonxe.find(req.body.filters);
-        let lst = await Nguonxe.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n);
+        let alldata = await Chuyenngoai.find(req.body.filters);
+        let lst = await Chuyenngoai.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n);
         let data = commonfun.dataReponse(alldata,lst,req.body.pageNum,req.body.pageSize);
         return res.status(200).send(new Response(0,"Data sucess", data));
     }
 }
 
-// tao nguon xe
-exports.PostCreateNguonXe = async (req,res) => {
+// tao 
+exports.PostCreateChuyenngoai = async (req,res) => {
     console.log(req);
-    let checknx = await checknguonxe(req.body.datacd);
     if(checknx == true) {
         res.status(200).send(new Response(1001,"Nguồn xe tồn tại !", null));
     } else {
-        let newNguonxe = new Nguonxe({
-            datacd: req.body.datacd,
-            datanm: req.body.datanm,
-            datarnm: req.body.datarnm,
+        let newChuyenngoai = new Chuyenngoai({
+            ngaydi: req.body.ngaydi,
+            ngayve: req.body.ngayve,
+            nguonxe: req.body.nguonxe, // id nguon xe
+            biensoxe: req.body.datarnm,
+            tentaixe: req.body.tentaixe,
+            sodienthoai: req.body.sodienthoai,
+            changduong: req.body.changduong,
             status01: 0,
             status02: 0,
             status03: 0,
             status04: 0,
-            status05: 0
+            status05: 0,
+            ghichu: req.body.ghichu
         });
-        newNguonxe.save(async function(e){
+        newChuyenngoai.save(async function(e){
             if(e){
                 res.status(200).send(new Response(1001,"Lỗi khi khởi tạo Xe !", null));
             }else {
-                res.status(200).send(new Response(0,"Create Sucess !", newNguonxe));
+                res.status(200).send(new Response(0,"Create Sucess !", newChuyenngoai));
             }
         })
     }
     
 }
 
-// update nguon xe
-exports.PostUpdateNguonXe = async (req,res) => {
+// update 
+exports.PostUpdateChuyenngoai = async (req,res) => {
     console.log(req);
-    Nguonxe.updateOne({_id: req.body.id},{$set: {datacd: req.body.datacd, datanm: req.body.datanm, datarnm: req.body.datarnm}})
+    Chuyenngoai.updateOne({_id: req.body.id},{$set: {nguonxe: req.body.nguonxe, biensoxe: req.body.biensoxe, tentaixe: req.body.tentaixe, sodienthoai: req.body.sodienthoai, changduong: req.body.changduong}})
     .then(data => {
         console.log(data.modifiedCount + " Update Xe success " + req.body.id);
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
@@ -59,9 +63,9 @@ exports.PostUpdateNguonXe = async (req,res) => {
 }
 
 // update status
-exports.PostUpdateStatusNguonXe = async (req,res) => {
+exports.PostUpdateStatusChuyenngoai = async (req,res) => {
     console.log(req);
-    Nguonxe.updateOne({_id: req.body.id},{$set: {status01: req.body.status01, status02: req.body.status02, status03: req.body.status03, status04: req.body.status04, status05: req.body.status05}})
+    Chuyenngoai.updateOne({_id: req.body.id},{$set: {status01: req.body.status01, status02: req.body.status02, status03: req.body.status03, status04: req.body.status04, status05: req.body.status05}})
     .then(data => {
         console.log(data.modifiedCount + " Update Xe success " + req.body.id);
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
@@ -70,27 +74,17 @@ exports.PostUpdateStatusNguonXe = async (req,res) => {
     })
 }
 
-// delete nguon xe
-exports.PostDeleteNguonXe = async (req,res) => {
+// delete 
+exports.PostDeleteChuyenngoai = async (req,res) => {
     console.log(req);
 }
 
-// delete all nguon xe
-exports.PostDeleteAllNguonXe = async (req,res) => {
+// delete all 
+exports.PostDeleteAllChuyenngoai = async (req,res) => {
     console.log(req);
 }
 
 // get detail 
 exports.PostGetDetail = async (req,res) => {
     console.log(req);
-}
-
-// check nguon xe
-async function  checknguonxe(datacd) {
-    let nxe = await Nguonxe.findOne({datacd: datacd});
-    if(nxe) {
-        return true;
-    } else {
-        return false;
-    }
 }

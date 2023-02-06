@@ -1,4 +1,3 @@
-const { string, number } = require("joi");
 
 module.exports = mongoose => {
     let schema = mongoose.Schema(

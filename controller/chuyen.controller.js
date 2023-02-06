@@ -163,7 +163,7 @@ exports.deleteChuyen = async (req,res) => {
         commonfun.UpdateTrangthaiXe(c.biensoxe,false);
         res.status(200).send(new Response(0,"delete sucess !", data));
     },err=>{
-        res.status(500).send(new Response(1001,"Lỗi xóa phòng ban !", null));
+        res.status(200).send(new Response(1001,"Lỗi xóa phòng ban !", null));
     })
 }
 

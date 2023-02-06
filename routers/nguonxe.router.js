@@ -7,6 +7,7 @@ module.exports = app => {
     route.post('/nguonxeAnt100getDetail', verifyToken, Nguonxe.PostGetDetail);
     route.post('/nguonxeAnt100Create',verifyToken,Nguonxe.PostCreateNguonXe);
     route.post('/nguonxeAnt100Update',verifyToken,Nguonxe.PostUpdateNguonXe);
+    route.post('/nguonxeAnt100UpdateStatus',verifyToken,Nguonxe.PostUpdateStatusNguonXe);
     route.post('/nguonxeAnt100Delete',verifyToken,Nguonxe.PostDeleteNguonXe);
     route.post('/nguonxeAnt100DeleteAll',verifyToken,Nguonxe.PostDeleteAllNguonXe);
 
