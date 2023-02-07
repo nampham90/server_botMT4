@@ -3,7 +3,6 @@ let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const axios = require("axios");
-const noUnusedPropTypes = require("eslint-plugin-react/lib/rules/no-unused-prop-types");
 const Nhatkykh = db.nhatkykh;
 const User = db.user;
 
