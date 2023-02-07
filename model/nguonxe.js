@@ -2,9 +2,13 @@
 module.exports = mongoose => {
     let schema = mongoose.Schema(
       {
-        datacd:  {type:String, unique:true},
+        datacd:  {type:String, unique:true},// mã nguôn xe
         datanm: String,
         datarnm: String,
+        sodienthoai: String,
+        diachi: String,
+        thongtinthanhtoan1: String,
+        thongtinthanhtoan2: String,
         status01: Number,// status01 = 0; nguồn nhà =1 nguồn từ bên ngoài
         status02: Number,
         status03: Number,

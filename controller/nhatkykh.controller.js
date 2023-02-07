@@ -5,6 +5,7 @@ let commonfun = require('../common/functionCommon');
 const axios = require("axios");
 const Nhatkykh = db.nhatkykh;
 const User = db.user;
+const Const = require('../common/const');
 
 exports.getLists = async (req,res) => {
     console.log({userId:req.userID})
@@ -44,12 +45,16 @@ exports.tatToan = async (req,res) => {
     console.log(req.body);
     let iduser = req.body.iduser;
     let sotientra = req.body.sotientra;
-   // await commonfun.ghiNhatkyTatToan(iduser,sotientra);
-    //await commonfun.ghiNhatkyhethong(nth,"Tất toán nợ cho id " + iduser, "nhatkykh");
+    await commonfun.ghiNhatkyTatToan(iduser,sotientra);
+    await commonfun.ghiNhatkyhethong(nth,"Tất toán nợ cho id " + iduser, "nhatkykh");
     let u = await User.findOne({_id: iduser});
     if(u) {
         console.log(u);
+<<<<<<< HEAD
         let content = "" + u.name + ". Đã thanh toán số tiền: " + sotientra;
+=======
+        let content = "Đơn Trả" + "\n" + u.name + " Đã thanh toán số tiền: " + sotientra;
+>>>>>>> 6524107b2bc929ad2fd2ad002b2b6bed825ce904
         commonfun.fnSendMessageTelegram(u.groupid, content, axios);
     }
 
@@ -57,7 +62,6 @@ exports.tatToan = async (req,res) => {
 }
 
 exports.thanhtoanmotphan = async (req,res) => {
-    console.log(req.body);
     let iduser = req.body.iduser;
     let listidpn = req.body.listidpn;
     let i = 0;
@@ -74,7 +78,11 @@ exports.thanhtoanmotphan = async (req,res) => {
     if (i > 0) {
         // tong no con lai
         let noconlai = await commonfun.tongno(iduser);
+<<<<<<< HEAD
         let content = "\xF0\x9F\x8C\x95 " + u.name + ". Đã thanh toán " + i + " Đơn hàng. Số tiền là: " + total + ". Nợ còn lại: " + noconlai;
+=======
+        let content = "Đơn Trả" + "\n" + u.name + ". Đã thanh toán " + i + " Đơn hàng. Số tiền là: " + total + "\nNợ còn lại: " + noconlai;
+>>>>>>> 6524107b2bc929ad2fd2ad002b2b6bed825ce904
         commonfun.fnSendMessageTelegram(u.groupid, content, axios);
         res.status(200).send(new Response(0, "data sucess", 1));
     } else {
@@ -88,9 +96,15 @@ exports.thanhtoan = async (req,res) => {
     let u = await User.findOne({_id: iduser});
     let update = await Nhatkykh.updateOne({iduser:iduser,idphieunhaphang:idphieunhaphang},{$set: {chukyno:1, ghichu: "Đã thanh toán"}});
     if(update.modifiedCount == 1) {
+<<<<<<< HEAD
         let pn = await Nhatkykh.findOne({iduser:iduser, idphieunhaphang: element});
         let noconlai = await commonfun.tongno(iduser);
         let content = "\xF0\x9F\x8C\x95 " + u.name + ". Đã thanh toán số tiền: " + pn.sotien + ". Nợ còn lài: " + noconlai;
+=======
+        let pn = await Nhatkykh.findOne({iduser:iduser, idphieunhaphang: idphieunhaphang});
+        let noconlai = await commonfun.tongno(iduser);
+        let content = "Đơn Trả" + "\n" + u.name  + ". Đã thanh toán số tiền: " + pn.sotien + "\nNợ còn lài: " + noconlai;
+>>>>>>> 6524107b2bc929ad2fd2ad002b2b6bed825ce904
         commonfun.fnSendMessageTelegram(u.groupid, content, axios);
         res.status(200).send(new Response(0,"data sucess",1));
     } else {

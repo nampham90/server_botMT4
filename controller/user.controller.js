@@ -147,7 +147,7 @@ exports.register =  async(req,res)=>{
 
 // login 
 exports.login =  async (req,res) => {
-    if (req.body.MODE && req.body.MODE == 'mobile') {
+    if (req.body.mode && req.body.mode == 'mobile') {
        await this.loginMobile(req,res);
        return;
     }
@@ -156,6 +156,11 @@ exports.login =  async (req,res) => {
         let response = new Response(1010,'Email chưa đăng ký !',null);
         return res.status(200).send(response);
     } 
+    if(Const.idTaixe == user.phongban_id) {
+        let response = new Response(1010,'Vui lòng chọn Đăng nhập Tài Xế !',null);
+        return res.status(200).send(response);
+    }
+
     const checkPassword = await bcrypt.compare(req.body.password, user.password);
     if (!checkPassword){
         let response = new Response(1010,'Password không đúng !',null);
@@ -225,9 +230,8 @@ exports.loginMobile = async (req, res) => {
         return res.status(200).send(response);
     } 
     let arraycode = "1,2,3";
-    const token = await jwt.sign({userId: user._id, rol: arraycode, username: user.name, email: user.email , sodienthoai: user.dienthoai}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
+    const token = await jwt.sign({userId: user._id, rol: arraycode, username: user.name, email: user.email, idPhongban: user.phongban_id}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
     return res.status(200).send(new Response(0,'Login Tài xế successfully !',token));
-    
 }
 
 exports.getRoles = async(req, res) => {
