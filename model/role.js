@@ -1,4 +1,5 @@
 module.exports = mongoose => {
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         rolename: {
@@ -28,6 +29,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const role = mongoose.model("role", schema);
+    const role = dbcon.dbDemo.model("role", schema);
     return role;
 };

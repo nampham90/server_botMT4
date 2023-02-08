@@ -1,4 +1,5 @@
 module.exports = mongoose => {
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         ticket: {type:String, unique:true},
@@ -22,6 +23,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const lenhcho = mongoose.model("lenhcho", schema);
+    const lenhcho = dbcon.dbDemo.model("lenhcho", schema);
     return lenhcho;
 };

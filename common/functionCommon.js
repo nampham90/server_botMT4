@@ -11,6 +11,7 @@ const Pnh = db.phieunhaphang;
 const Cpc = db.chiphichuyenxe;
 const Nkht = db.nhatkyhethong;
 const Chuyen = db.chuyen;
+const Message = db.message;
 
 let DataResponse = Responses.DataResponse;
 

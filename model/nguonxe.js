@@ -1,5 +1,6 @@
 
 module.exports = mongoose => {
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         datacd:  {type:String, unique:true},// mã nguôn xe
@@ -24,6 +25,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const nguonxe = mongoose.model("nguonxe", schema);
+    const nguonxe = dbcon.dbDemo.model("nguonxe", schema);
     return nguonxe;
 };

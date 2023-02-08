@@ -1,5 +1,6 @@
 
 module.exports = mongoose => {
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         ngaydi: Date,
@@ -28,6 +29,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const chuyenngoai = mongoose.model("chuyenngoai", schema);
+    const chuyenngoai = dbcon.dbDemo.model("chuyenngoai", schema);
     return chuyenngoai;
 };
