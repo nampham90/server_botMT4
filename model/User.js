@@ -1,6 +1,7 @@
 const { string } = require("joi");
 
 module.exports = mongoose => {
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         name: {
@@ -54,7 +55,7 @@ module.exports = mongoose => {
       return object;
     });
   
-    const user = mongoose.model("user", schema);
+    const user = dbcon.dbDemo.model("user", schema);
     
     return user;
 };

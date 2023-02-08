@@ -1,13 +1,9 @@
-const dbconfig = require("../config/config");
-
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 //mongoose.set('useFindAndModify', false);
 
 const db = {};
 
-db.mongoose = mongoose;
-db.url = dbconfig.url;
 db.orders = require("./order")(mongoose);
 db.account = require("./account")(mongoose);
 db.user = require("./User")(mongoose);
@@ -26,5 +22,6 @@ db.nhatkyhethong = require("./nhatkyhethong")(mongoose);
 db.nguonxe = require("./nguonxe")(mongoose);
 db.chuyenngoai = require("./chuyenngoai")(mongoose);
 db.pnhchuyenngoai = require("./pnhchuyenngoai")(mongoose);
+db.message = require("./message")(mongoose);
 
 module.exports = db;

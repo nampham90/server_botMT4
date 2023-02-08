@@ -1,10 +1,9 @@
-
 module.exports = mongoose => {
-    const dbcon = require("../common/DBConnect");
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
-        tenkho: String,
-        diachikho: String,
+        idmsg: {type:String, unique:true},
+        strmsg: String,
         status01: Number,
         status02: Number,
         status03: Number,
@@ -20,6 +19,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const kho = dbcon.dbKhochung.model("kho", schema);
-    return kho;
+    const message = dbcon.dbDemo.model("message", schema);
+    return message;
 };

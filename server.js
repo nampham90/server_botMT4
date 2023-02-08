@@ -4,6 +4,7 @@ const path = require('path');
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const dbCon = require('./common/DBConnect');
 var _ = require('lodash');
 const bcrypt = require('bcryptjs');
 const cors = require('cors')
@@ -12,18 +13,19 @@ app.use(cors());
 dotenv.config();
 //connect database------------------------------
 const db = require("./model");
-db.mongoose
-  .connect(db.url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => {
-    console.log("Connected to the database 1!");
-  })
-  .catch(err => {
-    console.log("Cannot connect to the database!", err);
-    process.exit();
-  });
+// db.mongoose
+//   .connect(db.url, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   })
+//   .then(() => {
+//     console.log("Connected to the database !");
+//   })
+//   .catch(err => {
+//     console.log("Cannot connect to the database!", err);
+//     process.exit();
+//   });
+//connect database kho chung------------------------------
 
 const Role = db.role;
 const Menu = db.menu;

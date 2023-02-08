@@ -1,5 +1,6 @@
 
 module.exports = mongoose => {
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         iduser: {
@@ -19,6 +20,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const nhatkykh= mongoose.model("nhatkyhethong", schema);
+    const nhatkykh= dbcon.dbDemo.model("nhatkyhethong", schema);
     return nhatkykh;
 };

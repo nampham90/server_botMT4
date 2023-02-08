@@ -1,4 +1,5 @@
 module.exports = mongoose => {
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         id: Number | String,
@@ -23,6 +24,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const menu = mongoose.model("menu", schema);
+    const menu = dbcon.dbDemo.model("menu", schema);
     return menu;
 };
