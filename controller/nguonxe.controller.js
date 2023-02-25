@@ -76,7 +76,13 @@ exports.PostUpdateStatusNguonXe = async (req,res) => {
 
 // delete nguon xe
 exports.PostDeleteNguonXe = async (req,res) => {
-    console.log(req);
+    let id = req.body.id;
+    Nguonxe.deleteOne({_id:id})
+    .then(data => {
+        res.status(200).send(new Response(0,"delete sucess !", data));
+    },err=>{
+        res.status(200).send(new Response(1001,"Lỗi xóa nguồn xe !", null));
+    })
 }
 
 // delete all nguon xe
@@ -86,7 +92,14 @@ exports.PostDeleteAllNguonXe = async (req,res) => {
 
 // get detail 
 exports.PostGetDetail = async (req,res) => {
-    console.log(req);
+    let id = req.body.id;
+    let nx = await Nguonxe.findOne({_id: id});
+    if (nx) {
+        return res.status(200).send(new Response(0,"Data sucess ", nx));
+    } else {
+        return res.status(200).send(new Response(1001,"Data null ", null));
+    }
+    
 }
 
 // check nguon xe
