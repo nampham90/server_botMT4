@@ -20,7 +20,6 @@ exports.PostAllNguonXe = async (req,res) => {
 
 // tao nguon xe
 exports.PostCreateNguonXe = async (req,res) => {
-    console.log(req);
     let checknx = await checknguonxe(req.body.datacd);
     if(checknx == true) {
         res.status(200).send(new Response(1001,"Nguồn xe tồn tại !", null));
@@ -52,7 +51,6 @@ exports.PostCreateNguonXe = async (req,res) => {
 
 // update nguon xe
 exports.PostUpdateNguonXe = async (req,res) => {
-    console.log(req);
     Nguonxe.updateOne({_id: req.body.id},{$set: {datacd: req.body.datacd, datanm: req.body.datanm, datarnm: req.body.datarnm, sodienthoai: req.body.sodienthoai, diachi: req.body.diachi, thongtinthanhtoan1: req.body.thongtinthanhtoan1, thongtinthanhtoan2: req.body.thongtinthanhtoan2}})
     .then(data => {
         console.log(data.modifiedCount + " Update Xe success " + req.body.id);
@@ -64,7 +62,6 @@ exports.PostUpdateNguonXe = async (req,res) => {
 
 // update status
 exports.PostUpdateStatusNguonXe = async (req,res) => {
-    console.log(req);
     Nguonxe.updateOne({_id: req.body.id},{$set: {status01: req.body.status01, status02: req.body.status02, status03: req.body.status03, status04: req.body.status04, status05: req.body.status05}})
     .then(data => {
         console.log(data.modifiedCount + " Update Xe success " + req.body.id);
