@@ -5,7 +5,13 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 var port = normalizePort(process.env.PORT || '3000');
-app.listen(port, ()=>{console.log("server open post:"+ port)});
+var server = require("http").Server(app);
+var io = require('socket.io')(server);
+server.listen(port, ()=>{console.log("server open post:"+ port)});
+
+io.on("connection", function(socket){
+    console.log("Co nguoi ket noi");
+})
 //app.set('port', port);
 
 //var server = http.createServer(app);

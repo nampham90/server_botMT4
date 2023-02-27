@@ -28,6 +28,7 @@
     "lodash.dropwhile": "^4.6.0",
     "mongoose": "^6.5.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "socket.io": "^4.6.1"
   }
 }
