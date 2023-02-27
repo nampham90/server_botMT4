@@ -3,16 +3,21 @@ module.exports = mongoose => {
   const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
-        ngaydi: Date,
-        ngayve:Date,
-        nguonxe: [{
+        ngaynhap: Date,
+        ngayvanchuyen: Date,  // ngày vận chuyển
+        ngaydukiengiaohang: Date,// ngày dự kiến giao hàng
+        nguonxe: {
             type: mongoose.Schema.Types.ObjectId,
             ref:"nguonxe"
-          }],
+          },
         biensoxe: String, // biển số xe ngoài
+        sdtnguonxe: String, // so dien thoai nguon xe
         tentaixe: String, // tài xế
         sodienthoai: String,// điện thoại tài xế
-        changduong: String, // điểm khởi hành và điểm kết thúc
+        listdetail: [{
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"chitietchuyenngoai"
+        }],
         status01: Number, // 0. chuyến đang hoat động. 1. chuyến đã kết thúc
         status02: Number, 
         status03: Number, 

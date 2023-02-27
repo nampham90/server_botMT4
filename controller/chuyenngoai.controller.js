@@ -20,8 +20,7 @@ exports.PostAllChuyenngoai = async (req,res) => {
 
 // tao 
 exports.PostCreateChuyenngoai = async (req,res) => {
-    console.log(req);
-    if(checknx == true) {
+    if(checknx === true) {
         res.status(200).send(new Response(1001,"Nguồn xe tồn tại !", null));
     } else {
         let newChuyenngoai = new Chuyenngoai({
@@ -52,7 +51,6 @@ exports.PostCreateChuyenngoai = async (req,res) => {
 
 // update 
 exports.PostUpdateChuyenngoai = async (req,res) => {
-    console.log(req);
     Chuyenngoai.updateOne({_id: req.body.id},{$set: {nguonxe: req.body.nguonxe, biensoxe: req.body.biensoxe, tentaixe: req.body.tentaixe, sodienthoai: req.body.sodienthoai, changduong: req.body.changduong}})
     .then(data => {
         console.log(data.modifiedCount + " Update Xe success " + req.body.id);
@@ -64,7 +62,6 @@ exports.PostUpdateChuyenngoai = async (req,res) => {
 
 // update status
 exports.PostUpdateStatusChuyenngoai = async (req,res) => {
-    console.log(req);
     Chuyenngoai.updateOne({_id: req.body.id},{$set: {status01: req.body.status01, status02: req.body.status02, status03: req.body.status03, status04: req.body.status04, status05: req.body.status05}})
     .then(data => {
         console.log(data.modifiedCount + " Update Xe success " + req.body.id);

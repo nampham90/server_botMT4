@@ -16,7 +16,7 @@ exports.addPhongban = async (req,res) => {
     })
     newPhongban.save(async function(e){
         if(e) {
-           res.status(500).send(new Response(1001,"Lỗi chèn phòng ban !", null));
+           res.status(200).send(new Response(1001,"Lỗi chèn phòng ban !", null));
         }else {
            res.status(200).send(new Response(0,"add sucess !", newPhongban));
         }
@@ -34,7 +34,7 @@ exports.editPhongban = async (req,res) => {
             res.status(400).send(new Response(0,"no update !", data));
          }
     },err=>{
-        res.status(500).send(new Response(1001,"Lỗi sữa phòng ban !", null));
+        res.status(200).send(new Response(1001,"Lỗi sữa phòng ban !", null));
     })
     
 }
@@ -56,7 +56,7 @@ exports.getIdPhongban = async (req,res) => {
     .then(data=>{
         res.status(200).send(new Response(0,"data sucess !", data));
     },err=>{
-        res.status(500).send(new Response(1001,"not id data phòng ban !", null));
+        res.status(200).send(new Response(1001,"not id data phòng ban !", null));
     })
 }
 
@@ -69,6 +69,6 @@ exports.getAllPhongban = async (req,res) => {
       let commonfun = common.dataReponse(lst,lst,pageNum,pageSize);
       res.status(200).send(new Response(0,"data sucess !", commonfun));
    } else {
-      res.status(500).send(new Response(1001,"not all data phòng ban !", null));
+      res.status(200).send(new Response(1001,"not all data phòng ban !", null));
    }
 }
