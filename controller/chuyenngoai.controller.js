@@ -24,16 +24,18 @@ exports.PostCreateChuyenngoai = async (req,res) => {
         res.status(200).send(new Response(1001,"Nguồn xe tồn tại !", null));
     } else {
         let newChuyenngoai = new Chuyenngoai({
-            ngaydi: req.body.ngaydi,
-            ngayve: req.body.ngayve,
+            ngaynhap: req.body.ngaynhap,
+            ngayvanchuyen: req.body.ngayvanchuyen,
+            ngaydukiengiaohang: req.body.ngaydukiengiaohang,
             nguonxe: req.body.nguonxe, // id nguon xe
             biensoxe: req.body.datarnm,
+            sdtnguonxe: req.body.sdtnguonxe,
             tentaixe: req.body.tentaixe,
             sodienthoai: req.body.sodienthoai,
-            changduong: req.body.changduong,
+            listdetail: req.body.listdetail,
             status01: 0,
             status02: 0,
-            status03: 0,
+            status03: 0,// kiêm tra thu hôi hóa đơn. =0 chưa nhận hóa đơn. =1 đã nhân hóa đơn trả
             status04: 0,
             status05: 0,
             ghichu: req.body.ghichu

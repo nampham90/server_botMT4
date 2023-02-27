@@ -19,8 +19,8 @@ module.exports = mongoose => {
           sdtnguoinhan: String,
           diachinguoinhan: String,
 
-          status01: Number, // 
-          status02: Number, 
+          status01: Number, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
+          status02: Number, // trang thai xuất. =0 không cần lấy hóa đơn. =1 cân lấy hóa đơn
           status03: Number, 
           status04: Number,
           status05: Number,
