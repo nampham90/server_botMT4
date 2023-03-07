@@ -12,8 +12,8 @@ module.exports = mongoose => {
           tiencuoc:Number,
           tiencuocxengoai: Number,
 
-          htttxengoai: Number,
-          htttkhachhang: Number,
+          htttxengoai: String,
+          htttkhachhang: String,
 
           tennguoinhan: String,
           sdtnguoinhan: String,
