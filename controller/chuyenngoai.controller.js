@@ -3,6 +3,7 @@ let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const Chuyenngoai = db.chuyenngoai;
+const Chitietchuyenngoai = db.chitietchuyenngoai;
 
 // list all 
 exports.PostAllChuyenngoai = async (req,res) => {
@@ -20,35 +21,75 @@ exports.PostAllChuyenngoai = async (req,res) => {
 
 // tao 
 exports.PostCreateChuyenngoai = async (req,res) => {
-    if(checknx === true) {
-        res.status(200).send(new Response(1001,"Nguồn xe tồn tại !", null));
-    } else {
-        let newChuyenngoai = new Chuyenngoai({
-            ngaynhap: req.body.ngaynhap,
-            ngayvanchuyen: req.body.ngayvanchuyen,
-            ngaydukiengiaohang: req.body.ngaydukiengiaohang,
-            nguonxe: req.body.nguonxe, // id nguon xe
-            biensoxe: req.body.datarnm,
-            sdtnguonxe: req.body.sdtnguonxe,
-            tentaixe: req.body.tentaixe,
-            sodienthoai: req.body.sodienthoai,
-            listdetail: req.body.listdetail,
-            status01: 0,
-            status02: 0,
-            status03: 0,// kiêm tra thu hôi hóa đơn. =0 chưa nhận hóa đơn. =1 đã nhân hóa đơn trả
-            status04: 0,
-            status05: 0,
-            ghichu: req.body.ghichu
-        });
-        newChuyenngoai.save(async function(e){
-            if(e){
-                res.status(200).send(new Response(1001,"Lỗi khi khởi tạo Xe !", null));
-            }else {
-                res.status(200).send(new Response(0,"Create Sucess !", newChuyenngoai));
-            }
-        })
-    }
+    let spch00251Header = req.body.spch00251Header;
     
+    let lstdetail = req.body.spch00251Listdetail;
+    let reslistdetail  = [];
+
+    let newChuyenngoai = new Chuyenngoai({
+        ngaynhap: spch00251Header.ngaynhap,
+        ngayvanchuyen: spch00251Header.ngayvanchuyen,
+        ngaydukiengiaohang: spch00251Header.ngaydukiengiaohang,
+        nguonxe: spch00251Header.nguonxe, // id nguon xe
+        biensoxe: spch00251Header.biensoxe,
+        sdtnguonxe: spch00251Header.sdtnguonxe,
+        tentaixe: spch00251Header.tentaixe,
+        sodienthoai: spch00251Header.sodienthoai,
+        listdetail: [],
+        status01: 0,
+        status02: 0,
+        status03: 0,// kiêm tra thu hôi hóa đơn. =0 chưa nhận hóa đơn. =1 đã nhân hóa đơn trả
+        status04: 0,
+        status05: 0,
+        ghichu: spch00251Header.ghichu
+    });
+
+    newChuyenngoai.save(async function(e){
+        if (e) {
+            res.status(200).send(new Response(1001,"Lỗi khi khởi tạo chuyên ngoài !", null));
+        } else {
+           
+            // insert detail vao table chi tiêt chuyến ngoài
+            let stt = 1;
+            for(let element of lstdetail) {
+                let newDetail = new Chitietchuyenngoai({
+                      idchuyenngoai: newChuyenngoai._id,
+                      thongtindonhang: element.thongtindonhang,
+                      diadiembochang: element.diadiembochang,  // 
+                      tiencuoc:element.tiencuoc,
+                      tiencuocxengoai: element.tiencuocxengoai,
+            
+                      htttxengoai: element.htttxengoai,
+                      htttkhachhang: element.htttkhachhang,
+            
+                      tennguoinhan: element.tennguoinhan,
+                      sdtnguoinhan: element.sdtnguoinhan,
+                      diachinguoinhan: element.diachinguoinhan,
+            
+                      status01: 0, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
+                      status02: 0, // trang thai xuất. =0 không cần lấy hóa đơn. =1 cân lấy hóa đơn
+                      status03: 0, 
+                      status04: 0,
+                      status05: 0,
+                      ghichu: element.ghichu
+                });
+                await newDetail.save();
+                let detailChuyenngoai = await Chitietchuyenngoai.findOne({_id:newDetail._id});
+                reslistdetail.push(detailChuyenngoai);
+                // update listdetail trong Chuyenngoai
+                await Chuyenngoai.updateOne({_id:newChuyenngoai._id},{$push:{listdetail:detailChuyenngoai._id}});
+            }
+
+            let resData = {
+                resspch00251Header: newChuyenngoai,
+                reslistdetail: reslistdetail
+            }
+
+            console.log(resData);
+
+            res.status(200).send(new Response(0,"Create Sucess !", resData));
+        }
+    }) 
 }
 
 // update 
