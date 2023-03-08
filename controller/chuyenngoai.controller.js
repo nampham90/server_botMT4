@@ -2,8 +2,10 @@ const db = require("../model");
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
+const _ = require('lodash');
 const Chuyenngoai = db.chuyenngoai;
 const Chitietchuyenngoai = db.chitietchuyenngoai;
+const Congnoxengoai = db.congnoxengoai;
 
 // list all 
 exports.PostAllChuyenngoai = async (req,res) => {
@@ -24,6 +26,26 @@ async function CheckIDChuyenngoai(id) {
     let cn = await Chuyenngoai.findOne({_id:id});
     if (cn) return true;
     return false;
+}
+
+// create cong nơ xe ngoai
+async function registerCongNoXeNgoai(nguonxe, iddonhang, biensoxe, tentaixe, sodienthoai, sotienno, ghichu) {
+     let cnxengoai = new Congnoxengoai({
+        nguonxe: nguonxe,
+        iddonhang: iddonhang,
+        ngaynhap : _.now(),
+        biensoxe: biensoxe,
+        tentaixe: tentaixe,
+        sodienthoai: sodienthoai,
+        sotienno: sotienno,
+        status01: 0, // 0. chưa thanh toán. 1. đã thanh toán
+        status02: 0, 
+        status03: 0, 
+        status04: 0,
+        status05: 0,
+        ghichu: ghichu
+     });
+     await cnxengoai.save();
 }
 
 // tao 
@@ -143,6 +165,17 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                           ghichu: element.ghichu
                     });
                     await newDetail.save();
+                    // đang ký công no xe ngoài
+                    if(element.htttxengoai == "2") {
+                        registerCongNoXeNgoai(
+                            spch00251Header.nguonxe,
+                            newDetail._id,
+                            spch00251Header.biensoxe,
+                            spch00251Header.tentaixe,
+                            spch00251Header.sodienthoai,
+                            element.tiencuocxengoai,
+                            "NO");
+                    }
                     let detailChuyenngoai = await Chitietchuyenngoai.findOne({_id:newDetail._id});
                     reslistdetail.push(detailChuyenngoai);
                     // update listdetail trong Chuyenngoai

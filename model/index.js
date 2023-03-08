@@ -22,6 +22,7 @@ db.nhatkyhethong = require("./nhatkyhethong")(mongoose);
 db.nguonxe = require("./nguonxe")(mongoose);
 db.chuyenngoai = require("./chuyenngoai")(mongoose);
 db.chitietchuyenngoai = require("./chitietchuyenngoai")(mongoose);
+db.congnoxengoai = require("./congnoxengoai")(mongoose);
 db.pnhchuyenngoai = require("./pnhchuyenngoai")(mongoose);
 db.message = require("./message")(mongoose);
 
