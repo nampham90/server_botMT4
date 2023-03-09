@@ -11,12 +11,14 @@ const Nhatkykh = db.nhatkykh;
 // list all 
 exports.PostAllChuyenngoai = async (req,res) => {
     if(req.body.pageSize == 0 && req.body.pageNum == 0) {
-        let alldata = await Chuyenngoai.find({});
+        let alldata = await Chuyenngoai.find({})
+        .populate('nguonxe');
         return res.status(200).send(new Response(0,"Data sucess", alldata));
     } else {
         let n = req.body.pageNum - 1;
         let alldata = await Chuyenngoai.find(req.body.filters);
-        let lst = await Chuyenngoai.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n);
+        let lst = await Chuyenngoai.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n)
+        .populate('nguonxe');;
         let data = commonfun.dataReponse(alldata,lst,req.body.pageNum,req.body.pageSize);
         return res.status(200).send(new Response(0,"Data sucess", data));
     }
