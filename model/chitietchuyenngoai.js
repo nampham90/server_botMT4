@@ -17,6 +17,10 @@ module.exports = mongoose => {
           tiencuocxengoai: Number,
 
           htttxengoai: String,
+          idkhachhang: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:"user"
+          },
           htttkhachhang: String,
 
           tennguoinhan: String,

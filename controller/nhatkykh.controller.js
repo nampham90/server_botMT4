@@ -8,7 +8,6 @@ const User = db.user;
 const Const = require('../common/const');
 
 exports.getLists = async (req,res) => {
-    console.log({userId:req.userID})
     let gt = "01/01/1970";
     let lt = "01/01/2100";
     if(req.body.filters.ngaybatdau) {
@@ -22,16 +21,12 @@ exports.getLists = async (req,res) => {
     sreach.trangthai = req.body.filters.trangthai;
     sreach.iduser = req.body.filters.iduser;
     sreach.ghichu = req.body.filters.ghichu;
-    console.log(sreach);
     let allData = await Nhatkykh.find(sreach).sort( { "ngay": -1 } )
     .populate('idphieunhaphang')
     if(req.body.pageNum == 0 && req.body.pageSize == 0) {
         res.status(200).send(new Response(0,"data sucess",allData));
     } else {
-        let n = 0
-        if(req.body.pageNum == 1) {
-            n = req.body.pageNum - 1;
-        }
+        let n = req.body.pageNum - 1;
         let lst = await Nhatkykh.find(sreach).sort( { "ngay": -1 } )
         .limit(req.body.pageSize).skip(req.body.pageSize*n)
         .populate('idphieunhaphang');
@@ -64,12 +59,21 @@ exports.thanhtoanmotphan = async (req,res) => {
     let total = 0;
     let u = await User.findOne({_id: iduser});
     for (let element of listidpn) {
-       let n =  await Nhatkykh.updateOne({iduser:iduser, idphieunhaphang: element},{$set: {chukyno:1, ghichu: "Đã thanh toán"}});
-       if(n.modifiedCount == 1) {
-           i++
-           let pn = await Nhatkykh.findOne({iduser:iduser, idphieunhaphang: element});
-           total = total + pn.sotien;
-       }
+        if(element.length == 24) {
+            let n =  await Nhatkykh.updateOne({iduser:iduser, idphieunhaphang: element},{$set: {chukyno:1, ghichu: "Đã thanh toán"}});
+            if(n.modifiedCount == 1) {
+                i++
+                let pn = await Nhatkykh.findOne({iduser:iduser, idphieunhaphang: element});
+                total = total + pn.sotien;
+            }
+        } else {
+            let n =  await Nhatkykh.updateOne({iduser:iduser, status01: { $regex: new RegExp(element, 'i') }},{$set: {chukyno:1, ghichu: "Đã thanh toán"}});
+            if(n.modifiedCount == 1) {
+                i++
+                let pn = await Nhatkykh.findOne({iduser:iduser, status01: { $regex: new RegExp(element, 'i') }});
+                total = total + pn.sotien;
+            }
+        }
     }
     if (i > 0) {
         // tong no con lai
@@ -86,15 +90,29 @@ exports.thanhtoan = async (req,res) => {
     let iduser = req.body.iduser;
     let idphieunhaphang = req.body.idphieunhaphang;
     let u = await User.findOne({_id: iduser});
-    let update = await Nhatkykh.updateOne({iduser:iduser,idphieunhaphang:idphieunhaphang},{$set: {chukyno:1, ghichu: "Đã thanh toán"}});
-    if(update.modifiedCount == 1) {
-        let pn = await Nhatkykh.findOne({iduser:iduser, idphieunhaphang: idphieunhaphang});
-        let noconlai = await commonfun.tongno(iduser);
-        let content = "Đơn Trả" + "\n" + u.name  + ". Đã thanh toán số tiền: " + pn.sotien + "\nNợ còn lài: " + noconlai;
-
-        commonfun.fnSendMessageTelegram(u.groupid, content, axios);
-        res.status(200).send(new Response(0,"data sucess",1));
+    if(req.body.status01) {
+        let update = await Nhatkykh.updateOne({iduser:iduser, status01: { $regex: new RegExp(req.body.status01, 'i') }},{$set: {chukyno:1, ghichu: "Đã thanh toán"}});
+        if(update.modifiedCount == 1) {
+            let pn = await Nhatkykh.findOne({iduser:iduser, status01: { $regex: new RegExp(req.body.status01, 'i') }});
+            let noconlai = await commonfun.tongno(iduser);
+            let content = "Đơn Trả" + "\n" + u.name  + ". Đã thanh toán số tiền: " + pn.sotien + "\nNợ còn lài: " + noconlai;
+            console.log(content);
+            commonfun.fnSendMessageTelegram(u.groupid, content, axios);
+            res.status(200).send(new Response(0,"data sucess",1));
+        } else {
+            res.status(200).send(new Response(1001,"update fail",null));
+        }
     } else {
-        res.status(200).send(new Response(1001,"update fail",null));
+        let update = await Nhatkykh.updateOne({iduser:iduser,idphieunhaphang:idphieunhaphang},{$set: {chukyno:1, ghichu: "Đã thanh toán"}});
+        if(update.modifiedCount == 1) {
+            let pn = await Nhatkykh.findOne({iduser:iduser, idphieunhaphang: idphieunhaphang});
+            let noconlai = await commonfun.tongno(iduser);
+            let content = "Đơn Trả" + "\n" + u.name  + ". Đã thanh toán số tiền: " + pn.sotien + "\nNợ còn lài: " + noconlai;
+    
+            commonfun.fnSendMessageTelegram(u.groupid, content, axios);
+            res.status(200).send(new Response(0,"data sucess",1));
+        } else {
+            res.status(200).send(new Response(1001,"update fail",null));
+        }
     }
 }

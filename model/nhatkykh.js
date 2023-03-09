@@ -20,7 +20,12 @@ module.exports = mongoose => {
         hinhthucthanhtoan: Number, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: Date, // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: String, // ghi chu cần thiết. để đối chiếu với khách hàng
-        chukyno: Number // 0 chu kỳ mới, 1 đã tất toán . trả ghì có trường này. khi tất toan update chu ky nợ = 1 . gi chú tất toán
+        chukyno: Number, // 0 chu kỳ mới, 1 đã tất toán . trả ghì có trường này. khi tất toan update chu ky nợ = 1 . gi chú tất toán
+        status01: String,
+        status02: String,
+        status03: String,
+        status04: String,
+        status05: String
       },
       { timestamps: true }
     );

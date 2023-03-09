@@ -7,8 +7,9 @@ module.exports = mongoose => {
               ref:"nguonxe"
           },
           iddonhang: {
-            type: mongoose.Schema.Types.ObjectId,
-              ref:"chitietchuyenngoai"
+              type: mongoose.Schema.Types.ObjectId,
+              ref:"chitietchuyenngoai",
+              unique:true
           },
           ngaynhap: Date,
           biensoxe: String, // biển số xe ngoài

@@ -78,7 +78,6 @@ exports.getDetailUser = async(req,res) => {
 }
 
 exports.editDetailUser =async (req,res) => {
-    console.log(req.body);
     User.updateOne(
     {_id: req.body.id},
     {

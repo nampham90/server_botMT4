@@ -220,7 +220,7 @@ exports.getDateparam = (param) => {
 }
 
 // ghi nhật ký khách hàng
-exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu) => {
+exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu,status01) => {
     let newNk = new Nhatkykh({
         iduser: idUser, // mã khách hàng
         trangthai: 0, // 0 nợ, 1 trả
@@ -230,7 +230,12 @@ exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu) => {
         chukyno: 0,
         hinhthucthanhtoan: null, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
-        ghichu: ghichu // ghi chu cần thiết. để đối chiếu với khách hàng
+        ghichu: ghichu, // ghi chu cần thiết. để đối chiếu với khách hàng
+        status01: status01,
+        status02: "",
+        status03: "",
+        status04: "",
+        status05: ""
     });
     newNk.save(async function(e){
         if(e) {
@@ -253,7 +258,12 @@ exports.ghiNhatkyTra = (idUser,idphieunhaphang,hinhthucthanhtoan,sotientra) => {
         hinhthucthanhtoan: hinhthucthanhtoan, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: "tra", // ghi chu cần thiết. để đối chiếu với khách hàng
-        chukyno: 0
+        chukyno: 0,
+        status01: "",
+        status02: "",
+        status03: "",
+        status04: "",
+        status05: ""
     });
     newNk.save(async function(e){
         if(e) {
@@ -276,7 +286,12 @@ exports.ghiNhatkyTatToan = async (idUser,sotientra) => {
         hinhthucthanhtoan: null, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: "Tất toán", // ghi chu cần thiết. để đối chiếu với khách hàng
-        chukyno: 1
+        chukyno: 1,
+        status01: "",
+        status02: "",
+        status03: "",
+        status04: "",
+        status05: ""
     });
     await newNk.save(async function(e){
         if(e) {

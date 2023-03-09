@@ -2,6 +2,7 @@ const db = require("../model");
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
+const _ = require('lodash');
 const Chuyen = db.chuyen;
 const Xe = db.xe;
 const Chiphi = db.chiphichuyenxe;
@@ -176,12 +177,12 @@ exports.updateTrangthai = async (req,res) => {
         let listkn = req.body.listkhachno
         if(listkn != undefined && listkn.length > 0) {
             for(let element of listkn) {
-              await  commonfun.ghiNhatkyNo(element.idkhachhang,id,element.id,element.tiencuoc,"Nợ");
+              await  commonfun.ghiNhatkyNo(element.idkhachhang,id,element.id,element.tiencuoc,"Nợ","");
             }
         } else {
             listkn = await commonfun.getDanhsachkhachnotrongchuyenhang(id);
             for(let element of listkn) {
-               await commonfun.ghiNhatkyNo(element.iduser,id,element._id,element.tiencuoc,"Nợ");
+               await commonfun.ghiNhatkyNo(element.iduser,id,element._id,element.tiencuoc,"Nợ","");
             }
         }
     }
@@ -196,6 +197,7 @@ exports.updateTrangthai = async (req,res) => {
           });
           await cp.save();
        }
+       await Chuyen.updateOne({_id:id}, {$set: {ngayve: _.now()}})
     }
     Chuyen.updateOne({_id:id}, {$set: {trangthai: trangthai}})
     .then(data => {

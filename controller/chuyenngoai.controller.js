@@ -6,6 +6,7 @@ const _ = require('lodash');
 const Chuyenngoai = db.chuyenngoai;
 const Chitietchuyenngoai = db.chitietchuyenngoai;
 const Congnoxengoai = db.congnoxengoai;
+const Nhatkykh = db.nhatkykh;
 
 // list all 
 exports.PostAllChuyenngoai = async (req,res) => {
@@ -83,7 +84,12 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     sdtnguoinhan: element.sdtnguoinhan,
                     diachinguoinhan: element.diachinguoinhan,
                     ghichu: element.ghichu
-                }})
+                }});
+                // update so tien no trong bang congnoxe ngoai
+                await Congnoxengoai.updateOne({iddonhang: element.id},{$set: {sotienno:element.tiencuocxengoai}});
+                // update so tien no trong bang nhatkykh 
+                await Nhatkykh.updateOne({ status01: new RegExp(element.id, 'i') }, {$set: {sotien: element.tiencuoc}})
+
             } else {
                 // create detail
                 let newDetail = new Chitietchuyenngoai({
@@ -94,6 +100,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     tiencuoc:element.tiencuoc,
                     tiencuocxengoai: element.tiencuocxengoai,
                     htttxengoai: element.htttxengoai,
+                    idkhachhang: element.idkhachhang,
                     htttkhachhang: element.htttkhachhang,
                     tennguoinhan: element.tennguoinhan,
                     sdtnguoinhan: element.sdtnguoinhan,
@@ -106,6 +113,22 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     ghichu: element.ghichu
                 });
                 await newDetail.save();
+                // đang ký công no xe ngoài
+                if(element.htttxengoai == "2") {
+                    registerCongNoXeNgoai(
+                        spch00251Header.nguonxe,
+                        newDetail._id,
+                        spch00251Header.biensoxe,
+                        spch00251Header.tentaixe,
+                        spch00251Header.sodienthoai,
+                        element.tiencuocxengoai,
+                        "NO");
+                }
+                // đăng ký công nợ khách hàng
+                if(element.htttkhachhang == "2") {
+                    let gc = newDetail._id + " Xe ngoài vận chuyển. Biên số " + spch00251Header.nguonxe + " Biển số:" + spch00251Header.biensoxe;
+                    await commonfun.ghiNhatkyNo(element.idkhachhang,null,null,element.tiencuoc, "Nợ",gc);
+                }
                 let detailChuyenngoai = await Chitietchuyenngoai.findOne({_id:newDetail._id});
                 await Chuyenngoai.updateOne({_id:spch00251Header.id},{$push:{listdetail:detailChuyenngoai._id}});
             }
@@ -153,6 +176,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                           tiencuoc:element.tiencuoc,
                           tiencuocxengoai: element.tiencuocxengoai,
                           htttxengoai: element.htttxengoai,
+                          idkhachhang: element.idkhachhang,
                           htttkhachhang: element.htttkhachhang,
                           tennguoinhan: element.tennguoinhan,
                           sdtnguoinhan: element.sdtnguoinhan,
@@ -176,6 +200,12 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                             element.tiencuocxengoai,
                             "NO");
                     }
+
+                    // đăng ký công nợ khách hàng
+                    if(element.htttkhachhang == "2") {
+                        let gc = newDetail._id + " Xe ngoài vận chuyển. Mã nguồn xe " + spch00251Header.nguonxe + " Biển số:" + spch00251Header.biensoxe;
+                        await commonfun.ghiNhatkyNo(element.idkhachhang,null,null,element.tiencuoc, "Nợ",gc);
+                    }
                     let detailChuyenngoai = await Chitietchuyenngoai.findOne({_id:newDetail._id});
                     reslistdetail.push(detailChuyenngoai);
                     // update listdetail trong Chuyenngoai
@@ -189,8 +219,6 @@ exports.PostCreateChuyenngoai = async (req,res) => {
             }
         }) 
     }
-    
-    
 }
 
 // update 
