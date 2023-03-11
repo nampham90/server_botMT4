@@ -58,7 +58,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
     let lstdetail = req.body.spch00251Listdetail;
     let mode = req.body.mode;
     let check = await CheckIDChuyenngoai(spch00251Header.id);
-    if (mode == "update" && check == true) {
+    if (mode == "update" && check === true) {
         //1.update header
         await Chuyenngoai.updateOne({_id: spch00251Header.id},{$set: {
             ngaynhap:spch00251Header.ngaynhap,
@@ -70,9 +70,36 @@ exports.PostCreateChuyenngoai = async (req,res) => {
             tentaixe: spch00251Header.tentaixe,
             sodienthoai: spch00251Header.sodienthoai,
         }})
+        // get list san phẩm trong db
+        let lsp = await Chitietchuyenngoai.find({idchuyenngoai: spch00251Header.id});
+        let lstDelete = [];
+        if(lsp.length > lstdetail.length) {
+            for(let element of lsp) {
+                let check = true;
+                for(let e of lstdetail) {
+                    if(element.id == e.id) {
+                        check = false;
+                    }
+                }
+                if(check === true) {
+                    lstDelete.push(element);
+                }
+            }
+            if(lstDelete.length > 0) {
+                // xoa danh sach cap nhat ở bảng chi tiết
+                // update lai list ở chuyen ngoài
+                // new ghi nơ thì xoa nhat ký ghi nợ
+                for(let item of lstDelete) {
+                    await Chitietchuyenngoai.remove({_id: item.id});
+                    await Chuyenngoai.updateOne({_id:spch00251Header.id},{$pull:{listdetail:item.id}});
+                    await Congnoxengoai.remove({iddonhang: item.id});
+                }
+            }
+        }
+
         //2.phân loai them mơi và update. if(id) update row else create
         for(let element of lstdetail) {
-            if (element.id) {
+            if (element.id || element._id) {
                 // update detail
                 await Chitietchuyenngoai.updateOne({_id: element.id},{$set: {
                     idchuyenngoai: spch00251Header.id,
@@ -85,6 +112,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     tennguoinhan: element.tennguoinhan,
                     sdtnguoinhan: element.sdtnguoinhan,
                     diachinguoinhan: element.diachinguoinhan,
+                    status02: element.status02,
                     ghichu: element.ghichu
                 }});
                 // update so tien no trong bang congnoxe ngoai
@@ -108,7 +136,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     sdtnguoinhan: element.sdtnguoinhan,
                     diachinguoinhan: element.diachinguoinhan,
                     status01: 0, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
-                    status02: 0, // trang thai xuất. =0 không cần lấy hóa đơn. =1 cân lấy hóa đơn
+                    status02: element.status02, // 
                     status03: 0, 
                     status04: 0,
                     status05: 0,
@@ -184,7 +212,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                           sdtnguoinhan: element.sdtnguoinhan,
                           diachinguoinhan: element.diachinguoinhan,
                           status01: 0, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
-                          status02: 0, // trang thai xuất. =0 không cần lấy hóa đơn. =1 cân lấy hóa đơn
+                          status02: element.status02, // 
                           status03: 0, 
                           status04: 0,
                           status05: 0,
