@@ -257,5 +257,11 @@ exports.PostDeleteAllChuyenngoai = async (req,res) => {
 
 // get detail 
 exports.PostGetDetail = async (req,res) => {
-    console.log(req);
+    let cn = await Chuyenngoai.findOne({_id:req.body.id})
+    .populate('listdetail')
+    if(cn) {
+        res.status(200).send(new Response(0,"data success !", cn));
+    } else {
+        res.status(200).send(new Response(1001,"error Update !", null));
+    }
 }
