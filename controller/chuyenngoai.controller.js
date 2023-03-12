@@ -90,9 +90,9 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                 // update lai list ở chuyen ngoài
                 // new ghi nơ thì xoa nhat ký ghi nợ
                 for(let item of lstDelete) {
-                    await Chitietchuyenngoai.remove({_id: item.id});
+                    await Chitietchuyenngoai.deleteOne({_id: item.id});
                     await Chuyenngoai.updateOne({_id:spch00251Header.id},{$pull:{listdetail:item.id}});
-                    await Congnoxengoai.remove({iddonhang: item.id});
+                    await Congnoxengoai.deleteOne({iddonhang: item.id});
                 }
             }
         }
@@ -165,9 +165,10 @@ exports.PostCreateChuyenngoai = async (req,res) => {
         }
         let cn = await Chuyenngoai.findOne({_id: spch00251Header.id})
                 .populate('listdetail');
+        let reqlist = await Chitietchuyenngoai.find({idchuyenngoai:spch00251Header.id})
         let resData = {
             resspch00251Header: cn,
-            reslistdetail: cn['listdetail']
+            reslistdetail: reqlist
         }
         res.status(200).send(new Response(0,"Data success !", resData));
 
@@ -286,9 +287,13 @@ exports.PostDeleteAllChuyenngoai = async (req,res) => {
 // get detail 
 exports.PostGetDetail = async (req,res) => {
     let cn = await Chuyenngoai.findOne({_id:req.body.id})
-    .populate('listdetail')
+    let lstdetail = await Chitietchuyenngoai.find({idchuyenngoai: req.body.id});
+    let reqdata = {
+        resHeader: cn,
+        listdetail: lstdetail
+    }
     if(cn) {
-        res.status(200).send(new Response(0,"data success !", cn));
+        res.status(200).send(new Response(0,"data success !", reqdata));
     } else {
         res.status(200).send(new Response(1001,"error Update !", null));
     }
