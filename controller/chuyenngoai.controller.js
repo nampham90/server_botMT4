@@ -31,8 +31,15 @@ async function CheckIDChuyenngoai(id) {
     return false;
 }
 
+async function CheckCongnoChuyenngoai(id) {
+    if(!id || id.length != 24) return false
+    let cn = await Congnoxengoai.findOne({iddonhang:id});
+    if (cn) return true;
+    return false;
+}
+
 // create cong nơ xe ngoai
-async function registerCongNoXeNgoai(nguonxe, iddonhang, biensoxe, tentaixe, sodienthoai, sotienno, ghichu) {
+async function registerCongNoXeNgoai(nguonxe, iddonhang, biensoxe, tentaixe, sodienthoai, sotienno, ghichu, status02) {
      let cnxengoai = new Congnoxengoai({
         nguonxe: nguonxe,
         iddonhang: iddonhang,
@@ -42,7 +49,7 @@ async function registerCongNoXeNgoai(nguonxe, iddonhang, biensoxe, tentaixe, sod
         sodienthoai: sodienthoai,
         sotienno: sotienno,
         status01: 0, // 0. chưa thanh toán. 1. đã thanh toán
-        status02: 0, 
+        status02: status02, // 0. không ghi công nợ. 1 . có ghi công nợ
         status03: 0, 
         status04: 0,
         status05: 0,
@@ -115,11 +122,45 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     status02: element.status02,
                     ghichu: element.ghichu
                 }});
-                // update so tien no trong bang congnoxe ngoai
-                await Congnoxengoai.updateOne({iddonhang: element.id},{$set: {sotienno:element.tiencuocxengoai}});
-                // update so tien no trong bang nhatkykh 
-                await Nhatkykh.updateOne({ status01: new RegExp(element.id, 'i') }, {$set: {sotien: element.tiencuoc}})
-
+                // kiểm tra hình thức thanh toán bên vận chuyển
+                let checkcn = await CheckCongnoChuyenngoai(element.id);
+                if (element.htttxengoai == "2") {
+                    if(checkcn === false) {
+                        registerCongNoXeNgoai(
+                            spch00251Header.nguonxe,
+                            element.id,
+                            spch00251Header.biensoxe,
+                            spch00251Header.tentaixe,
+                            spch00251Header.sodienthoai,
+                            element.tiencuocxengoai,
+                            "NO",1);
+                    } else {
+                        // update so tien no trong bang congnoxe ngoai
+                        await Congnoxengoai.updateOne({iddonhang: element.id},{$set: {sotienno:element.tiencuocxengoai, status02: 1}});
+                    }
+                } else {
+                    if(checkcn === false) {
+                        registerCongNoXeNgoai(
+                            spch00251Header.nguonxe,
+                            element.id,
+                            spch00251Header.biensoxe,
+                            spch00251Header.tentaixe,
+                            spch00251Header.sodienthoai,
+                            element.tiencuocxengoai,
+                            "KNO",0);
+                    } else {
+                        // update status xoa ghi công nợ nhà vận chuyển
+                        await Congnoxengoai.updateOne({iddonhang: element.id},{$set: {sotienno:element.tiencuocxengoai, status02: 0}});
+                    }
+                }
+                // kiểm tra hình thức thanh toán khách khàng
+                if (element.htttkhachhang == "2") {
+                    // update so tien no trong bang nhatkykh và chuyên sang cơ ghi nợ status02 = 1
+                    await Nhatkykh.updateOne({status01: new RegExp(element.id, 'i')}, {$set: {sotien: element.tiencuoc,ghichu:"Nợ", status02:"1"}})
+                } else {
+                    // update status xóa công nợ khách hàng
+                    await Nhatkykh.updateOne({status01: new RegExp(element.id, 'i')},{$set: {sotien: element.tiencuoc,ghichu:"KNợ", status02:""}});
+                }
             } else {
                 // create detail
                 let newDetail = new Chitietchuyenngoai({
@@ -152,13 +193,25 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                         spch00251Header.tentaixe,
                         spch00251Header.sodienthoai,
                         element.tiencuocxengoai,
-                        "NO");
+                        "NO",1);
+                } else {
+                    registerCongNoXeNgoai(
+                        spch00251Header.nguonxe,
+                        newDetail._id,
+                        spch00251Header.biensoxe,
+                        spch00251Header.tentaixe,
+                        spch00251Header.sodienthoai,
+                        element.tiencuocxengoai,
+                        "KNO",0);
                 }
                 // đăng ký công nợ khách hàng
+                let gc = newDetail._id + " Xe ngoài vận chuyển. Biên số " + spch00251Header.nguonxe + " Biển số:" + spch00251Header.biensoxe;
                 if(element.htttkhachhang == "2") {
-                    let gc = newDetail._id + " Xe ngoài vận chuyển. Biên số " + spch00251Header.nguonxe + " Biển số:" + spch00251Header.biensoxe;
-                    await commonfun.ghiNhatkyNo(element.idkhachhang,null,null,element.tiencuoc, "Nợ",gc);
+                    await commonfun.ghiNhatkyNo(element.idkhachhang,null,null,element.tiencuoc, "Nợ",gc,"1");
+                } else {
+                    await commonfun.ghiNhatkyNo(element.idkhachhang,null,null,element.tiencuoc, "Nợ",gc,"");
                 }
+
                 let detailChuyenngoai = await Chitietchuyenngoai.findOne({_id:newDetail._id});
                 await Chuyenngoai.updateOne({_id:spch00251Header.id},{$push:{listdetail:detailChuyenngoai._id}});
             }
@@ -185,7 +238,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
             listdetail: [],
             status01: 0,
             status02: 0,
-            status03: 0,// kiêm tra thu hôi hóa đơn. =0 chưa nhận hóa đơn. =1 đã nhân hóa đơn trả
+            status03: 0,// 
             status04: 0,
             status05: 0,
             ghichu: spch00251Header.ghichu
@@ -229,13 +282,24 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                             spch00251Header.tentaixe,
                             spch00251Header.sodienthoai,
                             element.tiencuocxengoai,
-                            "NO");
+                            "NO",1);
+                    } else {
+                        registerCongNoXeNgoai(
+                            spch00251Header.nguonxe,
+                            newDetail._id,
+                            spch00251Header.biensoxe,
+                            spch00251Header.tentaixe,
+                            spch00251Header.sodienthoai,
+                            element.tiencuocxengoai,
+                            "NO",0);
                     }
 
                     // đăng ký công nợ khách hàng
+                    let gc = newDetail._id + " Xe ngoài vận chuyển. Mã nguồn xe " + spch00251Header.nguonxe + " Biển số:" + spch00251Header.biensoxe;
                     if(element.htttkhachhang == "2") {
-                        let gc = newDetail._id + " Xe ngoài vận chuyển. Mã nguồn xe " + spch00251Header.nguonxe + " Biển số:" + spch00251Header.biensoxe;
-                        await commonfun.ghiNhatkyNo(element.idkhachhang,null,null,element.tiencuoc, "Nợ",gc);
+                        await commonfun.ghiNhatkyNo(element.idkhachhang,null,null,element.tiencuoc, "Nợ",gc,"1");
+                    } else {
+                        await commonfun.ghiNhatkyNo(element.idkhachhang,null,null,element.tiencuoc, "KNợ",gc,"");
                     }
                     let detailChuyenngoai = await Chitietchuyenngoai.findOne({_id:newDetail._id});
                     reslistdetail.push(detailChuyenngoai);

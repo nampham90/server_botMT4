@@ -220,7 +220,7 @@ exports.getDateparam = (param) => {
 }
 
 // ghi nhật ký khách hàng
-exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu,status01) => {
+exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu,status01,status02) => {
     let newNk = new Nhatkykh({
         iduser: idUser, // mã khách hàng
         trangthai: 0, // 0 nợ, 1 trả
@@ -232,7 +232,7 @@ exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu,status01) 
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: ghichu, // ghi chu cần thiết. để đối chiếu với khách hàng
         status01: status01,
-        status02: "",
+        status02: status02,
         status03: "",
         status04: "",
         status05: ""

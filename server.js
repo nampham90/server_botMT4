@@ -139,6 +139,7 @@ require("./routers/khachhang.router")(app);
 require("./routers/nhatkyhethong.route")(app);
 require("./routers/nguonxe.router")(app);
 require("./routers/chuyenngoai.route")(app);
+require("./routers/chitietchuyenngoai.route")(app);
 require("./routers/pnhchuyenngoai.route")(app);
 
 // khochung
