@@ -17,11 +17,11 @@ module.exports = mongoose => {
           sodienthoai: String,// điện thoại tài xế
           sotienno: Number, // số tiền mình nợ chủ xe thuê ngoài
 
-          status01: Number, // 0. chưa thanh toán. 1. đã thanh toán
+          status01: Number, // 0 chưa thanh toán // 1 chờ thanh toán // 2// đã thanh toán
           status02: Number, 
           status03: Number, 
           status04: Number,
-          status05: Number,
+          status05: Number, 
           ghichu: String
         },
         { timestamps: true }

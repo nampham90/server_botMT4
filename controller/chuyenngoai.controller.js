@@ -18,7 +18,7 @@ exports.PostAllChuyenngoai = async (req,res) => {
         let n = req.body.pageNum - 1;
         let alldata = await Chuyenngoai.find(req.body.filters);
         let lst = await Chuyenngoai.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n)
-        .populate('nguonxe');;
+        .populate('nguonxe');
         let data = commonfun.dataReponse(alldata,lst,req.body.pageNum,req.body.pageSize);
         return res.status(200).send(new Response(0,"Data sucess", data));
     }

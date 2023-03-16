@@ -141,6 +141,7 @@ require("./routers/nguonxe.router")(app);
 require("./routers/chuyenngoai.route")(app);
 require("./routers/chitietchuyenngoai.route")(app);
 require("./routers/congnoxengoai.route")(app);
+require("./routers/donhangexportxengoai.route")(app);
 require("./routers/pnhchuyenngoai.route")(app);
 
 // khochung
