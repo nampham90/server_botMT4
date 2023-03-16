@@ -15,6 +15,9 @@ exports.PostAllChuyenngoai = async (req,res) => {
         .populate('nguonxe');
         return res.status(200).send(new Response(0,"Data sucess", alldata));
     } else {
+        if(req.body.filters._id == "") {
+            req.body.filters._id = undefined;
+        }
         let n = req.body.pageNum - 1;
         let alldata = await Chuyenngoai.find(req.body.filters);
         let lst = await Chuyenngoai.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n)
