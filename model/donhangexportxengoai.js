@@ -7,8 +7,8 @@ module.exports = mongoose => {
               ref:"nguonxe"
           },
           lstdata: [],
-          ngayxuat: Date,
-          ngaythanhtoan: Date,
+          ngayxuat: Date | null,
+          ngaythanhtoan: Date | null,
           title: String, // tiêu đề
           lstheader: [], // mãng header layout trong const.headerlayout
           header: [],// tiêu để các trường trong table

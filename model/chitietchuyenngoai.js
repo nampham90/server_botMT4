@@ -29,7 +29,7 @@ module.exports = mongoose => {
 
           status01: Number, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
           status02: String, // trang thai xuất. =0 không cần lấy hóa đơn. =1 cân lấy hóa đơn =2 đã lấy hóa đơn
-          status03: Number, 
+          status03: Number, // trạng thái cập nhật 0 = cho phep phép cập nhất 1 = không cho phep cập nhật
           status04: Number,
           status05: Number,
           ghichu: String
