@@ -334,10 +334,19 @@ exports.PostUpdateChuyenngoai = async (req,res) => {
 exports.PostUpdateStatusChuyenngoai = async (req,res) => {
     Chuyenngoai.updateOne({_id: req.body.id},{$set: {status01: req.body.status01, status02: req.body.status02, status03: req.body.status03, status04: req.body.status04, status05: req.body.status05}})
     .then(data => {
-        console.log(data.modifiedCount + " Update Xe success " + req.body.id);
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
     }, err => {
-        res.status(200).send(new Response(1001,"error Update !", null));
+        return res.status(200).send(new Response(1001,"error Update !", null));
+    })
+}
+
+// cập nhật khóa chuyến ngoài không cho update
+exports.PostUpdateStatus02 = async (req,res) => {
+    Chuyenngoai.updateOne({_id: req.body.id},{$set: {status02: 1}})
+    .then(data => {
+        return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
+    }, err => {
+        return res.status(200).send(new Response(1001,"error Update !", null));
     })
 }
 
@@ -356,6 +365,28 @@ exports.PostGetDetail = async (req,res) => {
     let cn = await Chuyenngoai.findOne({_id:req.body.id})
     let lstdetail = await Chitietchuyenngoai.find({idchuyenngoai: req.body.id});
     let reqdata = {
+        resHeader: cn,
+        listdetail: lstdetail
+    }
+    if(cn) {
+        res.status(200).send(new Response(0,"data success !", reqdata));
+    } else {
+        res.status(200).send(new Response(1001,"error Update !", null));
+    }
+}
+
+exports.PostExportDetail = async (req,res) => {
+    let ods = "";
+    let cn = await Chuyenngoai.findOne({_id:req.body.id}).populate('nguonxe');
+    if(cn['soods'] && cn['soods'] != "") {
+        ods = cn['soods'];
+    } else {
+        ods = await commonfun.fnGetODS();
+        await Chuyenngoai.updateOne({_id:req.body.id},{$set:{soods:ods}})
+    }
+    let lstdetail = await Chitietchuyenngoai.find({idchuyenngoai: req.body.id});
+    let reqdata = {
+        ods: ods,
         resHeader: cn,
         listdetail: lstdetail
     }

@@ -10,6 +10,10 @@ module.exports = app => {
     route.post('/commonAnt100Listtopdoanhthu', Common.listtop10khachangcodoanhthucaonhat);
     route.post('/commonAnt100Listtopchiphi', Common.listtopchiphicaonhat);
     route.post('/commonAnt100Listtongcuoctungxe', Common.listtongcuoccuatungxetaitrongnam);
+    route.post('/commonAnt100GetODS',verifyToken, Common.getODS);
+    route.post('/commonAnt100GetODT',verifyToken, Common.getODT);
+    route.get('/commonAnt100DeleteAllDataMau', Common.deleteAllDataMau);
+
     
     app.use("/api/common",route);
 }

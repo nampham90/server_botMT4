@@ -3,17 +3,90 @@ const Const = require('../common/const');
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
-const Chuyen = db.chuyen;
+const _ = require('lodash');
+
 const User = db.user;
 const Menu = db.menu;
 const Xe = db.xe;
 const Role = db.role;
 const Phongban = db.phongban;
 const Screenpc = db.screenpc;
+//
+const Chuyen = db.chuyen;
 const ChiphiChuyenxe = db.chiphichuyenxe;
 const Phieunhaphang = db.phieunhaphang;
 const Hoadonnhaphang = db.hoadonnhaphang;
-const Nhatkytrano = db.nhatkytrano;
+const Nhatkykh = db.nhatkykh;
+const Chuyenngoai = db.chuyenngoai;
+const Chitietchuyenngoai = db.chitietchuyenngoai;
+const Congnoxengoai = db.congnoxengoai;
+const Donhangexportxengoai = db.donhangexportxengoai;
+
+// master
+const Tmt100 = db.tmt100;
+
+exports.deleteAllDataMau = async (req,res) => {
+   await Chuyen.deleteMany({});
+   await ChiphiChuyenxe.deleteMany({});
+   await Phieunhaphang.deleteMany({});
+   await Hoadonnhaphang.deleteMany({});
+   await Nhatkykh.deleteMany({});
+   await Chuyenngoai.deleteMany({});
+   await Chitietchuyenngoai.deleteMany({});
+   await Congnoxengoai.deleteMany({});
+   await Donhangexportxengoai.deleteMany({});
+   return res.status(200).send(new Response(0,"data delete!", 1));
+}
+
+// tạo số ODS
+exports.getODS = async (req,res) => {
+   let soODS = "";
+   let ods = await Tmt100.findOne({maghep:"ODS"});
+   if(ods) {
+      // kiểm số winnumber
+      let toWinnumber = _.toNumber(ods['winnumber']);
+      let toStartnumber = _.toNumber(ods['startnumber']);
+      let toEndnumber = _.toNumber(ods['endnumber']);
+      if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+         return res.status(200).send(new Response(1001,"Số ODS đã hết hạn !", null));
+      }
+      let nowday = commonfun.dateNow();
+      nowday = nowday.replace(/\s+/g, '');
+      nowday = nowday.replace(/-/g, '');
+      soODS = ods['maghep'] + nowday + ods['winnumber'];
+      // update winnumber mơi. winnuber + 1;
+
+      let newWinnumber = toWinnumber +1;
+      await Tmt100.updateOne({maghep:"ODS"},{$set: {winnumber:_.toString(newWinnumber)}})
+      return res.status(200).send(new Response(0,"data !", soODS));
+   } else {
+      return res.status(200).send(new Response(1001,"Lỗi chưa thiết lập table tmt100 !", null));
+   }
+}
+// tạo số ODT 
+exports.getODT = async (req,res) => {
+   let soODT = "";
+   let odt = await Tmt100.findOne({maghep:"ODT"});
+   if(odt) {
+      // kiểm số winnumber
+      let toWinnumber = _.toNumber(ods['winnumber']);
+      let toStartnumber = _.toNumber(ods['startnumber']);
+      let toEndnumber = _.toNumber(ods['endnumber']);
+      if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+         return res.status(200).send(new Response(1001,"Số ODS đã hết hạn !", null));
+      }
+      let nowday = commonfun.dateNow();
+      nowday = nowday.replace(/\s+/g, '');
+      nowday = nowday.replace(/-/g, '');
+      soODT = odt['maghep'] + nowday + odt['winnumber'];
+      // update winnumber mơi. winnuber + 1;
+      let newWinnumber = toWinnumber +1;
+      await Tmt100.updateOne({maghep:"ODT"},{$set: {winnumber:_.toString(newWinnumber)}})
+      return res.status(200).send(new Response(0,"data !", soODT));
+   } else {
+      return res.status(200).send(new Response(1001,"Lỗi chưa thiết lập table tmt100 !", null));
+   }
+}
 
 exports.checkBiensoxe = async (biensoxe) => {
    let xe = await Xe.findOne({biensoxe:biensoxe});

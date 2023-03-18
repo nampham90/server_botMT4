@@ -10,6 +10,7 @@ module.exports = mongoose => {
             type: mongoose.Schema.Types.ObjectId,
             ref:"nguonxe"
           },
+        soods: {type:String,default: ""},
         biensoxe: String, // biển số xe ngoài
         sdtnguonxe: String, // so dien thoai nguon xe
         tentaixe: String, // tài xế
@@ -19,7 +20,7 @@ module.exports = mongoose => {
           ref:"chitietchuyenngoai"
         }],
         status01: Number, // 0. chuyến đang hoat động. 1. chuyến đã kết thúc
-        status02: Number, 
+        status02: Number, // 0 cho phep cập nhật chuyến. 1 không cho phep cập nhật chuyến
         status03: Number, 
         status04: Number,
         status05: Number,

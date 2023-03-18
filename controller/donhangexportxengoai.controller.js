@@ -24,6 +24,16 @@ exports.PostAll = async (req,res) => {
     }
 }
 
+exports.PostDetail = async (req, res) => {
+    let dhexport = await Donhangexportxengoai.findOne({_id: req.body.id});
+    return res.status(200).send(new Response(0,"Data sucess", dhexport));
+}
+
+exports.PostUpdateStatus = async (req,res) => {
+    await Donhangexportxengoai.updateOne({_id:req.body.id}, {$set:{status02: 1}});
+    return res.status(200).send(new Response(0,"Data sucess", 1));
+}
+
 exports.postCreate = async (req,res) => {
     let status = _.toNumber(req.body.syskbn);
     let dh = new Donhangexportxengoai({
