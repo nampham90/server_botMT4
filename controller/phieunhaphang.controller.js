@@ -4,9 +4,10 @@ let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const _ = require('lodash');
 const Phieunhaphang = db.phieunhaphang;
+const Chuyen = db.chuyen;
+const Chiphi = db.chiphichuyenxe
 
 exports.savemathang = async (req,res) => {
-    console.log(req.body);
     let newPnh = Phieunhaphang({
         idchuyen : req.body.idchuyen,
         biensoxe: req.body.biensoxe,
@@ -30,7 +31,6 @@ exports.savemathang = async (req,res) => {
 }
 
 exports.getLists = async (req,res) => {
-    console.log(req.body);
     let allData = await Phieunhaphang.find(req.body.filters)
     .populate('iduser');
     if(req.body.pageNum == 0 && req.body.pageSize == 0) {
@@ -48,7 +48,6 @@ exports.getLists = async (req,res) => {
 }
 
 exports.getDetail = async (req,res) => {
-    console.log(req.params.id);
     let pnh = await Phieunhaphang.findOne({_id: req.params.id});
     if(pnh) {
         res.status(200).send(new Response(0,"data sucess",pnh));
@@ -83,4 +82,35 @@ exports.delete = async (req, res) => {
     },err=>{
         res.status(200).send(new Response(1001,"error delete !", null));
     })
+}
+
+exports.ExportDataPDFChuyen = async (req,res) => {
+    // get chuyen id
+    let odt = "";
+    let id = req.body.id;
+    let c = await Chuyen.findOne({_id:id})
+    .populate('biensoxe')
+    .populate('idtai')
+    .populate('idphu');
+
+    if(c['soodt'] && c['soodt'] != "") {
+        odt = c['soodt'];
+    } else {
+        odt = await commonfun.fnGetODT();
+        await Chuyen.updateOne({_id:id},{$set:{soodt:odt}})
+    }
+    // get list detail id chuyen
+    let lstpnh = await Phieunhaphang.find({idchuyen:id})
+    .populate('user');
+
+    // get list chi phi id chuyen
+    let lstchiphi = await Chiphi.find({idchuyen: id});
+
+    let resdata= {
+        odt: odt,
+        chuyen: c,
+        lstproduct: lstpnh,
+        lstchiphi: lstchiphi
+    }
+    res.status(200).send(new Response(0,"data success !", resdata));
 }

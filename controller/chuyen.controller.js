@@ -61,7 +61,6 @@ exports.getAllChuyen = async (req,res) => {
             sreach['idphu'] = filters.idphu
         }
     }
-    console.log(sreach);
     let n = req.body.pageNum - 1;
     let alldata = await Chuyen.find(sreach).sort( { "ngaydi": -1 } )
     .populate('biensoxe')
@@ -108,8 +107,15 @@ exports.createChuyen = async (req,res) => {
         biensoxe:req.body.biensoxe,
         idtai: req.body.idtai,
         idphu: req.body.idphu,
+        soodt: "",
         changduong: req.body.changduong,
-        trangthai: 0
+        trangthai: 0,
+        status01: 0,
+        status02: 0,
+        status03: 0,
+        status04: 0,
+        status05: 0,
+        ghichu: 0
     });
     newchuyen.save(async function(e){
         if(e) {
@@ -143,22 +149,18 @@ exports.updateChuyen = async (req,res) => {
 }
 
 exports.getDetailChuyen = async (req,res) => {
-    console.log(req.params.id);
     let id = req.params.id;
     let c = await Chuyen.findOne({_id:id})
     .populate('biensoxe')
     .populate('idtai')
     .populate('idphu');
-    console.log(c);
     if(!c) return res.status(401).send(new Response(1001,"User không tồn tại !",null));
     return res.status(200).send(new Response(0,"Data sucess ", c)); 
 }
 
 exports.deleteChuyen = async (req,res) => {
-    console.log(req.body.ids);
     let id = req.body.ids;
     let c = await Chuyen.findOne({_id:id});
-    console.log(c);
     Chuyen.deleteOne({_id:id})
     .then(data => {
         commonfun.UpdateTrangthaiXe(c.biensoxe,false);
@@ -169,7 +171,6 @@ exports.deleteChuyen = async (req,res) => {
 }
 
 exports.updateTrangthai = async (req,res) => {
-    console.log(req.body.id);
     let id = req.body.id;
     let trangthai = req.body.trangthai
     let c = await Chuyen.findOne({_id:id});

@@ -18,8 +18,15 @@ module.exports = mongoose => {
           type: mongoose.Schema.Types.ObjectId,
           ref:"user"
         },
+        soodt: {type: String,default: ""},
         changduong: String, // điểm khởi hành và điểm kết thúc
-        trangthai: Number // 0 ke hoach bóc. 1.boc hàng lên xe. 2. kiểm hàng
+        trangthai: Number, // 0 ke hoach bóc. 1.boc hàng lên xe. 2. kiểm hàng
+        status01:Number,
+        status02:Number,
+        status03:Number,
+        status04:Number,
+        status05:Number,
+        ghichu: String
       },
       { timestamps: true }
     );
