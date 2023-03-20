@@ -19,6 +19,9 @@ exports.savemathang = async (req,res) => {
         diadiembochang:req.body.diadiembochang,  // Địa chỉ bọc hàng
         hinhthucthanhtoan:req.body.hinhthucthanhtoan, // ghi no => 1, truc tiep => 2, thanh toan khi nhan hang => 3 
         ghichu: req.body.ghichu, // ghi chú đơn hàng
+        tennguoinhan: req.body.tennguoinhan,
+        sdtnguoinhan: req.body.sdtnguoinhan,
+        diachinguoinhan: req.body.diachinguoinhan,
         trangthai: req.body.trangthai // 0 lưu dự định nhập. 1 hoàn thành việc nhập. 2, khóa chuyến hàng
     });
     newPnh.save(async function(e){
@@ -88,29 +91,34 @@ exports.ExportDataPDFChuyen = async (req,res) => {
     // get chuyen id
     let odt = "";
     let id = req.body.id;
-    let c = await Chuyen.findOne({_id:id})
-    .populate('biensoxe')
-    .populate('idtai')
-    .populate('idphu');
-
-    if(c['soodt'] && c['soodt'] != "") {
-        odt = c['soodt'];
+    if(id && id.length==24) {
+        let c = await Chuyen.findOne({_id:id})
+        .populate('biensoxe')
+        .populate('idtai')
+        .populate('idphu');
+    
+        if(c['soodt'] && c['soodt'] != "") {
+            odt = c['soodt'];
+        } else {
+            odt = await commonfun.fnGetODT();
+            await Chuyen.updateOne({_id:id},{$set:{soodt:odt}})
+        }
+        // get list detail id chuyen
+        let lstpnh = await Phieunhaphang.find({idchuyen:id})
+        .populate('iduser');
+    
+        // get list chi phi id chuyen
+        let lstchiphi = await Chiphi.find({idchuyen: id});
+    
+        let resdata= {
+            odt: odt,
+            chuyen: c,
+            lstproduct: lstpnh,
+            lstchiphi: lstchiphi
+        }
+        return res.status(200).send(new Response(0,"data success !", resdata));
     } else {
-        odt = await commonfun.fnGetODT();
-        await Chuyen.updateOne({_id:id},{$set:{soodt:odt}})
+        return res.status(200).send(new Response(1001,"data null !", null));
     }
-    // get list detail id chuyen
-    let lstpnh = await Phieunhaphang.find({idchuyen:id})
-    .populate('user');
-
-    // get list chi phi id chuyen
-    let lstchiphi = await Chiphi.find({idchuyen: id});
-
-    let resdata= {
-        odt: odt,
-        chuyen: c,
-        lstproduct: lstpnh,
-        lstchiphi: lstchiphi
-    }
-    res.status(200).send(new Response(0,"data success !", resdata));
+   
 }
