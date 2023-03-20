@@ -630,11 +630,11 @@ exports.fnGetODT = async () => {
     let odt = await Tmt100.findOne({maghep:"ODT"});
     if(odt) {
        // kiểm số winnumber
-       let toWinnumber = _.toNumber(ods['winnumber']);
-       let toStartnumber = _.toNumber(ods['startnumber']);
-       let toEndnumber = _.toNumber(ods['endnumber']);
+       let toWinnumber = _.toNumber(odt['winnumber']);
+       let toStartnumber = _.toNumber(odt['startnumber']);
+       let toEndnumber = _.toNumber(odt['endnumber']);
        if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
-        soODT = "0"//  hêt sô ods
+        soODT = "0"//  hêt sô odt
         return soODT;
        }
        let nowday = this.dateNow();

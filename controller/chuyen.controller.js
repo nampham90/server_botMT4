@@ -9,6 +9,7 @@ const Chiphi = db.chiphichuyenxe;
 
 function ChuyenObject() {
     this.id = "";
+    this.soodt = "";
     this.ngaydi = ""; 
     this.ngayve = "";
     this.tienxe = 0; // tiền đưa trước
@@ -36,6 +37,9 @@ exports.getAllChuyen = async (req,res) => {
     if(filters.trangthai) {
         sreach.trangthai = filters.trangthai;
     }
+    if(filters.soodt) {
+        sreach.soodt = filters.soodt;
+    }
     if(filters.biensoxe && filters.biensoxe != '') {
         let xe = await Xe.findOne({biensoxe:filters.biensoxe});
         if(xe) {
@@ -62,6 +66,9 @@ exports.getAllChuyen = async (req,res) => {
         }
     }
     let n = req.body.pageNum - 1;
+    if(req.body.pageNum <= 0) {
+       n=0;
+    }
     let alldata = await Chuyen.find(sreach).sort( { "ngaydi": -1 } )
     .populate('biensoxe')
     .populate('idtai')
@@ -80,6 +87,7 @@ exports.getAllChuyen = async (req,res) => {
     for(let element of data.list) {
         let obj = new ChuyenObject();
         obj.id = element._id;
+        obj.soodt = element.soodt;
         obj.ngaydi = element.ngaydi;
         obj.ngayve = element.ngayve;
         obj.tienxe = element.tienxe;
@@ -99,7 +107,7 @@ exports.getAllChuyen = async (req,res) => {
 }
 
 exports.createChuyen = async (req,res) => {
-    console.log(req.body);
+    let odt = await commonfun.fnGetODT();
     let newchuyen =new Chuyen({
         ngaydi: req.body.ngaydi,
         ngayve: req.body.ngayve,
@@ -107,7 +115,7 @@ exports.createChuyen = async (req,res) => {
         biensoxe:req.body.biensoxe,
         idtai: req.body.idtai,
         idphu: req.body.idphu,
-        soodt: "",
+        soodt: odt,
         changduong: req.body.changduong,
         trangthai: 0,
         status01: 0,
@@ -115,7 +123,7 @@ exports.createChuyen = async (req,res) => {
         status03: 0,
         status04: 0,
         status05: 0,
-        ghichu: 0
+        ghichu: ""
     });
     newchuyen.save(async function(e){
         if(e) {
