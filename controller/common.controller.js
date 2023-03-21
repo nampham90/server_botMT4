@@ -191,3 +191,25 @@ exports.listtongcuoccuatungxetaitrongnam = async (req, res) => {
    }
    return res.status(200).send(new Response(0, "data", listmegre));
 }
+
+// tinh tong nợ xe ngoai
+exports.getTongnoxengoai = async (req,res) => {
+   let tongno = 0;
+   let loinhuan = 0;
+   // gồm các đơn chưa thanh toán và các đơn chờ thanh toán
+   let lsttongxengoaino = await Congnoxengoai.find({$or : [{status02:0},{status02:1}]})
+   .populate('iddonhang');
+   if (lsttongxengoaino.length > 0) {
+      for(let element of lsttongxengoaino) {
+         if(element['iddonhang']['status03'] == 1) {
+            tongno = tongno + element['sotienno'];
+            loinhuan = loinhuan + (element['iddonhang']['tiencuoc']-element['iddonhang']['tiencuocxengoai']);
+         }
+      }
+   }
+   let resdata = {
+      tongno: tongno,
+      loinhuan: loinhuan
+   }
+   return res.status(200).send(new Response(0, "data", resdata));
+}

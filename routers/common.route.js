@@ -13,6 +13,7 @@ module.exports = app => {
     route.post('/commonAnt100GetODS',verifyToken, Common.getODS);
     route.post('/commonAnt100GetODT',verifyToken, Common.getODT);
     route.get('/commonAnt100DeleteAllDataMau', Common.deleteAllDataMau);
+    route.post('/commonAnt100Tongnoxengoai', verifyToken, Common.getTongnoxengoai);
 
     
     app.use("/api/common",route);

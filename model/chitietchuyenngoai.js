@@ -7,6 +7,7 @@ module.exports = mongoose => {
             type: mongoose.Schema.Types.ObjectId,
             ref:"chuyenngoai"
           }, // mã chyến hàng
+          soods: String,
           nguonxe: {
             type: mongoose.Schema.Types.ObjectId,
             ref:"nguonxe"

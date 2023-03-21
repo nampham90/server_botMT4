@@ -226,7 +226,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
             resspch00251Header: cn,
             reslistdetail: reqlist
         }
-        res.status(200).send(new Response(0,"Data success !", resData));
+        return  res.status(200).send(new Response(0,"Data success !", resData));
 
     } else {
         let newChuyenngoai = new Chuyenngoai({
@@ -249,7 +249,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
     
         newChuyenngoai.save(async function(e){
             if (e) {
-                res.status(200).send(new Response(1001,"Lỗi khi khởi tạo chuyên ngoài !", null));
+              return  res.status(200).send(new Response(1001,"Lỗi khi khởi tạo chuyên ngoài !", null));
             } else {
                
                 // insert detail vao table chi tiêt chuyến ngoài
@@ -313,7 +313,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     resspch00251Header: newChuyenngoai,
                     reslistdetail: reslistdetail
                 }
-                res.status(200).send(new Response(0,"Create Sucess !", resData));
+                return res.status(200).send(new Response(0,"Create Sucess !", resData));
             }
         }) 
     }
@@ -342,12 +342,9 @@ exports.PostUpdateStatusChuyenngoai = async (req,res) => {
 
 // cập nhật khóa chuyến ngoài không cho update
 exports.PostUpdateStatus02 = async (req,res) => {
-    Chuyenngoai.updateOne({_id: req.body.id},{$set: {status02: 1}})
-    .then(data => {
-        return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
-    }, err => {
-        return res.status(200).send(new Response(1001,"error Update !", null));
-    })
+   await  Chuyenngoai.updateOne({_id: req.body.id},{$set: {status02: 1}})
+   await Chitietchuyenngoai.updateMany({idchuyenngoai: req.body.id},{$set: {status03: 1}});
+   return res.status(200).send(new Response(0,"Data sucess ", 1));
 }
 
 // delete 
@@ -383,6 +380,9 @@ exports.PostExportDetail = async (req,res) => {
     } else {
         ods = await commonfun.fnGetODS();
         await Chuyenngoai.updateOne({_id:req.body.id},{$set:{soods:ods}})
+    }
+    if(ods != "") {
+        await Chitietchuyenngoai.updateMany({idchuyenngoai:req.body.id},{$set:{soods:ods}});
     }
     let lstdetail = await Chitietchuyenngoai.find({idchuyenngoai: req.body.id});
     let reqdata = {
