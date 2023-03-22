@@ -23,7 +23,7 @@ module.exports = mongoose => {
          hinhthucthanhtoan:Number, // ghi no => 1, truc tiep => 2, thanh toan khi nhan hang => 3 
          ghichu: String, // ghi chú đơn hàng
          trangthai: Number, // 0 lưu dự định nhập. 1 hoàn thành việc nhập. 2, khóa chuyến hàng
-         status01:Number,
+         status01:Number,// 0 chưa giao hàng. 1 đã giao hàng
          status02:Number,
          status03:Number,
          status04:Number,

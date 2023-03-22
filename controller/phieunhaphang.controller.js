@@ -22,7 +22,12 @@ exports.savemathang = async (req,res) => {
         tennguoinhan: req.body.tennguoinhan,
         sdtnguoinhan: req.body.sdtnguoinhan,
         diachinguoinhan: req.body.diachinguoinhan,
-        trangthai: req.body.trangthai // 0 lưu dự định nhập. 1 hoàn thành việc nhập. 2, khóa chuyến hàng
+        trangthai: req.body.trangthai, // 0 lưu dự định nhập. 1 hoàn thành việc nhập. 2, khóa chuyến hàng
+        status01: 0, 
+        status02: 0, 
+        status03: 0, 
+        status04: 0, 
+        status05: 0 
     });
     newPnh.save(async function(e){
         if(e) {
@@ -68,7 +73,10 @@ exports.update = async (req,res) => {
         diadiembochang:req.body.diadiembochang,
         hinhthucthanhtoan: req.body.hinhthucthanhtoan,
         lotrinh: req.body.lotrinh,
-        ghichu: req.body.ghichu
+        ghichu: req.body.ghichu,
+        tennguoinhan: req.body.tennguoinhan,
+        sdtnguoinhan: req.body.sdtnguoinhan,
+        diachinguoinhan: req.body.diachinguoinhan
     }})
     .then(data => {
         console.log(data.modifiedCount + " Update Product " + req.body.id);

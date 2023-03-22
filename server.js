@@ -144,6 +144,8 @@ require("./routers/congnoxengoai.route")(app);
 require("./routers/donhangexportxengoai.route")(app);
 require("./routers/pnhchuyenngoai.route")(app);
 
+require("./routers/taixe.route")(app);
+
 // khochung
 require("./khochungrouters/kho.route")(app);
 

@@ -18,7 +18,6 @@ exports.getChuyen = async (req, res) => {
         reslistHangdi: [],
         reslistHangve: []
     }
-    console.log();
     if (c) {
         let countId = c._id.toString().length;
         if (countId == Const.lengthId) {
