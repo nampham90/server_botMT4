@@ -10,6 +10,29 @@ const Nhatkykh = db.nhatkykh;
 
 // list all 
 exports.PostAllChuyenngoai = async (req,res) => {
+    let filters = req.body.filters;
+    let gt = "01/01/1970";
+    let lt = "01/01/2100";
+    let sreach = {};
+    if(filters.ngaybatdau) {
+        gt = filters.ngaybatdau;
+    }
+    if(filters.ngayketthuc) {
+        lt = filters.ngayketthuc;
+    }
+    sreach.ngayvanchuyen = {$gte:gt,$lt:lt};
+    if(filters.biensoxe) {
+        sreach.biensoxe = filters.biensoxe;
+    }
+    if(filters.nguonxe) {
+        sreach.nguonxe = filters.nguonxe;  
+    }
+    if(filters.soods) {
+        sreach.soods = filters.soods;
+    }
+    if(filters._id) {
+        sreach._id = filters._id;
+    }
     if(req.body.pageSize == 0 && req.body.pageNum == 0) {
         let alldata = await Chuyenngoai.find({})
         .populate('nguonxe');
@@ -19,8 +42,8 @@ exports.PostAllChuyenngoai = async (req,res) => {
             req.body.filters._id = undefined;
         }
         let n = req.body.pageNum - 1;
-        let alldata = await Chuyenngoai.find(req.body.filters);
-        let lst = await Chuyenngoai.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n)
+        let alldata = await Chuyenngoai.find(sreach);
+        let lst = await Chuyenngoai.find(sreach).limit(req.body.pageSize).skip(req.body.pageSize*n)
         .populate('nguonxe');
         let data = commonfun.dataReponse(alldata,lst,req.body.pageNum,req.body.pageSize);
         return res.status(200).send(new Response(0,"Data sucess", data));

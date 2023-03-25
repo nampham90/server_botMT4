@@ -25,11 +25,11 @@ module.exports = mongoose => {
         status02: String, // "". không ghi vào công nợ. "1" . ghi vào công nợ 
         status03: String,
         status04: String,
-        status05: String
+        status05: String // luu so odc 
       },
       { timestamps: true }
     );
-  
+    schema.index({'status05': 'text'});
     schema.method("toJSON", function() {
       const { __v, _id, ...object } = this.toObject();
       object.id = _id;

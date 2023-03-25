@@ -5,6 +5,7 @@ module.exports = app => {
 
     route.post('/chitietchuyenngoaiAnt100GetAll',verifyToken,CtChuyenngoai.PostAll);
     route.post('/chitietchuyenngoaiAnt100PostlistId',verifyToken,CtChuyenngoai.PostUpdateListId);
+    route.post('/chitietchuyenngoaiAnt100Get',verifyToken,CtChuyenngoai.GetID);
 
 
     app.use("/api/chitietchuyenngoai",route);

@@ -5,9 +5,11 @@ let commonfun = require('../common/functionCommon');
 const axios = require("axios");
 const Nhatkykh = db.nhatkykh;
 const User = db.user;
+const Ctchuyenngoai = db.chitietchuyenngoai;
 const Const = require('../common/const');
 
 exports.getLists = async (req,res) => {
+    let filters = req.body.filters;
     let gt = "01/01/1970";
     let lt = "01/01/2100";
     if(req.body.filters.ngaybatdau) {
@@ -18,9 +20,20 @@ exports.getLists = async (req,res) => {
     }
     let sreach = {};
     sreach.ngay = {$gte:gt,$lt:lt};
-    sreach.trangthai = req.body.filters.trangthai;
-    sreach.iduser = req.body.filters.iduser;
-    sreach.ghichu = req.body.filters.ghichu;
+    if(filters.trangthai) {
+        sreach.trangthai = filters.trangthai;
+    }
+    if(filters.iduser) {
+        sreach.iduser = filters.iduser;
+    }
+    if(filters.ghichu) {
+        sreach.ghichu = filters.ghichu;
+    }
+    if(filters.status05) {
+        sreach.status05 = { $regex: new RegExp(filters.status05 + "$") }
+    } else {
+        sreach.status05 = "";
+    }
     let allData = await Nhatkykh.find(sreach).sort( { "ngay": -1 } )
     .populate('idphieunhaphang')
     if(req.body.pageNum == 0 && req.body.pageSize == 0) {
@@ -30,7 +43,37 @@ exports.getLists = async (req,res) => {
         let lst = await Nhatkykh.find(sreach).sort( { "ngay": -1 } )
         .limit(req.body.pageSize).skip(req.body.pageSize*n)
         .populate('idphieunhaphang');
-        let data = commonfun.dataReponse(allData,lst,req.body.pageNum,req.body.pageSize);
+        let lstmegre = [];
+        for(let element of lst) {
+            if(element['idphieunhaphang'] == null && element['status01'].length > 0) {
+                const str =  element['status01']
+                const result = str.slice(0, 24);
+                let ctchuyenngoai = await Ctchuyenngoai.findOne({_id:result});
+                let item = {
+                    chukyno: element['chukyno'],
+                    createdAt:element['createdAt'],
+                    ghichu:element['ghichu'],
+                    hinhthucthanhtoan:element['hinhthucthanhtoan'] ,
+                    id:element['id'] ,
+                    idchuyen:element['idchuyen'] ,
+                    idphieunhaphang: ctchuyenngoai,
+                    iduser:element['iduser'] ,
+                    ngay:element['ngay'] ,
+                    sotien:element['sotien'] ,
+                    status01:element['status01'] ,
+                    status02:element['status02'] ,
+                    status03:element['status03'],
+                    status04:element['status04'] ,
+                    status05:element['status05'] ,
+                    trangthai:element['trangthai'],
+                    updatedAt:element['updatedAt']
+                }
+                lstmegre.push(item);
+            } else {
+                lstmegre.push(element);
+            }
+        }
+        let data = commonfun.dataReponse(allData,lstmegre,req.body.pageNum,req.body.pageSize);
         res.status(200).send(new Response(0,"data sucess",data));
     }
 }
@@ -115,4 +158,20 @@ exports.thanhtoan = async (req,res) => {
             res.status(200).send(new Response(1001,"update fail",null));
         }
     }
+}
+// cập nhật số odc cho đơn hàng. chuyển sang trạng thái chờ thanh toán
+exports.updateStatus05 = async (req,res) => {
+    console.log(req.body);
+    let lstId = req.body.lstId;
+    let i = 0;
+    for(let element of lstId) {
+        await Nhatkykh.updateOne({_id:element},{$set : {status05:req.body.soodc}});
+        i++;
+    }
+    if(i == lstId.length) {
+        return  res.status(200).send(new Response(0,"data sucess",1));
+    } else{
+        return  res.status(200).send(new Response(1001,"update fail",null));
+    }
+
 }

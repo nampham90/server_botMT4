@@ -88,6 +88,16 @@ exports.getODT = async (req,res) => {
    }
 }
 
+exports.getODC = async (req,res) => {
+   let odc = await commonfun.fnGetODC();
+   if(odc) {
+      return res.status(200).send(new Response(0,"sesuces !", odc));
+   } else {
+      return res.status(200).send(new Response(1001,"null !", null));
+   }
+   
+}
+
 exports.checkBiensoxe = async (biensoxe) => {
    let xe = await Xe.findOne({biensoxe:biensoxe});
    if(!xe) return "";

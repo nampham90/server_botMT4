@@ -650,6 +650,32 @@ exports.fnGetODT = async () => {
         return soODT;
     }
 }
+// mã thanh toán công nợ khach hang
+exports.fnGetODC = async () => {
+    let soODC = "";
+    let odc = await Tmt100.findOne({maghep:"ODC"});
+    if(odc) {
+       // kiểm số winnumber
+       let toWinnumber = _.toNumber(odc['winnumber']);
+       let toStartnumber = _.toNumber(odc['startnumber']);
+       let toEndnumber = _.toNumber(odc['endnumber']);
+       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+        soODC = "0"//  hêt sô odC
+        return soODC;
+       }
+       let nowday = this.dateNow();
+       nowday = nowday.replace(/\s+/g, '');
+       nowday = nowday.replace(/-/g, '');
+       soODC = odc['maghep'] + nowday + odc['winnumber'];
+       // update winnumber mơi. winnuber + 1;
+       let newWinnumber = toWinnumber +1;
+       await Tmt100.updateOne({maghep:"ODC"},{$set: {winnumber:_.toString(newWinnumber)}})
+       return soODC;
+    } else {
+        soODC = "1";// lỗi hệ thống
+        return soODC;
+    }
+}
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {
     const url ="https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-";
