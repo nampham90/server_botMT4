@@ -286,7 +286,6 @@ exports.getMenu = async(req, res) => {
 
 // login - app
 exports.loginApp = async (req,res) => {
-    console.log(res);
     if(req.body.mode != "app") {
         let response = new Response(1010,'người dùng không hợp lệ !',null);
         return res.status(200).send(response);

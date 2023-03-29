@@ -146,6 +146,9 @@ require("./routers/pnhchuyenngoai.route")(app);
 
 require("./routers/taixe.route")(app);
 
+// master
+require("./routers/tmt101.route")(app);
+
 // khochung
 require("./khochungrouters/kho.route")(app);
 

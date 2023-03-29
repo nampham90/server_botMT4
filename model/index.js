@@ -36,5 +36,6 @@ db.pnhchuyenngoai = require("./pnhchuyenngoai")(mongoose);
 
 // master không thể xóa
 db.tmt100 = require("./tmt100")(mongoose);
+db.tmt101 = require("./tmt101")(mongoose);
 
 module.exports = db;
