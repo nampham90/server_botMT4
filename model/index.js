@@ -32,7 +32,7 @@ db.congnoxengoai = require("./congnoxengoai")(mongoose);
 db.donhangexportxengoai = require("./donhangexportxengoai")(mongoose);
 
 db.pnhchuyenngoai = require("./pnhchuyenngoai")(mongoose);
-
+db.donodc = require("./donodc")(mongoose);
 
 // master không thể xóa
 db.tmt100 = require("./tmt100")(mongoose);

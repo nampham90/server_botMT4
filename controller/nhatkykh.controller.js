@@ -6,6 +6,7 @@ const axios = require("axios");
 const Nhatkykh = db.nhatkykh;
 const User = db.user;
 const Ctchuyenngoai = db.chitietchuyenngoai;
+const Donodc = db.donodc;
 const Const = require('../common/const');
 
 exports.getLists = async (req,res) => {
@@ -98,6 +99,7 @@ exports.tatToan = async (req,res) => {
 exports.thanhtoanmotphan = async (req,res) => {
     let iduser = req.body.iduser;
     let listidpn = req.body.listidpn;
+    let soodc = req.body.soodc;
     let i = 0;
     let total = 0;
     let u = await User.findOne({_id: iduser});
@@ -123,6 +125,8 @@ exports.thanhtoanmotphan = async (req,res) => {
         let noconlai = await commonfun.tongno(iduser);
         let content = "Đơn Trả" + "\n" + u.name + ". Đã thanh toán " + i + " Đơn hàng. Số tiền là: " + total + "\nNợ còn lại: " + noconlai;
         commonfun.fnSendMessageTelegram(u.groupid, content, axios);
+        // update donodc status01 = 1;
+        await Donodc.updateOne({soodc:soodc},{set: {status01:1}});
         res.status(200).send(new Response(0, "data sucess", 1));
     } else {
         res.status(200).send(new Response(1001,"update fail",null));
@@ -169,6 +173,19 @@ exports.updateStatus05 = async (req,res) => {
         i++;
     }
     if(i == lstId.length) {
+        // tạo đơn odc
+        let newDonodc = new Donodc({
+            idkhachhang: req.body.id,
+            lstId: req.body.lstId,
+            tongcuoc: req.body.tongcuoc,
+            soodc: req.body.soodc,
+            status01: 0, //0 donodc chưa thanh toan, 1 đã thanh toán
+            status02: 0, 
+            status03: 0, 
+            status04: 0,
+            status05: 0
+        });
+        await newDonodc.save();
         return  res.status(200).send(new Response(0,"data sucess",1));
     } else{
         return  res.status(200).send(new Response(1001,"update fail",null));

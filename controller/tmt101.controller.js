@@ -35,6 +35,22 @@ exports.Detail = async (req, res) => {
     }
     return res.status(200).send(new Response(1001,'Video hướng dẫn không tồn tại !',null));
 }
+exports.GetDetail = async (req, res) => {
+    let tmt = await TMT101.findOne({_id: req.body.id});
+    if(tmt) {
+        return res.status(200).send(new Response(0,'data susecss !',tmt));
+    }
+    return res.status(200).send(new Response(1001,'Lỗi hệ thống. ID không tồn tại  !',null));
+}
+
+exports.Update = async (req, res) => {
+    console.log(req.body);
+    let tmt = await TMT101.updateOne({_id: req.body.id},{$set: {idyoutube: req.body.idyoutube,urldisplayid:req.body.urldisplayid}});
+    if(tmt) {
+        return res.status(200).send(new Response(0,'data susecss !',1));
+    }
+    return res.status(200).send(new Response(1001,'Lỗi hệ thống. ID không tồn tại !',null));
+}
 
 exports.getLists = async (req,res) => {
     let allData = await TMT101.find(req.body.filters);

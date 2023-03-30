@@ -145,6 +145,7 @@ require("./routers/donhangexportxengoai.route")(app);
 require("./routers/pnhchuyenngoai.route")(app);
 
 require("./routers/taixe.route")(app);
+require("./routers/donodc.route")(app)
 
 // master
 require("./routers/tmt101.route")(app);

@@ -6,6 +6,7 @@ const _ = require('lodash');
 const Chuyen = db.chuyen;
 const Xe = db.xe;
 const Chiphi = db.chiphichuyenxe;
+const Pnh = db.phieunhaphang;
 
 function ChuyenObject() {
     this.id = "";
@@ -181,8 +182,23 @@ exports.deleteChuyen = async (req,res) => {
 exports.updateTrangthai = async (req,res) => {
     let id = req.body.id;
     let trangthai = req.body.trangthai
+
+    // check xem tai xe đã tra hết hàng hay chứa
+    let lstsptoChuyen = await Pnh.find({idchuyen:id});
+    let check = false;
+    for(let e of lstsptoChuyen) {
+        if(e['status01'] == 0) {
+            check = true;
+            break;
+        }
+    }
+    if(check == true && trangthai==3) {
+        return res.status(200).send(new Response(0,"Tài xế chưa trả xong hàng !", 0));
+    }
+
     let c = await Chuyen.findOne({_id:id});
-    if(trangthai == 3) {
+    if(trangthai == 3) {// hoàn thành trả hang
+        
         let listkn = req.body.listkhachno
         if(listkn != undefined && listkn.length > 0) {
             for(let element of listkn) {
@@ -195,7 +211,7 @@ exports.updateTrangthai = async (req,res) => {
             }
         }
     }
-    if(trangthai == 4) {
+    if(trangthai == 4) {// tinh chi phi
        let lstcp = req.body.lstchiphi;
        for(let element of lstcp) {
           let cp = new Chiphi({
@@ -216,6 +232,6 @@ exports.updateTrangthai = async (req,res) => {
         }
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
     },err=>{
-        res.status(200).send(new Response(1001,"thực hiện không thành công !", 0));
+        return res.status(200).send(new Response(1001,"thực hiện không thành công !", 0));
     })
 }
