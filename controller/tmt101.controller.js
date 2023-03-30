@@ -28,6 +28,14 @@ exports.Create = async (req,res) => {
     }
 }
 
+exports.Detail = async (req, res) => {
+    let tmt = await TMT101.findOne({urldisplayid: req.body.urldisplayid});
+    if(tmt) {
+        return res.status(200).send(new Response(0,'data susecss !',tmt['idyoutube']));
+    }
+    return res.status(200).send(new Response(1001,'Video hướng dẫn không tồn tại !',null));
+}
+
 exports.getLists = async (req,res) => {
     let allData = await TMT101.find(req.body.filters);
     if(req.body.pageNum == 0 && req.body.pageSize ==0) {
