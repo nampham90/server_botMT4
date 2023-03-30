@@ -126,7 +126,7 @@ exports.thanhtoanmotphan = async (req,res) => {
         let content = "Đơn Trả" + "\n" + u.name + ". Đã thanh toán " + i + " Đơn hàng. Số tiền là: " + total + "\nNợ còn lại: " + noconlai;
         commonfun.fnSendMessageTelegram(u.groupid, content, axios);
         // update donodc status01 = 1;
-        await Donodc.updateOne({soodc:soodc},{set: {status01:1}});
+        await Donodc.updateOne({soodc:soodc},{$set: {status01:1}});
         res.status(200).send(new Response(0, "data sucess", 1));
     } else {
         res.status(200).send(new Response(1001,"update fail",null));
