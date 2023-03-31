@@ -21,6 +21,7 @@ const Chuyenngoai = db.chuyenngoai;
 const Chitietchuyenngoai = db.chitietchuyenngoai;
 const Congnoxengoai = db.congnoxengoai;
 const Donhangexportxengoai = db.donhangexportxengoai;
+const Donodc = db.donodc;
 
 // master
 const Tmt100 = db.tmt100;
@@ -35,6 +36,7 @@ exports.deleteAllDataMau = async (req,res) => {
    await Chitietchuyenngoai.deleteMany({});
    await Congnoxengoai.deleteMany({});
    await Donhangexportxengoai.deleteMany({});
+   await Donodc.deleteMany({})
    return res.status(200).send(new Response(0,"data delete!", 1));
 }
 
@@ -96,6 +98,14 @@ exports.getODC = async (req,res) => {
       return res.status(200).send(new Response(1001,"null !", null));
    }
    
+}
+exports.getHDTTXN = async (req,res) => {
+   let hdttxn = await commonfun.fnGetHDTTXN();
+   if(hdttxn) {
+      return res.status(200).send(new Response(0,"sesuces !", hdttxn));
+   } else {
+      return res.status(200).send(new Response(1001,"null !", null));
+   }
 }
 
 exports.checkBiensoxe = async (biensoxe) => {

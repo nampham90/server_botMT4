@@ -15,6 +15,7 @@ module.exports = app => {
     route.get('/commonAnt100DeleteAllDataMau', Common.deleteAllDataMau);
     route.post('/commonAnt100Tongnoxengoai', verifyToken, Common.getTongnoxengoai);
     route.post('/commonAnt100getODC', verifyToken, Common.getODC);
+    route.post('/commonAnt100getHDTTXN', verifyToken, Common.getHDTTXN);
 
     
     app.use("/api/common",route);

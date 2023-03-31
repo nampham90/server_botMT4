@@ -74,6 +74,7 @@ async function registerCongNoXeNgoai(nguonxe, iddonhang, biensoxe, tentaixe, sod
         tentaixe: tentaixe,
         sodienthoai: sodienthoai,
         sotienno: sotienno,
+        sohdttxn:"",
         status01: 0, // 0. chưa thanh toán. 1. đã thanh toán
         status02: status02, // 0. không ghi công nợ. 1 . có ghi công nợ
         status03: 0, 

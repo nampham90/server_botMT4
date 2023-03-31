@@ -677,6 +677,33 @@ exports.fnGetODC = async () => {
     }
 }
 
+// mã thanh toán công nợ xe ngòa
+exports.fnGetHDTTXN = async () => {
+    let soHDTTXN = "";
+    let hdttxn = await Tmt100.findOne({maghep:"HDTTXN"});
+    if(hdttxn) {
+       // kiểm số winnumber
+       let toWinnumber = _.toNumber(hdttxn['winnumber']);
+       let toStartnumber = _.toNumber(hdttxn['startnumber']);
+       let toEndnumber = _.toNumber(hdttxn['endnumber']);
+       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+        soHDTTXN = "0"//  hêt sô odC
+        return soHDTTXN;
+       }
+       let nowday = this.dateNow();
+       nowday = nowday.replace(/\s+/g, '');
+       nowday = nowday.replace(/-/g, '');
+       soHDTTXN = hdttxn['maghep'] + nowday + hdttxn['winnumber'];
+       // update winnumber mơi. winnuber + 1;
+       let newWinnumber = toWinnumber +1;
+       await Tmt100.updateOne({maghep:"HDTTXN"},{$set: {winnumber:_.toString(newWinnumber)}})
+       return soHDTTXN;
+    } else {
+        soHDTTXN = "1";// lỗi hệ thống
+        return soHDTTXN;
+    }
+}
+
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {
     const url ="https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-";
    const urltext = "&text=";

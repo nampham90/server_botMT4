@@ -21,6 +21,9 @@ exports.PostAll = async (req,res) => {
     }
     let sreach = {};
     sreach.ngaynhap = {$gte:gt,$lt:lt};
+    if(filters.status01 == 0){
+        sreach.sohdttxn = "";
+    } 
     if(filters.status01) {
         sreach.status01 = filters.status01;
     }
