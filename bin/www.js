@@ -7,11 +7,18 @@ dotenv.config();
 var port = normalizePort(process.env.PORT || '3000');
 var server = require("http").Server(app);
 var io = require('socket.io')(server);
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('chat message', (msg) => {
+      io.emit('chat message', msg);
+    });
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+});
 server.listen(port, ()=>{console.log("server open post:"+ port)});
 
-io.on("connection", function(socket){
-    console.log("Co nguoi ket noi");
-})
+
 //app.set('port', port);
 
 //var server = http.createServer(app);

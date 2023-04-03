@@ -308,12 +308,19 @@ exports.ghiNhatkyTatToan = async (idUser,sotientra) => {
 }
 
 // ghi nhật ký hệ thống
-exports.ghiNhatkyhethong = async (iduser,hanhdong,table) => {
+exports.ghiNhatkyhethong = async (loaithongbao,noidung,iduser,hanhdong,table) => {
     let nkht = new Nkht({
-        iduser: iduser,
-        hanhdong:hanhdong,
-        table: table,
-        ngay: _.now()
+        loaithongbao: loaithongbao,//notifi | system | vison
+        noidung: noidung,
+        iduser: iduser, //hệ thông, người dùng
+        hanhdong:hanhdong, //update //thêm mới // xóa
+        table: table, // bảng thực hiẹn
+        ngay: _.now(),// ngày thực hiện. 
+        status01: "0", //"0" new. "1" xóa
+        status02: "0", // "0" chưa xác nhận , "1" đã xác nhận
+        status03: "0",
+        status04: "0",
+        status05: "0"
     })
     nkht.save( async function(e){
         if(e) {

@@ -108,6 +108,7 @@ exports.getAllChuyen = async (req,res) => {
 }
 
 exports.createChuyen = async (req,res) => {
+    let nth = req.userID;
     let odt = await commonfun.fnGetODT();
     let newchuyen =new Chuyen({
         ngaydi: req.body.ngaydi,
@@ -131,13 +132,13 @@ exports.createChuyen = async (req,res) => {
            return res.status(200).send(new Response(1001,"save error", null)); 
         } else {
            commonfun.UpdateTrangthaiXe(req.body.biensoxe,true);
+           await commonfun.ghiNhatkyhethong("system","Khởi tạo chuyến hàng mới vơi ODT:" + odt, nth, "create", "chuyen");
            return res.status(200).send(new Response(0,"Data sucess", newchuyen));
         }
     })
 }
 
 exports.updateChuyen = async (req,res) => {
-    console.log(req.body);
     let c = await Chuyen.findOne({_id:req.body.id});
     Chuyen.updateOne({_id:req.body.id},{$set:{
         ngaydi:req.body.ngaydi,
@@ -168,11 +169,14 @@ exports.getDetailChuyen = async (req,res) => {
 }
 
 exports.deleteChuyen = async (req,res) => {
+    let nth = req.userID;
     let id = req.body.ids;
     let c = await Chuyen.findOne({_id:id});
+    let odt = c['soodt'];
     Chuyen.deleteOne({_id:id})
-    .then(data => {
+    .then( async data =>  {
         commonfun.UpdateTrangthaiXe(c.biensoxe,false);
+        await commonfun.ghiNhatkyhethong("system","Hủy chuyến hàng mới vơi ODT:" + odt, nth, "delete", "chuyen");
         res.status(200).send(new Response(0,"delete sucess !", data));
     },err=>{
         res.status(200).send(new Response(1001,"Lỗi xóa phòng ban !", null));

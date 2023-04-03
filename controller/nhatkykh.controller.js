@@ -81,11 +81,10 @@ exports.getLists = async (req,res) => {
 
 exports.tatToan = async (req,res) => {
     let nth = req.userID;
-    console.log(req.body);
     let iduser = req.body.iduser;
     let sotientra = req.body.sotientra;
     await commonfun.ghiNhatkyTatToan(iduser,sotientra);
-    await commonfun.ghiNhatkyhethong(nth,"Tất toán nợ cho id " + iduser, "nhatkykh");
+    await commonfun.ghiNhatkyhethong("system","Tất toán nợ",nth,"update", "nhatkykh");
     let u = await User.findOne({_id: iduser});
     if(u) {
         console.log(u);
@@ -97,6 +96,7 @@ exports.tatToan = async (req,res) => {
 }
 
 exports.thanhtoanmotphan = async (req,res) => {
+    let nth = req.userID;// người thực hiện
     let iduser = req.body.iduser;
     let listidpn = req.body.listidpn;
     let soodc = req.body.soodc;
@@ -127,6 +127,8 @@ exports.thanhtoanmotphan = async (req,res) => {
         commonfun.fnSendMessageTelegram(u.groupid, content, axios);
         // update donodc status01 = 1;
         await Donodc.updateOne({soodc:soodc},{$set: {status01:1}});
+        // ghi nhật ký hệ thống
+        await commonfun.ghiNhatkyhethong("system","Khách hàng thanh toán dơn hàng Số ODC:" + soodc, nth, "update", "nhatkykh");
         res.status(200).send(new Response(0, "data sucess", 1));
     } else {
         res.status(200).send(new Response(1001,"update fail",null));
