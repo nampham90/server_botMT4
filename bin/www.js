@@ -3,14 +3,23 @@ var debug = require('debug')('demo-node-js:server');
 var http = require('http');
 const dotenv = require('dotenv');
 dotenv.config();
-
+const cors = require('cors')
 var port = normalizePort(process.env.PORT || '3000');
 var server = require("http").Server(app);
-var io = require('socket.io')(server);
+var io = require('socket.io')(server, {
+  cors: {
+    origin: "http://localhost:4205",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true
+  }
+});
+app.use(cors());
 io.on('connection', (socket) => {
-    console.log('a user connected');
-    socket.on('chat message', (msg) => {
-      io.emit('chat message', msg);
+    console.log('a user connected',socket.id);
+    socket.on('client-send-data', (msg) => {
+      console.log(msg);
+      io.sockets.emit('server-send-data', msg);
     });
     socket.on('disconnect', () => {
       console.log('user disconnected');
