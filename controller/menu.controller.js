@@ -40,7 +40,6 @@ exports.addMenu = async (req, res) => {
 }
 
 exports.editMenu = async (req, res) => {
-    console.log(req.body);
     let idupdate = req.body.id;
     if(!idupdate)  return res.status(500).send(new Response(1001,"Clien send data null", null));
     Menu.updateOne({_id: idupdate},{$set: {
@@ -76,7 +75,6 @@ exports.getListMenu = async(req, res) => {
 }
 
 exports.getListMenuParams = async (req,res) => {
-    console.log(req.body);
     let lst = await Menu.find({});
     let pageNum = req.body.pageNum;
     let pageSize = req.body.pageSize;
@@ -90,7 +88,6 @@ exports.getListMenuParams = async (req,res) => {
 }
 
 exports.getDetailMenu = async(req,res)=> {
-   console.log(req.body);
    let id = req.body.menuId;
    let detail = await Menu.findOne({_id: id});
    if(!detail)  return res.status(500).send(new Response(1000,"Data null ",null));

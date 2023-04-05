@@ -11,6 +11,9 @@ const Pnh = db.phieunhaphang;
 const Cpc = db.chiphichuyenxe;
 const Nkht = db.nhatkyhethong;
 const Chuyen = db.chuyen;
+const Message = db.message;
+//master
+const Tmt100 = db.tmt100;
 
 let DataResponse = Responses.DataResponse;
 
@@ -219,7 +222,7 @@ exports.getDateparam = (param) => {
 }
 
 // ghi nhật ký khách hàng
-exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu) => {
+exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu,status01,status02) => {
     let newNk = new Nhatkykh({
         iduser: idUser, // mã khách hàng
         trangthai: 0, // 0 nợ, 1 trả
@@ -229,7 +232,12 @@ exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu) => {
         chukyno: 0,
         hinhthucthanhtoan: null, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
-        ghichu: ghichu // ghi chu cần thiết. để đối chiếu với khách hàng
+        ghichu: ghichu, // ghi chu cần thiết. để đối chiếu với khách hàng
+        status01: status01,
+        status02: status02,
+        status03: "",
+        status04: "",
+        status05: ""
     });
     newNk.save(async function(e){
         if(e) {
@@ -252,7 +260,12 @@ exports.ghiNhatkyTra = (idUser,idphieunhaphang,hinhthucthanhtoan,sotientra) => {
         hinhthucthanhtoan: hinhthucthanhtoan, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: "tra", // ghi chu cần thiết. để đối chiếu với khách hàng
-        chukyno: 0
+        chukyno: 0,
+        status01: "",
+        status02: "",
+        status03: "",
+        status04: "",
+        status05: ""
     });
     newNk.save(async function(e){
         if(e) {
@@ -275,7 +288,12 @@ exports.ghiNhatkyTatToan = async (idUser,sotientra) => {
         hinhthucthanhtoan: null, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: "Tất toán", // ghi chu cần thiết. để đối chiếu với khách hàng
-        chukyno: 1
+        chukyno: 1,
+        status01: "",
+        status02: "",
+        status03: "",
+        status04: "",
+        status05: ""
     });
     await newNk.save(async function(e){
         if(e) {
@@ -290,12 +308,19 @@ exports.ghiNhatkyTatToan = async (idUser,sotientra) => {
 }
 
 // ghi nhật ký hệ thống
-exports.ghiNhatkyhethong = async (iduser,hanhdong,table) => {
+exports.ghiNhatkyhethong = async (loaithongbao,noidung,iduser,hanhdong,table) => {
     let nkht = new Nkht({
-        iduser: iduser,
-        hanhdong:hanhdong,
-        table: table,
-        ngay: _.now()
+        loaithongbao: loaithongbao,//notifi | system | vison
+        noidung: noidung,
+        iduser: iduser, //hệ thông, người dùng
+        hanhdong:hanhdong, //update //thêm mới // xóa
+        table: table, // bảng thực hiẹn
+        ngay: _.now(),// ngày thực hiện. 
+        status01: "0", //"0" new. "1" xóa
+        status02: "0", // "0" chưa xác nhận , "1" đã xác nhận
+        status03: "0",
+        status04: "0",
+        status05: "0"
     })
     nkht.save( async function(e){
         if(e) {
@@ -570,19 +595,119 @@ function fixedEncodeURI(str) {
     return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']');
 }
 
-exports.checkOrder = async (idphieunhaphang,userID) => {
-    let pnh = await Pnh.findOne({_id:idphieunhaphang});
-    if (pnh) {
-        // tim ma chuyen
-        let idChuyen = pnh.idchuyen.toString();
-        let c = await Chuyen.findOne({_id: idChuyen});
-        if(c.idtai.toString() == userID) {
-            return true;
-        } else {
-            return false;
-        }
+// function get message db
+exports.fnGetMessagedb = async (idmsg) => {
+    let msg = await Message.findOne({idmsg: idmsg});
+    if (msg) {
+        return msg.strmsg;
     } else {
-        return false;
+        return "";
+    }
+}
+
+exports.fnGetODS = async () => {
+   let soODS = "";
+   let ods = await Tmt100.findOne({maghep:"ODS"});
+   if(ods) {
+      // kiểm số winnumber
+      let toWinnumber = _.toNumber(ods['winnumber']);
+      let toStartnumber = _.toNumber(ods['startnumber']);
+      let toEndnumber = _.toNumber(ods['endnumber']);
+      if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+        soODS = "0"//  hêt sô ods
+        return soODS;
+      }
+      let nowday = this.dateNow();
+      nowday = nowday.replace(/\s+/g, '');
+      nowday = nowday.replace(/-/g, '');
+      soODS = ods['maghep'] + nowday + ods['winnumber'];
+      // update winnumber mơi. winnuber + 1;
+
+      let newWinnumber = toWinnumber +1;
+      await Tmt100.updateOne({maghep:"ODS"},{$set: {winnumber:_.toString(newWinnumber)}})
+      return soODS;
+   } else {
+      soODS = "1";// lỗi hệ thống
+      return soODS;
+   }
+}
+
+exports.fnGetODT = async () => {
+    let soODT = "";
+    let odt = await Tmt100.findOne({maghep:"ODT"});
+    if(odt) {
+       // kiểm số winnumber
+       let toWinnumber = _.toNumber(odt['winnumber']);
+       let toStartnumber = _.toNumber(odt['startnumber']);
+       let toEndnumber = _.toNumber(odt['endnumber']);
+       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+        soODT = "0"//  hêt sô odt
+        return soODT;
+       }
+       let nowday = this.dateNow();
+       nowday = nowday.replace(/\s+/g, '');
+       nowday = nowday.replace(/-/g, '');
+       soODT = odt['maghep'] + nowday + odt['winnumber'];
+       // update winnumber mơi. winnuber + 1;
+       let newWinnumber = toWinnumber +1;
+       await Tmt100.updateOne({maghep:"ODT"},{$set: {winnumber:_.toString(newWinnumber)}})
+       return soODT;
+    } else {
+        soODT = "1";// lỗi hệ thống
+        return soODT;
+    }
+}
+// mã thanh toán công nợ khach hang
+exports.fnGetODC = async () => {
+    let soODC = "";
+    let odc = await Tmt100.findOne({maghep:"ODC"});
+    if(odc) {
+       // kiểm số winnumber
+       let toWinnumber = _.toNumber(odc['winnumber']);
+       let toStartnumber = _.toNumber(odc['startnumber']);
+       let toEndnumber = _.toNumber(odc['endnumber']);
+       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+        soODC = "0"//  hêt sô odC
+        return soODC;
+       }
+       let nowday = this.dateNow();
+       nowday = nowday.replace(/\s+/g, '');
+       nowday = nowday.replace(/-/g, '');
+       soODC = odc['maghep'] + nowday + odc['winnumber'];
+       // update winnumber mơi. winnuber + 1;
+       let newWinnumber = toWinnumber +1;
+       await Tmt100.updateOne({maghep:"ODC"},{$set: {winnumber:_.toString(newWinnumber)}})
+       return soODC;
+    } else {
+        soODC = "1";// lỗi hệ thống
+        return soODC;
+    }
+}
+
+// mã thanh toán công nợ xe ngòa
+exports.fnGetHDTTXN = async () => {
+    let soHDTTXN = "";
+    let hdttxn = await Tmt100.findOne({maghep:"HDTTXN"});
+    if(hdttxn) {
+       // kiểm số winnumber
+       let toWinnumber = _.toNumber(hdttxn['winnumber']);
+       let toStartnumber = _.toNumber(hdttxn['startnumber']);
+       let toEndnumber = _.toNumber(hdttxn['endnumber']);
+       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+        soHDTTXN = "0"//  hêt sô odC
+        return soHDTTXN;
+       }
+       let nowday = this.dateNow();
+       nowday = nowday.replace(/\s+/g, '');
+       nowday = nowday.replace(/-/g, '');
+       soHDTTXN = hdttxn['maghep'] + nowday + hdttxn['winnumber'];
+       // update winnumber mơi. winnuber + 1;
+       let newWinnumber = toWinnumber +1;
+       await Tmt100.updateOne({maghep:"HDTTXN"},{$set: {winnumber:_.toString(newWinnumber)}})
+       return soHDTTXN;
+    } else {
+        soHDTTXN = "1";// lỗi hệ thống
+        return soHDTTXN;
     }
 }
 

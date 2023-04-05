@@ -14,7 +14,6 @@ exports.getLists = async (req,res) => {
 }
 
 exports.updateLists = async (req,res) => {
-    console.log(req.body);
     let idchuyen = req.body.id;
     let lst = req.body.lstchiphi;
     if(lst.length > 0 && req.body.trangthai == 4) {

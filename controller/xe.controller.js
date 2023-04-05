@@ -31,10 +31,10 @@ exports.getlistXerun = async (req,res) => {
    return res.status(200).send(new Response(0,"Data sucess", listxerun));
 }
 
-//https://xekinhdoanh24h.com/wp-content/uploads/2021/11/cropped-shipping-icon.png
+//cropped-shipping-icon.png
 exports.CreateXe = async (req,res) => {
     console.log(req.body)
-    let image = "https://xekinhdoanh24h.com/wp-content/uploads/2021/11/cropped-shipping-icon.png";
+    let image = "cropped-shipping-icon.png";
     let newXe = new Xe({
         biensoxe: req.body.biensoxe,
         anhdaidien: image,
