@@ -62,7 +62,12 @@ exports.editMenu = async (req, res) => {
 }
 
 exports.delMenu = async (req, res) => {
-    console.log(req.body);
+    let id = req.body.ids[0];
+   
+    let m = await Menu.findOneAndDelete({_id:id});
+    if(m) {
+        return res.status(200).send(new Response(0,"Data update sucess ",1));
+    }
 }
 
 exports.getListMenu = async(req, res) => {
