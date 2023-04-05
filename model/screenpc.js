@@ -1,4 +1,5 @@
 module.exports = mongoose => {
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         idmenu:String,
@@ -16,6 +17,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const screenpc = mongoose.model("screenpc", schema);
+    const screenpc = dbcon.dbDemo.model("screenpc", schema);
     return screenpc;
 };

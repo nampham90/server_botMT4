@@ -1,5 +1,6 @@
 
 module.exports = mongoose => {
+    const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         idchuyen: String, // mã chuyến xe
@@ -17,7 +18,7 @@ module.exports = mongoose => {
       return object;
     });
   
-    const chiphichuyenxe = mongoose.model("chiphichuyenxe", schema);
+    const chiphichuyenxe = dbcon.dbDemo.model("chiphichuyenxe", schema);
     return chiphichuyenxe;// chi phi cho 1 chuyến xe
 };
 

@@ -78,7 +78,6 @@ exports.getDetailUser = async(req,res) => {
 }
 
 exports.editDetailUser =async (req,res) => {
-    console.log(req.body);
     User.updateOne(
     {_id: req.body.id},
     {
@@ -215,7 +214,7 @@ exports.loginMobile = async (req, res) => {
     let reqpass = req.body.password;
     const user = await User.findOne({email: reqemail}).populate("role_id");
     if (!user) {
-        let response = new Response(1010,'Số điện thoại chưa đăng ký !',null);
+        let response = new Response(1010,'Email chưa đăng ký !',null);
         return res.status(200).send(response);
     }
 
@@ -287,7 +286,6 @@ exports.getMenu = async(req, res) => {
 
 // login - app
 exports.loginApp = async (req,res) => {
-    console.log(res);
     if(req.body.mode != "app") {
         let response = new Response(1010,'người dùng không hợp lệ !',null);
         return res.status(200).send(response);

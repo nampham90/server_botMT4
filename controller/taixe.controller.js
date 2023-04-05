@@ -7,6 +7,7 @@ const User = db.user;
 const Xe = db.xe;
 const Chuyen = db.chuyen;
 const Pnh = db.phieunhaphang;
+const Chiphi = db.chiphichuyenxe;
 
 exports.getChuyen = async (req, res) => {
     let c = await Chuyen.findOne({idtai: req.userID, trangthai: {$gte:0, $lte : 3}})
@@ -18,7 +19,6 @@ exports.getChuyen = async (req, res) => {
         reslistHangdi: [],
         reslistHangve: []
     }
-    console.log();
     if (c) {
         let countId = c._id.toString().length;
         if (countId == Const.lengthId) {
@@ -45,6 +45,53 @@ exports.Updatestatusorder = async (req,res) => {
         return res.status(200).send(new Response(0,"Update sucess ", 1));
     } else {
         return res.status(200).send(new Response(1010,"Bạn không đủ quyền ", null));
+    }
+}
+
+// Tài xê chuyên đổi trang thái thừ chưa giao hàng đến -> đá giáo hàng
+exports.Updatestatus01 = async (req,res) => {
+    await Pnh.updateOne({_id:req.body.id}, {$set: {status01: 1}});
+    return res.status(200).send(new Response(0,"Update sucess ", 1));
+}
+
+exports.Insertchiphi = async (req,res) => {
+    let lstcp = req.body.lstchiphi;
+    let id = req.body.id;
+    for(let element of lstcp) {
+        let cp = new Chiphi({
+            idchuyen: id,
+            tenchiphi: element.tenchiphi,
+            sotien: element.sotien,
+            ghichu: element.ghichu
+        });
+        await cp.save();
+    }
+    let lcpDB = await Chiphi.find({idchuyen:id});
+    if(lcpDB.length > 0) {
+       return  res.status(200).send(new Response(0,"thực hiện thành công !", 1));
+    } else {
+        return res.status(200).send(new Response(1001,"thực hiện không thành công !", 0));
+    }
+}
+
+exports.Updatechiphi = async (req,res) => {
+    let idchuyen = req.body.id;
+    let lst = req.body.lstchiphi;
+    if(lst.length > 0) {
+       let i = 0;
+       for(let element of lst) {
+         let n = await  Chiphi.updateOne({idchuyen:idchuyen,tenchiphi:element.tenchiphi},{$set: {sotien:element.sotien, ghichu:element.ghichu}});
+         if(n.modifiedCount == 1) {
+            i++;
+         }
+       }
+       if(i == lst.length) {
+          return res.status(200).send(new Response(0,"update sucess ", i));
+       } else {
+          return res.status(200).send(new Response(0," update 1 phần ", i));
+       }
+    } else {
+        return res.status(200).send(new Response(1001,"Data gửi lên không được chấp nhận ", null));
     }
 }
 

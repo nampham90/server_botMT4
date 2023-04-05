@@ -1,5 +1,6 @@
 
 module.exports = mongoose => {
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         iduser: {
@@ -19,17 +20,22 @@ module.exports = mongoose => {
         hinhthucthanhtoan: Number, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: Date, // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: String, // ghi chu cần thiết. để đối chiếu với khách hàng
-        chukyno: Number // 0 chu kỳ mới, 1 đã tất toán . trả ghì có trường này. khi tất toan update chu ky nợ = 1 . gi chú tất toán
+        chukyno: Number, // 0 chu kỳ mới, 1 đã tất toán . trả ghì có trường này. khi tất toan update chu ky nợ = 1 . gi chú tất toán
+        status01: String, // ghi chú 
+        status02: String, // "". không ghi vào công nợ. "1" . ghi vào công nợ 
+        status03: String,
+        status04: String,
+        status05: String // luu so odc 
       },
       { timestamps: true }
     );
-  
+    schema.index({'status05': 'text'});
     schema.method("toJSON", function() {
       const { __v, _id, ...object } = this.toObject();
       object.id = _id;
       return object;
     });
   
-    const nhatkykh= mongoose.model("nhatkykh", schema);
+    const nhatkykh= dbcon.dbDemo.model("nhatkykh", schema);
     return nhatkykh;
 };

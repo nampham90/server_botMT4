@@ -7,5 +7,6 @@ module.exports = app => {
     route.post('/nhatkykhAnt100postTattoan', Nhatkykh.tatToan);
     route.post('/nhatkykhAnt100postThanhtoanmotphan',verifyToken, Nhatkykh.thanhtoanmotphan);
     route.post('/nhatkykhAnt100postThanhtoan', verifyToken, Nhatkykh.thanhtoan);
+    route.post('/nhatkykhAnt100updateStatus05',verifyToken,Nhatkykh.updateStatus05);
     app.use("/api/nhatkykh",route);
 }

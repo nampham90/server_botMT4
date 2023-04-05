@@ -16,7 +16,6 @@ module.exports = (request, response, next) => {
                 request.userID = decoded.userId;
                 request.isLoggedIn = true;
                 let role = decoded.role;
-                console.log(role);
                 next();
             }
         });
