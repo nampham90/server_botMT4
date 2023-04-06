@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const _ = require("lodash")
 const Const = require('../common/const');
-
+const dbcon = require("../common/DBConnect");
 let menus = require('../common/menu');
 let commonfun = require('../common/functionCommon');
 let Responses = require('../common/response');
@@ -13,9 +13,20 @@ const User = db.user;
 const Role = db.role;
 const Menu = db.menu;
 const { registerValidator } = require('./../validations/auth');
+const UserProcess = require("../process/UserProcess");
+
 
 exports.demo = async (req,res) => {
-    console.log(req.body);
+    try {
+        const userProces = new UserProcess(dbcon.dbDemo);
+        await userProces.start();
+        let data = await userProces.insertUser(req.body);
+        await userProces.commit();
+        return res.status(200).send(new Response(0,"Đăng ký thành công!", data));
+    } catch (error) {
+        console.log(error.message);
+        return res.status(200).send(new Response(1001,"Error save User !", error.message));
+    }
 }
 
 exports.checkEmail = async (req,res) => {

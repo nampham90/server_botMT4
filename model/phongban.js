@@ -1,5 +1,5 @@
 module.exports = mongoose => {
-  const dbcon = require("../common/DBConnect");
+    const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         tenphongban: {

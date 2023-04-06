@@ -14,6 +14,7 @@ module.exports = mongoose => {
         sex: Number,
         email: {
             type: String,
+            unique: true,
             required: true,
             min: 6,
             max: 225
