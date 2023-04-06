@@ -20,7 +20,6 @@ class Transaction {
   }
 
   async execute(db,req) {
-    let ret = 0;
     try {
       const result = await this.process(db,req);
       return result;
@@ -31,11 +30,8 @@ class Transaction {
   }
 
   async process(db,req) {
-    let res = "reponse";
+    let res = "res";
     return res;
   }
-
-
 }
-
 module.exports = Transaction;

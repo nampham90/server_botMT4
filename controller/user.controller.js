@@ -13,15 +13,16 @@ const User = db.user;
 const Role = db.role;
 const Menu = db.menu;
 const { registerValidator } = require('./../validations/auth');
-const UserProcess = require("../process/UserProcess");
+const UserRegisterProcess = require("../process/userProcess/UserRegisterProcess");
+const UserCheckEmailProcess = require("../process/userProcess/UserCheckEmailProcess");
 
 
 exports.demo = async (req,res) => {
     try {
-        const userProces = new UserProcess(dbcon.dbDemo);
-        await userProces.start();
-        let data = await userProces.insertUser(req.body);
-        await userProces.commit();
+        const userRegisterProcess = new UserRegisterProcess(dbcon.dbDemo);
+        await userRegisterProcess.start();
+        let data = await userRegisterProcess.insertUser(req.body);
+        await userRegisterProcess.commit();
         return res.status(200).send(new Response(0,"Đăng ký thành công!", data));
     } catch (error) {
         console.log(error.message);
@@ -30,9 +31,16 @@ exports.demo = async (req,res) => {
 }
 
 exports.checkEmail = async (req,res) => {
-    let checkEmail = await User.findOne({email: req.body.email});
-    if(checkEmail) return res.status(200).send(new Response(0,"Email tồn tại !", checkEmail));
-    return res.status(200).send(new Response(0,"email chưa có ai đăng ký !", null));
+    try {
+        const checkEmailProcess = new UserCheckEmailProcess(dbcon.dbDemo);
+        await checkEmailProcess.start();
+        let check = await checkEmailProcess.checkEmail(req.body.email);
+        if(check === true) return res.status(200).send(new Response(0,"Email tồn tại !", checkEmail));
+        return res.status(200).send(new Response(0,"email chưa có ai đăng ký !", null));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,"email chưa có ai đăng ký !", error.message));
+    }
+    
 }
 
 exports.checkName = async (req,res) => {
