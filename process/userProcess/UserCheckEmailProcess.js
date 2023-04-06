@@ -12,9 +12,9 @@ class UserCheckEmailProcess extends Transaction {
     async process(db,email) {
        let User = db.user;
        let u = await User.findOne({email:email});
-       if(u) {
-         return true;
-       }
+       if(u) return true;
        return false;
     }
 }
+
+module.exports = UserCheckEmailProcess;

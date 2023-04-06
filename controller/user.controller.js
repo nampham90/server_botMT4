@@ -13,8 +13,12 @@ const User = db.user;
 const Role = db.role;
 const Menu = db.menu;
 const { registerValidator } = require('./../validations/auth');
+
+//process
 const UserRegisterProcess = require("../process/userProcess/UserRegisterProcess");
 const UserCheckEmailProcess = require("../process/userProcess/UserCheckEmailProcess");
+const UserFindAllProcess = require("../process/userProcess/UserFindAllProcess");
+const UserGetDetailProcess = require("../process/userProcess/UserGetDetailProcess");
 
 
 exports.demo = async (req,res) => {
@@ -26,7 +30,7 @@ exports.demo = async (req,res) => {
         return res.status(200).send(new Response(0,"Đăng ký thành công!", data));
     } catch (error) {
         console.log(error.message);
-        return res.status(200).send(new Response(1001,"Error save User !", error.message));
+        return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
     }
 }
 
@@ -35,13 +39,14 @@ exports.checkEmail = async (req,res) => {
         const checkEmailProcess = new UserCheckEmailProcess(dbcon.dbDemo);
         await checkEmailProcess.start();
         let check = await checkEmailProcess.checkEmail(req.body.email);
+        await checkEmailProcess.commit();
         if(check === true) return res.status(200).send(new Response(0,"Email tồn tại !", checkEmail));
         return res.status(200).send(new Response(0,"email chưa có ai đăng ký !", null));
     } catch (error) {
-        return res.status(200).send(new Response(1001,"email chưa có ai đăng ký !", error.message));
+        return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
     }
     
-}
+} 
 
 exports.checkName = async (req,res) => {
     let checkName = await User.findOne({name: req.body.name});
@@ -50,50 +55,41 @@ exports.checkName = async (req,res) => {
 }
 
 exports.addDetailUser= async(req,res) =>{
-    let dataNow = _.now()
-    const salt = await bcrypt.genSalt(10);
-    const hashPassword = await bcrypt.hash(req.body.password, salt);
-    let newUser = new User({
-        name: req.body.name,
-        available: req.body.available,
-        sex: req.body.sex,
-        email: req.body.email,
-        dienthoai: req.body.dienthoai,
-        zalo: req.body.zalo,
-        password:hashPassword,
-        role_id: req.body.role_id,
-        account_id: [],
-        menulist: [],
-        phongban_id: req.body.phongban_id,
-        lastLoginTime:dataNow
-        
-    });
-    newUser.save(async function(e){
-        if(e){
-            return res.status(501).send(new Response(1001,"Error save User !", null));
-        }else {
-            return res.status(200).send(new Response(0,"user save sucess !", newUser));
-        }
-    })
+    try {
+        const userRegisterProcess = new UserRegisterProcess(dbcon.dbDemo);
+        await userRegisterProcess.start();
+        let data = await userRegisterProcess.insertUser(req.body);
+        await userRegisterProcess.commit();
+        return res.status(200).send(new Response(0,"Đăng ký thành công!", data));
+    } catch (error) {
+        console.log(error.message);
+        return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
+    }
 }
 
 exports.getAllUser = async (req,res) => {
-    let allData = await User.find(req.body.filters);
-    if(req.body.pageNum == 0 && req.body.pageSize ==0) {
-        res.status(200).send(new Response(0,"data sucess",allData));
-    } else {
-        let n = req.body.pageNum - 1;
-        let lst = await User.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n);
-        let data = commonfun.dataReponse(allData,lst,req.body.pageNum,req.body.pageSize);
-        res.status(200).send(new Response(0,"data sucess",data));
+    try {
+        const userFindAllProcess = new UserFindAllProcess(dbcon.dbDemo);
+        await userFindAllProcess.start();
+        let data = await userFindAllProcess.findAll(req.body);
+        await userFindAllProcess.commit();
+        return res.status(200).send(new Response(0,"data sucess",data));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
     }
 }
 
 exports.getDetailUser = async(req,res) => {
     let id = req.params.id;
-    let user = await User.findOne({_id:id});
-    if(!user) return res.status(500).send(new Response(1001,"User không tồn tại !",null));
-    return res.status(200).send(new Response(0,"Data sucess ", user));
+    try {
+        let userGetDetailProcess = new UserGetDetailProcess(dbcon.dbDemo);
+        await userGetDetailProcess.start();
+        let data = await userGetDetailProcess.getDetail(id);
+        await userGetDetailProcess.commit();
+        return  res.status(200).send(new Response(0,"Data sucess ", data));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
+    }
 }
 
 exports.editDetailUser =async (req,res) => {
