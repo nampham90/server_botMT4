@@ -13,6 +13,8 @@ class UserRegisterProcess extends Transaction {
     }
     
     async process(db,data) {
+      let res = 1;
+      let session = this.transaction;
       let User = db.models.user
       let dataNow = _.now()
       const salt = await bcrypt.genSalt(10);
@@ -31,22 +33,7 @@ class UserRegisterProcess extends Transaction {
           phongban_id: data.phongban_id,
           lastLoginTime:dataNow
       });
-      let res = await newUser.save();
-      let newUser2 = new User({
-        name: "",
-        available: data.available,
-        sex: data.sex,
-        email: data.email,
-        dienthoai: data.dienthoai,
-        zalo: data.zalo,
-        password:hashPassword,
-        role_id: data.role_id,
-        account_id: [],
-        menulist: [],
-        phongban_id: data.phongban_id,
-        lastLoginTime:dataNow
-      });
-      await newUser2.save();
+      await User.collection.insertOne(newUser, { session });
       return res;
     }
 }

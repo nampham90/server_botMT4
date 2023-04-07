@@ -1,3 +1,4 @@
+const logToFile = require('../../common/logFile');
 class Transaction {
   constructor(database) {
     this.database = database;
@@ -21,9 +22,12 @@ class Transaction {
 
   async execute(db,req) {
     try {
+      await this.start();
       const result = await this.process(db,req);
+      await this.commit();
       return result;
     } catch (error) {
+      logToFile(error.message);
       await this.rollback();
       throw error;
     }

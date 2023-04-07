@@ -24,9 +24,7 @@ const UserGetDetailProcess = require("../process/userProcess/UserGetDetailProces
 exports.demo = async (req,res) => {
     try {
         const userRegisterProcess = new UserRegisterProcess(dbcon.dbDemo);
-        await userRegisterProcess.start();
         let data = await userRegisterProcess.insertUser(req.body);
-        await userRegisterProcess.commit();
         return res.status(200).send(new Response(0,"Đăng ký thành công!", data));
     } catch (error) {
         console.log(error.message);
@@ -37,9 +35,7 @@ exports.demo = async (req,res) => {
 exports.checkEmail = async (req,res) => {
     try {
         const checkEmailProcess = new UserCheckEmailProcess(dbcon.dbDemo);
-        await checkEmailProcess.start();
         let check = await checkEmailProcess.checkEmail(req.body.email);
-        await checkEmailProcess.commit();
         if(check === true) return res.status(200).send(new Response(0,"Email tồn tại !", checkEmail));
         return res.status(200).send(new Response(0,"email chưa có ai đăng ký !", null));
     } catch (error) {
@@ -57,9 +53,7 @@ exports.checkName = async (req,res) => {
 exports.addDetailUser= async(req,res) =>{
     try {
         const userRegisterProcess = new UserRegisterProcess(dbcon.dbDemo);
-        await userRegisterProcess.start();
         let data = await userRegisterProcess.insertUser(req.body);
-        await userRegisterProcess.commit();
         return res.status(200).send(new Response(0,"Đăng ký thành công!", data));
     } catch (error) {
         console.log(error.message);
@@ -70,9 +64,7 @@ exports.addDetailUser= async(req,res) =>{
 exports.getAllUser = async (req,res) => {
     try {
         const userFindAllProcess = new UserFindAllProcess(dbcon.dbDemo);
-        await userFindAllProcess.start();
         let data = await userFindAllProcess.findAll(req.body);
-        await userFindAllProcess.commit();
         return res.status(200).send(new Response(0,"data sucess",data));
     } catch (error) {
         return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
@@ -83,9 +75,7 @@ exports.getDetailUser = async(req,res) => {
     let id = req.params.id;
     try {
         let userGetDetailProcess = new UserGetDetailProcess(dbcon.dbDemo);
-        await userGetDetailProcess.start();
         let data = await userGetDetailProcess.getDetail(id);
-        await userGetDetailProcess.commit();
         return  res.status(200).send(new Response(0,"Data sucess ", data));
     } catch (error) {
         return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
