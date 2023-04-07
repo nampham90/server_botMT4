@@ -5,13 +5,13 @@ class UserCheckEmailProcess extends Transaction {
         super(dbcon);
     }
 
-    async checkEmail(email) {
-      return this.execute(db,email);
+    async checkEmail(email,session) {
+      return this.execute(this.database,email,session);
     }
 
-    async process(db,email) {
-       let User = db.user;
-       let u = await User.findOne({email:email});
+    async process(db,email,session) {
+       let User = db.models.user;
+       let u = await User.collection.findOne({email:email},{session});
        if(u) return true;
        return false;
     }

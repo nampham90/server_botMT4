@@ -20,11 +20,9 @@ class Transaction {
     this.transaction.endSession();
   }
 
-  async execute(db,req) {
+  async execute(db,req,session) {
     try {
-      await this.start();
-      const result = await this.process(db,req);
-      await this.commit();
+      const result = await this.process(db,req,session);
       return result;
     } catch (error) {
       logToFile(error.message);
@@ -33,7 +31,7 @@ class Transaction {
     }
   }
 
-  async process(db,req) {
+  async process(db,req,session) {
     let res = "res";
     return res;
   }

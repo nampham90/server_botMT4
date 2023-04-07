@@ -7,13 +7,13 @@ class UserGetDetailProcess extends Transaction {
         super(dbcon);
     }
 
-    async getDetail(data) {
-        return this.execute(db,data);
+    async getDetail(data,session) {
+        return this.execute(this.database,data,session);
     }
 
-    async process(db,data) {
-        let User = db.user;
-        let user = await User.findOne({_id:data});
+    async process(db,data,session) {
+        let User = db.models.user;
+        let user = await User.collection.findOne({_id:data},{session});
         if(!user) return null;
         return user;
     }
