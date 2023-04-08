@@ -39,10 +39,10 @@ exports.checkEmail = async (req,res) => {
     try {
         const checkEmailProcess = new UserCheckEmailProcess(dbcon.dbDemo);
         await checkEmailProcess.start();
-        let session = checkEmailProcess.transaction;
+        const session = checkEmailProcess.transaction;
         let check = await checkEmailProcess.checkEmail(req.body.email,session);
         await checkEmailProcess.commit();
-        if(check === true) return res.status(200).send(new Response(0,"Email tồn tại !", checkEmail));
+        if(check == "0") return res.status(200).send(new Response(0,"Email tồn tại !", checkEmail));
         return res.status(200).send(new Response(0,"email chưa có ai đăng ký !", null));
     } catch (error) {
         return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
