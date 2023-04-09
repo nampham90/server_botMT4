@@ -12,8 +12,7 @@ class UserCheckEmailProcess extends Transaction {
     async process(db,email,session) {
        let User = db.models.user;
        let u = await User.collection.findOne({email:email},{session});
-       if(u) return "0";
-       return "1";
+       return u;
     }
 }
 

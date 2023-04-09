@@ -19,6 +19,7 @@ const UserRegisterProcess = require("../process/userProcess/UserRegisterProcess"
 const UserCheckEmailProcess = require("../process/userProcess/UserCheckEmailProcess");
 const UserFindAllProcess = require("../process/userProcess/UserFindAllProcess");
 const UserGetDetailProcess = require("../process/userProcess/UserGetDetailProcess");
+const UserUpdateDetailProcess = require("../process/userProcess/UserUpdateDetailProcess");
 
 
 exports.demo = async (req,res) => {
@@ -42,7 +43,7 @@ exports.checkEmail = async (req,res) => {
         const session = checkEmailProcess.transaction;
         let check = await checkEmailProcess.checkEmail(req.body.email,session);
         await checkEmailProcess.commit();
-        if(check == "0") return res.status(200).send(new Response(0,"Email tồn tại !", checkEmail));
+        if(check) return res.status(200).send(new Response(0,"Email tồn tại !", check));
         return res.status(200).send(new Response(0,"email chưa có ai đăng ký !", null));
     } catch (error) {
         return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
@@ -87,7 +88,7 @@ exports.getAllUser = async (req,res) => {
 exports.getDetailUser = async(req,res) => {
     let id = req.params.id;
     try {
-        let userGetDetailProcess = new UserGetDetailProcess(dbcon.dbDemo);
+        const userGetDetailProcess = new UserGetDetailProcess(dbcon.dbDemo);
         await userGetDetailProcess.start();
         const session = userGetDetailProcess.transaction;
         let data = await userGetDetailProcess.getDetail(id,session);
@@ -99,27 +100,16 @@ exports.getDetailUser = async(req,res) => {
 }
 
 exports.editDetailUser =async (req,res) => {
-    User.updateOne(
-    {_id: req.body.id},
-    {
-        $set: {
-            name: req.body.name,
-            sex: req.body.sex,
-            available: req.body.available,
-            zalo: req.body.zalo,
-            dienthoai: req.body.dienthoai,
-            email: req.body.email,
-            role_id: req.body.role_id,
-            phongban_id: req.body.phongban_id
-        }
-    })
-    .then(data => {
-        if(data.modifiedCount == 1) {
-            res.status(200).send(new Response(0,"update sucess data",data));
-        }
-    },err => {
-        res.status(400).send(new Response(1001,"Error update User",null));
-    })
+    try {
+        const userUpdateDetailProcess = new UserUpdateDetailProcess(dbcon.dbDemo);
+        await userUpdateDetailProcess.start();
+        const session = userUpdateDetailProcess.transaction;
+        let data = await userUpdateDetailProcess.updateDetail(req.body,session);
+        await userUpdateDetailProcess.commit();
+        return  res.status(200).send(new Response(0,"Data sucess ", data));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
+    }
 }
 
 

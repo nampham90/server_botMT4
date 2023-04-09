@@ -8,11 +8,11 @@ class UserFindAllProcess extends Transaction {
     }
 
     async findAll(data,session) {
-        return this.execute(db,data,session);
+        return this.execute(this.database,data,session);
     }
 
     async process(db,data,session) {
-        let User = db.user;
+        let User = db.models.user;
         let allData = await User.find(data.filters); 
         if(data.pageNum == 0 && data.pageSize ==0) {
             return allData

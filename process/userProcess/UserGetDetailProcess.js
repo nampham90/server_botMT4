@@ -1,5 +1,5 @@
 const Transaction = require('../abstractProcess/Transaction');
-const db = require("../../model");
+const { ObjectId } = require('mongodb');
 
 
 class UserGetDetailProcess extends Transaction {
@@ -7,15 +7,14 @@ class UserGetDetailProcess extends Transaction {
         super(dbcon);
     }
 
-    async getDetail(data,session) {
-        return this.execute(this.database,data,session);
+    async getDetail(id,session) {
+        return this.execute(this.database,id,session);
     }
 
-    async process(db,data,session) {
-        let User = db.models.user;
-        let user = await User.collection.findOne({_id:data},{session});
-        if(!user) return null;
-        return user;
+    async process(db,id,session) {
+        const User = db.models.user;
+        let u= await User.collection.findOne({_id: ObjectId(id)},{session});
+        return u;
     }
 
 }
