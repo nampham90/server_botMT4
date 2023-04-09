@@ -177,36 +177,4 @@ app.get("/", (req,res) => {
    res.send("nam pham");
 })
 
-
-// Chuyen.find({trangthai: 5, 
-//     $expr: {
-//       $and: [
-//       {"$eq": [{"$month": "$ngaydi"},11]},
-//       {"$eq": [{"$year": "$ngaydi"},2022]}
-//       ]
-//     }
-// }).then(data => {
-//   console.log(data);
-// },err=>{
-//   console.log(err.message);
-// })
-
-// text commonfun.checkAndremoveIdMenu("6321fe53c26d4024dd312437","632aaa31c8093b9a2007d143").then(data => {
-// text  console.log(data.length);
-// text})
-// text .catch(err => {console.log(err)})
-// console.log(menu.length);
-
-// 6331b3ce65e0507984482ba9
-// Menu.find({})
-// .then(async data => {
-//    let lstm = [];
-//    for(let element of data) {
-//      lstm.push(element._id);
-//    }
-//    await Role.updateOne({_id: "6331b3ce65e0507984482ba7"},{$set: {dacquyen:[]}})
-// },err => {
-//   console.log("err !")
-// })
-
 module.exports = app;
