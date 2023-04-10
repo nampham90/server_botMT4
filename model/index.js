@@ -37,5 +37,6 @@ db.donodc = require("./donodc")(mongoose);
 // master không thể xóa
 db.tmt100 = require("./tmt100")(mongoose);
 db.tmt101 = require("./tmt101")(mongoose);
+db.tmt050 = require("./tmt050")(mongoose);
 
 module.exports = db;
