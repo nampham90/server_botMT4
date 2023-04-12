@@ -1,4 +1,5 @@
 const AbsProcess = require("../abstractProcess/Transaction");
+const commonfun = require("../../common/functionCommon");
 
 class Spin00901SearchProcess extends AbsProcess {
     constructor(dbcon) {
@@ -11,14 +12,14 @@ class Spin00901SearchProcess extends AbsProcess {
 
     async process(db,data,session) {
         const TMT050 = db.models.tmt050;
-        let allData = await TMT050.collection.find(data.filters);
+        let allData = await TMT050.find(data.filters);
         if(data.pageNum == 0 && data.pageSize ==0) {
            return allData;
         } else {
             let n = data.pageNum - 1;
-            let lst = await TMT050.collection.find(data.filters).limit(data.pageSize).skip(data.pageSize*n);
-            let data = commonfun.dataReponse(allData,lst,data.pageNum,data.pageSize);
-            return data;
+            let lst = await TMT050.find(data.filters).limit(data.pageSize).skip(data.pageSize*n);
+            let res = commonfun.dataReponse(allData,lst,data.pageNum,data.pageSize);
+            return res;
         }
     }
 }

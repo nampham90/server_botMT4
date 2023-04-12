@@ -3,9 +3,9 @@ module.exports = app =>{
     const verifyToken = require('../middlewares/verifyToken');
     const router = require("express").Router();
 
-    router.post("/spin00901Ant100Search",Spin00901.Sreach);
+    router.post("/spin00901Ant100Search",verifyToken,Spin00901.Sreach);
     router.post("/spin00901Ant100Add",verifyToken,Spin00901.Register);
-    router.post("/spin00901Ant100Update",verifyToken,Spin00901.Update);
+    router.post("/spin00901Ant100Update",Spin00901.Update);
     router.post("/spin00901Ant100Del",verifyToken,Spin00901.Delete);
     router.post("/spin00901Ant100Alldel",verifyToken,Spin00901.AllDelete);
 

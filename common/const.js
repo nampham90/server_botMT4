@@ -5,7 +5,8 @@ const  mauvang = "\xF0\x9F\x8C\x95 ";
 const  lengthId = 24;
 const  hangdi = "0";
 const  hangve = "1";
-const  emailAdmin = "namandroid.it@gmail.com" 
+const  emailAdmin = "namandroid.it@gmail.com";
+const  rcdkbnKho = '0001'; 
 
 
 module.exports = {
@@ -16,5 +17,6 @@ module.exports = {
     lengthId,
     hangdi,
     hangve,
-    emailAdmin
+    emailAdmin,
+    rcdkbnKho
 }
