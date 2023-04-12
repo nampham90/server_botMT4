@@ -1,5 +1,5 @@
 const AbsProcess = require("../abstractProcess/Transaction");
-const ObjectId = require('mongodb');
+const {ObjectId} = require('mongodb');
 
 class Spin00901UpdateProcess extends AbsProcess {
     constructor(dbcon) {
@@ -9,11 +9,11 @@ class Spin00901UpdateProcess extends AbsProcess {
     async update(data,session) {
         return this.execute(this.database,data,session);
     }
-
+    //overice
     async process(db,data,session) {
         const TMT050 = db.models.tmt050;
         let res = await TMT050.collection.updateOne(
-            {_id: data.id},
+            {_id: ObjectId(data.id)},
             {$set:{
                datacd: data.datacd,
                datanm: data.datanm,
