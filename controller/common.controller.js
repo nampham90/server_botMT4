@@ -108,6 +108,15 @@ exports.getHDTTXN = async (req,res) => {
    }
 }
 
+exports.getID = async (req,res) => {
+   let id = await commonfun.fnGetHDTTXN();
+   if(id) {
+      return res.status(200).send(new Response(0,"sesuces !", id));
+   } else {
+      return res.status(200).send(new Response(1001,"null !", null));
+   }
+}
+
 exports.checkBiensoxe = async (biensoxe) => {
    let xe = await Xe.findOne({biensoxe:biensoxe});
    if(!xe) return "";
