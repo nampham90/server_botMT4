@@ -5,9 +5,9 @@ module.exports = mongoose => {
       {
          idchuyen: {
           type: mongoose.Schema.Types.ObjectId,
-          ref:"chuyen"
+          ref:"chuyen" // khi nhập hàng null / khi add vào chuyến mơi có id chuyến hàng
          }, // mã chyến hàng
-         biensoxe: String, // biến số xe
+         biensoxe: String, // biến số xe // khi nhập hàng null/ khi add vào chuyên thì có biên số xe
          iduser: {
           type: mongoose.Schema.Types.ObjectId,
           ref:"user"
@@ -16,15 +16,18 @@ module.exports = mongoose => {
          lotrinh: String, // lộ trình vận chuyển đi hay lộ trình hàng về
          ngaynhap: Date,
          noidungdonhang:String, // nôi dung đơn hàng. vd: gửi gạch đi phú quốc
-         diadiembochang:String,  // Địa chỉ bọc hàng
+         soluong: Number, // 1 kiện, 2 tân, 3 kg
+         donvitinh: String, // kiện , tấn , kg, khối
+         diadiembochang:String,  // Địa chỉ bọc hàng . khi nhập . mặc định là bãi xe.  
          tennguoinhan: String,
          sdtnguoinhan: String,
          diachinguoinhan: String,
-         hinhthucthanhtoan:Number, // ghi no => 1, truc tiep => 2, thanh toan khi nhan hang => 3 
+         makho: String, //mã kho lưu hàng
+         hinhthucthanhtoan:Number, // truc tiep => 1,  ghi nhợ=> 2, thanh toan khi nhan hang => 3 
          ghichu: String, // ghi chú đơn hàng
          trangthai: Number, // 0 lưu dự định nhập. 1 hoàn thành việc nhập. 2, khóa chuyến hàng
          status01:Number,// 0 chưa giao hàng. 1 đã giao hàng
-         status02:Number,
+         status02:Number, // 0 trong kho. 1 vận chuyển, 
          status03:Number,
          status04:Number,
          status05:Number

@@ -4,6 +4,7 @@ module.exports = app =>{
     const router = require("express").Router();
 
     router.post("/spin00901Ant100Search",Spin00901.Sreach);
+    router.post("/spin00901Ant100Detail",Spin00901.Detail);
     router.post("/spin00901Ant100Add",Spin00901.Register);
     router.post("/spin00901Ant100Update",Spin00901.Update);
     router.post("/spin00901Ant100Del",Spin00901.Delete);
