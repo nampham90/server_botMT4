@@ -5,6 +5,7 @@ module.exports = app =>{
 
     router.post("/spin00251Ant100Register",verifyToken,Spin00251.Register);
     router.post("/spin00251Ant100Update",Spin00251.Update);
+    router.post("/spin00251Ant100GetPNH",Spin00251.getPhieunhap);
 
 
 

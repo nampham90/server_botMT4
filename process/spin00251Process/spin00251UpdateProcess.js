@@ -7,7 +7,7 @@ class Spin00251UpdateProcess extends AbsProcess {
         super(dbcon)
     }
 
-    async register(data,session) {
+    async update(data,session) {
         return this.execute(this.database,data,session);
     }
 
@@ -39,5 +39,6 @@ class Spin00251UpdateProcess extends AbsProcess {
 
     async updatePNH(db,data,session,ret) {
         const PNH = db.models.phieunhaphang;
+
     }
 }
