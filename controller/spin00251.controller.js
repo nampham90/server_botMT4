@@ -5,6 +5,7 @@ let commonfun = require('../common/functionCommon');
 // process
 const Spin00251RegisterProcess = require('../process/spin00251Process/spin00251RegisterProcess');
 const Spin00251GetPHNProcess = require("../process/spin00251Process/spin00251GetPNHProcess");
+const Spin00251UpdateProcess = require("../process/spin00251Process/spin00251UpdateProcess");
 exports.Register = async (req,res) => {
     try {
         let soID = await commonfun.fnGetID();
@@ -61,5 +62,14 @@ exports.getPhieunhap = async (req,res) => {
 }
 
 exports.Update = async (req,res) =>{
-
+    try {
+        const spin00251UpdateProcess = new Spin00251UpdateProcess(dbCon.dbDemo);
+        await spin00251UpdateProcess.start();
+        const session = spin00251UpdateProcess.transaction;
+        let data = await spin00251UpdateProcess.update(req.body,session);
+        await spin00251UpdateProcess.commit();
+        return  res.status(200).send(new Response(0,"Data sucess ", data));
+    } catch (error) {
+        return  res.status(200).send(new Response(1001,"Lỗi hệ thống ", error.message));
+    }
 }

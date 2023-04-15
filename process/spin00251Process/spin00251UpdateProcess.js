@@ -1,7 +1,7 @@
 const AbsProcess = require("../abstractProcess/Transaction");
 const Const = require("../../common/const");
 const _ = require("lodash");
-
+const {ObjectId} = require('mongodb');
 class Spin00251UpdateProcess extends AbsProcess {
     constructor(dbcon) {
         super(dbcon)
@@ -13,7 +13,8 @@ class Spin00251UpdateProcess extends AbsProcess {
 
     async process(db,data,session) {
         let ret = 0;
-
+        await this.updateTIN100(db,data,session,ret)
+        await this.updatePNH(db,data,session,ret);
         return ret;
     }
 
@@ -29,7 +30,6 @@ class Spin00251UpdateProcess extends AbsProcess {
             }},
             {session}
         )
-
         if(update) {
             ret = 0;
         } else {
@@ -39,6 +39,40 @@ class Spin00251UpdateProcess extends AbsProcess {
 
     async updatePNH(db,data,session,ret) {
         const PNH = db.models.phieunhaphang;
+        let listsp = data['listsp'];
+        for(let element of listsp) {
+            await PNH.collection.updateOne(
+                {_id: ObjectId(element.id)},
+                {$set: {
+                    soID: element.soID,
+                    idchuyen: element.idchuyen,
+                    biensoxe: element.biensoxe,
+                    iduser: element.iduser,
+                    tiencuoc: element.tiencuoc,
+                    lotrinh: element.lotrinh,
+                    ngaynhap: element.ngaynhap,
+                    noidungdonhang: element.noidungdonhang,
+                    soluong: element.soluong,
+                    donvitinh: element.donvitinh,
+                    diadiembochang: element.diadiembochang,
+                    tennguoinhan: element.tennguoinhan,
+                    sdtnguoinhan: element.sdtnguoinhan,
+                    diachinguoinhan: element.diachinguoinhan,
+                    makho: element.makho,
+                    hinhthucthanhtoan: element.hinhthucthanhtoan,
+                    ghichu: element.ghichu,
+                    trangthai: element.trangthai,
+                    status01: element.status01,
+                    status02: element.status02,
+                    status03: element.status03,
+                    status04: element.status04,
+                    status05: element.status05
+                }},
+                {session}
+            )
+        }
 
     }
 }
+
+module.exports = Spin00251UpdateProcess
