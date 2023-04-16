@@ -4,6 +4,7 @@ let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const _ = require('lodash');
+const dbCon = require('../common/DBConnect');
 
 const User = db.user;
 const Menu = db.menu;
@@ -26,6 +27,9 @@ const Donodc = db.donodc;
 // master
 const Tmt100 = db.tmt100;
 
+// process
+const CommonGetListSoidProcess = require("../process/commonProcess/commonGetListSoidProcess");
+
 exports.deleteAllDataMau = async (req,res) => {
    await Chuyen.deleteMany({});
    await ChiphiChuyenxe.deleteMany({});
@@ -38,6 +42,19 @@ exports.deleteAllDataMau = async (req,res) => {
    await Donhangexportxengoai.deleteMany({});
    await Donodc.deleteMany({})
    return res.status(200).send(new Response(0,"data delete!", 1));
+}
+
+exports.getListSoID = async (req,res) => {
+   try {
+      const commonGetListSoidProcess = new CommonGetListSoidProcess(dbCon.dbDemo);
+      await commonGetListSoidProcess.start();
+      const session = commonGetListSoidProcess.transaction;
+      let data = await commonGetListSoidProcess.search(req.body,session);
+      await commonGetListSoidProcess.commit();
+      return res.status(200).send(new Response(0,"Data sucess !", data));
+   } catch (error) {
+      return res.status(200).send(new Response(1001,"Lỗi hệ thống !", error.message));
+   }
 }
 
 // tạo số ODS

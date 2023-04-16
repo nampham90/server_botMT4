@@ -1,6 +1,7 @@
 const AbsProcess = require("../abstractProcess/Transaction");
 const Const = require("../../common/const");
 const _ = require("lodash");
+const moment = require('moment');
 class Spin00251RegisterProcess extends AbsProcess {
     constructor(dbcon) {
         super(dbcon)
@@ -50,7 +51,7 @@ class Spin00251RegisterProcess extends AbsProcess {
                 iduser: data.iduser,
                 tiencuoc: element['tiencuoc'],
                 lotrinh: null,
-                ngaynhap: _.now(),
+                ngaynhap: moment().toDate(),
                 noidungdonhang: element['noidungdonhang'],
                 soluong: element['soluong'],
                 donvitinh: element['donvitinh'],
