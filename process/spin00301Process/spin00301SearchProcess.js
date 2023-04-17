@@ -1,7 +1,7 @@
 const AbsProcess = require("../abstractProcess/Transaction");
 const commonfun = require("../../common/functionCommon");
 const {ObjectId} = require('mongodb');
-class Spin00801SearchProcess extends AbsProcess {
+class Spin00301SearchProcess extends AbsProcess {
     constructor(dbcon) {
         super(dbcon)
     }
@@ -26,13 +26,14 @@ class Spin00801SearchProcess extends AbsProcess {
             sreach.soID = filters.soID;
         }
         if(filters.iduser) {
-            sreach.iduser = ObjectId(filters.iduser);
+            sreach.iduser = filters.iduser;
         }
         if(filters.makho) {
             sreach.makho = filters.makho;
         }
-        sreach.status02 = 0;
-        sreach.idchuyen = null;
+        if(filters.status02 != null && filters.status02 != 2) {
+            sreach.status02 = filters.status02;
+        }
         return sreach;
     }
 
@@ -56,4 +57,4 @@ class Spin00801SearchProcess extends AbsProcess {
     }
 }
 
-module.exports = Spin00801SearchProcess
+module.exports = Spin00301SearchProcess

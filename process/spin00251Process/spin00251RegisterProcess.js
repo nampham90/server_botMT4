@@ -1,6 +1,7 @@
 const AbsProcess = require("../abstractProcess/Transaction");
 const Const = require("../../common/const");
 const _ = require("lodash");
+const {ObjectId} = require('mongodb');
 const moment = require('moment');
 class Spin00251RegisterProcess extends AbsProcess {
     constructor(dbcon) {
@@ -48,7 +49,7 @@ class Spin00251RegisterProcess extends AbsProcess {
                 soID: data.soID,
                 idchuyen: null,
                 biensoxe: null,
-                iduser: data.iduser,
+                iduser: ObjectId(data.iduser),
                 tiencuoc: element['tiencuoc'],
                 lotrinh: null,
                 ngaynhap: moment().toDate(),

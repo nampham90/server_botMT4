@@ -12,6 +12,8 @@ class Spin00801DeleteProcess extends AbsProcess {
 
     async process(db,data,session) {
         const PNH = db.models.phieunhaphang;
+        const TIN100 = db.models.tin100;
+        await TIN100.collection.deleteOne({soID: data.soID},{session});
         let res = await PNH.collection.deleteOne({soID: data.soID},{session});
         return res;
     }

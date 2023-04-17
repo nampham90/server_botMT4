@@ -152,6 +152,7 @@ require("./routers/donodc.route")(app)
 require("./routers/spin00901.route")(app);
 require("./routers/spin00251.route")(app);
 require("./routers/spin00801.route")(app);
+require("./routers/spin00301.route")(app);
 
 // master
 require("./routers/tmt101.route")(app);

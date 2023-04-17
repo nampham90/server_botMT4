@@ -2,6 +2,8 @@ const AbsProcess = require("../abstractProcess/Transaction");
 const Const = require("../../common/const");
 const _ = require("lodash");
 const {ObjectId} = require('mongodb');
+const moment = require('moment');
+const CommonCheckSoIDProcess = require("../commonProcess/commonCheckSoIDProcess");
 class Spin00251UpdateProcess extends AbsProcess {
     constructor(dbcon) {
         super(dbcon)
@@ -13,8 +15,15 @@ class Spin00251UpdateProcess extends AbsProcess {
 
     async process(db,data,session) {
         let ret = 0;
-        await this.updateTIN100(db,data,session,ret)
-        await this.updatePNH(db,data,session,ret);
+        let soID = data['spin00251Header']['soID'];
+        const commonCheckSoIDProcess = new CommonCheckSoIDProcess(this.database);
+        let checkSoID = await commonCheckSoIDProcess.checkSoID(soID,session);
+        if(checkSoID == 1) {
+            ret = 1;
+        } else {
+            await this.updateTIN100(db,data,session,ret)
+            await this.updatePNH(db,data,session,ret);
+        }
         return ret;
     }
 
@@ -47,10 +56,10 @@ class Spin00251UpdateProcess extends AbsProcess {
                     soID: element.soID,
                     idchuyen: element.idchuyen,
                     biensoxe: element.biensoxe,
-                    iduser: element.iduser,
+                    iduser: ObjectId(element.iduser),
                     tiencuoc: element.tiencuoc,
                     lotrinh: element.lotrinh,
-                    ngaynhap: element.ngaynhap,
+                    ngaynhap: moment(element.ngaynhap).toDate(),
                     noidungdonhang: element.noidungdonhang,
                     soluong: element.soluong,
                     donvitinh: element.donvitinh,
@@ -59,7 +68,7 @@ class Spin00251UpdateProcess extends AbsProcess {
                     sdtnguoinhan: element.sdtnguoinhan,
                     diachinguoinhan: element.diachinguoinhan,
                     makho: element.makho,
-                    hinhthucthanhtoan: element.hinhthucthanhtoan,
+                    hinhthucthanhtoan: data['spin00251Header']['hinhthucthanhtoan'],
                     ghichu: element.ghichu,
                     trangthai: element.trangthai,
                     status01: element.status01,

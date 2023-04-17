@@ -23,7 +23,8 @@ class Spin00251GetPHNProcess extends AbsProcess {
 
     async getHeader(db,req,session) {
         const TIN100 = db.models.tin100;
-        let tin100res = await TIN100.collection.findOne({soID:req.soID});
+        let tin100res = await TIN100.findOne({soID:req.soID})
+        .populate('iduser',{password:0});
         return tin100res;
     }
 
