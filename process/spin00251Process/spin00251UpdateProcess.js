@@ -56,7 +56,7 @@ class Spin00251UpdateProcess extends AbsProcess {
                     soID: element.soID,
                     idchuyen: element.idchuyen,
                     biensoxe: element.biensoxe,
-                    iduser: ObjectId(element.iduser),
+                    iduser: ObjectId(data['spin00251Header']['iduser']),
                     tiencuoc: element.tiencuoc,
                     lotrinh: element.lotrinh,
                     ngaynhap: moment(element.ngaynhap).toDate(),
