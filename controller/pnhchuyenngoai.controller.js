@@ -1,4 +1,5 @@
 const db = require("../model");
+const dbCon = require('../common/DBConnect');
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');

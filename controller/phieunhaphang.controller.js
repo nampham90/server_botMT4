@@ -1,4 +1,5 @@
 const db = require("../model");
+const dbCon = require('../common/DBConnect');
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
@@ -6,6 +7,9 @@ const _ = require('lodash');
 const Phieunhaphang = db.phieunhaphang;
 const Chuyen = db.chuyen;
 const Chiphi = db.chiphichuyenxe
+
+//process
+const PhieunhaphangHuybochangProcess = require("../process/phieunhaphangProcess/PhieunhaphangHuybochangProcess");
 
 exports.savemathang = async (req,res) => {
     let newPnh = Phieunhaphang({
@@ -85,14 +89,19 @@ exports.update = async (req,res) => {
 }
 
 exports.delete = async (req, res) => {
-    console.log(req.body);
-    let id = req.body.ids;
-    Phieunhaphang.deleteOne({_id:id})
-    .then(data => {
-        res.status(200).send(new Response(0,"delete success !", data));
-    },err=>{
-        res.status(200).send(new Response(1001,"error delete !", null));
-    })
+    try {
+        const phieunhaphangHuybochangProcess = new PhieunhaphangHuybochangProcess(dbCon.dbDemo);
+        await phieunhaphangHuybochangProcess.start();
+        const session = phieunhaphangHuybochangProcess.transaction;
+        let data = await phieunhaphangHuybochangProcess.huybochang(req.body,session);
+        await phieunhaphangHuybochangProcess.commit();
+        if(data.msgError != ""){
+            return res.status(200).send(new Response(0,"data success !", data));
+        }
+        return res.status(200).send(new Response(0,"data success !", 1));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống !", error.message));
+    }
 }
 
 exports.ExportDataPDFChuyen = async (req,res) => {
