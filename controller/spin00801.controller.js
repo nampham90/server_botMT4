@@ -28,7 +28,10 @@ exports.delete = async (req, res) => {
         const session = spin00801DeleteProcess.transaction;
         let data = await spin00801DeleteProcess.delete(req.body,session);
         await spin00801DeleteProcess.commit();
-        return  res.status(200).send(new Response(0,"Data sucess ", data));
+        if(data.msgError != "") {
+            return  res.status(200).send(new Response(0,"Data warning !", data));
+        } 
+        return  res.status(200).send(new Response(0,"Data sucess ! ", 1));
     } catch (error) {
         return  res.status(200).send(new Response(1001,"Lỗi hệ thống ", error.message));
     }
@@ -41,7 +44,10 @@ exports.deletemany = async (req, res) => {
         const session = spin00801DeletemanyProcess.transaction;
         let data = await spin00801DeletemanyProcess.delete(req.body,session);
         await spin00801DeletemanyProcess.commit();
-        return  res.status(200).send(new Response(0,"Data sucess ", data));
+        if(data.msgError != "") {
+            return  res.status(200).send(new Response(0,"Data warning !", data));
+        } 
+        return  res.status(200).send(new Response(0,"Data sucess ! ", 1));
     } catch (error) {
         return  res.status(200).send(new Response(1001,"Lỗi hệ thống ", error.message));
     }

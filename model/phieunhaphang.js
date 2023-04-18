@@ -27,7 +27,7 @@ module.exports = mongoose => {
          hinhthucthanhtoan:Number, // truc tiep => 1,  ghi nhợ=> 2, thanh toan khi nhan hang => 3 
          ghichu: String, // ghi chú đơn hàng
          trangthai: Number, // 0 lưu dự định nhập. 1 hoàn thành việc nhập. 2, khóa chuyến hàng, null. đang ở trong kho
-         status01:Number,// 0 chưa giao hàng. 1 đã giao hàng
+         status01:Number,// 0 trongkho . 1 đã bóc hàng, 2 đã giao hàng, 
          status02:Number, // 0 trong kho. 1 vận chuyển,
          status03:Number, // 
          status04:Number,

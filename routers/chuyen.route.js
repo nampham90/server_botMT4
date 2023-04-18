@@ -11,5 +11,6 @@ module.exports = app => {
     route.get('/chuyenAnt100get/:id',verifyToken,Chuyen.getDetailChuyen);
     route.post('/chuyenAnt100delete',verifyToken,Chuyen.deleteChuyen);
     route.post('/chuyenAnt100updateTrangthai', verifyToken, Chuyen.updateTrangthai);
+    route.post('/chuyenAnt100searchParams',verifyToken,Chuyen.searchParams);
     app.use("/api/chuyen",route);
 }

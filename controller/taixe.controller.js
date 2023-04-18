@@ -48,9 +48,13 @@ exports.Updatestatusorder = async (req,res) => {
     }
 }
 
-// Tài xê chuyên đổi trang thái thừ chưa giao hàng đến -> đá giáo hàng
+// Tài xê chuyên đổi trang thái thừ chưa giao hàng đến -> đã bóc hàng
 exports.Updatestatus01 = async (req,res) => {
-    await Pnh.updateOne({_id:req.body.id}, {$set: {status01: 1}});
+    if(req.body.mode == "BOCHANG") {
+        await Pnh.updateOne({_id:req.body.id}, {$set: {status01: 1}});
+    } else if(req.body.mode == "GIAOHANG") {
+        await Pnh.updateOne({_id:req.body.id}, {$set: {status01: 2}});
+    }
     return res.status(200).send(new Response(0,"Update sucess ", 1));
 }
 
