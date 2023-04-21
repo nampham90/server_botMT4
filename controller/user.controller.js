@@ -1,4 +1,5 @@
 const db = require("../model");
+const dbCon = require('../common/DBConnect');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const _ = require("lodash")
@@ -14,8 +15,24 @@ const Role = db.role;
 const Menu = db.menu;
 const { registerValidator } = require('./../validations/auth');
 
+// process
+const UserChangePasswordProcess = require("../process/userProcess/userChangePasswordProcess");
 exports.demo = async (req,res) => {
     console.log(req.body);
+
+}
+
+exports.changePassword = async (req,res) => {
+    try {
+        const userChangePasswordProcess = new UserChangePasswordProcess(dbCon.dbDemo);
+        await userChangePasswordProcess.start();
+        const session = userChangePasswordProcess.transaction;
+        let data = await userChangePasswordProcess.changePassword(req.body,session);
+        await userChangePasswordProcess.commit();
+        return res.status(200).send(new Response(0,"data success!", data));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống!", null));
+    }
 }
 
 exports.checkEmail = async (req,res) => {
@@ -309,3 +326,5 @@ exports.loginApp = async (req,res) => {
     const token = await jwt.sign({userId: user._id, idPhongban: user.phongban_id, username: user.name, email: user.email}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
     return res.status(200).send(new Response(0,'Login successfully !',token));
 }
+
+

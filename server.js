@@ -157,6 +157,7 @@ require("./routers/spin00301.route")(app);
 
 // master
 require("./routers/tmt101.route")(app);
+require("./routers/tmt050.route")(app);
 
 // khochung
 require("./khochungrouters/kho.route")(app);
