@@ -108,7 +108,7 @@ class Spin00251RegisterProcess extends AbsProcess {
                 ghichu: element['ghichu'] + ", " + data.ghichu,
                 trangthai: 0,
                 status01: 0,
-                status02: 0,//0 trong kho , 1 vận chuyển
+                status02: 1,//0 trong kho , 1 vận chuyển
                 status03: 0,
                 status04: 0,
                 status05: 0
