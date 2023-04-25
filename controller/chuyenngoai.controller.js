@@ -138,6 +138,8 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                 await Chitietchuyenngoai.updateOne({_id: element.id},{$set: {
                     idchuyenngoai: spch00251Header.id,
                     thongtindonhang: element.thongtindonhang,
+                    soluong: element.soluong,
+                    donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,  // 
                     tiencuoc:element.tiencuoc,
                     tiencuocxengoai: element.tiencuocxengoai,
@@ -194,6 +196,8 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     idchuyenngoai: spch00251Header.id,
                     nguonxe: spch00251Header.nguonxe,
                     thongtindonhang: element.thongtindonhang,
+                    soluong: element.soluong,
+                    donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,  // 
                     tiencuoc:element.tiencuoc,
                     tiencuocxengoai: element.tiencuocxengoai,

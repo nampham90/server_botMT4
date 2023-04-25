@@ -13,6 +13,8 @@ module.exports = mongoose => {
             ref:"nguonxe"
           },
           thongtindonhang: String,
+          soluong: Number,
+          donvitinh:String, // khôi , tấn , kg, kiện
           diadiembochang: String,  // 
           tiencuoc:Number,
           tiencuocxengoai: Number,

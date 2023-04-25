@@ -49,7 +49,8 @@ exports.getLists = async (req,res) => {
             if(element['idphieunhaphang'] == null && element['status01'].length > 0) {
                 const str =  element['status01']
                 const result = str.slice(0, 24);
-                let ctchuyenngoai = await Ctchuyenngoai.findOne({_id:result});
+                let ctchuyenngoai = await Ctchuyenngoai.findOne({_id:result})
+                .populate('nguonxe');
                 let item = {
                     chukyno: element['chukyno'],
                     createdAt:element['createdAt'],
