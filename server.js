@@ -156,6 +156,8 @@ require("./routers/spin00601.route")(app);
 require("./routers/spin00301.route")(app);
 //spch00201
 require("./routers/spch00201.route")(app);
+//spkh00301
+require("./routers/spkh00301.route")(app);
 
 // master
 require("./routers/tmt101.route")(app);

@@ -3,6 +3,7 @@ let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const axios = require("axios");
+const _ = require('lodash');
 const Nhatkykh = db.nhatkykh;
 const User = db.user;
 const Ctchuyenngoai = db.chitietchuyenngoai;
@@ -168,7 +169,6 @@ exports.thanhtoan = async (req,res) => {
 }
 // cập nhật số odc cho đơn hàng. chuyển sang trạng thái chờ thanh toán
 exports.updateStatus05 = async (req,res) => {
-    console.log(req.body);
     let lstId = req.body.lstId;
     let i = 0;
     for(let element of lstId) {
@@ -178,11 +178,13 @@ exports.updateStatus05 = async (req,res) => {
     if(i == lstId.length) {
         // tạo đơn odc
         let newDonodc = new Donodc({
-            idkhachhang: req.body.id,
+            idkhachhang: req.body.idkhachhang,
             lstId: req.body.lstId,
             tongcuoc: req.body.tongcuoc,
             soodc: req.body.soodc,
-            status01: 0, //0 donodc chưa thanh toan, 1 đã thanh toán
+            ngayxuat: _.now(),
+            ngaythanhtoan: null,
+            status01: 0, //0 donodc chờ thanh toan, 1 đã thanh toán
             status02: 0, 
             status03: 0, 
             status04: 0,
