@@ -3,21 +3,22 @@ module.exports = app => {
     const route = require("express").Router();
     const verifyToken = require('../middlewares/verifyToken');
 
-    route.post('/commonAnt100Listloinhanthang',Common.listtaichinhthang);
-    route.post('/commonAnt100Thongketaichinhnam',Common.thongketaichinhtrongnam);
-    route.post('/commonAnt100Tongchuyenhangtrongnam',Common.Tongchuyenhangtrongnam);
-    route.post('/commonAnt100Tongnoall',Common.gettongnoAll);
-    route.post('/commonAnt100Listtopdoanhthu', Common.listtop10khachangcodoanhthucaonhat);
-    route.post('/commonAnt100Listtopchiphi', Common.listtopchiphicaonhat);
-    route.post('/commonAnt100Listtongcuoctungxe', Common.listtongcuoccuatungxetaitrongnam);
+    route.post('/commonAnt100Listloinhanthang',verifyToken,Common.listtaichinhthang);
+    route.post('/commonAnt100Thongketaichinhnam',verifyToken,Common.thongketaichinhtrongnam);
+    route.post('/commonAnt100Tongchuyenhangtrongnam',verifyToken,Common.Tongchuyenhangtrongnam);
+    route.post('/commonAnt100Tongnoall',verifyToken,Common.gettongnoAll);
+    route.post('/commonAnt100Tongnouser',verifyToken,Common.gettongnoUser);
+    route.post('/commonAnt100Listtopdoanhthu',verifyToken, Common.listtop10khachangcodoanhthucaonhat);
+    route.post('/commonAnt100Listtopchiphi', verifyToken,Common.listtopchiphicaonhat);
+    route.post('/commonAnt100Listtongcuoctungxe',verifyToken, Common.listtongcuoccuatungxetaitrongnam);
     route.post('/commonAnt100GetODS',verifyToken, Common.getODS);
     route.post('/commonAnt100GetODT',verifyToken, Common.getODT);
-    route.get('/commonAnt100DeleteAllDataMau', Common.deleteAllDataMau);
+    route.get('/commonAnt100DeleteAllDataMau',verifyToken, Common.deleteAllDataMau);
     route.post('/commonAnt100Tongnoxengoai', verifyToken, Common.getTongnoxengoai);
     route.post('/commonAnt100getODC', verifyToken, Common.getODC);
     route.post('/commonAnt100getHDTTXN', verifyToken, Common.getHDTTXN);
     route.post('/commonAnt100getID', verifyToken, Common.getID);
-    route.post('/commonAnt100getListSoID', Common.getListSoID);
+    route.post('/commonAnt100getListSoID',verifyToken, Common.getListSoID);
 
     
     app.use("/api/common",route);

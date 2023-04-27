@@ -24,10 +24,13 @@ class Spkh00301SearchProcess extends AbsProcess {
         }
         sreach.ngayxuat = {$gte:gt,$lt:lt};
         if(filters.soODC) {
-            sreach.soodc = filters.soODC;
+            sreach.soodc = { $regex: new RegExp(filters.soODC + "$") };
         }
         if(filters.iduser) {
             sreach.idkhachhang = ObjectId(filters.iduser);
+        }
+        if(filters.status01 == 0) {
+            sreach.status01 = filters.status01;
         }
         if(filters.status01) {
             sreach.status01 = filters.status01;
@@ -39,7 +42,7 @@ class Spkh00301SearchProcess extends AbsProcess {
         let search = this.paramsSearch(data);
         const DonODC = db.models.donodc;
         let allData = await DonODC.find(search)
-        .populate("idkhachhang");
+        .populate("idkhachhang",{password:0});
         if(data.pageNum == 0 && data.pageSize ==0) {
             return allData;
          } else {
