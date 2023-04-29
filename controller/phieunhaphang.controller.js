@@ -1,4 +1,5 @@
 const db = require("../model");
+const dbCon = require('../common/DBConnect');
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
@@ -7,35 +8,47 @@ const Phieunhaphang = db.phieunhaphang;
 const Chuyen = db.chuyen;
 const Chiphi = db.chiphichuyenxe
 
+//process
+const PhieunhaphangHuybochangProcess = require("../process/phieunhaphangProcess/PhieunhaphangHuybochangProcess");
+const Spin00251RegisterProcess = require('../process/spin00251Process/spin00251RegisterProcess');
+
 exports.savemathang = async (req,res) => {
-    let newPnh = Phieunhaphang({
-        idchuyen : req.body.idchuyen,
-        biensoxe: req.body.biensoxe,
-        iduser: req.body.iduser,// mã khách hàng
-        tiencuoc:req.body.tiencuoc,// tiền cươc xe của 1 loại hàng
-        lotrinh: req.body.lotrinh, // lộ trình vận chuyển đi hay lộ trình hàng về
-        ngaynhap: _.now(),
-        noidungdonhang:req.body.noidungdonhang, // nôi dung đơn hàng. vd: gửi gạch đi phú quốc
-        diadiembochang:req.body.diadiembochang,  // Địa chỉ bọc hàng
-        hinhthucthanhtoan:req.body.hinhthucthanhtoan, // ghi no => 1, truc tiep => 2, thanh toan khi nhan hang => 3 
-        ghichu: req.body.ghichu, // ghi chú đơn hàng
-        tennguoinhan: req.body.tennguoinhan,
-        sdtnguoinhan: req.body.sdtnguoinhan,
-        diachinguoinhan: req.body.diachinguoinhan,
-        trangthai: req.body.trangthai, // 0 lưu dự định nhập. 1 hoàn thành việc nhập. 2, khóa chuyến hàng
-        status01: 0, 
-        status02: 0, 
-        status03: 0, 
-        status04: 0, 
-        status05: 0 
-    });
-    newPnh.save(async function(e){
-        if(e) {
-            return res.status(200).send(new Response(1001,"lưu không thành công ", null));
-        } else {
-            return res.status(200).send(new Response(0,"lưu thành công ", newPnh));
+    try {
+        let soID = await commonfun.fnGetID();
+        //req.body.soID = soID;
+        let reqdata = {
+            "soID" : soID,
+            "iduser": req.body.iduser,
+            "hinhthucthanhtoan": req.body.hinhthucthanhtoan,
+            "ghichu": req.body.mode,
+            "mode": req.body.mode,
+            "listsp": [
+                {
+                    "idchuyen": req.body.idchuyen,
+                    "biensoxe": req.body.biensoxe,
+                    "noidungdonhang": req.body.noidungdonhang,
+                    "tiencuoc": req.body.tiencuoc,
+                    "diadiembochang": req.body.diadiembochang,
+                    "soluong": req.body.soluong,
+                    "donvitinh": req.body.donvitinh,
+                    "lotrinh": req.body.lotrinh,
+                    "makho": req.body.diadiembochang,
+                    "tennguoinhan": req.body.tennguoinhan,
+                    "sdtnguoinhan": req.body.sdtnguoinhan,
+                    "diachinguoinhan": req.body.diachinguoinhan,
+                    "ghichu":  req.body.ghichu + ""
+                }
+            ]
         }
-    })
+        const spin00251RegisterProcess = new Spin00251RegisterProcess(dbCon.dbDemo);
+        await spin00251RegisterProcess.start();
+        const session = spin00251RegisterProcess.transaction;
+        let data = await spin00251RegisterProcess.register(reqdata,session);
+        await spin00251RegisterProcess.commit();
+        return  res.status(200).send(new Response(0,"Data sucess ", data));
+    } catch (error) {
+        return  res.status(200).send(new Response(1001,"Lỗi hệ thống ", error.message));
+    }
 }
 
 exports.getLists = async (req,res) => {
@@ -85,14 +98,19 @@ exports.update = async (req,res) => {
 }
 
 exports.delete = async (req, res) => {
-    console.log(req.body);
-    let id = req.body.ids;
-    Phieunhaphang.deleteOne({_id:id})
-    .then(data => {
-        res.status(200).send(new Response(0,"delete success !", data));
-    },err=>{
-        res.status(200).send(new Response(1001,"error delete !", null));
-    })
+    try {
+        const phieunhaphangHuybochangProcess = new PhieunhaphangHuybochangProcess(dbCon.dbDemo);
+        await phieunhaphangHuybochangProcess.start();
+        const session = phieunhaphangHuybochangProcess.transaction;
+        let data = await phieunhaphangHuybochangProcess.huybochang(req.body,session);
+        await phieunhaphangHuybochangProcess.commit();
+        if(data.msgError != ""){
+            return res.status(200).send(new Response(0,"data success !", data));
+        }
+        return res.status(200).send(new Response(0,"data success !", 1));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống !", error.message));
+    }
 }
 
 exports.ExportDataPDFChuyen = async (req,res) => {

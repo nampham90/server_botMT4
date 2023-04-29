@@ -1,4 +1,5 @@
 const db = require("../model");
+const dbCon = require('../common/DBConnect');
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
@@ -7,6 +8,22 @@ const Chuyen = db.chuyen;
 const Xe = db.xe;
 const Chiphi = db.chiphichuyenxe;
 const Pnh = db.phieunhaphang;
+
+//process
+const ChuyenFindParamProcess = require("../process/chuyenProcess/ChuyenFindPramaProcess");
+
+exports.searchParams = async (req,res) =>{
+    try {
+        const chuyenFindParamProcess = new ChuyenFindParamProcess(dbCon.dbDemo);
+        await chuyenFindParamProcess.start();
+        const session = chuyenFindParamProcess.transaction;
+        let listchuyen = await chuyenFindParamProcess.search(req.body,session);
+        await chuyenFindParamProcess.commit();
+        return res.status(200).send(new Response(0,"Data sucess", listchuyen));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống", null));
+    }
+}
 
 function ChuyenObject() {
     this.id = "";

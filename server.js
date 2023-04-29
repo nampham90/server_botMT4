@@ -149,8 +149,22 @@ require("./routers/pnhchuyenngoai.route")(app);
 require("./routers/taixe.route")(app);
 require("./routers/donodc.route")(app)
 
+//spin00901
+require("./routers/spin00901.route")(app);
+require("./routers/spin00251.route")(app);
+require("./routers/spin00801.route")(app);
+require("./routers/spin00601.route")(app);
+require("./routers/spin00301.route")(app);
+//spch00201
+require("./routers/spch00201.route")(app);
+//spch00251
+require("./routers/spch00251.route")(app);
+//spkh00301
+require("./routers/spkh00301.route")(app);
+
 // master
 require("./routers/tmt101.route")(app);
+require("./routers/tmt050.route")(app);
 
 // khochung
 require("./khochungrouters/kho.route")(app);
@@ -177,37 +191,5 @@ app.use(function (err, req, res, next) {
 app.get("/", (req,res) => {
    res.send("nam pham");
 })
-
-
-// Chuyen.find({trangthai: 5, 
-//     $expr: {
-//       $and: [
-//       {"$eq": [{"$month": "$ngaydi"},11]},
-//       {"$eq": [{"$year": "$ngaydi"},2022]}
-//       ]
-//     }
-// }).then(data => {
-//   console.log(data);
-// },err=>{
-//   console.log(err.message);
-// })
-
-// text commonfun.checkAndremoveIdMenu("6321fe53c26d4024dd312437","632aaa31c8093b9a2007d143").then(data => {
-// text  console.log(data.length);
-// text})
-// text .catch(err => {console.log(err)})
-// console.log(menu.length);
-
-// 6331b3ce65e0507984482ba9
-// Menu.find({})
-// .then(async data => {
-//    let lstm = [];
-//    for(let element of data) {
-//      lstm.push(element._id);
-//    }
-//    await Role.updateOne({_id: "6331b3ce65e0507984482ba7"},{$set: {dacquyen:[]}})
-// },err => {
-//   console.log("err !")
-// })
 
 module.exports = app;

@@ -6,8 +6,6 @@ const Constant = require('../common/const');
 dotenv.config();
 
 var port = normalizePort(process.env.PORT || '3002');
-
-
 const cors = require('cors')
 
 var server = require("http").Server(app);
@@ -86,8 +84,6 @@ io.on('connection', (socket) => {
 
 });
 server.listen(port, ()=>{console.log("server open post:"+ port)});
-
-
 
 //app.set('port', port);
 

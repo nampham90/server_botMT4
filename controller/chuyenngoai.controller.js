@@ -7,6 +7,7 @@ const Chuyenngoai = db.chuyenngoai;
 const Chitietchuyenngoai = db.chitietchuyenngoai;
 const Congnoxengoai = db.congnoxengoai;
 const Nhatkykh = db.nhatkykh;
+const Phieunhaphang = db.phieunhaphang;
 
 // list all 
 exports.PostAllChuyenngoai = async (req,res) => {
@@ -138,6 +139,8 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                 await Chitietchuyenngoai.updateOne({_id: element.id},{$set: {
                     idchuyenngoai: spch00251Header.id,
                     thongtindonhang: element.thongtindonhang,
+                    soluong: element.soluong,
+                    donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,  // 
                     tiencuoc:element.tiencuoc,
                     tiencuocxengoai: element.tiencuocxengoai,
@@ -190,10 +193,17 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                 }
             } else {
                 // create detail
+                let soId = ""
+                if(element['soid']) {
+                    soId = element['soid']
+                }
                 let newDetail = new Chitietchuyenngoai({
                     idchuyenngoai: spch00251Header.id,
+                    soid: soId,
                     nguonxe: spch00251Header.nguonxe,
                     thongtindonhang: element.thongtindonhang,
+                    soluong: element.soluong,
+                    donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,  // 
                     tiencuoc:element.tiencuoc,
                     tiencuocxengoai: element.tiencuocxengoai,
@@ -211,6 +221,11 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     ghichu: element.ghichu
                 });
                 await newDetail.save();
+                // if soId != "" thì update tiencuoc=0,status02=2 trong phieunhaphang vơi soId trên
+                // hành động ngày có nghĩa . khi chuyển hàng cho xe ngoài. thì không tính doanh số. update trạng thái đơn hàng là đã chuyển sang xe ngoài
+                if(soId != "") {
+                    await Phieunhaphang.updateOne({soID:soId},{$set:{tiencuoc:0,status02:2}});
+                }
                 // đang ký công no xe ngoài
                 if(element.htttxengoai == "2") {
                     registerCongNoXeNgoai(
@@ -279,10 +294,17 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                 // insert detail vao table chi tiêt chuyến ngoài
                 let stt = 1;
                 for(let element of lstdetail) {
+                    let soId = ""
+                    if(element['soid']) {
+                        soId = element['soid']
+                    }
                     let newDetail = new Chitietchuyenngoai({
                           idchuyenngoai: newChuyenngoai._id,
+                          soid:soId,
                           nguonxe: spch00251Header.nguonxe,
                           thongtindonhang: element.thongtindonhang,
+                          soluong: element.soluong,
+                          donvitinh: element.donvitinh,
                           diadiembochang: element.diadiembochang,  // 
                           tiencuoc:element.tiencuoc,
                           tiencuocxengoai: element.tiencuocxengoai,
@@ -300,6 +322,11 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                           ghichu: element.ghichu
                     });
                     await newDetail.save();
+                    // if soId != "" thì update tiencuoc=0,status02=2 trong phieunhaphang vơi soId trên
+                    // hành động ngày có nghĩa . khi chuyển hàng cho xe ngoài. thì không tính doanh số. update trạng thái đơn hàng là đã chuyển sang xe ngoài
+                    if(soId != "") {
+                        await Phieunhaphang.updateOne({soID:soId},{$set:{tiencuoc:0,status02:2}});
+                    }
                     // đang ký công no xe ngoài
                     if(element.htttxengoai == "2") {
                         registerCongNoXeNgoai(
