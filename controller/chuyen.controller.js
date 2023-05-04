@@ -4,10 +4,12 @@ let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const _ = require('lodash');
+const Const = require("../common/const");
 const Chuyen = db.chuyen;
 const Xe = db.xe;
 const Chiphi = db.chiphichuyenxe;
 const Pnh = db.phieunhaphang;
+const TMT030 = db.tmt030;
 
 //process
 const ChuyenFindParamProcess = require("../process/chuyenProcess/ChuyenFindPramaProcess");
@@ -213,10 +215,12 @@ exports.updateTrangthai = async (req,res) => {
             break;
         }
     }
-    if(check == true && trangthai==3) {
-        return res.status(200).send(new Response(0,"Tài xế chưa trả xong hàng !", 0));
+    let tmt030SysFlg = await TMT030.findOne({_id: Const.idTMT030});
+    if(tmt030SysFlg['SYSFLG1'] == 1) {
+        if(check == true && trangthai==3) {
+            return res.status(200).send(new Response(0,"Tài xế chưa trả xong hàng !", 0));
+        }
     }
-
     let c = await Chuyen.findOne({_id:id});
     if(trangthai == 3) {// hoàn thành trả hang
         
