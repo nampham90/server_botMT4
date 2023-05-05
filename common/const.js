@@ -6,7 +6,8 @@ const  lengthId = 24;
 const  hangdi = "0";
 const  hangve = "1";
 const  emailAdmin = "namandroid.it@gmail.com";
-const  rcdkbnKho = '0001'; 
+const  rcdkbnKho = '0001';
+const  idTMT030 = "6453164a02b04ecd4ea05597";
 
 
 module.exports = {
@@ -18,5 +19,6 @@ module.exports = {
     hangdi,
     hangve,
     emailAdmin,
-    rcdkbnKho
+    rcdkbnKho,
+    idTMT030
 }
