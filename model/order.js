@@ -1,5 +1,6 @@
 
 module.exports = mongoose => {
+  const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         ticket: {type:String, unique:true},
@@ -24,6 +25,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const order = mongoose.model("order", schema);
+    const order = dbcon.dbDemo.model("order", schema);
     return order;
 };

@@ -4,26 +4,30 @@ const path = require('path');
 const express = require("express");
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const dbCon = require('./common/DBConnect');
 var _ = require('lodash');
-
+const bcrypt = require('bcryptjs');
 const cors = require('cors')
 const app = express();
 app.use(cors());
 dotenv.config();
 //connect database------------------------------
 const db = require("./model");
-db.mongoose
-  .connect(db.url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => {
-    console.log("Connected to the database 1!");
-  })
-  .catch(err => {
-    console.log("Cannot connect to the database!", err);
-    process.exit();
-  });
+
+// db.mongoose
+//   .connect(db.url, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   })
+//   .then(() => {
+//     console.log("Connected to the database !");
+//   })
+//   .catch(err => {
+//     console.log("Cannot connect to the database!", err);
+//     process.exit();
+//   });
+//connect database kho chung------------------------------
+
 
 const Role = db.role;
 const Menu = db.menu;
@@ -44,6 +48,38 @@ Role.find({}).then(res => {
         console.log(e.message);
       }else {
         console.log("Save role admin ");
+        let listIdrole = [];
+        let r = await Role.findOne({rolename:"Admin"});
+        listIdrole.push(r._id);
+        User.find({}).then(async data => {
+          let lst = data;
+          if(lst.length == 0){
+            let dataNow = _.now()
+            const salt = await bcrypt.genSalt(10);
+            const hashPassword = await bcrypt.hash("A123456", salt);
+            let newUser = new User({
+                name: "Admin",
+                available: true,
+                sex: 1,
+                email: "admin@gmail.com",
+                dienthoai: "0909999999",
+                zalo: "0909999999",
+                password:hashPassword,
+                role_id: listIdrole,
+                account_id: [],
+                menulist: [],
+                phongban_id: '',
+                lastLoginTime:dataNow
+            });
+            newUser.save(async function(e){
+                if(e){
+                  console.log("not Save  user " + e);
+                }else {
+                  console.log("Save  user ");
+                }
+            })
+          }
+        })
       }
     });
     newRoleUser.save(async function(e){
@@ -60,6 +96,7 @@ Role.find({}).then(res => {
 },err =>{
   console.log("err. "+ err.message)
 })
+
 
 const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({extended:false}));
@@ -103,6 +140,33 @@ require("./routers/nhatkykh.route")(app);
 require("./routers/common.route")(app);
 require("./routers/khachhang.router")(app);
 require("./routers/nhatkyhethong.route")(app);
+require("./routers/nguonxe.router")(app);
+require("./routers/chuyenngoai.route")(app);
+require("./routers/chitietchuyenngoai.route")(app);
+require("./routers/congnoxengoai.route")(app);
+require("./routers/donhangexportxengoai.route")(app);
+require("./routers/pnhchuyenngoai.route")(app);
+
+require("./routers/taixe.route")(app);
+require("./routers/donodc.route")(app)
+
+//spin00901
+require("./routers/spin00901.route")(app);
+require("./routers/spin00251.route")(app);
+require("./routers/spin00801.route")(app);
+require("./routers/spin00601.route")(app);
+require("./routers/spin00301.route")(app);
+//spch00201
+require("./routers/spch00201.route")(app);
+//spch00251
+require("./routers/spch00251.route")(app);
+//spkh00301
+require("./routers/spkh00301.route")(app);
+
+// master
+require("./routers/tmt101.route")(app);
+require("./routers/tmt050.route")(app);
+require("./routers/tmt030.route")(app);
 
 // khochung
 require("./khochungrouters/kho.route")(app);
@@ -129,37 +193,5 @@ app.use(function (err, req, res, next) {
 app.get("/", (req,res) => {
    res.send("nam pham");
 })
-
-
-// Chuyen.find({trangthai: 5, 
-//     $expr: {
-//       $and: [
-//       {"$eq": [{"$month": "$ngaydi"},11]},
-//       {"$eq": [{"$year": "$ngaydi"},2022]}
-//       ]
-//     }
-// }).then(data => {
-//   console.log(data);
-// },err=>{
-//   console.log(err.message);
-// })
-
-// text commonfun.checkAndremoveIdMenu("6321fe53c26d4024dd312437","632aaa31c8093b9a2007d143").then(data => {
-// text  console.log(data.length);
-// text})
-// text .catch(err => {console.log(err)})
-// console.log(menu.length);
-
-// 6331b3ce65e0507984482ba9
-// Menu.find({})
-// .then(async data => {
-//    let lstm = [];
-//    for(let element of data) {
-//      lstm.push(element._id);
-//    }
-//    await Role.updateOne({_id: "6331b3ce65e0507984482ba7"},{$set: {dacquyen:[]}})
-// },err => {
-//   console.log("err !")
-// })
 
 module.exports = app;

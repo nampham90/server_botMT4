@@ -1,13 +1,35 @@
 const db = require("../model");
+const dbCon = require('../common/DBConnect');
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
+const _ = require('lodash');
+const Const = require("../common/const");
 const Chuyen = db.chuyen;
 const Xe = db.xe;
 const Chiphi = db.chiphichuyenxe;
+const Pnh = db.phieunhaphang;
+const TMT030 = db.tmt030;
+
+//process
+const ChuyenFindParamProcess = require("../process/chuyenProcess/ChuyenFindPramaProcess");
+
+exports.searchParams = async (req,res) =>{
+    try {
+        const chuyenFindParamProcess = new ChuyenFindParamProcess(dbCon.dbDemo);
+        await chuyenFindParamProcess.start();
+        const session = chuyenFindParamProcess.transaction;
+        let listchuyen = await chuyenFindParamProcess.search(req.body,session);
+        await chuyenFindParamProcess.commit();
+        return res.status(200).send(new Response(0,"Data sucess", listchuyen));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống", null));
+    }
+}
 
 function ChuyenObject() {
     this.id = "";
+    this.soodt = "";
     this.ngaydi = ""; 
     this.ngayve = "";
     this.tienxe = 0; // tiền đưa trước
@@ -35,6 +57,9 @@ exports.getAllChuyen = async (req,res) => {
     if(filters.trangthai) {
         sreach.trangthai = filters.trangthai;
     }
+    if(filters.soodt) {
+        sreach.soodt = filters.soodt;
+    }
     if(filters.biensoxe && filters.biensoxe != '') {
         let xe = await Xe.findOne({biensoxe:filters.biensoxe});
         if(xe) {
@@ -60,8 +85,10 @@ exports.getAllChuyen = async (req,res) => {
             sreach['idphu'] = filters.idphu
         }
     }
-    console.log(sreach);
     let n = req.body.pageNum - 1;
+    if(req.body.pageNum <= 0) {
+       n=0;
+    }
     let alldata = await Chuyen.find(sreach).sort( { "ngaydi": -1 } )
     .populate('biensoxe')
     .populate('idtai')
@@ -80,6 +107,7 @@ exports.getAllChuyen = async (req,res) => {
     for(let element of data.list) {
         let obj = new ChuyenObject();
         obj.id = element._id;
+        obj.soodt = element.soodt;
         obj.ngaydi = element.ngaydi;
         obj.ngayve = element.ngayve;
         obj.tienxe = element.tienxe;
@@ -99,7 +127,8 @@ exports.getAllChuyen = async (req,res) => {
 }
 
 exports.createChuyen = async (req,res) => {
-    console.log(req.body);
+    let nth = req.userID;
+    let odt = await commonfun.fnGetODT();
     let newchuyen =new Chuyen({
         ngaydi: req.body.ngaydi,
         ngayve: req.body.ngayve,
@@ -107,21 +136,28 @@ exports.createChuyen = async (req,res) => {
         biensoxe:req.body.biensoxe,
         idtai: req.body.idtai,
         idphu: req.body.idphu,
+        soodt: odt,
         changduong: req.body.changduong,
-        trangthai: 0
+        trangthai: 0,
+        status01: 0,
+        status02: 0,
+        status03: 0,
+        status04: 0,
+        status05: 0,
+        ghichu: ""
     });
     newchuyen.save(async function(e){
         if(e) {
            return res.status(200).send(new Response(1001,"save error", null)); 
         } else {
            commonfun.UpdateTrangthaiXe(req.body.biensoxe,true);
+           await commonfun.ghiNhatkyhethong("system","Khởi tạo chuyến hàng mới vơi ODT:" + odt, nth, "create", "chuyen");
            return res.status(200).send(new Response(0,"Data sucess", newchuyen));
         }
     })
 }
 
 exports.updateChuyen = async (req,res) => {
-    console.log(req.body);
     let c = await Chuyen.findOne({_id:req.body.id});
     Chuyen.updateOne({_id:req.body.id},{$set:{
         ngaydi:req.body.ngaydi,
@@ -142,50 +178,65 @@ exports.updateChuyen = async (req,res) => {
 }
 
 exports.getDetailChuyen = async (req,res) => {
-    console.log(req.params.id);
     let id = req.params.id;
     let c = await Chuyen.findOne({_id:id})
     .populate('biensoxe')
     .populate('idtai')
     .populate('idphu');
-    console.log(c);
     if(!c) return res.status(401).send(new Response(1001,"User không tồn tại !",null));
     return res.status(200).send(new Response(0,"Data sucess ", c)); 
 }
 
 exports.deleteChuyen = async (req,res) => {
-    console.log(req.body.ids);
+    let nth = req.userID;
     let id = req.body.ids;
     let c = await Chuyen.findOne({_id:id});
-    console.log(c);
+    let odt = c['soodt'];
     Chuyen.deleteOne({_id:id})
-    .then(data => {
+    .then( async data =>  {
         commonfun.UpdateTrangthaiXe(c.biensoxe,false);
+        await commonfun.ghiNhatkyhethong("system","Hủy chuyến hàng mới vơi ODT:" + odt, nth, "delete", "chuyen");
         res.status(200).send(new Response(0,"delete sucess !", data));
     },err=>{
-        res.status(500).send(new Response(1001,"Lỗi xóa phòng ban !", null));
+        res.status(200).send(new Response(1001,"Lỗi xóa phòng ban !", null));
     })
 }
 
 exports.updateTrangthai = async (req,res) => {
-    console.log(req.body.id);
     let id = req.body.id;
     let trangthai = req.body.trangthai
+
+    // check xem tai xe đã tra hết hàng hay chứa
+    let lstsptoChuyen = await Pnh.find({idchuyen:id});
+    let check = false;
+    for(let e of lstsptoChuyen) {
+        if(e['status01'] == 0) {
+            check = true;
+            break;
+        }
+    }
+    let tmt030SysFlg = await TMT030.findOne({_id: Const.idTMT030});
+    if(tmt030SysFlg['SYSFLG1'] == 1) {
+        if(check == true && trangthai==3) {
+            return res.status(200).send(new Response(0,"Tài xế chưa trả xong hàng !", 0));
+        }
+    }
     let c = await Chuyen.findOne({_id:id});
-    if(trangthai == 3) {
+    if(trangthai == 3) {// hoàn thành trả hang
+        
         let listkn = req.body.listkhachno
         if(listkn != undefined && listkn.length > 0) {
             for(let element of listkn) {
-              await  commonfun.ghiNhatkyNo(element.idkhachhang,id,element.id,element.tiencuoc,"Nợ");
+              await  commonfun.ghiNhatkyNo(element.idkhachhang,id,element.id,element.tiencuoc,"Nợ","","1");
             }
         } else {
             listkn = await commonfun.getDanhsachkhachnotrongchuyenhang(id);
             for(let element of listkn) {
-               await commonfun.ghiNhatkyNo(element.iduser,id,element._id,element.tiencuoc,"Nợ");
+               await commonfun.ghiNhatkyNo(element.iduser,id,element._id,element.tiencuoc,"Nợ","","1");
             }
         }
     }
-    if(trangthai == 4) {
+    if(trangthai == 4) {// tinh chi phi
        let lstcp = req.body.lstchiphi;
        for(let element of lstcp) {
           let cp = new Chiphi({
@@ -196,6 +247,7 @@ exports.updateTrangthai = async (req,res) => {
           });
           await cp.save();
        }
+       await Chuyen.updateOne({_id:id}, {$set: {ngayve: _.now()}})
     }
     Chuyen.updateOne({_id:id}, {$set: {trangthai: trangthai}})
     .then(data => {
@@ -205,6 +257,6 @@ exports.updateTrangthai = async (req,res) => {
         }
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
     },err=>{
-        res.status(200).send(new Response(1001,"thực hiện không thành công !", 0));
+        return res.status(200).send(new Response(1001,"thực hiện không thành công !", 0));
     })
 }

@@ -1,4 +1,5 @@
 const db = require("../model");
+const dbCon = require('../common/DBConnect');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const _ = require("lodash")
@@ -14,8 +15,24 @@ const Role = db.role;
 const Menu = db.menu;
 const { registerValidator } = require('./../validations/auth');
 
+// process
+const UserChangePasswordProcess = require("../process/userProcess/userChangePasswordProcess");
 exports.demo = async (req,res) => {
     console.log(req.body);
+
+}
+
+exports.changePassword = async (req,res) => {
+    try {
+        const userChangePasswordProcess = new UserChangePasswordProcess(dbCon.dbDemo);
+        await userChangePasswordProcess.start();
+        const session = userChangePasswordProcess.transaction;
+        let data = await userChangePasswordProcess.changePassword(req.body,session);
+        await userChangePasswordProcess.commit();
+        return res.status(200).send(new Response(0,"data success!", data));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống!", null));
+    }
 }
 
 exports.checkEmail = async (req,res) => {
@@ -78,7 +95,6 @@ exports.getDetailUser = async(req,res) => {
 }
 
 exports.editDetailUser =async (req,res) => {
-    console.log(req.body);
     User.updateOne(
     {_id: req.body.id},
     {
@@ -145,12 +161,22 @@ exports.register =  async(req,res)=>{
     }
 }
 
-exports.login =  async(req,res)=>{
+// login 
+exports.login =  async (req,res) => {
+    if (req.body.mode && req.body.mode == 'mobile') {
+       await this.loginMobile(req,res);
+       return;
+    }
     const user = await User.findOne({email: req.body.email}).populate("role_id");
     if (!user) {
         let response = new Response(1010,'Email chưa đăng ký !',null);
         return res.status(200).send(response);
     } 
+    if(Const.idTaixe == user.phongban_id) {
+        let response = new Response(1010,'Vui lòng chọn Đăng nhập Tài Xế !',null);
+        return res.status(200).send(response);
+    }
+
     const checkPassword = await bcrypt.compare(req.body.password, user.password);
     if (!checkPassword){
         let response = new Response(1010,'Password không đúng !',null);
@@ -198,6 +224,30 @@ exports.login =  async(req,res)=>{
     
     const token = await jwt.sign({userId: user._id, rol: arraycode, username: user.name, email: user.email}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
     return res.status(200).send(new Response(0,'Login successfully !',token));
+}
+
+exports.loginMobile = async (req, res) => {
+    let reqemail = req.body.email;
+    let reqpass = req.body.password;
+    const user = await User.findOne({email: reqemail}).populate("role_id");
+    if (!user) {
+        let response = new Response(1010,'Email chưa đăng ký !',null);
+        return res.status(200).send(response);
+    }
+
+    if (Const.idTaixe != user.phongban_id) {
+        let response = new Response(1010,'người dùng không là Tài xế !',null);
+        return res.status(200).send(response);
+    }
+
+    const checkPassword = await bcrypt.compare(reqpass, user.password);
+    if (!checkPassword){
+        let response = new Response(1010,'Password không đúng !',null);
+        return res.status(200).send(response);
+    } 
+    let arraycode = "1,2,3";
+    const token = await jwt.sign({userId: user._id, rol: arraycode, username: user.name, email: user.email, idPhongban: user.phongban_id}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
+    return res.status(200).send(new Response(0,'Login Tài xế successfully !',token));
 }
 
 exports.getRoles = async(req, res) => {
@@ -253,7 +303,6 @@ exports.getMenu = async(req, res) => {
 
 // login - app
 exports.loginApp = async (req,res) => {
-    console.log(res);
     if(req.body.mode != "app") {
         let response = new Response(1010,'người dùng không hợp lệ !',null);
         return res.status(200).send(response);
@@ -277,3 +326,5 @@ exports.loginApp = async (req,res) => {
     const token = await jwt.sign({userId: user._id, idPhongban: user.phongban_id, username: user.name, email: user.email}, process.env.TOKEN_SECRET, { expiresIn: 60 * 60 * 24 });
     return res.status(200).send(new Response(0,'Login successfully !',token));
 }
+
+

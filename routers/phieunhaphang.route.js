@@ -8,5 +8,6 @@ module.exports = app => {
     route.get('/phieunhaphangAnt100get/:id', verifyToken, Phieunhaphang.getDetail)
     route.put('/phieunhaphangAnt100update', verifyToken, Phieunhaphang.update);
     route.post('/phieunhaphangAnt100delete',verifyToken, Phieunhaphang.delete);
+    route.post('/phieunhaphangAnt100ExportDataPDFChuyen',verifyToken, Phieunhaphang.ExportDataPDFChuyen);
     app.use("/api/phieunhaphang",route);
 }

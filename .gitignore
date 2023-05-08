@@ -1,0 +1,7 @@
+
+
+#log
+/common/logs
+
+# dependencies
+/node_modules

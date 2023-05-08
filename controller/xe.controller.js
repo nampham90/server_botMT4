@@ -31,9 +31,10 @@ exports.getlistXerun = async (req,res) => {
    return res.status(200).send(new Response(0,"Data sucess", listxerun));
 }
 
+
 exports.CreateXe = async (req,res) => {
     console.log(req.body)
-    let image = "/public/img/iconxetai.png";
+    let image = "cropped-shipping-icon.png";
     let newXe = new Xe({
         biensoxe: req.body.biensoxe,
         anhdaidien: image,

@@ -1,9 +1,15 @@
 
 module.exports = mongoose => {
+    const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
         tenkho: String,
         diachikho: String,
+        status01: Number,
+        status02: Number,
+        status03: Number,
+        status04: Number,
+        status05: Number,
       },
       { timestamps: true }
     );
@@ -14,6 +20,6 @@ module.exports = mongoose => {
       return object;
     });
   
-    const kho = mongoose.model("kho", schema);
+    const kho = dbcon.dbKhochung.model("kho", schema);
     return kho;
 };

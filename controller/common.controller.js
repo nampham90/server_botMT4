@@ -3,17 +3,136 @@ const Const = require('../common/const');
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
-const Chuyen = db.chuyen;
+const _ = require('lodash');
+const dbCon = require('../common/DBConnect');
+
 const User = db.user;
 const Menu = db.menu;
 const Xe = db.xe;
 const Role = db.role;
 const Phongban = db.phongban;
 const Screenpc = db.screenpc;
+//
+const Chuyen = db.chuyen;
 const ChiphiChuyenxe = db.chiphichuyenxe;
 const Phieunhaphang = db.phieunhaphang;
 const Hoadonnhaphang = db.hoadonnhaphang;
-const Nhatkytrano = db.nhatkytrano;
+const Nhatkykh = db.nhatkykh;
+const Chuyenngoai = db.chuyenngoai;
+const Chitietchuyenngoai = db.chitietchuyenngoai;
+const Congnoxengoai = db.congnoxengoai;
+const Donhangexportxengoai = db.donhangexportxengoai;
+const Donodc = db.donodc;
+
+// master
+const Tmt100 = db.tmt100;
+
+// process
+const CommonGetListSoidProcess = require("../process/commonProcess/commonGetListSoidProcess");
+
+exports.deleteAllDataMau = async (req,res) => {
+   await Chuyen.deleteMany({});
+   await ChiphiChuyenxe.deleteMany({});
+   await Phieunhaphang.deleteMany({});
+   await Hoadonnhaphang.deleteMany({});
+   await Nhatkykh.deleteMany({});
+   await Chuyenngoai.deleteMany({});
+   await Chitietchuyenngoai.deleteMany({});
+   await Congnoxengoai.deleteMany({});
+   await Donhangexportxengoai.deleteMany({});
+   await Donodc.deleteMany({})
+   return res.status(200).send(new Response(0,"data delete!", 1));
+}
+
+exports.getListSoID = async (req,res) => {
+   try {
+      const commonGetListSoidProcess = new CommonGetListSoidProcess(dbCon.dbDemo);
+      await commonGetListSoidProcess.start();
+      const session = commonGetListSoidProcess.transaction;
+      let data = await commonGetListSoidProcess.search(req.body,session);
+      await commonGetListSoidProcess.commit();
+      return res.status(200).send(new Response(0,"Data sucess !", data));
+   } catch (error) {
+      return res.status(200).send(new Response(1001,"Lỗi hệ thống !", error.message));
+   }
+}
+
+// tạo số ODS
+exports.getODS = async (req,res) => {
+   let soODS = "";
+   let ods = await Tmt100.findOne({maghep:"ODS"});
+   if(ods) {
+      // kiểm số winnumber
+      let toWinnumber = _.toNumber(ods['winnumber']);
+      let toStartnumber = _.toNumber(ods['startnumber']);
+      let toEndnumber = _.toNumber(ods['endnumber']);
+      if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+         return res.status(200).send(new Response(1001,"Số ODS đã hết hạn !", null));
+      }
+      let nowday = commonfun.dateNow();
+      nowday = nowday.replace(/\s+/g, '');
+      nowday = nowday.replace(/-/g, '');
+      soODS = ods['maghep'] + nowday + ods['winnumber'];
+      // update winnumber mơi. winnuber + 1;
+
+      let newWinnumber = toWinnumber +1;
+      await Tmt100.updateOne({maghep:"ODS"},{$set: {winnumber:_.toString(newWinnumber)}})
+      return res.status(200).send(new Response(0,"data !", soODS));
+   } else {
+      return res.status(200).send(new Response(1001,"Lỗi chưa thiết lập table tmt100 !", null));
+   }
+}
+// tạo số ODT 
+exports.getODT = async (req,res) => {
+   let soODT = "";
+   let odt = await Tmt100.findOne({maghep:"ODT"});
+   if(odt) {
+      // kiểm số winnumber
+      let toWinnumber = _.toNumber(ods['winnumber']);
+      let toStartnumber = _.toNumber(ods['startnumber']);
+      let toEndnumber = _.toNumber(ods['endnumber']);
+      if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+         return res.status(200).send(new Response(1001,"Số ODS đã hết hạn !", null));
+      }
+      let nowday = commonfun.dateNow();
+      nowday = nowday.replace(/\s+/g, '');
+      nowday = nowday.replace(/-/g, '');
+      soODT = odt['maghep'] + nowday + odt['winnumber'];
+      // update winnumber mơi. winnuber + 1;
+      let newWinnumber = toWinnumber +1;
+      await Tmt100.updateOne({maghep:"ODT"},{$set: {winnumber:_.toString(newWinnumber)}})
+      return res.status(200).send(new Response(0,"data !", soODT));
+   } else {
+      return res.status(200).send(new Response(1001,"Lỗi chưa thiết lập table tmt100 !", null));
+   }
+}
+
+exports.getODC = async (req,res) => {
+   let odc = await commonfun.fnGetODC();
+   if(odc) {
+      return res.status(200).send(new Response(0,"sesuces !", odc));
+   } else {
+      return res.status(200).send(new Response(1001,"null !", null));
+   }
+   
+}
+exports.getHDTTXN = async (req,res) => {
+   let hdttxn = await commonfun.fnGetHDTTXN();
+   if(hdttxn) {
+      return res.status(200).send(new Response(0,"sesuces !", hdttxn));
+   } else {
+      return res.status(200).send(new Response(1001,"null !", null));
+   }
+}
+
+exports.getID = async (req,res) => {
+   let id = await commonfun.fnGetHDTTXN();
+   if(id) {
+      return res.status(200).send(new Response(0,"sesuces !", id));
+   } else {
+      return res.status(200).send(new Response(1001,"null !", null));
+   }
+}
 
 exports.checkBiensoxe = async (biensoxe) => {
    let xe = await Xe.findOne({biensoxe:biensoxe});
@@ -86,6 +205,14 @@ exports.gettongnoAll = async (req,res) => {
    return res.status(200).send(new Response(0,"data", kq));
 }
 
+// get tổng nợ của 1 khách hàng
+exports.gettongnoUser = async (req,res) => {
+   let idKhachhang = req.body.iduser
+   let kq = await commonfun.tongno(idKhachhang);
+   //console.log(kq);
+   return res.status(200).send(new Response(0,"data", kq));
+}
+
 // list 10 khach hàng có doanh thu cao nhất trong năm
 exports.listtop10khachangcodoanhthucaonhat = async (req,res) => {
    let idkhachhang = Const.idKhachhang;
@@ -117,4 +244,26 @@ exports.listtongcuoccuatungxetaitrongnam = async (req, res) => {
       }
    }
    return res.status(200).send(new Response(0, "data", listmegre));
+}
+
+// tinh tong nợ xe ngoai
+exports.getTongnoxengoai = async (req,res) => {
+   let tongno = 0;
+   let loinhuan = 0;
+   // gồm các đơn chưa thanh toán và các đơn chờ thanh toán
+   let lsttongxengoaino = await Congnoxengoai.find({$or : [{status02:0},{status02:1}]})
+   .populate('iddonhang');
+   if (lsttongxengoaino.length > 0) {
+      for(let element of lsttongxengoaino) {
+         if(element['iddonhang']['status03'] == 1) {
+            tongno = tongno + element['sotienno'];
+            loinhuan = loinhuan + (element['iddonhang']['tiencuoc']-element['iddonhang']['tiencuocxengoai']);
+         }
+      }
+   }
+   let resdata = {
+      tongno: tongno,
+      loinhuan: loinhuan
+   }
+   return res.status(200).send(new Response(0, "data", resdata));
 }

@@ -1,38 +1,59 @@
 const db = require("../model");
+const dbCon = require('../common/DBConnect');
 let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const _ = require('lodash');
 const Phieunhaphang = db.phieunhaphang;
+const Chuyen = db.chuyen;
+const Chiphi = db.chiphichuyenxe
+
+//process
+const PhieunhaphangHuybochangProcess = require("../process/phieunhaphangProcess/PhieunhaphangHuybochangProcess");
+const Spin00251RegisterProcess = require('../process/spin00251Process/spin00251RegisterProcess');
 
 exports.savemathang = async (req,res) => {
-    console.log(req.body);
-    let newPnh = Phieunhaphang({
-        idchuyen : req.body.idchuyen,
-        biensoxe: req.body.biensoxe,
-        iduser: req.body.iduser,// mã khách hàng
-        tiencuoc:req.body.tiencuoc,// tiền cươc xe của 1 loại hàng
-        lotrinh: req.body.lotrinh, // lộ trình vận chuyển đi hay lộ trình hàng về
-        ngaynhap: _.now(),
-        noidungdonhang:req.body.noidungdonhang, // nôi dung đơn hàng. vd: gửi gạch đi phú quốc
-        diadiembochang:req.body.diadiembochang,  // Địa chỉ bọc hàng
-        hinhthucthanhtoan:req.body.hinhthucthanhtoan, // ghi no => 1, truc tiep => 2, thanh toan khi nhan hang => 3 
-        ghichu: req.body.ghichu, // ghi chú đơn hàng
-        trangthai: req.body.trangthai // 0 lưu dự định nhập. 1 hoàn thành việc nhập. 2, khóa chuyến hàng
-    });
-    newPnh.save(async function(e){
-        if(e) {
-            return res.status(200).send(new Response(1001,"lưu không thành công ", null));
-        } else {
-            return res.status(200).send(new Response(0,"lưu thành công ", newPnh));
+    try {
+        let soID = await commonfun.fnGetID();
+        //req.body.soID = soID;
+        let reqdata = {
+            "soID" : soID,
+            "iduser": req.body.iduser,
+            "hinhthucthanhtoan": req.body.hinhthucthanhtoan,
+            "ghichu": req.body.mode,
+            "mode": req.body.mode,
+            "listsp": [
+                {
+                    "idchuyen": req.body.idchuyen,
+                    "biensoxe": req.body.biensoxe,
+                    "noidungdonhang": req.body.noidungdonhang,
+                    "tiencuoc": req.body.tiencuoc,
+                    "diadiembochang": req.body.diadiembochang,
+                    "soluong": req.body.soluong,
+                    "donvitinh": req.body.donvitinh,
+                    "lotrinh": req.body.lotrinh,
+                    "makho": req.body.diadiembochang,
+                    "tennguoinhan": req.body.tennguoinhan,
+                    "sdtnguoinhan": req.body.sdtnguoinhan,
+                    "diachinguoinhan": req.body.diachinguoinhan,
+                    "ghichu":  req.body.ghichu + ""
+                }
+            ]
         }
-    })
+        const spin00251RegisterProcess = new Spin00251RegisterProcess(dbCon.dbDemo);
+        await spin00251RegisterProcess.start();
+        const session = spin00251RegisterProcess.transaction;
+        let data = await spin00251RegisterProcess.register(reqdata,session);
+        await spin00251RegisterProcess.commit();
+        return  res.status(200).send(new Response(0,"Data sucess ", data));
+    } catch (error) {
+        return  res.status(200).send(new Response(1001,"Lỗi hệ thống ", error.message));
+    }
 }
 
 exports.getLists = async (req,res) => {
-    console.log(req.body);
     let allData = await Phieunhaphang.find(req.body.filters)
-    .populate('iduser');
+    .populate('iduser',{password:0});
     if(req.body.pageNum == 0 && req.body.pageSize == 0) {
         res.status(200).send(new Response(0,"data sucess",allData));
     } else {
@@ -41,14 +62,13 @@ exports.getLists = async (req,res) => {
             n = req.body.pageNum - 1;
         }
         let lst = await Phieunhaphang.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n)
-        .populate('iduser');
+        .populate('iduser',{password:0});
         let data = commonfun.dataReponse(allData,lst,req.body.pageNum,req.body.pageSize);
         res.status(200).send(new Response(0,"data sucess",data));
     }
 }
 
 exports.getDetail = async (req,res) => {
-    console.log(req.params.id);
     let pnh = await Phieunhaphang.findOne({_id: req.params.id});
     if(pnh) {
         res.status(200).send(new Response(0,"data sucess",pnh));
@@ -66,7 +86,10 @@ exports.update = async (req,res) => {
         diadiembochang:req.body.diadiembochang,
         hinhthucthanhtoan: req.body.hinhthucthanhtoan,
         lotrinh: req.body.lotrinh,
-        ghichu: req.body.ghichu
+        ghichu: req.body.ghichu,
+        tennguoinhan: req.body.tennguoinhan,
+        sdtnguoinhan: req.body.sdtnguoinhan,
+        diachinguoinhan: req.body.diachinguoinhan
     }})
     .then(data => {
         console.log(data.modifiedCount + " Update Product " + req.body.id);
@@ -75,12 +98,53 @@ exports.update = async (req,res) => {
 }
 
 exports.delete = async (req, res) => {
-    console.log(req.body);
-    let id = req.body.ids;
-    Phieunhaphang.deleteOne({_id:id})
-    .then(data => {
-        res.status(200).send(new Response(0,"delete success !", data));
-    },err=>{
-        res.status(200).send(new Response(1001,"error delete !", null));
-    })
+    try {
+        const phieunhaphangHuybochangProcess = new PhieunhaphangHuybochangProcess(dbCon.dbDemo);
+        await phieunhaphangHuybochangProcess.start();
+        const session = phieunhaphangHuybochangProcess.transaction;
+        let data = await phieunhaphangHuybochangProcess.huybochang(req.body,session);
+        await phieunhaphangHuybochangProcess.commit();
+        if(data.msgError != ""){
+            return res.status(200).send(new Response(0,"data success !", data));
+        }
+        return res.status(200).send(new Response(0,"data success !", 1));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống !", error.message));
+    }
+}
+
+exports.ExportDataPDFChuyen = async (req,res) => {
+    // get chuyen id
+    let odt = "";
+    let id = req.body.id;
+    if(id && id.length==24) {
+        let c = await Chuyen.findOne({_id:id})
+        .populate('biensoxe')
+        .populate('idtai')
+        .populate('idphu');
+    
+        if(c['soodt'] && c['soodt'] != "") {
+            odt = c['soodt'];
+        } else {
+            odt = await commonfun.fnGetODT();
+            await Chuyen.updateOne({_id:id},{$set:{soodt:odt}})
+        }
+        // get list detail id chuyen
+        let lstpnh = await Phieunhaphang.find({idchuyen:id})
+        .populate('iduser',{password:0});
+    
+        // get list chi phi id chuyen
+        let lstchiphi = await Chiphi.find({idchuyen: id});
+    
+        let resdata= {
+            odt: odt,
+            chuyen: c,
+            lstproduct: lstpnh,
+            lstchiphi: lstchiphi
+        }
+        return res.status(200).send(new Response(0,"data success !", resdata));
+    } else {
+        return res.status(200).send(new Response(1001,"data null !", null));
+    }
+   
 }
