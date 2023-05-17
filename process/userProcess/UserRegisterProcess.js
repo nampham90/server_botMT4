@@ -1,8 +1,8 @@
-const Transaction = require('../abstractProcess/Transaction');
+const AbstractProcess = require('../abstractProcess/AbstractProcess');
 const bcrypt = require('bcryptjs');
 const _ = require("lodash")
 //const db = require("../../model");
-class UserRegisterProcess extends Transaction {
+class UserRegisterProcess extends AbstractProcess {
 
     constructor(dbcon) {
         super(dbcon);

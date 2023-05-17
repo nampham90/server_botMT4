@@ -1,6 +1,6 @@
-const Transaction = require('../abstractProcess/Transaction');
+const AbstractProcess = require('../abstractProcess/AbstractProcess');
 const db = require("../../model");
-class UserCheckEmailProcess extends Transaction {
+class UserCheckEmailProcess extends AbstractProcess {
     constructor(dbcon) {
         super(dbcon);
     }

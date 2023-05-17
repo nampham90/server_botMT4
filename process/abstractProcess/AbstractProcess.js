@@ -1,5 +1,5 @@
 const logToFile = require('../../common/logFile');
-class Transaction {
+class AbstractProcess {
   constructor(database) {
     this.database = database;
     this.transaction = null;
@@ -36,4 +36,4 @@ class Transaction {
     return res;
   }
 }
-module.exports = Transaction;
+module.exports = AbstractProcess;

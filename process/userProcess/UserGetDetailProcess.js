@@ -1,8 +1,8 @@
-const Transaction = require('../abstractProcess/Transaction');
+const AbstractProcess = require('../abstractProcess/AbstractProcess');
 const { ObjectId } = require('mongodb');
 
 
-class UserGetDetailProcess extends Transaction {
+class UserGetDetailProcess extends AbstractProcess {
     constructor(dbcon) {
         super(dbcon);
     }
