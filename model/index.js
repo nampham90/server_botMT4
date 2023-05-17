@@ -19,6 +19,8 @@ db.nhatkyhethong = require("./nhatkyhethong")(mongoose);
 
 
 // master không thể xóa
+db.tmt030 = require("./tmt030")(mongoose);
+db.tmt050 = require("./tmt050")(mongoose);
 db.tmt100 = require("./tmt100")(mongoose);
 db.tmt101 = require("./tmt101")(mongoose);
 

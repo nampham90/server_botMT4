@@ -256,7 +256,7 @@ exports.getRoles = async(req, res) => {
 
 exports.getMenu = async(req, res) => {
     let user = await User.findOne({_id: req.userID}).populate("role_id");
-    if(!user) return res.status(400).send(new Response(1000,"Bạn không có quyền truy cập vào Module này", null));
+    if(!user) return res.status(200).send(new Response(1000,"Bạn không có quyền truy cập vào Module này", null));
     if(user.role_id.length == 1){
         let idRole = user.role_id[0]._id
         let role = await Role.findOne({_id:idRole}).populate("dacquyen");
