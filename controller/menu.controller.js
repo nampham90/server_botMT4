@@ -101,9 +101,16 @@ exports.getDetailMenuFromUrl = async (req,res) => {
   let stt = 1;
   let lstdata = []
   for(let element of lst) {
-      let obj = new ObjDataSC(stt,element.title1,element.title2);
-      lstdata.push(obj);
-      stt++;
+      if(element.vitri) {
+        stt = element.vitri;
+        let obj = new ObjDataSC(stt,element.title1,element.title2);
+        lstdata.push(obj);
+      } else {
+        let obj = new ObjDataSC(stt,element.title1,element.title2);
+        lstdata.push(obj);
+        stt++;
+      }
+
   }
   res.status(200).send(new Response(0,"data sucess", lstdata));
 }

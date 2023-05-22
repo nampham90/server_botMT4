@@ -4,8 +4,10 @@ var http = require('http');
 const dotenv = require('dotenv');
 const Constant = require('../common/const');
 dotenv.config();
-const cors = require('cors')
+
 var port = normalizePort(process.env.PORT || '3000');
+const cors = require('cors')
+
 var server = require("http").Server(app);
 var io = require('socket.io')(server, {
   cors: {
@@ -82,7 +84,6 @@ io.on('connection', (socket) => {
 
 });
 server.listen(port, ()=>{console.log("server open post:"+ port)});
-
 
 //app.set('port', port);
 

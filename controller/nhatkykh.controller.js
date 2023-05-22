@@ -3,6 +3,7 @@ let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const axios = require("axios");
+const _ = require('lodash');
 const Nhatkykh = db.nhatkykh;
 const User = db.user;
 const Ctchuyenngoai = db.chitietchuyenngoai;
@@ -21,9 +22,6 @@ exports.getLists = async (req,res) => {
     }
     let sreach = {};
     sreach.ngay = {$gte:gt,$lt:lt};
-    if(filters.trangthai) {
-        sreach.trangthai = filters.trangthai;
-    }
     if(filters.iduser) {
         sreach.iduser = filters.iduser;
     }
@@ -32,24 +30,25 @@ exports.getLists = async (req,res) => {
     }
     if(filters.status05) {
         sreach.status05 = { $regex: new RegExp(filters.status05 + "$") }
-    } else {
-        sreach.status05 = "";
-    }
+    } 
     let allData = await Nhatkykh.find(sreach).sort( { "ngay": -1 } )
     .populate('idphieunhaphang')
+    .populate('iduser')
     if(req.body.pageNum == 0 && req.body.pageSize == 0) {
         res.status(200).send(new Response(0,"data sucess",allData));
     } else {
         let n = req.body.pageNum - 1;
         let lst = await Nhatkykh.find(sreach).sort( { "ngay": -1 } )
         .limit(req.body.pageSize).skip(req.body.pageSize*n)
-        .populate('idphieunhaphang');
+        .populate('idphieunhaphang')
+        .populate('iduser',{password:0});
         let lstmegre = [];
         for(let element of lst) {
             if(element['idphieunhaphang'] == null && element['status01'].length > 0) {
                 const str =  element['status01']
                 const result = str.slice(0, 24);
-                let ctchuyenngoai = await Ctchuyenngoai.findOne({_id:result});
+                let ctchuyenngoai = await Ctchuyenngoai.findOne({_id:result})
+                .populate('nguonxe');
                 let item = {
                     chukyno: element['chukyno'],
                     createdAt:element['createdAt'],
@@ -100,6 +99,39 @@ exports.thanhtoanmotphan = async (req,res) => {
     let iduser = req.body.iduser;
     let listidpn = req.body.listidpn;
     let soodc = req.body.soodc;
+    // check soodc
+    let msg = {
+        msgID : "",
+        msgError : ""
+    }
+    let lstnkkh = await Nhatkykh.find({status05:soodc});
+    if(lstnkkh.length > 0) {
+        // 
+        if(lstnkkh.length != listidpn.length) {
+            msg.msgID = "LOL02";
+            msg.msgError = "Dữ liệu thanh toán không trùng khớp !"
+            return res.status(200).send(new Response(0, "data null",msg));
+        } else {
+            // check từng nhatkykh
+            let checkchukyno = false;
+            for(let element of lstnkkh) {
+                if(element['chukyno'] == 1) {
+                    checkchukyno = true;
+                    break;
+                }
+            }
+            if(checkchukyno == true) {
+                msg.msgID = "LOL03";
+                msg.msgError = "Đơn hang này đã được thanh toán !"
+                return res.status(200).send(new Response(0, "data null",msg));
+            }
+        }
+    } else {
+        msg.msgID = "LOL01";
+        msg.msgError = "Số ODC không tồn tại !"
+        return res.status(200).send(new Response(0, "data null",msg));
+    }
+    //
     let i = 0;
     let total = 0;
     let u = await User.findOne({_id: iduser});
@@ -126,12 +158,12 @@ exports.thanhtoanmotphan = async (req,res) => {
         let content = "Đơn Trả" + "\n" + u.name + ". Đã thanh toán " + i + " Đơn hàng. Số tiền là: " + total + "\nNợ còn lại: " + noconlai;
         commonfun.fnSendMessageTelegram(u.groupid, content, axios);
         // update donodc status01 = 1;
-        await Donodc.updateOne({soodc:soodc},{$set: {status01:1}});
+        await Donodc.updateOne({soodc:soodc},{$set: {status01:1,ngaythanhtoan: _.now()}});
         // ghi nhật ký hệ thống
         await commonfun.ghiNhatkyhethong("system","Khách hàng thanh toán dơn hàng Số ODC:" + soodc, nth, "update", "nhatkykh");
-        res.status(200).send(new Response(0, "data sucess", 1));
+        return res.status(200).send(new Response(0, "data sucess", 1));
     } else {
-        res.status(200).send(new Response(1001,"update fail",null));
+        return res.status(200).send(new Response(1001,"update fail",null));
     }
 }
 
@@ -167,7 +199,6 @@ exports.thanhtoan = async (req,res) => {
 }
 // cập nhật số odc cho đơn hàng. chuyển sang trạng thái chờ thanh toán
 exports.updateStatus05 = async (req,res) => {
-    console.log(req.body);
     let lstId = req.body.lstId;
     let i = 0;
     for(let element of lstId) {
@@ -177,11 +208,13 @@ exports.updateStatus05 = async (req,res) => {
     if(i == lstId.length) {
         // tạo đơn odc
         let newDonodc = new Donodc({
-            idkhachhang: req.body.id,
+            idkhachhang: req.body.idkhachhang,
             lstId: req.body.lstId,
             tongcuoc: req.body.tongcuoc,
             soodc: req.body.soodc,
-            status01: 0, //0 donodc chưa thanh toan, 1 đã thanh toán
+            ngayxuat: _.now(),
+            ngaythanhtoan: null,
+            status01: 0, //0 donodc chờ thanh toan, 1 đã thanh toán
             status02: 0, 
             status03: 0, 
             status04: 0,

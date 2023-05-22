@@ -711,6 +711,33 @@ exports.fnGetHDTTXN = async () => {
     }
 }
 
+// mã thanh toán công nợ xe ngòa
+exports.fnGetID = async () => {
+    let soID = "";
+    let id = await Tmt100.findOne({maghep:"ID"});
+    if(id) {
+       // kiểm số winnumber
+       let toWinnumber = _.toNumber(id['winnumber']);
+       let toStartnumber = _.toNumber(id['startnumber']);
+       let toEndnumber = _.toNumber(id['endnumber']);
+       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+        soID = "0"//  hêt sô odC
+        return soID;
+       }
+       let nowday = this.dateNow();
+       nowday = nowday.replace(/\s+/g, '');
+       nowday = nowday.replace(/-/g, '');
+       soID = id['maghep'] + nowday + id['winnumber'];
+       // update winnumber mơi. winnuber + 1;
+       let newWinnumber = toWinnumber +1;
+       await Tmt100.updateOne({maghep:"ID"},{$set: {winnumber:_.toString(newWinnumber)}})
+       return soID;
+    } else {
+        soID = "1";// lỗi hệ thống
+        return soID;
+    }
+}
+
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {
     const url ="https://api.telegram.org/bot5575919434:AAEOiu_pWYpmGp4QtAF-k388QV-Rke0n44M/sendMessage?chat_id=-";
    const urltext = "&text=";

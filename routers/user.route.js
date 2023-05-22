@@ -9,6 +9,7 @@ module.exports = app =>{
     router.post("/register", user.register);
     router.get("/getroles", verifyDevadmin, user.getRoles);
     router.get("/menu", verifyToken, user.getMenu);
+    router.put("/ant100ChangePasswordUser",verifyToken,user.changePassword);
     router.post("/ant100SearchAllUser",verifyToken,user.getAllUser);
     router.get("/ant100GetDetailUser/:id",verifyToken,user.getDetailUser);
     router.put("/ant100EditDetailUser",verifyToken,user.editDetailUser);

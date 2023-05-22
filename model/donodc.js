@@ -13,6 +13,8 @@ module.exports = mongoose => {
           }],//
           tongcuoc: Number, //
           soodc: String, // 3
+          ngayxuat:Date,
+          ngaythanhtoan:Date,
           status01: Number, 
           status02: Number, 
           status03: Number, 
