@@ -1,4 +1,4 @@
-const AbstractProcess = require('../abstractProcess/AbstractProcess');
+const AbstractProcess = require("../abstractProcess/Transaction");
 
 class ScreenpcAddlistProcess extends AbstractProcess {
     constructor(dbcon) {

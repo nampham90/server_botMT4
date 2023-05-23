@@ -1,4 +1,4 @@
-const AbstractProcess = require('../abstractProcess/AbstractProcess');
+const AbstractProcess = require("../abstractProcess/Transaction");
 const {ObjectId} = require("mongodb");
 
 class ScreenpcUpdateProcess extends AbstractProcess {

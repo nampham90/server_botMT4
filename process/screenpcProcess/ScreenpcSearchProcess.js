@@ -1,4 +1,4 @@
-const AbstractProcess = require('../abstractProcess/AbstractProcess');
+const AbstractProcess = require("../abstractProcess/Transaction");
 let commonfun = require('../../common/functionCommon');
 class ScreenpcSearchProcess extends AbstractProcess {
     constructor(dbcon) {
@@ -11,11 +11,14 @@ class ScreenpcSearchProcess extends AbstractProcess {
 
     paramsSearch(data){
         let filters = data.filters;
-        let sreach = {};
-        if(filters.urldisplayid && sreach.urldisplayid != "") {
-            sreach.urldisplayid =  { $regex: new RegExp(filters.urldisplayid + "$") };
+        let search = {};
+        if(filters.idmenu) {
+            search.idmenu = filters.idmenu
         }
-        return sreach;
+        if(filters.urldisplayid && sreach.urldisplayid != "") {
+            search.urldisplayid =  { $regex: new RegExp(filters.urldisplayid + "$") };
+        }
+        return search;
     }
 
     async process(db,data,session) {
