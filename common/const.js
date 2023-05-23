@@ -7,6 +7,7 @@ const  hangdi = "0";
 const  hangve = "1";
 const  emailAdmin = "namandroid.it@gmail.com";
 const  MSGerrorsystem = "Lỗi hệ thống !";
+const  MSGsucessystem = 'Data Sucess !'
 
 
 module.exports = {
@@ -18,5 +19,6 @@ module.exports = {
     hangdi,
     hangve,
     emailAdmin,
-    MSGerrorsystem
+    MSGerrorsystem,
+    MSGsucessystem
 }
