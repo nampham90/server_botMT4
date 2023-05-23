@@ -30,6 +30,8 @@ exports.savemathang = async (req,res) => {
                     "tiencuoc": req.body.tiencuoc,
                     "diadiembochang": req.body.diadiembochang,
                     "soluong": req.body.soluong,
+                    "trongluong": req.body.trongluong,
+                    "khoiluong": req.body.khoiluong,
                     "donvitinh": req.body.donvitinh,
                     "lotrinh": req.body.lotrinh,
                     "makho": req.body.diadiembochang,
