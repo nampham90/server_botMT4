@@ -11,11 +11,16 @@ class ScreenpcSearchProcess extends AbstractProcess {
 
     paramsSearch(data){
         let filters = data.filters;
-        let sreach = {};
-        if(filters.urldisplayid && sreach.urldisplayid != "") {
-            sreach.urldisplayid =  { $regex: new RegExp(filters.urldisplayid + "$") };
+        let search = {};
+        
+        if(filters.idmenu) {
+            search.idmenu = filters.idmenu
         }
-        return sreach;
+
+        if(filters.urldisplayid && search.urldisplayid != "") {
+            search.urldisplayid =  { $regex: new RegExp(filters.urldisplayid + "$") };
+        }
+        return search;
     }
 
     async process(db,data,session) {
