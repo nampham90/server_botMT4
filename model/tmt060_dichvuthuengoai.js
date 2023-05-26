@@ -4,7 +4,7 @@ module.exports = mongoose => {
       let schema = mongoose.Schema(
         {
           tennhacungcap: String, // ten người cung cấp.vd: Anh Long
-          maloai: {
+          loaidichvu: {
             type: mongoose.Schema.Types.ObjectId,
             ref:"tmt050"
           }, // mã loại dịch vụ. luu trong bang tmt050

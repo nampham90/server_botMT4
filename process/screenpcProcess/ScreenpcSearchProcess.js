@@ -15,7 +15,7 @@ class ScreenpcSearchProcess extends AbstractProcess {
         if(filters.idmenu) {
             search.idmenu = filters.idmenu
         }
-        if(filters.urldisplayid && sreach.urldisplayid != "") {
+        if(filters.urldisplayid && filters.urldisplayid != "") {
             search.urldisplayid =  { $regex: new RegExp(filters.urldisplayid + "$") };
         }
         return search;
