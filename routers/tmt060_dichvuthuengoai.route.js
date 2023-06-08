@@ -4,6 +4,7 @@ module.exports = app => {
     const verifyToken = require('../middlewares/verifyToken');
 
     route.post("/tmt060Ant100getAll",verifyToken,TMT060.getAll);
+    route.post("/tmt060Ant100getDetail",verifyToken,TMT060.getDetail);
     route.post("/tmt060Ant100add",verifyToken,TMT060.add);
     route.post("/tmt060Ant100delete",verifyToken,TMT060.delete);
     route.post("/tmt060Ant100update",verifyToken,TMT060.update);

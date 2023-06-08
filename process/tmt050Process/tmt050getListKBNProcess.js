@@ -12,11 +12,11 @@ class Tmt050getListKBNProcess extends AbsProcess {
 
     paramsSearch(data) {
         let filters = data.filters;
-        let sreach = {};
+        let search = {};
         if(filters.rcdkbn) {
-            sreach.rcdkbn = filters.rcdkbn;
+            search.rcdkbn = filters.rcdkbn;
         }
-        return sreach;
+        return search;
     }
 
     async process(db,data,session) {
