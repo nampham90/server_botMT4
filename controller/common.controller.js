@@ -23,6 +23,7 @@ const Chitietchuyenngoai = db.chitietchuyenngoai;
 const Congnoxengoai = db.congnoxengoai;
 const Donhangexportxengoai = db.donhangexportxengoai;
 const Donodc = db.donodc;
+const Dichvuthuengoai = db.tmt060_dichvuthuengoai;
 
 // master
 const Tmt100 = db.tmt100;
@@ -266,4 +267,20 @@ exports.getTongnoxengoai = async (req,res) => {
       loinhuan: loinhuan
    }
    return res.status(200).send(new Response(0, "data", resdata));
+}
+
+
+// lấy danh dách dịch vụ xe câu
+exports.getListDichVuXeCau = async (req,res) => {
+   
+   let dsDichvuxecau = await Dichvuthuengoai.find({loaidichvu: Const.idXecau});
+   return res.status(200).send(new Response(0, "data sucess !", dsDichvuxecau));
+
+}
+
+// lấy danh dách dịch vụ boc xêp
+exports.getListDichVuBocXep = async (req,res) => {
+   let dsDichvubocxep = await Dichvuthuengoai.find({loaidichvu: Const.idBocxep});
+   return res.status(200).send(new Response(0, "data sucess !", dsDichvubocxep));
+
 }
