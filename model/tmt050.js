@@ -1,4 +1,4 @@
-// day so thu hôi bien lai đã xuất
+// table tmt050_name
 module.exports = mongoose => {
     const dbcon = require("../common/DBConnect");
       let schema = mongoose.Schema(
