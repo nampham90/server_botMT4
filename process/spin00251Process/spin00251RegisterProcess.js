@@ -45,9 +45,13 @@ class Spin00251RegisterProcess extends AbsProcess {
         }
     }
 
+
+
     async insertPhieuNhapHang(db,data,session,ret) {
         const PNH = db.models.phieunhaphang;
+        const DVTN = db.models.chiphidutrudonhang;
         let listPNH = [];
+        let listDVTN = [];
         for(let element of data.listsp) {
             let pn = {
                 soID: data.soID,
@@ -76,10 +80,69 @@ class Spin00251RegisterProcess extends AbsProcess {
                 status04: 0,
                 status05: 0
             }
+            let dvtn = {
+                soID: data.soID,
+                tangbonhaphang: ObjectId(element['nguonxenhaphang']),
+                sotiennhaphang: element['sotiennhaphang'],
+                htttnhaphang: element['htttnhaphang'],
+                tentaixenhaphang: element['tentaixenhaphang'],
+                biensoxenhaphang: element['biensoxenhaphang'],
+                tangbotrahang: ObjectId(element['nguonxetrahang']),
+                sotientrahang: element['sotientrahang'],
+                httttrahang: element['httttrahang'],
+                tentaixetrahang: element['tentaixetrahang'],
+                biensoxetrahang: element['biensoxetrahang'],
+                dichvuxecau: ObjectId(element['xecau']),
+                sotienxecau: element['sotienxecau'],
+                htttxecau: element['htttxecau'],
+                dichvuboxep: ObjectId(element['bocxep']),
+                sotienboxep: element['sotienboxep'],
+                htttboxep: element['htttboxep'],
+                status01: "",
+                status02: "",
+                status03: "",
+                status04: "",
+                status05: ""
+            }
+            if(dvtn.htttxecau != 1 && element['xecau'] != null && element['sotienxecau'] != 0) {
+                // ghi no xe cau
+                const TMT061xecau =  db.models.tmt061_congnodichvuthuengoai;
+                let newTmt061xecau = new TMT061xecau({
+                    soID: data.soID,
+                    manhacungcap: ObjectId(element['xecau']),
+                    sotien:  element['sotienxecau'],
+                    ngaylamviec:moment().toDate(),
+                    status01: "0", // "0" chưa thanh toán. "1 đã thanh toán"
+                    status02: "0", 
+                    status03: "0", 
+                    status04: "0",
+                    status05: "0"
+                })
+                await TMT061xecau.collection.insertOne(newTmt061xecau, { session });
+            }
+            if(dvtn.htttboxep != 1 && element['bocxep'] != null && element['sotienboxep'] != 0) {
+                // ghi no boc xep
+                const TMT061bocxep =  db.models.tmt061_congnodichvuthuengoai;
+                let newTmt061bocxep = new TMT061bocxep({
+                    soID: data.soID,
+                    manhacungcap: ObjectId(element['bocxep']),
+                    sotien:  element['sotienboxep'],
+                    ngaylamviec:moment().toDate(),
+                    status01: "0", // "0" chưa thanh toán. "1 đã thanh toán"
+                    status02: "0", 
+                    status03: "0", 
+                    status04: "0",
+                    status05: "0"
+                })
+                await TMT061bocxep.collection.insertOne(newTmt061bocxep, { session });
+            }
+
             listPNH.push(pn);
+            listDVTN.push(dvtn);
         }
         let rs = await PNH.collection.insertMany(listPNH, { session });
-        if(rs['acknowledged'] == true) {
+        await DVTN.collection.insertMany(listDVTN, { session });
+        if(rs['acknowledged'] === true) {
             ret = 0;
         } else {
             ret = 1;

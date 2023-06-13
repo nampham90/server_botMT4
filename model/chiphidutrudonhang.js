@@ -36,7 +36,6 @@ module.exports = mongoose => {
           sotienboxep: Number,
           htttboxep: Number,
 
-          tongchiphi: Number,
           status01: String, 
           status02: String, 
           status03: String, 
