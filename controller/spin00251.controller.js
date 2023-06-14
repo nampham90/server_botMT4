@@ -21,6 +21,7 @@ exports.Register = async (req,res) => {
             await  spin00251GetPHNProcess.start();
             const session2 = spin00251GetPHNProcess.transaction
             let resPNH = await spin00251GetPHNProcess.getPHN({soID:req.body.soID},session2);
+            
             let resdata = mergeResRegister(resPNH);
             await spin00251GetPHNProcess.commit();
             return  res.status(200).send(new Response(0,"Data sucess ", resdata));

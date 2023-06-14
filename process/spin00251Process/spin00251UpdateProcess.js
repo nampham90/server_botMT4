@@ -39,10 +39,41 @@ class Spin00251UpdateProcess extends AbsProcess {
             }},
             {session}
         )
+     await this.updateCPDT(db,data,session);
         if(update) {
             ret = 0;
         } else {
             ret = 1;
+        }
+    }
+
+    async updateCPDT(db,data,session) {
+        const CPDT = db.models.chiphidutrudonhang;
+        let soID = data['spin00251Header']['soID'];
+        for(let element of data['listsp']) {
+            await CPDT.collection.updateOne(
+                {soID: soID},
+                { $set: {
+                    tangbonhaphang: element.nguonxenhaphang,
+                    sotiennhaphang: element.sotiennhaphang,
+                    htttnhaphang: element.htttnhaphang,
+                    tentaixenhaphang: element.tentaixenhaphang,
+                    biensoxenhaphang: element.biensoxenhaphang,
+                    tangbotrahang: element.nguonxetrahang,
+                    sotientrahang: element.sotientrahang,
+                    httttrahang: element.httttrahang,
+                    tentaixetrahang: element.tentaixetrahang,
+                    biensoxetrahang: element.biensoxetrahang,
+                    dichvuxecau: element.xecau,
+                    sotienxecau: element.sotienxecau,
+                    htttxecau: element.htttxecau,
+                    dichvuboxep: element.bocxep,
+                    sotienbocxep: element.sotienbocxep,
+                    htttbocxep: element.htttbocxep
+                  }
+                },
+                {session}
+            );
         }
     }
 

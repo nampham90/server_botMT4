@@ -96,7 +96,7 @@ class Spin00251RegisterProcess extends AbsProcess {
                 sotienxecau: element['sotienxecau'],
                 htttxecau: element['htttxecau'],
                 dichvuboxep: ObjectId(element['bocxep']),
-                sotienboxep: element['sotienboxep'],
+                sotienbocxep: element['sotienbocxep'],
                 htttboxep: element['htttboxep'],
                 status01: "",
                 status02: "",

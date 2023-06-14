@@ -33,7 +33,7 @@ module.exports = mongoose => {
             type: mongoose.Schema.Types.ObjectId,
             ref:"tmt060_dichvuthuengoai"
           }, // mã nhà cung cập. 
-          sotienboxep: Number,
+          sotienbocxep: Number,
           htttboxep: Number,
 
           status01: String, 
