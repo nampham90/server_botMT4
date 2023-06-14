@@ -141,7 +141,15 @@ class Spin00251RegisterProcess extends AbsProcess {
             listDVTN.push(dvtn);
         }
         let rs = await PNH.collection.insertMany(listPNH, { session });
-        await DVTN.collection.insertMany(listDVTN, { session });
+        let rs1 = await DVTN.collection.insertMany(listDVTN, { session });
+
+        // lây id dvth
+        //let itemdvth = await DVTN.findOne({soID: data.soID});
+        // update vào phieunhaphang
+        if(rs1.insertedIds) {
+            await PNH.collection.updateOne({soID: data.soID},{$set: {cpdvtncd: ObjectId(rs1.insertedIds['0'])}},{ session })
+        }
+
         if(rs['acknowledged'] === true) {
             ret = 0;
         } else {

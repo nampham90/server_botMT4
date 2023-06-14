@@ -13,6 +13,10 @@ module.exports = mongoose => {
           type: mongoose.Schema.Types.ObjectId,
           ref:"user"
          },// mã khách hàng
+         cpdvtncd:{
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"chiphidutrudonhang"
+         },
          tiencuoc:Number,// tiền cươc xe của 1 loại hàng
          lotrinh: String, // lộ trình vận chuyển đi hay lộ trình hàng về
          ngaynhap: Date,
