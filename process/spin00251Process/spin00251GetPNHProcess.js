@@ -37,8 +37,13 @@ class Spin00251GetPHNProcess extends AbsProcess {
         for(let element of lstPNH) {
             if(element.soID == cpdtdonhang.soID) {
                 let item = {
+                    "id": element._id,
+                    "soID": element.soID,
+                    "idchuyen": element.idchuyen,
+                    "biensoxe": element.biensoxe,
                     "noidungdonhang": element.noidungdonhang,
                     "tiencuoc": element.tiencuoc,
+                    "lotrinh": element.lotrinh,
                     "diadiembochang": element.diadiembochang,
                     "soluong": element.soluong,
                     "trongluong": element.trongluong,
@@ -48,6 +53,13 @@ class Spin00251GetPHNProcess extends AbsProcess {
                     "tennguoinhan": element.tennguoinhan,
                     "sdtnguoinhan": element.sdtnguoinhan,
                     "diachinguoinhan": element.diachinguoinhan,
+                    "ghichu": element.ghichu,
+                    "trangthai": element.trangthai,
+                    "status01": element.status01,
+                    "status02": element.status02,
+                    "status03": element.status03,
+                    "status04": element.status04,
+                    "status05": element.status05,
                     "nguonxenhaphang": cpdtdonhang.tangbonhaphang,
                     "sotiennhaphang": cpdtdonhang.sotiennhaphang,
                     "htttnhaphang": cpdtdonhang.htttnhaphang,
@@ -61,10 +73,9 @@ class Spin00251GetPHNProcess extends AbsProcess {
                     "xecau": cpdtdonhang.dichvuxecau,
                     "sotienxecau": cpdtdonhang.sotienxecau,
                     "htttxecau": cpdtdonhang.htttxecau,
-                    "bocxep": cpdtdonhang.dichvuboxep,
+                    "bocxep": cpdtdonhang.dichvubocxep,
                     "sotienbocxep": cpdtdonhang.sotienbocxep,
-                    "htttbocxep": cpdtdonhang.htttbocxep,
-                    "ghichu": element.ghichu
+                    "htttbocxep": cpdtdonhang.htttbocxep
                 }
                 reslist.push(item);
             }

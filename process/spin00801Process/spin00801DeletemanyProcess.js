@@ -23,8 +23,14 @@ class Spin00801DeletemanyProcess extends AbsProcess {
         } else {
             const TIN100 = db.models.tin100;
             const PNH = db.models.phieunhaphang;
+            const CPDVTN = db.models.chiphidutrudonhang;
+            const CNXN = db.models.congnoxengoai;
+            const CNDVTN = db.models.tmt061_congnodichvuthuengoai;
             await TIN100.collection.deleteMany({soID: {$in: data.soIDs}},{session});
             await PNH.collection.deleteMany({soID: {$in: data.soIDs}},{session});
+            await CPDVTN.collection.deleteMany({soID: {$in: data.soIDs}},{session});
+            await CNXN.collection.deleteMany({soID: {$in: data.soIDs}},{session});
+            await CNDVTN.collection.deleteMany({soID: {$in: data.soIDs}},{session});
         }
         return response;
     }

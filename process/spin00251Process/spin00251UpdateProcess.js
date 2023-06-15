@@ -74,6 +74,11 @@ class Spin00251UpdateProcess extends AbsProcess {
                 },
                 {session}
             );
+            // 
+            if(element.htttnhaphang == 0) {
+
+            } 
+
         }
     }
 
@@ -93,6 +98,8 @@ class Spin00251UpdateProcess extends AbsProcess {
                     ngaynhap: moment(element.ngaynhap).toDate(),
                     noidungdonhang: element.noidungdonhang,
                     soluong: element.soluong,
+                    trongluong: element.trongluong,
+                    khoiluong: element.khoiluong,
                     donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,
                     tennguoinhan: element.tennguoinhan,

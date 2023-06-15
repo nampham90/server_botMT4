@@ -11,6 +11,7 @@ module.exports = mongoose => {
               ref:"chitietchuyenngoai",
               unique:true
           },
+          soID: String,
           ngaynhap: Date,
           biensoxe: String, // biển số xe ngoài
           tentaixe: String, // tài xế xe ngoài

@@ -24,9 +24,9 @@ exports.getChuyen = async (req, res) => {
         if (countId == Const.lengthId) {
             data.resdataChuyen = c;
             data.reslistHangdi = await Pnh.find({idchuyen: c._id, lotrinh: Const.hangdi})
-            .populate("iduser");
+            .populate("iduser",{password:0});
             data.reslistHangve = await Pnh.find({idchuyen: c._id, lotrinh: Const.hangve})
-            .populate("iduser");
+            .populate("iduser",{password:0});
             return res.status(200).send(new Response(0,"Data sucess", data));
         } else {
             return res.status(200).send(new Response(0,"Data rổng ", []));

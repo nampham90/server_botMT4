@@ -253,12 +253,18 @@ exports.getTongnoxengoai = async (req,res) => {
    let loinhuan = 0;
    // gồm các đơn chưa thanh toán và các đơn chờ thanh toán
    let lsttongxengoaino = await Congnoxengoai.find({$or : [{status02:0},{status02:1}]})
-   .populate('iddonhang');
+   .populate({path:'iddonhang',match: { iddonhang: { $ne: null } }});
    if (lsttongxengoaino.length > 0) {
       for(let element of lsttongxengoaino) {
-         if(element['iddonhang']['status03'] == 1) {
+         if(element['iddonhang']){
+            if(element['iddonhang']['status03'] == 1) {
+               if(element['status01'] = 0) {
+                  tongno = tongno + element['sotienno'];
+               }
+               loinhuan = loinhuan + (element['iddonhang']['tiencuoc']-element['iddonhang']['tiencuocxengoai']);
+            }
+         } else {
             tongno = tongno + element['sotienno'];
-            loinhuan = loinhuan + (element['iddonhang']['tiencuoc']-element['iddonhang']['tiencuocxengoai']);
          }
       }
    }

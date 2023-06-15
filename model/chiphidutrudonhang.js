@@ -29,12 +29,12 @@ module.exports = mongoose => {
           sotienxecau: Number,
           htttxecau: Number,
 
-          dichvuboxep: {
+          dichvubocxep: {
             type: mongoose.Schema.Types.ObjectId,
             ref:"tmt060_dichvuthuengoai"
           }, // mã nhà cung cập. 
           sotienbocxep: Number,
-          htttboxep: Number,
+          htttbocxep: Number,
 
           status01: String, 
           status02: String, 

@@ -45,11 +45,10 @@ class Spin00251RegisterProcess extends AbsProcess {
         }
     }
 
-
-
     async insertPhieuNhapHang(db,data,session,ret) {
         const PNH = db.models.phieunhaphang;
         const DVTN = db.models.chiphidutrudonhang;
+        const CNXN = db.models.congnoxengoai;
         let listPNH = [];
         let listDVTN = [];
         for(let element of data.listsp) {
@@ -95,14 +94,58 @@ class Spin00251RegisterProcess extends AbsProcess {
                 dichvuxecau: ObjectId(element['xecau']),
                 sotienxecau: element['sotienxecau'],
                 htttxecau: element['htttxecau'],
-                dichvuboxep: ObjectId(element['bocxep']),
+                dichvubocxep: ObjectId(element['bocxep']),
                 sotienbocxep: element['sotienbocxep'],
-                htttboxep: element['htttboxep'],
+                htttbocxep: element['htttbocxep'],
                 status01: "",
                 status02: "",
                 status03: "",
                 status04: "",
                 status05: ""
+            }
+            if(dvtn.htttnhaphang != 1 && dvtn.tangbonhaphang != null && dvtn.sotiennhaphang > 0) {
+                // gi cong no nguon xe nhap hang
+                let newCnxnnhaphang = new CNXN({
+                    nguonxe: ObjectId(dvtn.tangbonhaphang),
+                    iddonhang: null,
+                    soID: data.soID,
+                    ngaynhap : moment().toDate(),
+                    biensoxe: dvtn.biensoxenhaphang,
+                    tentaixe: dvtn.tentaixenhaphang,
+                    sodienthoai: null,
+                    sotienno: dvtn.sotiennhaphang,
+                    sohdttxn:"",
+                    status01: 0, // 0. chưa thanh toán. 1. đã thanh toán
+                    status02: 1, // 0. không ghi công nợ. 1 . có ghi công nợ
+                    status03: 0, 
+                    status04: 0,
+                    status05: 0,
+                    ghichu: "NO"
+                });
+                await CNXN.collection.insertOne(newCnxnnhaphang,{session});
+            }
+
+            if(dvtn.httttrahang != 1 && dvtn.tangbotrahang != null && dvtn.sotientrahang > 0) {
+                // gi cong no nguon xe tra hang
+                  // gi cong no nguon xe nhap hang
+                  let newCnxntrahang = new CNXN({
+                    nguonxe: ObjectId(dvtn.tangbotrahang),
+                    iddonhang: null,
+                    soID: data.soID,
+                    ngaynhap : moment().toDate(),
+                    biensoxe: dvtn.biensoxetrahang,
+                    tentaixe: dvtn.tentaixetrahang,
+                    sodienthoai: null,
+                    sotienno: dvtn.sotientrahang,
+                    sohdttxn:"",
+                    status01: 0, // 0. chưa thanh toán. 1. đã thanh toán
+                    status02: 1, // 0. không ghi công nợ. 1 . có ghi công nợ
+                    status03: 0, 
+                    status04: 0,
+                    status05: 0,
+                    ghichu: "NO"
+                });
+                await CNXN.collection.insertOne(newCnxntrahang,{session});
             }
             if(dvtn.htttxecau != 1 && element['xecau'] != null && element['sotienxecau'] != 0) {
                 // ghi no xe cau
@@ -120,7 +163,7 @@ class Spin00251RegisterProcess extends AbsProcess {
                 })
                 await TMT061xecau.collection.insertOne(newTmt061xecau, { session });
             }
-            if(dvtn.htttboxep != 1 && element['bocxep'] != null && element['sotienboxep'] != 0) {
+            if(dvtn.htttbocxep != 1 && element['bocxep'] != null && element['sotienboxep'] != 0) {
                 // ghi no boc xep
                 const TMT061bocxep =  db.models.tmt061_congnodichvuthuengoai;
                 let newTmt061bocxep = new TMT061bocxep({

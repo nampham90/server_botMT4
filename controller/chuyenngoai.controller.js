@@ -70,6 +70,7 @@ async function registerCongNoXeNgoai(nguonxe, iddonhang, biensoxe, tentaixe, sod
      let cnxengoai = new Congnoxengoai({
         nguonxe: nguonxe,
         iddonhang: iddonhang,
+        soID: null,
         ngaynhap : _.now(),
         biensoxe: biensoxe,
         tentaixe: tentaixe,

@@ -33,7 +33,7 @@ exports.getLists = async (req,res) => {
     } 
     let allData = await Nhatkykh.find(sreach).sort( { "ngay": -1 } )
     .populate('idphieunhaphang')
-    .populate('iduser')
+    .populate('iduser',{password:0})
     if(req.body.pageNum == 0 && req.body.pageSize == 0) {
         res.status(200).send(new Response(0,"data sucess",allData));
     } else {
