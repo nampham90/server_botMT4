@@ -44,6 +44,7 @@ db.tmt050 = require("./tmt050")(mongoose);
 db.tmt030 = require("./tmt030")(mongoose);
 db.tmt060_dichvuthuengoai = require("./tmt060_dichvuthuengoai")(mongoose);
 db.tmt061_congnodichvuthuengoai = require("./tmt061_congnodichvuthuengoai")(mongoose);
+db.tmt062_hoadonthanhtoancndvtn = require("./tmt062_hoadonthanhtoancndvtn")(mongoose);
 db.chidutrudonhang = require("./chiphidutrudonhang")(mongoose);
 
 module.exports = db;

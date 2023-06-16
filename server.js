@@ -168,6 +168,7 @@ require("./routers/tmt101.route")(app);
 require("./routers/tmt050.route")(app);
 require("./routers/tmt030.route")(app);
 require("./routers/tmt060_dichvuthuengoai.route")(app);
+require("./routers/tmt061_congnodichvuthuengoai.router")(app);
 
 // khochung
 require("./khochungrouters/kho.route")(app);

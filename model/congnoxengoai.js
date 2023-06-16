@@ -8,8 +8,7 @@ module.exports = mongoose => {
           },
           iddonhang: {
               type: mongoose.Schema.Types.ObjectId,
-              ref:"chitietchuyenngoai",
-              unique:true
+              ref:"chitietchuyenngoai"
           },
           soID: String,
           ngaynhap: Date,

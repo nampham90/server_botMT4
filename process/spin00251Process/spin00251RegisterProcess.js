@@ -122,7 +122,8 @@ class Spin00251RegisterProcess extends AbsProcess {
                     status05: 0,
                     ghichu: "NO"
                 });
-                await CNXN.collection.insertOne(newCnxnnhaphang,{session});
+                let rs = await CNXN.collection.insertOne(newCnxnnhaphang,{session});
+                console.log(rs);
             }
 
             if(dvtn.httttrahang != 1 && dvtn.tangbotrahang != null && dvtn.sotientrahang > 0) {
@@ -145,7 +146,8 @@ class Spin00251RegisterProcess extends AbsProcess {
                     status05: 0,
                     ghichu: "NO"
                 });
-                await CNXN.collection.insertOne(newCnxntrahang,{session});
+                let rs = await CNXN.collection.insertOne(newCnxntrahang,{session});
+                console.log(rs);
             }
             if(dvtn.htttxecau != 1 && element['xecau'] != null && element['sotienxecau'] != 0) {
                 // ghi no xe cau
@@ -161,7 +163,8 @@ class Spin00251RegisterProcess extends AbsProcess {
                     status04: "0",
                     status05: "0"
                 })
-                await TMT061xecau.collection.insertOne(newTmt061xecau, { session });
+                let rs = await TMT061xecau.collection.insertOne(newTmt061xecau, { session });
+                console.log(rs);
             }
             if(dvtn.htttbocxep != 1 && element['bocxep'] != null && element['sotienboxep'] != 0) {
                 // ghi no boc xep
@@ -169,7 +172,7 @@ class Spin00251RegisterProcess extends AbsProcess {
                 let newTmt061bocxep = new TMT061bocxep({
                     soID: data.soID,
                     manhacungcap: ObjectId(element['bocxep']),
-                    sotien:  element['sotienboxep'],
+                    sotien:  element['sotienbocxep'],
                     ngaylamviec:moment().toDate(),
                     status01: "0", // "0" chưa thanh toán. "1 đã thanh toán"
                     status02: "0", 
@@ -177,7 +180,8 @@ class Spin00251RegisterProcess extends AbsProcess {
                     status04: "0",
                     status05: "0"
                 })
-                await TMT061bocxep.collection.insertOne(newTmt061bocxep, { session });
+                let rs = await TMT061bocxep.collection.insertOne(newTmt061bocxep, { session });
+                console.log(rs);
             }
 
             listPNH.push(pn);
