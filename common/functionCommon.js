@@ -712,6 +712,33 @@ exports.fnGetHDTTXN = async () => {
 }
 
 // mã thanh toán công nợ xe ngòa
+exports.fnGetHDTTDVTN = async () => {
+    let soHDTTDVTN = "";
+    let hdttdvtn = await Tmt100.findOne({maghep:"HDTTDVTN"});
+    if(hdttdvtn) {
+       // kiểm số winnumber
+       let toWinnumber = _.toNumber(hdttdvtn['winnumber']);
+       let toStartnumber = _.toNumber(hdttdvtn['startnumber']);
+       let toEndnumber = _.toNumber(hdttdvtn['endnumber']);
+       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+        soHDTTDVTN = "0"//  hêt sô odC
+        return soHDTTDVTN;
+       }
+       let nowday = this.dateNow();
+       nowday = nowday.replace(/\s+/g, '');
+       nowday = nowday.replace(/-/g, '');
+       soHDTTDVTN = hdttdvtn['maghep'] + nowday + hdttdvtn['winnumber'];
+       // update winnumber mơi. winnuber + 1;
+       let newWinnumber = toWinnumber +1;
+       await Tmt100.updateOne({maghep:"HDTTDVTN"},{$set: {winnumber:_.toString(newWinnumber)}})
+       return soHDTTDVTN;
+    } else {
+        soHDTTDVTN = "1";// lỗi hệ thống
+        return soHDTTDVTN;
+    }
+}
+
+// mã thanh toán công nợ xe ngòa
 exports.fnGetID = async () => {
     let soID = "";
     let id = await Tmt100.findOne({maghep:"ID"});

@@ -8,7 +8,7 @@ module.exports = mongoose => {
             type: mongoose.Schema.Types.ObjectId,
             ref:"tmt060_dichvuthuengoai"
           }, // mã nhà cung cập. 
-          sotien: Number, // số tiền phí dịch vụ
+          sotien: Number, // tong số tiền 
           ngaylamviec: Date, 
           status01: String, 
           status02: String, 
