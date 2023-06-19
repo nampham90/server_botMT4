@@ -55,7 +55,17 @@ exports.savemathang = async (req,res) => {
 
 exports.getLists = async (req,res) => {
     let allData = await Phieunhaphang.find(req.body.filters)
-    .populate('iduser',{password:0});
+    .populate('iduser',{password:0})
+    .populate({
+        path: "cpdvtncd",
+        populate: [
+          { path: "tangbonhaphang" },
+          { path: "tangbotrahang" },
+          { path: "dichvuxecau" , populate: [{path: "loaidichvu"}]},
+          { path: "dichvubocxep", populate: [{path: "loaidichvu"}] }
+        ],
+        match: { cpdvtncd: { $ne: null } }
+    });
     if(req.body.pageNum == 0 && req.body.pageSize == 0) {
         res.status(200).send(new Response(0,"data sucess",allData));
     } else {
@@ -64,7 +74,17 @@ exports.getLists = async (req,res) => {
             n = req.body.pageNum - 1;
         }
         let lst = await Phieunhaphang.find(req.body.filters).limit(req.body.pageSize).skip(req.body.pageSize*n)
-        .populate('iduser',{password:0});
+        .populate('iduser',{password:0})
+        .populate({
+            path: "cpdvtncd",
+            populate: [
+              { path: "tangbonhaphang" },
+              { path: "tangbotrahang" },
+              { path: "dichvuxecau" , populate: [{path: "loaidichvu"}]},
+              { path: "dichvubocxep", populate: [{path: "loaidichvu"}] }
+            ],
+            match: { cpdvtncd: { $ne: null } }
+        });
         let data = commonfun.dataReponse(allData,lst,req.body.pageNum,req.body.pageSize);
         res.status(200).send(new Response(0,"data sucess",data));
     }

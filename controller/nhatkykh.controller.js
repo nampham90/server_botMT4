@@ -21,7 +21,7 @@ exports.getLists = async (req,res) => {
         lt = req.body.filters.ngayketthuc;
     }
     let sreach = {};
-    sreach.ngay = {$gte:gt,$lt:lt};
+    sreach.ngay = {$gte:new Date(gt),$lte: new Date(commonfun.fnEndSearch(lt))};
     if(filters.iduser) {
         sreach.iduser = filters.iduser;
     }

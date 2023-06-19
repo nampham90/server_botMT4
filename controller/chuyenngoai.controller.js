@@ -21,7 +21,7 @@ exports.PostAllChuyenngoai = async (req,res) => {
     if(filters.ngayketthuc) {
         lt = filters.ngayketthuc;
     }
-    sreach.ngayvanchuyen = {$gte:gt,$lt:lt};
+    sreach.ngayvanchuyen = {$gte:new Date(gt),$lte: new Date(commonfun.fnEndSearch(lt))};
     if(filters.biensoxe) {
         sreach.biensoxe = filters.biensoxe;
     }

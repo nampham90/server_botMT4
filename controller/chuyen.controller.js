@@ -53,7 +53,7 @@ exports.getAllChuyen = async (req,res) => {
     if(filters.ngayketthuc) {
         lt = filters.ngayketthuc;
     }
-    sreach.ngaydi = {$gte:gt,$lt:lt};
+    sreach.ngaydi = {$gte:new Date(gt),$lte: new Date(commonfun.fnEndSearch(lt))};
     if(filters.trangthai) {
         sreach.trangthai = filters.trangthai;
     }

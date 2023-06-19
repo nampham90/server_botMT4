@@ -12,6 +12,7 @@ const Cpc = db.chiphichuyenxe;
 const Nkht = db.nhatkyhethong;
 const Chuyen = db.chuyen;
 const Message = db.message;
+
 //master
 const Tmt100 = db.tmt100;
 
@@ -763,6 +764,18 @@ exports.fnGetID = async () => {
         soID = "1";// lỗi hệ thống
         return soID;
     }
+}
+
+exports.fnCheckMakhachhang = async (makhachhang) => {
+    let u = await User.findOne({makhachhang:makhachhang});
+    if(u) return true;
+    return false;
+}
+
+exports.fnEndSearch = (lt) => {
+    let ltDate = new Date(lt);
+    ltDate.setDate(ltDate.getDate() + 1);
+    return ltDate;
 }
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {

@@ -7,6 +7,7 @@ const Nhatkykh = db.nhatkykh;
 
 function KhachhangObject() {
     this.id = "";
+    this.makhachhang = "";
     this.name = ""; 
     this.dienthoai = "";
     this.diachi = ''; // tiền đưa trước
@@ -19,6 +20,7 @@ exports.getDetail = async (req,res) => {
     if (kh) {
         let Khang = new KhachhangObject();
         Khang.id = kh._id;
+        Khang.makhachhang = kh.makhachhang;
         Khang.name = kh.name;
         Khang.dienthoai = kh.dienthoai;
         if(kh.diachi != undefined) {
@@ -39,22 +41,27 @@ exports.getDetail = async (req,res) => {
 }
 
 exports.update = async (req,res) => {
-    console.log(req.body);
     let id = req.body.id;
     if(id != undefined && id.length == 24){
         let kh = await Khachhang.findOne({_id:id});
         if (kh) {
-           Khachhang.updateOne({_id:id}, {$set: {name:req.body.name,dienthoai: req.body.dienthoai, diachi:req.body.diachi, groupid: req.body.groupid}})
-           .then(data => {
-            console.log(data.modifiedCount + " update khach hang " + id);
-            if(data.modifiedCount == 1){
-                res.status(200).send(new Response(0,"update success",id));
-            } else {
-                res.status(200).send(new Response(1001,"update fail",id));
-            }
-           })
+           let check = await commonfun.fnCheckMakhachhang(req.body.makhachhang);
+           if(check == false) {
+                Khachhang.updateOne({_id:id}, {$set: {makhachhang:req.body.makhachhang, name:req.body.name,dienthoai: req.body.dienthoai, diachi:req.body.diachi, groupid: req.body.groupid}})
+                .then(data => {
+                console.log(data.modifiedCount + " update khach hang " + id);
+                if(data.modifiedCount == 1){
+                    return res.status(200).send(new Response(0,"update success",id));
+                } else {
+                    return  res.status(200).send(new Response(1001,"update fail",id));
+                }
+            })
+           } else {
+             return res.status(200).send(new Response(1001,"Mã khách hàng tồn tại",null));
+           }
+           
         } else {
-           res.status(200).send(new Response(1001,"Khách hàng không tồn tại",null));
+            return res.status(200).send(new Response(1001,"Khách hàng không tồn tại",null));
         }
     } 
 }
@@ -72,6 +79,7 @@ exports.getLists = async (req,res) => {
         for(let element of data.list) {
             let obj = new KhachhangObject();
             obj.id = element._id;
+            obj.makhachhang = element.makhachhang;
             obj.name = element.name;
             obj.dienthoai = element.dienthoai;
             if(element.diachi != undefined){
