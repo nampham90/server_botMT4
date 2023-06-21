@@ -13,8 +13,10 @@ module.exports = mongoose => {
             type: mongoose.Schema.Types.ObjectId,
             ref:"nguonxe"
           },
-          thongtindonhang: String,
+          tenhang: String,
           soluong: Number,
+          trongluong: Number, //vd : 0.23, 1.4;
+          khoiluong: Number, //vd : 0.4, 0.23
           donvitinh:String, // khôi , tấn , kg, kiện
           diadiembochang: String,  // 
           tiencuoc:Number,

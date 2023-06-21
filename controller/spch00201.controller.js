@@ -38,7 +38,7 @@ exports.updateTiencuocxengoai = async (req,res) => {
             "table": "chitietchuyenngoai và nhatkykh",
             "idchuyenngoai": req.body.idchuyenngoai,
             "sdtnguoinhan": req.body.sdtnguoinhan,
-            "thongtindonhang": req.body.thongtindonhang,
+            "tenhang": req.body.tenhang,
             "tiencuoc": req.body.tiencuoc,
             "idNhatkykh" : req.body.idNhatkykh,
             "tiencuocupdate": req.body.tiencuocupdate,

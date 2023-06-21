@@ -20,7 +20,7 @@ module.exports = mongoose => {
          tiencuoc:Number,// tiền cươc xe của 1 loại hàng
          lotrinh: String, // lộ trình vận chuyển đi hay lộ trình hàng về
          ngaynhap: Date,
-         noidungdonhang:String, // nôi dung đơn hàng. vd: gửi gạch đi phú quốc
+         tenhang:String, // nôi dung đơn hàng. vd: gửi gạch đi phú quốc
          soluong: Number, //vd: 1 kiện, 2 tân, 3 kg
          trongluong: Number, //vd : 0.23, 1.4;
          khoiluong: Number, //vd : 0.4, 0.23

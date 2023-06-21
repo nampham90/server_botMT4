@@ -31,7 +31,7 @@ exports.PostCreatePnhchuyenngoai = async (req,res) => {
             iduser: req.body.iduser, // id user
             tiencuocnhan: req.body.tiencuocnhan,
             ngaynhap: req.body.ngaynhap,
-            noidungdonhang: req.body.noidungdonhang,
+            tenhang: req.body.tenhang,
             diadiembochang: req.body.diadiembochang,
             thongtintrahang: req.body.thongtintrahang,
             htttkhachhang: req.body.htttkhachhang,
@@ -58,7 +58,7 @@ exports.PostCreatePnhchuyenngoai = async (req,res) => {
 // update 
 exports.PostUpdatePnhchuyenngoai = async (req,res) => {
     console.log(req);
-    Pnhchuyenngoai.updateOne({_id: req.body.id},{$set: {tiencuocnhan: req.body.tiencuocnhan, noidungdonhang: req.body.noidungdonhang, diadiembochang: req.body.diadiembochang, thongtintrahang: req.body.thongtintrahang, htttkhachhang: req.body.htttkhachhang, tiencuoctra: req.body.tiencuoctra, htttxengoai: req.body.htttxengoai, ghichu: req.body.ghichu}})
+    Pnhchuyenngoai.updateOne({_id: req.body.id},{$set: {tiencuocnhan: req.body.tiencuocnhan, tenhang: req.body.tenhang, diadiembochang: req.body.diadiembochang, thongtintrahang: req.body.thongtintrahang, htttkhachhang: req.body.htttkhachhang, tiencuoctra: req.body.tiencuoctra, htttxengoai: req.body.htttxengoai, ghichu: req.body.ghichu}})
     .then(data => {
         console.log(data.modifiedCount + " Update Xe success " + req.body.id);
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));

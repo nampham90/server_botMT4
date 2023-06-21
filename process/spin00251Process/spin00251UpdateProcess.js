@@ -226,7 +226,7 @@ class Spin00251UpdateProcess extends AbsProcess {
                     tiencuoc: element.tiencuoc,
                     lotrinh: element.lotrinh,
                     ngaynhap: moment(element.ngaynhap).toDate(),
-                    noidungdonhang: element.noidungdonhang,
+                    tenhang: element.tenhang,
                     soluong: element.soluong,
                     trongluong: element.trongluong,
                     khoiluong: element.khoiluong,

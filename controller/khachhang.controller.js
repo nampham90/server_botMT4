@@ -4,6 +4,7 @@ let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const Khachhang = db.user;
 const Nhatkykh = db.nhatkykh;
+const Ctchuyenngoai = db.chitietchuyenngoai;
 
 function KhachhangObject() {
     this.id = "";
@@ -12,6 +13,7 @@ function KhachhangObject() {
     this.dienthoai = "";
     this.diachi = ''; // tiền đưa trước
     this.sotienno = 0;
+    this.dataListChild = [];
 }
 
 exports.getDetail = async (req,res) => {
@@ -93,6 +95,45 @@ exports.getLists = async (req,res) => {
                 obj.groupid = "";
             }
             obj.sotienno = await commonfun.tongno(element._id);
+            let search = {};
+            search.ghichu = "Nợ";
+            search.iduser = element._id;
+            let lstnk = await Nhatkykh.find(search).sort( { "ngay": -1 } )
+            .populate('idphieunhaphang')
+            .populate('iduser',{password:0});
+            let lstmegre = [];
+            for(let element of lstnk) {
+                if(element['idphieunhaphang'] == null && element['status01'].length > 0) {
+                    const str =  element['status01']
+                    const result = str.slice(0, 24);
+                    let ctchuyenngoai = await Ctchuyenngoai.findOne({_id:result})
+                    .populate('nguonxe');
+                    let item = {
+                        chukyno: element['chukyno'],
+                        createdAt:element['createdAt'],
+                        ghichu:element['ghichu'],
+                        hinhthucthanhtoan:element['hinhthucthanhtoan'] ,
+                        id:element['id'] ,
+                        idchuyen:element['idchuyen'] ,
+                        idphieunhaphang: ctchuyenngoai,
+                        iduser:element['iduser'] ,
+                        ngay:element['ngay'] ,
+                        sotien:element['sotien'] ,
+                        status01:element['status01'] ,
+                        status02:element['status02'] ,
+                        status03:element['status03'],
+                        status04:element['status04'] ,
+                        status05:element['status05'] ,
+                        trangthai:element['trangthai'],
+                        updatedAt:element['updatedAt']
+                    }
+                    lstmegre.push(item);
+                } else {
+                    lstmegre.push(element);
+                }
+            }
+            obj.dataListChild = lstmegre;
+
             list.push(obj);
         }
         data.list = list;

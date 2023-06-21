@@ -139,7 +139,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                 // update detail
                 await Chitietchuyenngoai.updateOne({_id: element.id},{$set: {
                     idchuyenngoai: spch00251Header.id,
-                    thongtindonhang: element.thongtindonhang,
+                    tenhang: element.tenhang,
                     soluong: element.soluong,
                     donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,  // 
@@ -202,7 +202,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     idchuyenngoai: spch00251Header.id,
                     soid: soId,
                     nguonxe: spch00251Header.nguonxe,
-                    thongtindonhang: element.thongtindonhang,
+                    tenhang: element.tenhang,
                     soluong: element.soluong,
                     donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,  // 
@@ -303,7 +303,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                           idchuyenngoai: newChuyenngoai._id,
                           soid:soId,
                           nguonxe: spch00251Header.nguonxe,
-                          thongtindonhang: element.thongtindonhang,
+                          tenhang: element.tenhang,
                           soluong: element.soluong,
                           donvitinh: element.donvitinh,
                           diadiembochang: element.diadiembochang,  // 

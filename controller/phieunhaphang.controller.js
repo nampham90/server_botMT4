@@ -26,7 +26,7 @@ exports.savemathang = async (req,res) => {
                 {
                     "idchuyen": req.body.idchuyen,
                     "biensoxe": req.body.biensoxe,
-                    "noidungdonhang": req.body.noidungdonhang,
+                    "tenhang": req.body.tenhang,
                     "tiencuoc": req.body.tiencuoc,
                     "diadiembochang": req.body.diadiembochang,
                     "soluong": req.body.soluong,
@@ -103,7 +103,7 @@ exports.update = async (req,res) => {
 
     Phieunhaphang.updateOne({_id:req.body.id},{$set:{
         iduser:req.body.iduser,
-        noidungdonhang:req.body.noidungdonhang,
+        tenhang:req.body.tenhang,
         tiencuoc:req.body.tiencuoc,
         diadiembochang:req.body.diadiembochang,
         hinhthucthanhtoan: req.body.hinhthucthanhtoan,

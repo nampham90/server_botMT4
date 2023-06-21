@@ -41,7 +41,7 @@ class Spin00251GetPHNProcess extends AbsProcess {
                     "soID": element.soID,
                     "idchuyen": element.idchuyen,
                     "biensoxe": element.biensoxe,
-                    "noidungdonhang": element.noidungdonhang,
+                    "tenhang": element.tenhang,
                     "tiencuoc": element.tiencuoc,
                     "lotrinh": element.lotrinh,
                     "diadiembochang": element.diadiembochang,
