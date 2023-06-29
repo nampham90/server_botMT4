@@ -3,6 +3,8 @@ let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const Role = db.role;
+const User = db.user;
+const { ObjectId } = require('mongodb');
 
 
 exports.getListRole = async(req,res) => {
@@ -19,18 +21,18 @@ exports.getSearchAllRole = async(req,res) => {
 }
 
 exports.GetDetailRole = async (req,res)=>{
-    let id = req.params.id;
-    
-    let role = await Role.findOne({_id: id});
-    if(role) {
-        return res.status(200).send(new Response(0,"Data sucess", role));
-    }else {
-        let newRole = new Role({
-            rolename: req.body.rolename,
-            mota: req.body.mota,
-            dacquyen: []
-        });
+    let idUser = req.params.id;
+    let user = await User.findOne({_id: idUser});
+    if(user) {
+        const stringArray = user.role_id.map(objId => objId.toString());
+        let role = await Role.findOne({_id: stringArray[0]});
+        return res.status(200).send(new Response(0,"Data success !", role));
+    } else {
+       return res.status(200).send(new Response(0,"Data null", null));
     }
+
+   
+   
 }
 
 exports.AddDetailRole = async (req,res)=>{

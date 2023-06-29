@@ -82,7 +82,7 @@ const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public',express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
@@ -112,6 +112,7 @@ require("./routers/nhatkyhethong.route")(app);
 
 // master
 require("./routers/tmt101.route")(app);
+require("./routers/tmt010_file.route")(app);
 
 // khochung
 require("./khochungrouters/kho.route")(app);

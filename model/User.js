@@ -26,6 +26,10 @@ module.exports = mongoose => {
         },
         zalo: String,
         diachi:String,
+        avatar: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"tmt010_file"
+        },
         sotienno:Number,
         groupid:String,
         password: {
