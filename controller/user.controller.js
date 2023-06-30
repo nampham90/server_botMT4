@@ -20,7 +20,20 @@ const UserCheckEmailProcess = require("../process/userProcess/UserCheckEmailProc
 const UserFindAllProcess = require("../process/userProcess/UserFindAllProcess");
 const UserGetDetailProcess = require("../process/userProcess/UserGetDetailProcess");
 const UserUpdateDetailProcess = require("../process/userProcess/UserUpdateDetailProcess");
+const UserChangePasswordProcess = require("../process/userProcess/UserChangePasswordProcess");
 
+exports.changePassword = async (req,res) => {
+    try {
+        const userChangePasswordProcess = new UserChangePasswordProcess(dbcon.dbDemo);
+        await userChangePasswordProcess.start();
+        const session = userChangePasswordProcess.transaction;
+        let data = await userChangePasswordProcess.changePassword(req.body,session);
+        await userChangePasswordProcess.commit();
+        return res.status(200).send(new Response(0,"data success!", data));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống!", null));
+    }
+}
 
 exports.demo = async (req,res) => {
     try {
