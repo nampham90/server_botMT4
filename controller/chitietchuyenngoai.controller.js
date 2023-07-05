@@ -20,7 +20,7 @@ exports.PostAll = async (req,res) => {
         lt = req.body.filters.ngayketthuc;
     }
     let sreach = {};
-    sreach.createdAt = {$gte:gt,$lt:lt};
+    sreach.createdAt = {$gte:new Date(gt),$lte: new Date(commonfun.fnEndSearch(lt))};
     if(filters.idkhachhang) {
         sreach.idkhachhang = filters.idkhachhang;
     }

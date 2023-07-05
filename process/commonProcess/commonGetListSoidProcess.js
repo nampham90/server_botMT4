@@ -13,13 +13,13 @@ class CommonGetListSoidProcess extends AbsProcess {
     async process(db,data,session) {
         const PNH = db.models.phieunhaphang;
         let allData = await PNH.find(data.filters)
-        .populate("iduser");
+        .populate("iduser",{password:0});
         if(data.pageNum == 0 && data.pageSize ==0) {
            return allData;
         } else {
             let n = data.pageNum - 1;
             let lst = await PNH.find(data.filters).limit(data.pageSize).skip(data.pageSize*n)
-            .populate("iduser");
+            .populate("iduser",{password:0});
             let res = commonfun.dataReponse(allData,lst,data.pageNum,data.pageSize);
             return res;
         }

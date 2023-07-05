@@ -6,6 +6,7 @@ module.exports = mongoose => {
         lang:String,
         title1: String,
         title2: String,
+        vitri: Number,
         status: Boolean
       },
       { timestamps: true }

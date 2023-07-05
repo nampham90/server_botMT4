@@ -23,6 +23,7 @@ const Chitietchuyenngoai = db.chitietchuyenngoai;
 const Congnoxengoai = db.congnoxengoai;
 const Donhangexportxengoai = db.donhangexportxengoai;
 const Donodc = db.donodc;
+const Dichvuthuengoai = db.tmt060_dichvuthuengoai;
 
 // master
 const Tmt100 = db.tmt100;
@@ -252,12 +253,18 @@ exports.getTongnoxengoai = async (req,res) => {
    let loinhuan = 0;
    // gồm các đơn chưa thanh toán và các đơn chờ thanh toán
    let lsttongxengoaino = await Congnoxengoai.find({$or : [{status02:0},{status02:1}]})
-   .populate('iddonhang');
+   .populate({path:'iddonhang',match: { iddonhang: { $ne: null } }});
    if (lsttongxengoaino.length > 0) {
       for(let element of lsttongxengoaino) {
-         if(element['iddonhang']['status03'] == 1) {
+         if(element['iddonhang']){
+            if(element['iddonhang']['status03'] == 1) {
+               if(element['status01'] = 0) {
+                  tongno = tongno + element['sotienno'];
+               }
+               loinhuan = loinhuan + (element['iddonhang']['tiencuoc']-element['iddonhang']['tiencuocxengoai']);
+            }
+         } else {
             tongno = tongno + element['sotienno'];
-            loinhuan = loinhuan + (element['iddonhang']['tiencuoc']-element['iddonhang']['tiencuocxengoai']);
          }
       }
    }
@@ -266,4 +273,20 @@ exports.getTongnoxengoai = async (req,res) => {
       loinhuan: loinhuan
    }
    return res.status(200).send(new Response(0, "data", resdata));
+}
+
+
+// lấy danh dách dịch vụ xe câu
+exports.getListDichVuXeCau = async (req,res) => {
+   
+   let dsDichvuxecau = await Dichvuthuengoai.find({loaidichvu: Const.idXecau});
+   return res.status(200).send(new Response(0, "data sucess !", dsDichvuxecau));
+
+}
+
+// lấy danh dách dịch vụ boc xêp
+exports.getListDichVuBocXep = async (req,res) => {
+   let dsDichvubocxep = await Dichvuthuengoai.find({loaidichvu: Const.idBocxep});
+   return res.status(200).send(new Response(0, "data sucess !", dsDichvubocxep));
+
 }

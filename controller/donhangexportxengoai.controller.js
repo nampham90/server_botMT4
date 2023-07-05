@@ -20,7 +20,7 @@ exports.PostAll = async (req,res) => {
         lt = req.body.filters.ngayketthuc;
     }
     let sreach = {};
-    sreach.ngayxuat = {$gte:gt,$lt:lt};
+    sreach.ngayxuat = {$gte:new Date(gt),$lte: new Date(commonfun.fnEndSearch(lt))};
     sreach.status02 = filters.status02
     if(filters.nguonxe) {
         sreach.nguonxe = filters.nguonxe;

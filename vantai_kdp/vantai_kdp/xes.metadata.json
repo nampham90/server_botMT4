@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"biensoxe":{"$numberInt":"1"}},"name":"biensoxe_1","background":true,"unique":true}],"uuid":"3588692ab9814d21aa5fd06775ece33e","collectionName":"xes","type":"collection"}

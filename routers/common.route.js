@@ -19,7 +19,8 @@ module.exports = app => {
     route.post('/commonAnt100getHDTTXN', verifyToken, Common.getHDTTXN);
     route.post('/commonAnt100getID', verifyToken, Common.getID);
     route.post('/commonAnt100getListSoID',verifyToken, Common.getListSoID);
+    route.post('/commonAnt100GetListDichvuXeCau',verifyToken, Common.getListDichVuXeCau);
+    route.post('/commonAnt100GetListDichvuBocXep',verifyToken, Common.getListDichVuBocXep);
 
-    
     app.use("/api/common",route);
 }

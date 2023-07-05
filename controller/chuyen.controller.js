@@ -10,6 +10,7 @@ const Xe = db.xe;
 const Chiphi = db.chiphichuyenxe;
 const Pnh = db.phieunhaphang;
 const TMT030 = db.tmt030;
+const Phieunhaphang = db.phieunhaphang;
 
 //process
 const ChuyenFindParamProcess = require("../process/chuyenProcess/ChuyenFindPramaProcess");
@@ -40,6 +41,7 @@ function ChuyenObject() {
     this.trangthai = 0; // 0 ke hoach bóc. 1.boc hàng lên xe. 2. kiểm hàng
     this.tongcuoc = 0;
     this.tongchiphi = 0;
+    this.dataListChild = [];
 }
 
 exports.getAllChuyen = async (req,res) => {
@@ -53,9 +55,13 @@ exports.getAllChuyen = async (req,res) => {
     if(filters.ngayketthuc) {
         lt = filters.ngayketthuc;
     }
-    sreach.ngaydi = {$gte:gt,$lt:lt};
-    if(filters.trangthai) {
-        sreach.trangthai = filters.trangthai;
+    sreach.ngaydi = {$gte:new Date(gt),$lte: new Date(commonfun.fnEndSearch(lt))};
+    if(filters.mode && filters.mode == "REPORT") {
+        sreach.trangthai = 5;
+    } else {
+        if(filters.trangthai) {
+            sreach.trangthai = filters.trangthai;
+        }
     }
     if(filters.soodt) {
         sreach.soodt = filters.soodt;
@@ -119,6 +125,21 @@ exports.getAllChuyen = async (req,res) => {
         if(element.trangthai == 5) {
             obj.tongcuoc = await  commonfun.tinhtongcuoc(element._id);
             obj.tongchiphi = await  commonfun.tinhtongchiphi(element._id);
+        }
+        if(filters.mode == "REPORT") {
+            let allData = await Phieunhaphang.find({idchuyen:element._id})
+                .populate('iduser',{password:0})
+                .populate({
+                    path: "cpdvtncd",
+                    populate: [
+                    { path: "tangbonhaphang" },
+                    { path: "tangbotrahang" },
+                    { path: "dichvuxecau" , populate: [{path: "loaidichvu"}]},
+                    { path: "dichvubocxep", populate: [{path: "loaidichvu"}] }
+                    ],
+                    match: { cpdvtncd: { $ne: null } }
+                });
+            obj.dataListChild = allData;
         }
         list.push(obj);
     }

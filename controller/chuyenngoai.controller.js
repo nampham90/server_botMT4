@@ -21,7 +21,7 @@ exports.PostAllChuyenngoai = async (req,res) => {
     if(filters.ngayketthuc) {
         lt = filters.ngayketthuc;
     }
-    sreach.ngayvanchuyen = {$gte:gt,$lt:lt};
+    sreach.ngayvanchuyen = {$gte:new Date(gt),$lte: new Date(commonfun.fnEndSearch(lt))};
     if(filters.biensoxe) {
         sreach.biensoxe = filters.biensoxe;
     }
@@ -70,6 +70,7 @@ async function registerCongNoXeNgoai(nguonxe, iddonhang, biensoxe, tentaixe, sod
      let cnxengoai = new Congnoxengoai({
         nguonxe: nguonxe,
         iddonhang: iddonhang,
+        soID: null,
         ngaynhap : _.now(),
         biensoxe: biensoxe,
         tentaixe: tentaixe,
@@ -138,7 +139,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                 // update detail
                 await Chitietchuyenngoai.updateOne({_id: element.id},{$set: {
                     idchuyenngoai: spch00251Header.id,
-                    thongtindonhang: element.thongtindonhang,
+                    tenhang: element.tenhang,
                     soluong: element.soluong,
                     donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,  // 
@@ -201,7 +202,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     idchuyenngoai: spch00251Header.id,
                     soid: soId,
                     nguonxe: spch00251Header.nguonxe,
-                    thongtindonhang: element.thongtindonhang,
+                    tenhang: element.tenhang,
                     soluong: element.soluong,
                     donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,  // 
@@ -302,7 +303,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                           idchuyenngoai: newChuyenngoai._id,
                           soid:soId,
                           nguonxe: spch00251Header.nguonxe,
-                          thongtindonhang: element.thongtindonhang,
+                          tenhang: element.tenhang,
                           soluong: element.soluong,
                           donvitinh: element.donvitinh,
                           diadiembochang: element.diadiembochang,  // 

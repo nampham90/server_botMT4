@@ -14,7 +14,7 @@ module.exports = mongoose => {
          },// mã khách hàng
          tiencuocnhan:Number,// cược nhận từ khách hàng
          ngaynhap: Date,
-         noidungdonhang:String, // nôi dung đơn hàng. vd: gửi gạch đi phú quốc
+         tenhang:String, // nôi dung đơn hàng. vd: gửi gạch đi phú quốc
          diadiembochang:String,  // Địa chỉ bọc hàng
          thongtintrahang: String, // nôi dung ngươi nhận hàng(địa thoại, địa chỉ)
          htttkhachhang:Number, // 1  trực tiếp. 2. ghi nợ . 3 thanh toan khi nhận hàng

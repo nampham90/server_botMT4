@@ -12,6 +12,7 @@ const Cpc = db.chiphichuyenxe;
 const Nkht = db.nhatkyhethong;
 const Chuyen = db.chuyen;
 const Message = db.message;
+
 //master
 const Tmt100 = db.tmt100;
 
@@ -712,6 +713,33 @@ exports.fnGetHDTTXN = async () => {
 }
 
 // mã thanh toán công nợ xe ngòa
+exports.fnGetHDTTDVTN = async () => {
+    let soHDTTDVTN = "";
+    let hdttdvtn = await Tmt100.findOne({maghep:"HDTTDVTN"});
+    if(hdttdvtn) {
+       // kiểm số winnumber
+       let toWinnumber = _.toNumber(hdttdvtn['winnumber']);
+       let toStartnumber = _.toNumber(hdttdvtn['startnumber']);
+       let toEndnumber = _.toNumber(hdttdvtn['endnumber']);
+       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
+        soHDTTDVTN = "0"//  hêt sô odC
+        return soHDTTDVTN;
+       }
+       let nowday = this.dateNow();
+       nowday = nowday.replace(/\s+/g, '');
+       nowday = nowday.replace(/-/g, '');
+       soHDTTDVTN = hdttdvtn['maghep'] + nowday + hdttdvtn['winnumber'];
+       // update winnumber mơi. winnuber + 1;
+       let newWinnumber = toWinnumber +1;
+       await Tmt100.updateOne({maghep:"HDTTDVTN"},{$set: {winnumber:_.toString(newWinnumber)}})
+       return soHDTTDVTN;
+    } else {
+        soHDTTDVTN = "1";// lỗi hệ thống
+        return soHDTTDVTN;
+    }
+}
+
+// mã thanh toán công nợ xe ngòa
 exports.fnGetID = async () => {
     let soID = "";
     let id = await Tmt100.findOne({maghep:"ID"});
@@ -736,6 +764,18 @@ exports.fnGetID = async () => {
         soID = "1";// lỗi hệ thống
         return soID;
     }
+}
+
+exports.fnCheckMakhachhang = async (makhachhang) => {
+    let u = await User.findOne({makhachhang:makhachhang});
+    if(u) return true;
+    return false;
+}
+
+exports.fnEndSearch = (lt) => {
+    let ltDate = new Date(lt);
+    ltDate.setDate(ltDate.getDate() + 1);
+    return ltDate;
 }
 
 exports.controlMessageTelegram = (json,nowdayt,listOrder,listAccount,listLc,chatId,Order,Account,Lenhcho,axios,acc) => {

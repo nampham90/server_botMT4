@@ -41,7 +41,8 @@ class Spin00301SearchProcess extends AbsProcess {
         let search = this.paramsSearch(data);
         const PNH = db.models.phieunhaphang;
         let allData = await PNH.find(search)
-        .populate("iduser");
+        .populate("iduser",{password:0})
+        .populate("cpdvtncd");
         if(data.pageNum == 0 && data.pageSize ==0) {
            return allData;
         } else {
@@ -50,7 +51,17 @@ class Spin00301SearchProcess extends AbsProcess {
                 n = data.pageNum - 1
             }
             let lst = await PNH.find(search).limit(data.pageSize).skip(data.pageSize*n)
-            .populate("iduser");
+            .populate("iduser",{password:0})
+            .populate({
+                path: "cpdvtncd",
+                populate: [
+                  { path: "tangbonhaphang" },
+                  { path: "tangbotrahang" },
+                  { path: "dichvuxecau" , populate: [{path: "loaidichvu"}]},
+                  { path: "dichvubocxep", populate: [{path: "loaidichvu"}] }
+                ],
+                match: { cpdvtncd: { $ne: null } }
+            })
             let res = commonfun.dataReponse(allData,lst,data.pageNum,data.pageSize);
             return res;
         }

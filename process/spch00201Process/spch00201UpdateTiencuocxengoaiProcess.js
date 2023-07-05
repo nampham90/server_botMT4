@@ -28,7 +28,7 @@ class Spch00201UpdateTiencuocxengoaiProcess extends AbsProcess {
             { 
                 idchuyenngoai: ObjectId(data.idchuyenngoai),
                 tiencuoc: data.tiencuoc,
-                thongtindonhang: data.thongtindonhang,
+                tenhang: data.tenhang,
                 sdtnguoinhan: data.sdtnguoinhan
             },
             {$set:{tiencuoc: data.tiencuocupdate}},

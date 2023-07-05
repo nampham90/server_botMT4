@@ -3,8 +3,11 @@ module.exports = app => {
     const verifyToken = require('../middlewares/verifyToken');
     const route = require("express").Router();
 
-    route.post("/ant100SearchAllDatasc",Screenpc.getAllDataSC);
-    route.post("/ant100AddListDatasc",Screenpc.addListDatasc)
+    route.post("/ant100SearchAllDatasc",verifyToken,Screenpc.getAllDataSC);
+    route.post("/ant100AddListDatasc",verifyToken,Screenpc.addListDatasc);
+    route.put("/ant100EditDatasc",verifyToken,Screenpc.updateDataSC);
+    route.post("/ant100DetailDatasc",verifyToken,Screenpc.getDetailDataSC);
+    route.post("/ant100DelDatasc",verifyToken,Screenpc.deletelDataSC);
 
     app.use("/api/screenpc",route);
 }

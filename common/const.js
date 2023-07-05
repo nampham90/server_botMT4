@@ -9,6 +9,12 @@ const  emailAdmin = "namandroid.it@gmail.com";
 const  rcdkbnKho = '0001';
 const  idTMT030 = "6453164a02b04ecd4ea05597";
 
+// id loai dịch vụ xe cau
+const idXecau = '646c67fdb176eb4efe839ff2';
+
+// id loai dịch vụ boc xêp
+const idBocxep = '646c6813b176eb4efe839ff6';
+
 
 module.exports = {
     idKhachhang,
@@ -20,5 +26,7 @@ module.exports = {
     hangve,
     emailAdmin,
     rcdkbnKho,
-    idTMT030
+    idTMT030,
+    idXecau,
+    idBocxep
 }
