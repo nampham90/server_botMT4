@@ -56,8 +56,8 @@ exports.checkEmail = async (req,res) => {
         const session = checkEmailProcess.transaction;
         let check = await checkEmailProcess.checkEmail(req.body.email,session);
         await checkEmailProcess.commit();
-        if(check) return res.status(200).send(new Response(0,"Email tồn tại !", check));
-        return res.status(200).send(new Response(0,"email chưa có ai đăng ký !", null));
+        if(check) return res.status(200).send(new Response(0,"Email tồn tại !", true));
+        return res.status(200).send(new Response(0,"email chưa có ai đăng ký !", false));
     } catch (error) {
         return res.status(200).send(new Response(1001,Const.MSGerrorsystem, error.message));
     }
@@ -66,8 +66,8 @@ exports.checkEmail = async (req,res) => {
 
 exports.checkName = async (req,res) => {
     let checkName = await User.findOne({name: req.body.name});
-    if(checkName) return res.status(200).send(new Response(0,"name tồn tại !", checkName));
-    return res.status(200).send(new Response(0,"name chưa có ai đăng ký !", null));
+    if(checkName) return res.status(200).send(new Response(0,"name tồn tại !", true));
+    return res.status(200).send(new Response(0,"name chưa có ai đăng ký !", false));
 }
 
 exports.addDetailUser= async(req,res) =>{

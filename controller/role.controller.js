@@ -21,7 +21,7 @@ exports.getSearchAllRole = async(req,res) => {
 }
 
 exports.GetDetailRole = async (req,res)=>{
-    let idUser = req.params.id;
+    let idUser = req.userID;
     let user = await User.findOne({_id: idUser});
     if(user) {
         const stringArray = user.role_id.map(objId => objId.toString());

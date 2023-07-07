@@ -35,6 +35,7 @@ exports.Detail = async (req, res) => {
     }
     return res.status(200).send(new Response(1001,'Video hướng dẫn không tồn tại !',null));
 }
+
 exports.GetDetail = async (req, res) => {
     let tmt = await TMT101.findOne({_id: req.body.id});
     if(tmt) {

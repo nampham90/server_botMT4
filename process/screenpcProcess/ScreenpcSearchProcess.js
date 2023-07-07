@@ -26,7 +26,7 @@ class ScreenpcSearchProcess extends AbstractProcess {
     async process(db,data,session) {
         let search = this.paramsSearch(data);
         const Screenpc = db.models.screenpc;
-        let allData = await Screenpc.find(search); 
+        let allData = await Screenpc.find(search).sort({vitri: 1}); 
         if(data.pageNum == 0 && data.pageSize == 0) {
             return allData
         } else {
@@ -34,7 +34,7 @@ class ScreenpcSearchProcess extends AbstractProcess {
             if(data.pageNum > 0) {
                 n = data.pageNum - 1
             }
-            let lst = await Screenpc.find(search).limit(data.pageSize).skip(data.pageSize*n);
+            let lst = await Screenpc.find(search).limit(data.pageSize).skip(data.pageSize*n).sort({vitri: 1});
             let res = commonfun.dataReponse(allData,lst,data.pageNum,data.pageSize);
             return res;
         }

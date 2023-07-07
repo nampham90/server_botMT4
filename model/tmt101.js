@@ -3,7 +3,7 @@ module.exports = mongoose => {
     const dbcon = require("../common/DBConnect");
       let schema = mongoose.Schema(
         {
-          idyoutube: {type:String, unique:true}, // idyoutube vd: sdfadfa
+          idyoutube: String, // idyoutube vd: sdfadfa
           urldisplayid: String,// id màn hình hiển thị hướng dân: vd: spkh00101
           title: String, //tiêu đề video
           content: String, // nôi dung video

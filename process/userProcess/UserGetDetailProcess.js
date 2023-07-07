@@ -13,7 +13,7 @@ class UserGetDetailProcess extends AbstractProcess {
 
     async process(db,id,session) {
         const User = db.models.user;
-        let u = await User.findOne({_id: ObjectId(id)},{password:0,menulist:0,phongban_id:0,role_id:0})
+        let u = await User.findOne({_id: ObjectId(id)},{password:0,menulist:0})
         .populate('avatar');
         return u;
     }

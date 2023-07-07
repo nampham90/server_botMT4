@@ -6,6 +6,7 @@ let Response = Responses.Response
 let ObjDataSC = Responses.ObjectDataSC;
 const Menu = db.menu;
 const Screenpc = db.screenpc;
+const TMT101 = db.tmt101;
 
 exports.getListDept = async (req,res) => {
     let lst = await Menu.find({});
@@ -102,13 +103,22 @@ exports.getDetailMenu = async(req,res)=> {
 exports.getDetailMenuFromUrl = async (req,res) => {
  
   let m = await Menu.findOne({path: req.body.url});
-  let lst = await Screenpc.find({idmenu:m._id})
-  let stt = 1;
-  let lstdata = []
-  for(let element of lst) {
-      let obj = new ObjDataSC(stt,element.title1,element.title2);
-      lstdata.push(obj);
-      stt++;
+  if(m) {
+    let lst = await Screenpc.find({idmenu:m._id})
+    let tmt101 = await TMT101.findOne({urldisplayid: req.body.url});
+    let idyoutube = "";
+    if(tmt101) {
+        idyoutube = tmt101['idyoutube'];
+    }
+    let stt = 1;
+    let lstdata = []
+    for(let element of lst) {
+        let obj = new ObjDataSC(element.vitri,element.title1,element.title2, idyoutube);
+        lstdata.push(obj);
+        stt++;
+    }
+    lstdata = lstdata.sort((a, b) => a.vitri - b.vitri);
+    return res.status(200).send(new Response(0,"data sucess", lstdata));
   }
-  res.status(200).send(new Response(0,"data sucess", lstdata));
+  return res.status(200).send(new Response(0,"data rong", []));
 }

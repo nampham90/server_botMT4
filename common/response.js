@@ -26,10 +26,11 @@ function DataResponse(allData,list,pageNum,pageSize,size,startRow,endRow,pages,p
     this.navigateLastPage = navigateLastPage;
 }
 
-function ObjectDataSC(stt,title1,title2) {
+function ObjectDataSC(stt,title1,title2,idyoutube) {
     this.stt = stt;
     this.title1 = title1;
     this.title2 = title2;
+    this.idyoutube = idyoutube
 }
  
 // now we export the class, so other modules can create Cat objects
