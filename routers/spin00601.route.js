@@ -5,6 +5,7 @@ module.exports = app =>{
 
     router.post("/spin00601Ant100XuatHang",verifyToken,Spin00601.xuathang);
     router.post("/spin00601Ant100Xuatnhieudon",Spin00601.xuatnhieudon);
+    router.post("/spin00601Ant100Xuatcsv",Spin00601.xuatCSV);
 
 
     app.use("/api/spin00601",router);
