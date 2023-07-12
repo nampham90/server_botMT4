@@ -8,7 +8,8 @@ module.exports = mongoose => {
           },
           iddonhang: {
               type: mongoose.Schema.Types.ObjectId,
-              ref:"chitietchuyenngoai"
+              ref:"chitietchuyenngoai",
+              required: false
           },
           soID: String,
           ngaynhap: Date,

@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const Constant = require('../common/const');
 dotenv.config();
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3001');
 const cors = require('cors')
 
 var server = require("http").Server(app);

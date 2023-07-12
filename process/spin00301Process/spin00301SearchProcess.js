@@ -42,7 +42,16 @@ class Spin00301SearchProcess extends AbsProcess {
         const PNH = db.models.phieunhaphang;
         let allData = await PNH.find(search)
         .populate("iduser",{password:0})
-        .populate("cpdvtncd");
+        .populate({
+            path: "cpdvtncd",
+            populate: [
+              { path: "tangbonhaphang" },
+              { path: "tangbotrahang" },
+              { path: "dichvuxecau" , populate: [{path: "loaidichvu"}]},
+              { path: "dichvubocxep", populate: [{path: "loaidichvu"}] }
+            ],
+            match: { cpdvtncd: { $ne: null } }
+        })
         if(data.pageNum == 0 && data.pageSize ==0) {
            return allData;
         } else {
