@@ -38,10 +38,12 @@ exports.xuatCSV = async (req, res, next) => {
         const spin00601XuatCsvProcess = new Spin00601XuatCsvProcess(dbCon.dbDemo);
         await spin00601XuatCsvProcess.start();
         const session = spin00601XuatCsvProcess.transaction;
-        let csv_data = await spin00601XuatCsvProcess.xuatcsv(req.body, session);
-        res.setHeader("Content-Type", "text/csv");
-        res.setHeader("Content-Disposition", "attachment;filename=sample_data.csv");
-        return res.status(200).end(csv_data);
+        let csv_data = await spin00601XuatCsvProcess.xuatcsv(req, session);
+        if(csv_data == null) {
+            return  res.status(200).send(new Response(0,"Data null ", null));
+        }
+        await spin00601XuatCsvProcess.commit();
+        return  res.status(200).send(new Response(0,"Data success ", csv_data));
     } catch (error) {
         return  res.status(200).send(new Response(1001,"Lỗi hệ thống !", null));
     }
