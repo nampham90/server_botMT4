@@ -1,6 +1,7 @@
 const AbstractProcess = require('../abstractProcess/AbstractProcess');
 const {ObjectId} = require('mongodb');
 const bcrypt = require('bcryptjs');
+const GhiNhatkyHethongProcess = require("../nhatkyhethongProcess/ghiNhatkyHethongProcess");
 class UserChangePasswordProcess extends AbstractProcess {
     constructor(dbcon) {
         super(dbcon)
@@ -26,6 +27,22 @@ class UserChangePasswordProcess extends AbstractProcess {
             );
 
             if(result.modifiedCount > 0 ) {
+                // ghi nhatk kys he thong
+                let ghiNhatkyHethongProcess = new GhiNhatkyHethongProcess(this.database);
+                let datank = {
+                    loaithongbao: 'system', //Thông báo chung, thông báo hệ thống, thông báo về kế hoạch sắp tới notifi | system | vison
+                    noidung: 'Thay đổi mật khẩu',
+                    iduser: ObjectId(data.id), // ID User
+                    hanhdong: "updateOne", // update || delete || create
+                    table: 'user', //tên table thay đổi
+                    ngay: new Date(), // thời gian thực hiện hàn động đó. _now
+                    status01: 'UserChangePasswordProcess', // process thực hiên
+                    status02: '', // 
+                    status03: '',
+                    status04: '',
+                    status05: ''
+                }
+                await ghiNhatkyHethongProcess.ghinhatkyhethong(datank,session)
                 return checkPass;
             } else {
                 let response = {
