@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const Constant = require('../common/const');
 dotenv.config();
 const cors = require('cors')
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3006');
 var server = require("http").Server(app);
 var io = require('socket.io')(server, {
   cors: {
