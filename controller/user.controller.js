@@ -17,6 +17,7 @@ const { registerValidator } = require('./../validations/auth');
 
 // process
 const UserChangePasswordProcess = require("../process/userProcess/userChangePasswordProcess");
+const UserAddSmartDetailProcess = require("../process/userProcess/userAddSmartDetailProcess");
 exports.demo = async (req,res) => {
     console.log(req.body);
 
@@ -73,6 +74,19 @@ exports.addDetailUser= async(req,res) =>{
             return res.status(200).send(new Response(0,"user save sucess !", newUser));
         }
     })
+}
+
+exports.addSmartDetailUser = async (req , res) => {
+   try {
+       const userAddSmartDetailProcess = new UserAddSmartDetailProcess(dbCon.dbDemo);
+       await userAddSmartDetailProcess.start();
+       const session = userAddSmartDetailProcess.transaction;
+       let response = await userAddSmartDetailProcess.addSmartDetail(req.body,session);
+       await userAddSmartDetailProcess.commit();
+       return res.status(200).send(new Response(0,"data success!", response));
+   } catch (error) {
+       return res.status(200).send(new Response(1001,"Lỗi hệ thống!", null));
+   }
 }
 
 exports.getAllUser = async (req,res) => {

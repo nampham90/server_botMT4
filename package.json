@@ -23,6 +23,7 @@
     "http-errors": "^2.0.0",
     "isodate": "^0.1.4",
     "joi": "^17.6.0",
+    "json2csv": "^6.0.0-alpha.2",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "lodash.dropwhile": "^4.6.0",

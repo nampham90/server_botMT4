@@ -38,6 +38,7 @@ db.donodc = require("./donodc")(mongoose);
 db.tin100 = require("./tin100")(mongoose);
 
 // master không thể xóa
+db.tmt010_filecsv = require("./tmt010_filecsv")(mongoose);
 db.tmt100 = require("./tmt100")(mongoose);
 db.tmt101 = require("./tmt101")(mongoose);
 db.tmt050 = require("./tmt050")(mongoose);

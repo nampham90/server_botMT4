@@ -13,7 +13,8 @@ module.exports = app =>{
     router.post("/ant100SearchAllUser",verifyToken,user.getAllUser);
     router.get("/ant100GetDetailUser/:id",verifyToken,user.getDetailUser);
     router.put("/ant100EditDetailUser",verifyToken,user.editDetailUser);
-    router.post("/ant100AddDetailUser",verifyToken,user.addDetailUser);
+    router.post("/ant100AddDetailUser",verifyToken,user.addDetailUser); 
+    router.post("/ant100AddSmartDetailUser",verifyToken,user.addSmartDetailUser); 
     router.post("/ant100CheckEmailUser",verifyToken,user.checkEmail);
     router.post("/ant100CheckNameUser",verifyToken,user.checkName);
 

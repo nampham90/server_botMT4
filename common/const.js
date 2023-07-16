@@ -15,6 +15,8 @@ const idXecau = '646c67fdb176eb4efe839ff2';
 // id loai dịch vụ boc xêp
 const idBocxep = '646c6813b176eb4efe839ff6';
 
+const role_iduser = "6331b3ce65e0507984482ba8";
+
 
 module.exports = {
     idKhachhang,
@@ -28,5 +30,6 @@ module.exports = {
     rcdkbnKho,
     idTMT030,
     idXecau,
-    idBocxep
+    idBocxep,
+    role_iduser
 }

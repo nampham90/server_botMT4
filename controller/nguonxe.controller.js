@@ -94,7 +94,7 @@ exports.PostGetDetail = async (req,res) => {
     if (nx) {
         return res.status(200).send(new Response(0,"Data sucess ", nx));
     } else {
-        return res.status(200).send(new Response(1001,"Vui lòng chọn một nguồn xe ! ", null));
+        return res.status(200).send(new Response(0,"Vui lòng chọn một nguồn xe ! ", null));
     }
     
 }
