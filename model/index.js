@@ -25,4 +25,11 @@ db.tmt100 = require("./tmt100")(mongoose);
 db.tmt101 = require("./tmt101")(mongoose);
 db.tmt010_file = require("./tmt010_file")(mongoose);
 
+// 
+db.level = require("./level")(mongoose);
+db.quiz = require("./quizzes")(mongoose);
+db.question = require("./questions")(mongoose);
+db.result = require("./result")(mongoose);
+db.section = require("./section")(mongoose);
+
 module.exports = db;
