@@ -58,27 +58,27 @@ exports.getListSoID = async (req,res) => {
    }
 }
 
-// tạo số ODS
-exports.getODS = async (req,res) => {
-   let soODS = "";
-   let ods = await Tmt100.findOne({maghep:"ODS"});
-   if(ods) {
+// tạo số ODN
+exports.getODN = async (req,res) => {
+   let soODN = "";
+   let odn = await Tmt100.findOne({maghep:"ODN"});
+   if(odn) {
       // kiểm số winnumber
-      let toWinnumber = _.toNumber(ods['winnumber']);
-      let toStartnumber = _.toNumber(ods['startnumber']);
-      let toEndnumber = _.toNumber(ods['endnumber']);
+      let toWinnumber = _.toNumber(odn['winnumber']);
+      let toStartnumber = _.toNumber(odn['startnumber']);
+      let toEndnumber = _.toNumber(odn['endnumber']);
       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
-         return res.status(200).send(new Response(1001,"Số ODS đã hết hạn !", null));
+         return res.status(200).send(new Response(1001,"Số ODN đã hết hạn !", null));
       }
       let nowday = commonfun.dateNow();
       nowday = nowday.replace(/\s+/g, '');
       nowday = nowday.replace(/-/g, '');
-      soODS = ods['maghep'] + nowday + ods['winnumber'];
+      soODN = odn['maghep'] + nowday + odn['winnumber'];
       // update winnumber mơi. winnuber + 1;
 
       let newWinnumber = toWinnumber +1;
-      await Tmt100.updateOne({maghep:"ODS"},{$set: {winnumber:_.toString(newWinnumber)}})
-      return res.status(200).send(new Response(0,"data !", soODS));
+      await Tmt100.updateOne({maghep:"ODN"},{$set: {winnumber:_.toString(newWinnumber)}})
+      return res.status(200).send(new Response(0,"data !", soODN));
    } else {
       return res.status(200).send(new Response(1001,"Lỗi chưa thiết lập table tmt100 !", null));
    }
@@ -89,11 +89,11 @@ exports.getODT = async (req,res) => {
    let odt = await Tmt100.findOne({maghep:"ODT"});
    if(odt) {
       // kiểm số winnumber
-      let toWinnumber = _.toNumber(ods['winnumber']);
-      let toStartnumber = _.toNumber(ods['startnumber']);
-      let toEndnumber = _.toNumber(ods['endnumber']);
+      let toWinnumber = _.toNumber(odt['winnumber']);
+      let toStartnumber = _.toNumber(odt['startnumber']);
+      let toEndnumber = _.toNumber(odt['endnumber']);
       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
-         return res.status(200).send(new Response(1001,"Số ODS đã hết hạn !", null));
+         return res.status(200).send(new Response(1001,"Số ODT đã hết hạn !", null));
       }
       let nowday = commonfun.dateNow();
       nowday = nowday.replace(/\s+/g, '');

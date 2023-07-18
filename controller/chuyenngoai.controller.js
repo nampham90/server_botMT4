@@ -28,8 +28,8 @@ exports.PostAllChuyenngoai = async (req,res) => {
     if(filters.nguonxe) {
         sreach.nguonxe = filters.nguonxe;  
     }
-    if(filters.soods) {
-        sreach.soods = filters.soods;
+    if(filters.soodn) {
+        sreach.soodn = filters.soodn;
     }
     if(filters._id) {
         sreach._id = filters._id;
@@ -425,20 +425,20 @@ exports.PostGetDetail = async (req,res) => {
 }
 
 exports.PostExportDetail = async (req,res) => {
-    let ods = "";
+    let odn = "";
     let cn = await Chuyenngoai.findOne({_id:req.body.id}).populate('nguonxe');
-    if(cn['soods'] && cn['soods'] != "") {
-        ods = cn['soods'];
+    if(cn['soodn'] && cn['soodn'] != "") {
+        odn = cn['soodn'];
     } else {
-        ods = await commonfun.fnGetODS();
-        await Chuyenngoai.updateOne({_id:req.body.id},{$set:{soods:ods}})
+        odn = await commonfun.fnGetODN();
+        await Chuyenngoai.updateOne({_id:req.body.id},{$set:{soodn:odn}})
     }
-    if(ods != "") {
-        await Chitietchuyenngoai.updateMany({idchuyenngoai:req.body.id},{$set:{soods:ods}});
+    if(odn != "") {
+        await Chitietchuyenngoai.updateMany({idchuyenngoai:req.body.id},{$set:{soodn:odn}});
     }
     let lstdetail = await Chitietchuyenngoai.find({idchuyenngoai: req.body.id});
     let reqdata = {
-        ods: ods,
+        odn: odn,
         resHeader: cn,
         listdetail: lstdetail
     }

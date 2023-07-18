@@ -10,7 +10,7 @@ module.exports = mongoose => {
             type: mongoose.Schema.Types.ObjectId,
             ref:"nguonxe"
           },
-        soods: {type:String,default: ""},
+        soodn: {type:String,default: ""},
         biensoxe: String, // biển số xe ngoài
         sdtnguonxe: String, // so dien thoai nguon xe
         tentaixe: String, // tài xế
