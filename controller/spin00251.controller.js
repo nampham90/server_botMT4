@@ -3,13 +3,14 @@ let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 // process
-const Spin00251RegisterProcess = require('../process/spin00251Process/spin00251RegisterProcess');
-const Spin00251GetPHNProcess = require("../process/spin00251Process/spin00251GetPNHProcess");
-const Spin00251UpdateProcess = require("../process/spin00251Process/spin00251UpdateProcess");
+const Spin00251RegisterProcess = require('../phieunhaphangModule/spin00251Process/spin00251RegisterProcess');
+const Spin00251GetPHNProcess = require("../phieunhaphangModule/spin00251Process/spin00251GetPNHProcess");
+const Spin00251UpdateProcess = require("../phieunhaphangModule/spin00251Process/spin00251UpdateProcess");
 exports.Register = async (req,res) => {
     try {
         let soID = await commonfun.fnGetID();
         req.body.soID = soID;
+        req.body.nguoiphathanh = req.userID;
         const spin00251RegisterProcess = new Spin00251RegisterProcess(dbCon.dbDemo);
         await spin00251RegisterProcess.start();
         const session = spin00251RegisterProcess.transaction;

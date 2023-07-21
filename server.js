@@ -134,11 +134,15 @@ require("./routers/screenpc.route")(app);
 require("./routers/xe.route")(app);
 require("./routers/chuyen.route")(app);
 require("./routers/chiphichuyenxe.route")(app);
-require("./routers/phieunhaphang.route")(app);
+require("./phieunhaphangModule/router/phieunhaphang.route")(app);
+require("./phieunhaphangModule/router/spkh00201.route")(app);
+
 require("./routers/hoadonnhaphang.route")(app);
 require("./routers/nhatkykh.route")(app);
 require("./routers/common.route")(app);
-require("./routers/khachhang.router")(app);
+//1
+require("./khachhangModule/router/khachhang.router")(app);
+
 require("./routers/nhatkyhethong.route")(app);
 require("./routers/nguonxe.router")(app);
 require("./routers/chuyenngoai.route")(app);

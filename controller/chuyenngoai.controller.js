@@ -3,6 +3,7 @@ let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const _ = require('lodash');
+const { emailAdmin } = require("../common/const");
 const Chuyenngoai = db.chuyenngoai;
 const Chitietchuyenngoai = db.chitietchuyenngoai;
 const Congnoxengoai = db.congnoxengoai;
@@ -200,10 +201,13 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                 }
                 let newDetail = new Chitietchuyenngoai({
                     idchuyenngoai: spch00251Header.id,
+                    soodn: "",
                     soid: soId,
                     nguonxe: spch00251Header.nguonxe,
                     tenhang: element.tenhang,
                     soluong: element.soluong,
+                    trongluong: element.trongluong,
+                    khoiluong: element.khoiluong,
                     donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,  // 
                     tiencuoc:element.tiencuoc,
@@ -214,6 +218,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     tennguoinhan: element.tennguoinhan,
                     sdtnguoinhan: element.sdtnguoinhan,
                     diachinguoinhan: element.diachinguoinhan,
+                    chiphidvtn: element.chiphidvtn,
                     status01: 0, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
                     status02: element.status02, // 
                     status03: 0, 
@@ -301,10 +306,12 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     }
                     let newDetail = new Chitietchuyenngoai({
                           idchuyenngoai: newChuyenngoai._id,
-                          soid:soId,
+                          soID:element.soID,
                           nguonxe: spch00251Header.nguonxe,
                           tenhang: element.tenhang,
                           soluong: element.soluong,
+                          trongluong: element.trongluong,
+                          khoiluong: element.khoiluong,
                           donvitinh: element.donvitinh,
                           diadiembochang: element.diadiembochang,  // 
                           tiencuoc:element.tiencuoc,
@@ -315,6 +322,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                           tennguoinhan: element.tennguoinhan,
                           sdtnguoinhan: element.sdtnguoinhan,
                           diachinguoinhan: element.diachinguoinhan,
+                          chiphidvtn: element.chiphidvtn,
                           status01: 0, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
                           status02: element.status02, // 
                           status03: 0, 
@@ -378,7 +386,7 @@ exports.PostUpdateChuyenngoai = async (req,res) => {
         console.log(data.modifiedCount + " Update Xe success " + req.body.id);
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
     }, err => {
-        res.status(200).send(new Response(1001,"error Update !", null));
+        res.status(200).send(new Response(1001,"Chuyến hàng không tồn tại !", null));
     })
 }
 
@@ -420,7 +428,7 @@ exports.PostGetDetail = async (req,res) => {
     if(cn) {
         res.status(200).send(new Response(0,"data success !", reqdata));
     } else {
-        res.status(200).send(new Response(1001,"error Update !", null));
+        res.status(200).send(new Response(1001,"Chuyến hàng không tồn tại !", null));
     }
 }
 

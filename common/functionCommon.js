@@ -223,13 +223,14 @@ exports.getDateparam = (param) => {
 }
 
 // ghi nhật ký khách hàng
-exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu,status01,status02) => {
+exports.ghiNhatkyNo = (idUser,idChuyen,soID,sotieno,ghichu,status01,status02) => {
     let newNk = new Nhatkykh({
         iduser: idUser, // mã khách hàng
         trangthai: 0, // 0 nợ, 1 trả
         sotien: sotieno, // số tiền nợ hoặc trả
         idchuyen: idChuyen,
-        idphieunhaphang: idphieunhaphang,
+        idphieunhaphang: null,
+        soID: soID,
         chukyno: 0,
         hinhthucthanhtoan: null, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại

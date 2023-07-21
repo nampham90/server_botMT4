@@ -8,7 +8,7 @@ module.exports = mongoose => {
             ref:"chuyenngoai"
           }, // mã chyến hàng
           soodn: String,
-          soid: String,
+          soID: String,
           nguonxe: {
             type: mongoose.Schema.Types.ObjectId,
             ref:"nguonxe"
@@ -31,6 +31,7 @@ module.exports = mongoose => {
           tennguoinhan: String,
           sdtnguoinhan: String,
           diachinguoinhan: String,
+          chiphidvtn: Number,
 
           status01: Number, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
           status02: String, // trang thai xuất. =0 không cần lấy hóa đơn. =1 cân lấy hóa đơn =2 đã lấy hóa đơn

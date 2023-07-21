@@ -207,11 +207,22 @@ exports.gettongnoAll = async (req,res) => {
 }
 
 // get tổng nợ của 1 khách hàng
+const CommonTotalNoKhachHangProcess = require('../process/commonProcess/commonTotalNoKhachHangProcess');
 exports.gettongnoUser = async (req,res) => {
-   let idKhachhang = req.body.iduser
-   let kq = await commonfun.tongno(idKhachhang);
-   //console.log(kq);
-   return res.status(200).send(new Response(0,"data", kq));
+   try {
+      const commonTotalNoKhachHangProcess = new CommonTotalNoKhachHangProcess(dbCon.dbDemo);
+      await commonTotalNoKhachHangProcess.start();
+      const session = commonTotalNoKhachHangProcess.transaction;
+      let response = await commonTotalNoKhachHangProcess.totalNoKhachHang(req.body,session);
+      await commonTotalNoKhachHangProcess.commit();
+      return res.status(200).send(new Response(0,"data", response));
+   } catch (error) {
+      return res.status(200).send(new Response(1001,"Lỗi hệ thống !", error.message));
+   }
+   // let idKhachhang = req.body.iduser
+   // let kq = await commonfun.tongno(idKhachhang);
+   // //console.log(kq);
+   // return res.status(200).send(new Response(0,"data", kq));
 }
 
 // list 10 khach hàng có doanh thu cao nhất trong năm

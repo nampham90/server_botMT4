@@ -31,8 +31,10 @@ class Spin00801SearchProcess extends AbsProcess {
         if(filters.makho) {
             sreach.makho = filters.makho;
         }
-        sreach.status02 = 0;
-        sreach.idchuyen = null;
+        sreach.trangthai =  { $lt: 2 };
+        if(filters.mode && filters.mode == "spin00601") {
+            sreach.trangthai = 1;
+        }
         return sreach;
     }
 
