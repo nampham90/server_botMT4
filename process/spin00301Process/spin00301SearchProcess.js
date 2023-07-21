@@ -31,18 +31,29 @@ class Spin00301SearchProcess extends AbsProcess {
         if(filters.makho) {
             sreach.makho = filters.makho;
         }
-        if(filters.status02 != null && filters.status02 != 2) {
-            sreach.status02 = filters.status02;
+        if(filters.trangthai && filters.trangthai.length > 0) {
+            sreach.$or = filters.trangthai;
         }
         return sreach;
     }
 
     async process(db,data,session) {
         let search = this.paramsSearch(data);
+        console.log(search);
         const PNH = db.models.phieunhaphang;
         let allData = await PNH.find(search)
         .populate("iduser",{password:0})
-        .populate("cpdvtncd");
+        .populate({
+            path: "cpdvtncd",
+            populate: [
+              { path: "tangbonhaphang" },
+              { path: "tangbotrahang" },
+              { path: "dichvuxecau" , populate: [{path: "loaidichvu"}]},
+              { path: "dichvubocxep", populate: [{path: "loaidichvu"}] }
+            ],
+            match: { cpdvtncd: { $ne: null } }
+        })
+        .populate("nguoiphathanh",{password:0});
         if(data.pageNum == 0 && data.pageSize ==0) {
            return allData;
         } else {
@@ -62,6 +73,7 @@ class Spin00301SearchProcess extends AbsProcess {
                 ],
                 match: { cpdvtncd: { $ne: null } }
             })
+            .populate("nguoiphathanh",{password:0});
             let res = commonfun.dataReponse(allData,lst,data.pageNum,data.pageSize);
             return res;
         }

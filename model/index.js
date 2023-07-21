@@ -22,7 +22,9 @@ db.nhatkyhethong = require("./nhatkyhethong")(mongoose);
 
 db.chuyen = require("./chuyen")(mongoose);
 db.chiphichuyenxe = require("./chiphichuyenxe")(mongoose);
-db.phieunhaphang = require("./phieunhaphang")(mongoose);
+// 1
+db.phieunhaphang = require("../phieunhaphangModule/model/phieunhaphang")(mongoose);
+
 db.hoadonnhaphang = require("./hoadonnhaphang")(mongoose);
 db.nhatkykh = require("./nhatkykh")(mongoose);
 

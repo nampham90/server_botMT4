@@ -17,6 +17,7 @@ module.exports = mongoose => {
           type: mongoose.Schema.Types.ObjectId,
           ref:"phieunhaphang"
         },
+        soID: String,
         hinhthucthanhtoan: Number, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: Date, // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
         ghichu: String, // ghi chu cần thiết. để đối chiếu với khách hàng

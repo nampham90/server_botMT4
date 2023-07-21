@@ -11,7 +11,7 @@ module.exports = app => {
     route.post('/commonAnt100Listtopdoanhthu',verifyToken, Common.listtop10khachangcodoanhthucaonhat);
     route.post('/commonAnt100Listtopchiphi', verifyToken,Common.listtopchiphicaonhat);
     route.post('/commonAnt100Listtongcuoctungxe',verifyToken, Common.listtongcuoccuatungxetaitrongnam);
-    route.post('/commonAnt100GetODS',verifyToken, Common.getODS);
+    route.post('/commonAnt100GetODN',verifyToken, Common.getODN);
     route.post('/commonAnt100GetODT',verifyToken, Common.getODT);
     route.get('/commonAnt100DeleteAllDataMau', Common.deleteAllDataMau);
     route.post('/commonAnt100Tongnoxengoai', verifyToken, Common.getTongnoxengoai);

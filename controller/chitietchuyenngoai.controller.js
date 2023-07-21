@@ -27,8 +27,8 @@ exports.PostAll = async (req,res) => {
     if(filters.nguonxe) {
         sreach.nguonxe =  filters.nguonxe;
     }
-    if(filters.soods) {
-        sreach.soods = filters.soods;
+    if(filters.soodn) {
+        sreach.soodn = filters.soodn;
     }
     if(filters.status02) {
         sreach.status02 = filters.status02;

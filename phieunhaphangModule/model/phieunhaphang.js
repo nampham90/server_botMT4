@@ -1,6 +1,6 @@
 
 module.exports = mongoose => {
-  const dbcon = require("../common/DBConnect");
+  const dbcon = require("../../common/DBConnect");
     let schema = mongoose.Schema(
       {
          soID: String, // tra cứu đơn hàng
@@ -64,7 +64,12 @@ module.exports = mongoose => {
          strrsrv7: String,
          strrsrv8: String,
          strrsrv9: String,
-         strrsrv10: String
+         strrsrv10: String,
+         nguoiphathanh: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref:"user"
+         },// người phát hành
+         soHDTTCN: String // tra cưu , chưng từ thanh toán công nơ
       },
       { timestamps: true }
     );

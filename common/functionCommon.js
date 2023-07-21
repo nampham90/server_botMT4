@@ -223,13 +223,14 @@ exports.getDateparam = (param) => {
 }
 
 // ghi nhật ký khách hàng
-exports.ghiNhatkyNo = (idUser,idChuyen,idphieunhaphang,sotieno,ghichu,status01,status02) => {
+exports.ghiNhatkyNo = (idUser,idChuyen,soID,sotieno,ghichu,status01,status02) => {
     let newNk = new Nhatkykh({
         iduser: idUser, // mã khách hàng
         trangthai: 0, // 0 nợ, 1 trả
         sotien: sotieno, // số tiền nợ hoặc trả
         idchuyen: idChuyen,
-        idphieunhaphang: idphieunhaphang,
+        idphieunhaphang: null,
+        soID: soID,
         chukyno: 0,
         hinhthucthanhtoan: null, // hinh thức thánh toán . nếu là nợ thì hình thức thanh toán = null
         ngay: _.now(), // ngày trả hoặc nay nợ . tự động lấy ngày giờ hiện tại
@@ -606,30 +607,30 @@ exports.fnGetMessagedb = async (idmsg) => {
     }
 }
 
-exports.fnGetODS = async () => {
-   let soODS = "";
-   let ods = await Tmt100.findOne({maghep:"ODS"});
-   if(ods) {
+exports.fnGetODN = async () => {
+   let soODN = "";
+   let odn = await Tmt100.findOne({maghep:"ODN"});
+   if(odn) {
       // kiểm số winnumber
-      let toWinnumber = _.toNumber(ods['winnumber']);
-      let toStartnumber = _.toNumber(ods['startnumber']);
-      let toEndnumber = _.toNumber(ods['endnumber']);
+      let toWinnumber = _.toNumber(odn['winnumber']);
+      let toStartnumber = _.toNumber(odn['startnumber']);
+      let toEndnumber = _.toNumber(odn['endnumber']);
       if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
-        soODS = "0"//  hêt sô ods
-        return soODS;
+        soODN = "0"//  hêt sô odn
+        return soODN;
       }
       let nowday = this.dateNow();
       nowday = nowday.replace(/\s+/g, '');
       nowday = nowday.replace(/-/g, '');
-      soODS = ods['maghep'] + nowday + ods['winnumber'];
+      soODN = odn['maghep'] + nowday + odn['winnumber'];
       // update winnumber mơi. winnuber + 1;
 
       let newWinnumber = toWinnumber +1;
-      await Tmt100.updateOne({maghep:"ODS"},{$set: {winnumber:_.toString(newWinnumber)}})
-      return soODS;
+      await Tmt100.updateOne({maghep:"ODN"},{$set: {winnumber:_.toString(newWinnumber)}})
+      return soODN;
    } else {
-      soODS = "1";// lỗi hệ thống
-      return soODS;
+      soODN = "1";// lỗi hệ thống
+      return soODN;
    }
 }
 

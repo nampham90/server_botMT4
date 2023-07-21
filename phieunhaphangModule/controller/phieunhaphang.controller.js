@@ -1,17 +1,17 @@
-const db = require("../model");
-const dbCon = require('../common/DBConnect');
-let Responses = require('../common/response');
+const db = require("../../model");
+const dbCon = require('../../common/DBConnect');
+let Responses = require('../../common/response');
 let Response = Responses.Response
-let commonfun = require('../common/functionCommon');
+let commonfun = require('../../common/functionCommon');
 const _ = require('lodash');
 const Phieunhaphang = db.phieunhaphang;
 const Chuyen = db.chuyen;
 const Chiphi = db.chiphichuyenxe
 
 //process
-const PhieunhaphangHuybochangProcess = require("../process/phieunhaphangProcess/PhieunhaphangHuybochangProcess");
-const Spin00251RegisterProcess = require('../process/spin00251Process/spin00251RegisterProcess');
-const PhieunhaphangGetDetailIDProcess = require('../process/phieunhaphangProcess/PhieunhaphangGetDetailIDProcess');
+const PhieunhaphangHuybochangProcess = require("../process/PhieunhaphangHuybochangProcess");
+const Spin00251RegisterProcess = require('../spin00251Process/spin00251RegisterProcess');
+const PhieunhaphangGetDetailIDProcess = require('../process/PhieunhaphangGetDetailIDProcess');
 exports.getDetailsoID = async (req,res) => {
     try {
         const phieunhaphangGetDetailIDProcess = new PhieunhaphangGetDetailIDProcess(dbCon.dbDemo);

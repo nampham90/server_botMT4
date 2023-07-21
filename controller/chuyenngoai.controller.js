@@ -3,6 +3,7 @@ let Responses = require('../common/response');
 let Response = Responses.Response
 let commonfun = require('../common/functionCommon');
 const _ = require('lodash');
+const { emailAdmin } = require("../common/const");
 const Chuyenngoai = db.chuyenngoai;
 const Chitietchuyenngoai = db.chitietchuyenngoai;
 const Congnoxengoai = db.congnoxengoai;
@@ -28,8 +29,8 @@ exports.PostAllChuyenngoai = async (req,res) => {
     if(filters.nguonxe) {
         sreach.nguonxe = filters.nguonxe;  
     }
-    if(filters.soods) {
-        sreach.soods = filters.soods;
+    if(filters.soodn) {
+        sreach.soodn = filters.soodn;
     }
     if(filters._id) {
         sreach._id = filters._id;
@@ -200,10 +201,13 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                 }
                 let newDetail = new Chitietchuyenngoai({
                     idchuyenngoai: spch00251Header.id,
+                    soodn: "",
                     soid: soId,
                     nguonxe: spch00251Header.nguonxe,
                     tenhang: element.tenhang,
                     soluong: element.soluong,
+                    trongluong: element.trongluong,
+                    khoiluong: element.khoiluong,
                     donvitinh: element.donvitinh,
                     diadiembochang: element.diadiembochang,  // 
                     tiencuoc:element.tiencuoc,
@@ -214,6 +218,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     tennguoinhan: element.tennguoinhan,
                     sdtnguoinhan: element.sdtnguoinhan,
                     diachinguoinhan: element.diachinguoinhan,
+                    chiphidvtn: element.chiphidvtn,
                     status01: 0, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
                     status02: element.status02, // 
                     status03: 0, 
@@ -301,10 +306,12 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                     }
                     let newDetail = new Chitietchuyenngoai({
                           idchuyenngoai: newChuyenngoai._id,
-                          soid:soId,
+                          soID:element.soID,
                           nguonxe: spch00251Header.nguonxe,
                           tenhang: element.tenhang,
                           soluong: element.soluong,
+                          trongluong: element.trongluong,
+                          khoiluong: element.khoiluong,
                           donvitinh: element.donvitinh,
                           diadiembochang: element.diadiembochang,  // 
                           tiencuoc:element.tiencuoc,
@@ -315,6 +322,7 @@ exports.PostCreateChuyenngoai = async (req,res) => {
                           tennguoinhan: element.tennguoinhan,
                           sdtnguoinhan: element.sdtnguoinhan,
                           diachinguoinhan: element.diachinguoinhan,
+                          chiphidvtn: element.chiphidvtn,
                           status01: 0, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
                           status02: element.status02, // 
                           status03: 0, 
@@ -378,7 +386,7 @@ exports.PostUpdateChuyenngoai = async (req,res) => {
         console.log(data.modifiedCount + " Update Xe success " + req.body.id);
         return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
     }, err => {
-        res.status(200).send(new Response(1001,"error Update !", null));
+        res.status(200).send(new Response(1001,"Chuyến hàng không tồn tại !", null));
     })
 }
 
@@ -420,25 +428,25 @@ exports.PostGetDetail = async (req,res) => {
     if(cn) {
         res.status(200).send(new Response(0,"data success !", reqdata));
     } else {
-        res.status(200).send(new Response(1001,"error Update !", null));
+        res.status(200).send(new Response(1001,"Chuyến hàng không tồn tại !", null));
     }
 }
 
 exports.PostExportDetail = async (req,res) => {
-    let ods = "";
+    let odn = "";
     let cn = await Chuyenngoai.findOne({_id:req.body.id}).populate('nguonxe');
-    if(cn['soods'] && cn['soods'] != "") {
-        ods = cn['soods'];
+    if(cn['soodn'] && cn['soodn'] != "") {
+        odn = cn['soodn'];
     } else {
-        ods = await commonfun.fnGetODS();
-        await Chuyenngoai.updateOne({_id:req.body.id},{$set:{soods:ods}})
+        odn = await commonfun.fnGetODN();
+        await Chuyenngoai.updateOne({_id:req.body.id},{$set:{soodn:odn}})
     }
-    if(ods != "") {
-        await Chitietchuyenngoai.updateMany({idchuyenngoai:req.body.id},{$set:{soods:ods}});
+    if(odn != "") {
+        await Chitietchuyenngoai.updateMany({idchuyenngoai:req.body.id},{$set:{soodn:odn}});
     }
     let lstdetail = await Chitietchuyenngoai.find({idchuyenngoai: req.body.id});
     let reqdata = {
-        ods: ods,
+        odn: odn,
         resHeader: cn,
         listdetail: lstdetail
     }
