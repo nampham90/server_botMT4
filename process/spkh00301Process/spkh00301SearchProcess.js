@@ -12,37 +12,38 @@ class Spkh00301SearchProcess extends AbsProcess {
     }
 
     paramsSearch(data){
+        let conditions = [];
         let filters = data.filters;
         let gt = "01/01/1970";
         let lt = "01/01/2100";
-        let sreach = {};
+        let search = {};
         if(filters.ngaybatdau) {
             gt = filters.ngaybatdau;
         }
         if(filters.ngayketthuc) {
             lt = filters.ngayketthuc;
         }
-        sreach.ngayxuat = {$gte:gt,$lt:lt};
-        if(filters.soODC) {
-            sreach.soodc = { $regex: new RegExp(filters.soODC + "$") };
+        search.ngaynhap = {$gte:gt,$lt:lt};
+
+        if(filters.soHDTTCN) {
+            conditions.push({ soHDTTCN: { $regex: new RegExp(filters.soHDTTCN + "$") } });
         }
-        if(filters.iduser) {
-            sreach.idkhachhang = ObjectId(filters.iduser);
+        // Thêm điều kiện soHDTTCN khác null
+        conditions.push({ soHDTTCN: { $ne: null } });
+        conditions.push({ ngayphathanh: { $ne: null }});
+        // Kết hợp các điều kiện lại với nhau bằng toán tử $and
+        if (conditions.length > 0) {
+            search.$and = conditions;
         }
-        if(filters.status01 == 0) {
-            sreach.status01 = filters.status01;
-        }
-        if(filters.status01) {
-            sreach.status01 = filters.status01;
-        }
-        return sreach;
+
+        return search;
     }
 
     async process(db,data,session) {
         let search = this.paramsSearch(data);
-        const DonODC = db.models.donodc;
-        let allData = await DonODC.find(search)
-        .populate("idkhachhang",{password:0});
+        const PNH = db.models.phieunhaphang;
+        let allData = await PNH.find(search)
+        .populate("iduser",{password:0});
         if(data.pageNum == 0 && data.pageSize ==0) {
             return allData;
          } else {
@@ -50,8 +51,8 @@ class Spkh00301SearchProcess extends AbsProcess {
              if(data.pageNum > 0) {
                  n = data.pageNum - 1
              }
-             let lst = await DonODC.find(search).limit(data.pageSize).skip(data.pageSize*n)
-             .populate("idkhachhang");
+             let lst = await PNH.find(search).limit(data.pageSize).skip(data.pageSize*n)
+             .populate("iduser",{password:0});
              let res = commonfun.dataReponse(allData,lst,data.pageNum,data.pageSize);
              return res;
          }

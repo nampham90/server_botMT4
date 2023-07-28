@@ -5,7 +5,7 @@ let commonfun = require('../common/functionCommon');
 // process
 const Spch00201UpdateTiencuocxenhaProcess = require("../process/spch00201Process/spch00201UpdateTiencuocxenhaProcess");
 const Spch00201UpdateTiencuocxengoaiProcess = require("../process/spch00201Process/spch00201UpdateTiencuocxengoaiProcess");
-exports.updateTiencuocxenha = async (req,res) => {
+exports.updateTiencuocSoID = async (req,res) => {
     try {
         let request = {
             "iduser": req.userID,

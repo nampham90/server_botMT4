@@ -132,7 +132,9 @@ require("./routers/menu.route")(app);
 require("./routers/phongban.route")(app);
 require("./routers/screenpc.route")(app);
 require("./routers/xe.route")(app);
-require("./routers/chuyen.route")(app);
+//1
+require("./chuyenModule/router/chuyen.route")(app);
+
 require("./routers/chiphichuyenxe.route")(app);
 require("./phieunhaphangModule/router/phieunhaphang.route")(app);
 require("./phieunhaphangModule/router/spkh00201.route")(app);
@@ -145,7 +147,9 @@ require("./khachhangModule/router/khachhang.router")(app);
 
 require("./routers/nhatkyhethong.route")(app);
 require("./routers/nguonxe.router")(app);
-require("./routers/chuyenngoai.route")(app);
+//1
+require("./chuyenModule/router/chuyenngoai.route")(app);
+
 require("./routers/chitietchuyenngoai.route")(app);
 require("./routers/congnoxengoai.route")(app);
 require("./routers/donhangexportxengoai.route")(app);
@@ -160,10 +164,13 @@ require("./routers/spin00251.route")(app);
 require("./routers/spin00801.route")(app);
 require("./routers/spin00601.route")(app);
 require("./routers/spin00301.route")(app);
-//spch00201
-require("./routers/spch00201.route")(app);
-//spch00251
-require("./routers/spch00251.route")(app);
+
+//spch00201 1
+require("./chuyenModule/router/spch00201.route")(app);
+//spch00251 1
+require("./chuyenModule/router/spch00251.route")(app);
+
+
 //spkh00301
 require("./routers/spkh00301.route")(app);
 

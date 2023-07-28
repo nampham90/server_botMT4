@@ -108,8 +108,8 @@ exports.getODT = async (req,res) => {
    }
 }
 
-exports.getODC = async (req,res) => {
-   let odc = await commonfun.fnGetODC();
+exports.getSoHDTTCNKH = async (req,res) => {
+   let odc = await commonfun.fnGetSoHDTTCNKH();
    if(odc) {
       return res.status(200).send(new Response(0,"sesuces !", odc));
    } else {

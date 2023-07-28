@@ -27,14 +27,16 @@ class Spkh00201Ant100getAllProcess extends AbsProcess {
             search.iduser = ObjectId(filters.iduser);
         }
         search.hinhthucthanhtoan = 2;
-        search.trangthai = 1;
+        search.trangthai = 3;
+        search.soHDTTCN = null;
         return search;
     }
 
     async process(db, req, session) {
        const PNH = db.models.phieunhaphang;
        let search = this.searchParams(req);
-       let allData = await PNH.find(search).sort( { "ngaynhapthucte": -1 } );
+       let allData = await PNH.find(search).sort( { "ngaynhapthucte": -1 } )
+       .populate("nguoiphathanh");
        if(req.pageNum == 0 && req.pageSize == 0) {
          return allData
        } else {
@@ -43,7 +45,8 @@ class Spkh00201Ant100getAllProcess extends AbsProcess {
                 n = req.pageNum - 1
             }
             let lst = await PNH.find(search).sort( { "ngaynhapthucte": -1 } )
-            .limit(req.pageSize).skip(req.pageSize*n);
+            .limit(req.pageSize).skip(req.pageSize*n)
+            .populate("nguoiphathanh");;
             let data = commonfun.dataReponse(allData,lst,req.pageNum,req.pageSize);
             return data;
        }

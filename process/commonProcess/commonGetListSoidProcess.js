@@ -15,7 +15,7 @@ class CommonGetListSoidProcess extends AbsProcess {
         const KH = db.models.user;
         let search = {}
         search.idchuyen = null;
-        search.status02 = 0;
+        search.trangthai = 1;
         let filters = data.filters;
         if(filters.makho) {
             search.makho = filters.makho;

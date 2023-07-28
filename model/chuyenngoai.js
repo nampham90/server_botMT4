@@ -10,18 +10,18 @@ module.exports = mongoose => {
             type: mongoose.Schema.Types.ObjectId,
             ref:"nguonxe"
           },
-        soodn: {type:String,default: ""},
+        soodn: String,
         biensoxe: String, // biển số xe ngoài
         sdtnguonxe: String, // so dien thoai nguon xe
         tentaixe: String, // tài xế
         sodienthoai: String,// điện thoại tài xế
-        listdetail: [{
+        listID: [{
           type: mongoose.Schema.Types.ObjectId,
-          ref:"chitietchuyenngoai"
+          ref:"phieunhaphang"
         }],
         status01: Number, // 0. chuyến đang hoat động. 1. chuyến đã kết thúc
         status02: Number, // 0 cho phep cập nhật chuyến. 1 không cho phep cập nhật chuyến
-        status03: Number, 
+        status03: Number, // hinh thuc thanh toan.  0 trưc tiếp . 1 ghi nợ
         status04: Number,
         status05: Number,
         ghichu: String

@@ -16,7 +16,7 @@ exports.getLists = async (req,res) => {
 exports.updateLists = async (req,res) => {
     let idchuyen = req.body.id;
     let lst = req.body.lstchiphi;
-    if(lst.length > 0 && req.body.trangthai == 4) {
+    if(lst.length > 0) {
        let i = 0;
        for(let element of lst) {
          let n = await  ChiphiChuyenxe.updateOne({idchuyen:idchuyen,tenchiphi:element.tenchiphi},{$set: {sotien:element.sotien, ghichu:element.ghichu}});
