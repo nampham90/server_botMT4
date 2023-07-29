@@ -16,7 +16,7 @@ class CommonTotalNoKhachHangProcess extends AbsProcess {
         let search = {};
         search.iduser = ObjectId(data.iduser);
         search.hinhthucthanhtoan = 2;
-        search.trangthai = 1;
+        search.trangthai = 3;
         let lst = await PNH.find(search);
         for(let element of lst) {
            tongno = tongno + element['tiencuoc'];

@@ -99,6 +99,8 @@ class Spin00251RegisterProcess extends AbsProcess {
                 status08: null,
                 status09: null,
                 status10: null,
+                ngayphathanh: null,
+                ngaythanhtoan: null,
                 strrsrv1: null,
                 strrsrv2: null,
                 strrsrv3: null,

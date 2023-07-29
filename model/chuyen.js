@@ -20,7 +20,7 @@ module.exports = mongoose => {
         },
         soodt: String,
         changduong: String, // điểm khởi hành và điểm kết thúc
-        trangthai: Number, // 0 ke hoach bóc. 1.boc hàng lên xe. 2. kiểm hàng
+        trangthai: Number, // 0 khởi tạo. 1.tinh chi phí. 2. hoàn thành chuyến
         status01:Number,
         status02:Number,
         status03:Number,

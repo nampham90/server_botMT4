@@ -34,7 +34,7 @@ db.congnoxengoai = require("./congnoxengoai")(mongoose);
 db.donhangexportxengoai = require("./donhangexportxengoai")(mongoose);
 
 db.pnhchuyenngoai = require("./pnhchuyenngoai")(mongoose);
-db.donodc = require("./donodc")(mongoose);
+db.hdttcnkh = require("../chuyenModule/model/hdttcnkh")(mongoose);
 
 // nhap hang 
 db.tin100 = require("./tin100")(mongoose);

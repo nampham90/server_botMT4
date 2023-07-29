@@ -42,12 +42,12 @@ module.exports = mongoose => {
          makho: String, //mã kho lưu hàng
          hinhthucthanhtoan:Number, // truc tiep => 1,  ghi nhợ=> 2, thanh toan khi nhan hang => 3 , đã thanh toan => 4
          ghichu: String, // ghi chú đơn hàng
-         trangthai: Number, // 0 dự định nhập: 1 Thực tế nhập. 2, đang vận chuyển, 3. đã giao hang
+         trangthai: Number, // 0 dự định nhập: 1 Thực tế nhập. 2, dư định xuất, 3 thực tế xuất , 4. đã giao hang
          chiphidenhang: Number, // sô tiền đền hàng. 
          lydodenhang: String, // cập nhật ly do đền hàng
-         status01:Number, // 0 
-         status02:Number, // 0 
-         status03:Number, // 
+         status01:Number, // null . 0 đã phát hành, 1 đã thanh toán/  trương công nợ
+         status02:Number, // trường này lưu tiền cước xe ngoài
+         status03:Number, // trường này lưu trạng thái thu hồi biên lai. 0 không thu hôi. 1 thu hôi, 2. đã thu hồi
          status04:Number,
          status05:Number,
          status06:Number,
@@ -55,9 +55,11 @@ module.exports = mongoose => {
          status08:Number,
          status09:Number,
          status10:Number,
-         strrsrv1: String,
-         strrsrv2: String,
-         strrsrv3: String,
+         ngayphathanh: Date,//  ngày phat hành cong nơ
+         ngaythanhtoan: Date,//  ngày thanh toan cong nơ
+         strrsrv1: String, // lý do cập nhật tiền cước. 
+         strrsrv2: String, // id nguồn xe ngoài
+         strrsrv3: String, //
          strrsrv4: String,
          strrsrv5: String,
          strrsrv6: String,

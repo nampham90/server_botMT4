@@ -26,12 +26,13 @@ class PhieunhaphangHuybochangProcess extends AbsProcess {
                 {_id: ObjectId(data.ids)},
                 {$set: {
                     idchuyen: null,
+                    soODT: null,
                     biensoxe: null,
-                    lotrinh: null,
-                    status02: 0
+                    trangthai: 1
                 }},
                 {session}
-            )    
+            )   
+            const Chuyen = db.models.chuyen;
         }
         
         return response;

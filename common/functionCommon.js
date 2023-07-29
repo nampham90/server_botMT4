@@ -660,29 +660,29 @@ exports.fnGetODT = async () => {
     }
 }
 // mã thanh toán công nợ khach hang
-exports.fnGetODC = async () => {
-    let soODC = "";
-    let odc = await Tmt100.findOne({maghep:"ODC"});
-    if(odc) {
+exports.fnGetSoHDTTCNKH = async () => {
+    let soHDTTCNKH = "";
+    let hdttcnkh = await Tmt100.findOne({maghep:"HDTTCNKH"});
+    if(hdttcnkh) {
        // kiểm số winnumber
-       let toWinnumber = _.toNumber(odc['winnumber']);
-       let toStartnumber = _.toNumber(odc['startnumber']);
-       let toEndnumber = _.toNumber(odc['endnumber']);
+       let toWinnumber = _.toNumber(hdttcnkh['winnumber']);
+       let toStartnumber = _.toNumber(hdttcnkh['startnumber']);
+       let toEndnumber = _.toNumber(hdttcnkh['endnumber']);
        if(toWinnumber >= toEndnumber || toWinnumber <= toStartnumber) {
-        soODC = "0"//  hêt sô odC
-        return soODC;
+        soHDTTCNKH = "0"//  hêt sô HDTTCNKH
+        return soHDTTCNKH;
        }
        let nowday = this.dateNow();
        nowday = nowday.replace(/\s+/g, '');
        nowday = nowday.replace(/-/g, '');
-       soODC = odc['maghep'] + nowday + odc['winnumber'];
+       soHDTTCNKH = hdttcnkh['maghep'] + nowday + hdttcnkh['winnumber'];
        // update winnumber mơi. winnuber + 1;
        let newWinnumber = toWinnumber +1;
-       await Tmt100.updateOne({maghep:"ODC"},{$set: {winnumber:_.toString(newWinnumber)}})
-       return soODC;
+       await Tmt100.updateOne({maghep:"HDTTCNKH"},{$set: {winnumber:_.toString(newWinnumber)}})
+       return soHDTTCNKH;
     } else {
-        soODC = "1";// lỗi hệ thống
-        return soODC;
+        soHDTTCNKH = "1";// lỗi hệ thống
+        return soHDTTCNKH;
     }
 }
 

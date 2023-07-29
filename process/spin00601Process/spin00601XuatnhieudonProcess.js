@@ -26,9 +26,9 @@ class Spin00601XuatnhieudonProcess extends AbsProcess {
             {soID: soID},
             {$set: {
                 idchuyen: ObjectId(data.id),
+                soODT: data.soODT,
                 biensoxe: data.biensoxe,
-                lotrinh: data.lotrinh,
-                status02: 1
+                trangthai: 2
             }},
             {session}
         )
