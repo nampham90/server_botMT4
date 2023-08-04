@@ -11,6 +11,7 @@ module.exports = mongoose => {
             ref:"nguonxe"
           },
         soodn: String,
+        hinhthucthanhtoan:String,
         biensoxe: String, // biển số xe ngoài
         sdtnguonxe: String, // so dien thoai nguon xe
         tentaixe: String, // tài xế

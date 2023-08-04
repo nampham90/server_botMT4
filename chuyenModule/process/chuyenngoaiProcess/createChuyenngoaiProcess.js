@@ -1,8 +1,8 @@
 const AbsProcess = require("../../../process/abstractProcess/Transaction");
 
-let commonfun = require('../../common/functionCommon');
+let commonfun = require('../../../common/functionCommon');
 const { ObjectId } = require('mongodb')
-const RegisterCongNoXeNgoaiProcess = require('./registerCongNoXeNgoaiProcess');
+const GetChuyenNgoaiProcess = require('../chuyenngoaiProcess/getChuyenngoaiProcess');
 class CreateChuyenngoaiProcess extends AbsProcess {
     constructor(dbcon) {
         super(dbcon)
@@ -10,6 +10,86 @@ class CreateChuyenngoaiProcess extends AbsProcess {
 
     async create(data,session) {
         return this.execute(this.database,data,session);
+    }
+
+    async updatePNH(db,lstupdate,idcn,soODN,session) {
+        const Phieunhaphang = db.models.phieunhaphang;
+        for(let element of lstupdate) {
+            await Phieunhaphang.collection.updateOne(
+                {soID : element.soID},
+                {$set : {
+                    idchuyenngoai:ObjectId(idcn),
+                    soODN:soODN,
+                    trangthai: 2,
+                    status02: element.status02,
+                    status03: element.status03
+                 }},{session});
+        }
+    }
+
+    async insertPNH(db,lstcreate,idcn,soODN,iduser,ngayvanchuyen,session) {
+        const Phieunhaphang = db.models.phieunhaphang;
+        for(let element of lstcreate) {
+            let soID = await commonfun.fnGetID();
+            let newPNH = {
+                soID: soID,
+                soODT: null,
+                soODN: soODN,
+                idchuyen: null,
+                idchuyenngoai: ObjectId(idcn),
+                biensoxe: null,
+                iduser: ObjectId(element.iduser),
+                cpdvtncd: null,
+                tiencuoc: element.tiencuoc,
+                lotrinh: null,
+                ngaynhapdudinh: new Date(),
+                ngaynhapthucte: new Date(),// ngay thuc tế nhâp hàng
+                ngayvanchuyen: ngayvanchuyen, // ngày vận chuyển
+                ngaytrahang: null, // ngày trả hàng
+                tenhang: element.tenhang,
+                soluong: element.soluong,
+                soluongthucte: element.soluong,
+                trongluong: element.trongluong,
+                khoiluong: element.khoiluong,
+                donvitinh: element.donvitinh,
+                diadiembochang: element.diadiembochang,
+                tennguoinhan: element.tennguoinhan,
+                sdtnguoinhan: element.sdtnguoinhan,
+                diachinguoinhan: element.diachinguoinhan,
+                makho: element.diadiembochang,
+                hinhthucthanhtoan: element.hinhthucthanhtoan,
+                ghichu: element.ghichu,
+                trangthai: 0,
+                chiphidenhang: 0, // sô tiền đền hàng. 
+                lydodenhang: null, // cập nhật ly do đền hàng
+                status01: null,
+                status02: element.status02,
+                status03: element.status03,
+                status04: null,
+                status05: null,
+                status06: null,
+                status07: null,
+                status08: null,
+                status09: null,
+                status10: null,
+                ngayphathanh: null,
+                ngaythanhtoan: null,
+                strrsrv1: null,
+                strrsrv2: null,
+                strrsrv3: null,
+                strrsrv4: null,
+                strrsrv5: null,
+                strrsrv6: null,
+                strrsrv7: null,
+                strrsrv8: null,
+                strrsrv9: null,
+                strrsrv10: null,
+                nguoiphathanh: ObjectId(iduser),
+                soHDTTCN: null
+            }
+            await Phieunhaphang.collection.insertOne(newPNH,{session});
+        }
+
     }
 
     async process(db,data,session) {
@@ -28,6 +108,7 @@ class CreateChuyenngoaiProcess extends AbsProcess {
             sdtnguonxe: spch00251Header.sdtnguonxe,
             tentaixe: spch00251Header.tentaixe,
             sodienthoai: spch00251Header.sodienthoai,
+            hinhthucthanhtoan: spch00251Header.hinhthucthanhtoan,
             listdetail: [],
             status01: 0,
             status02: 0,
@@ -38,73 +119,20 @@ class CreateChuyenngoaiProcess extends AbsProcess {
         });
         let rs = await Chuyenngoai.collection.insertOne(newChuyenngoai,{session});
         if(rs['insertedId']) {
-            const Chitietchuyenngoai = db.models.chitietchuyenngoai;
-            const Phieunhaphang = db.models.phieunhaphang
-            let lstCtcn = []
+            let lstUpdate = [];
+            let lstCreate = [];
             for(let element of lstdetail) {
-                let newDetail = {
-                    idchuyenngoai: ObjectId(rs['insertedId']),
-                    soodn: soODN,
-                    soID:element.soID,
-                    nguonxe: ObjectId(spch00251Header.nguonxe),
-                    tenhang: element.tenhang,
-                    soluong: element.soluong,
-                    trongluong: element.trongluong,
-                    khoiluong: element.khoiluong,
-                    donvitinh: element.donvitinh,
-                    diadiembochang: element.diadiembochang,  // 
-                    tiencuoc:element.tiencuoc,
-                    tiencuocxengoai: element.tiencuocxengoai,
-                    htttxengoai: element.htttxengoai,
-                    idkhachhang: ObjectId(element.idkhachhang),
-                    htttkhachhang: element.htttkhachhang,
-                    tennguoinhan: element.tennguoinhan,
-                    sdtnguoinhan: element.sdtnguoinhan,
-                    diachinguoinhan: element.diachinguoinhan,
-                    chiphidvtn: element.chiphidvtn,
-                    status01: 0, // trang thai don hang. =0 chưa bóc. =1 đã bóc, =2 đã giáo
-                    status02: element.status02, // 
-                    status03: 0, 
-                    status04: 0,
-                    status05: 0,
-                    ghichu: element.ghichu
-                }
-                // if soId != "" thì update tiencuoc=0,status02=2 trong phieunhaphang vơi soId trên
-                // hành động ngày có nghĩa . khi chuyển hàng cho xe ngoài. thì không tính doanh số. update trạng thái đơn hàng là đã chuyển sang xe ngoài
-                await Phieunhaphang.collection.updateOne({soID:soId},{$set:{tiencuoc:0,status02:2}},{session});
-                // đang ký công no xe ngoài
-
-                if (element.htttxengoai == "2") {
-                    let dataregister = {
-                        "nguonxe": spch00251Header.nguonxe,
-                        "soID": element.soID,
-                        "biensoxe": spch00251Header.biensoxe,
-                        "tentaixe" : spch00251Header.tentaixe,
-                        "sodienthoai": spch00251Header.sodienthoai,
-                        "sotienno" : element.tiencuocxengoai,
-                        "status02" : 1,
-                        "ghichu" : "NO"
-                    }
-                    const registerCongNoXeNgoaiProcess = new RegisterCongNoXeNgoaiProcess(this.database);
-                    await registerCongNoXeNgoaiProcess.register(dataregister,session);
-                } else {
-                    let dataregister = {
-                        "nguonxe": spch00251Header.nguonxe,
-                        "soID": element.soID,
-                        "biensoxe": spch00251Header.biensoxe,
-                        "tentaixe" : spch00251Header.tentaixe,
-                        "sodienthoai": spch00251Header.sodienthoai,
-                        "sotienno" : element.tiencuocxengoai,
-                        "status02" : 0,
-                        "ghichu" : "NO"
-                    }
-                    const registerCongNoXeNgoaiProcess = new RegisterCongNoXeNgoaiProcess(this.database);
-                    await registerCongNoXeNgoaiProcess.register(dataregister,session);
-                }
-                lstCtcn.push(newDetail);
+               element['soID'] && element['soID'] != "" ? lstUpdate.push(element) : lstCreate.push(element)
             }
-            await Chitietchuyenngoai.collection.insertMany(lstCtcn, { session });
+            await this.insertPNH(db,lstCreate,rs['insertedId'], soODN, data.nguoiphathanh, spch00251Header.ngayvanchuyen, session);
+            await this.updatePNH(db,lstUpdate,rs['insertedId'], soODN, session);
+
+
+            const getChuyenNgoaiProcess = new GetChuyenNgoaiProcess(db);
+            let res = await getChuyenNgoaiProcess.getDetail(soODN, session);
+            return res;
         }
+        return null
     }
 }
 
