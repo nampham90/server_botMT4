@@ -91,17 +91,23 @@ async function registerCongNoXeNgoai(nguonxe, iddonhang, biensoxe, tentaixe, sod
 
 // tao 
 const CreateChuyenngoaiProcess = require("../../chuyenModule/process/chuyenngoaiProcess/createChuyenngoaiProcess");
+const GetChuyenNgoaiProcess = require('../../chuyenModule/process/chuyenngoaiProcess/getChuyenngoaiProcess');
 exports.PostCreateChuyenngoai = async (req,res) => {
     req.body.nguoiphathanh = req.userID;
     try {
         const createChuyenngoaiProcess = new CreateChuyenngoaiProcess(dbCon.dbDemo);
         await createChuyenngoaiProcess.start();
         const session = createChuyenngoaiProcess.transaction;
-        let response = await createChuyenngoaiProcess.create(req.body,session);
+        let soODN = await createChuyenngoaiProcess.create(req.body,session);
         await createChuyenngoaiProcess.commit();
+        const getChuyenNgoaiProcess = new GetChuyenNgoaiProcess(dbCon.dbDemo);
+        await getChuyenNgoaiProcess.start();
+        const session1 = getChuyenNgoaiProcess.transaction;
+        let response = await getChuyenNgoaiProcess.getDetail(soODN,session1);
+        await getChuyenNgoaiProcess.commit();
         return res.status(200).send(new Response(0,"Data sucess", response));
     } catch (error) {
-        return res.status(200).send(new Response(1001,"Lỗi hệ thống", null));
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống", error.message));
     }
 }
 

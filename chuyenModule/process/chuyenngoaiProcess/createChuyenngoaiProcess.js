@@ -15,7 +15,7 @@ class CreateChuyenngoaiProcess extends AbsProcess {
     async updatePNH(db,lstupdate,idcn,soODN,session) {
         const Phieunhaphang = db.models.phieunhaphang;
         for(let element of lstupdate) {
-            await Phieunhaphang.collection.updateOne(
+           let rs =  await Phieunhaphang.collection.updateOne(
                 {soID : element.soID},
                 {$set : {
                     idchuyenngoai:ObjectId(idcn),
@@ -24,6 +24,7 @@ class CreateChuyenngoaiProcess extends AbsProcess {
                     status02: element.status02,
                     status03: element.status03
                  }},{session});
+            console.log(rs);
         }
     }
 
@@ -87,7 +88,8 @@ class CreateChuyenngoaiProcess extends AbsProcess {
                 nguoiphathanh: ObjectId(iduser),
                 soHDTTCN: null
             }
-            await Phieunhaphang.collection.insertOne(newPNH,{session});
+          let rs =  await Phieunhaphang.collection.insertOne(newPNH,{session});
+          console.log(rs);
         }
 
     }
@@ -104,20 +106,21 @@ class CreateChuyenngoaiProcess extends AbsProcess {
             ngaydukiengiaohang: spch00251Header.ngaydukiengiaohang,
             nguonxe: ObjectId(spch00251Header.nguonxe), // id nguon xe
             soodn: soODN,
+            hinhthucthanhtoan: spch00251Header.hinhthucthanhtoan,
             biensoxe: spch00251Header.biensoxe,
             sdtnguonxe: spch00251Header.sdtnguonxe,
             tentaixe: spch00251Header.tentaixe,
             sodienthoai: spch00251Header.sodienthoai,
-            hinhthucthanhtoan: spch00251Header.hinhthucthanhtoan,
-            listdetail: [],
+            listID: [],
             status01: 0,
             status02: 0,
-            status03: 0,// 
+            status03: 0,
             status04: 0,
             status05: 0,
             ghichu: spch00251Header.ghichu
         });
         let rs = await Chuyenngoai.collection.insertOne(newChuyenngoai,{session});
+        console.log(rs);
         if(rs['insertedId']) {
             let lstUpdate = [];
             let lstCreate = [];
@@ -127,10 +130,7 @@ class CreateChuyenngoaiProcess extends AbsProcess {
             await this.insertPNH(db,lstCreate,rs['insertedId'], soODN, data.nguoiphathanh, spch00251Header.ngayvanchuyen, session);
             await this.updatePNH(db,lstUpdate,rs['insertedId'], soODN, session);
 
-
-            const getChuyenNgoaiProcess = new GetChuyenNgoaiProcess(db);
-            let res = await getChuyenNgoaiProcess.getDetail(soODN, session);
-            return res;
+            return soODN;
         }
         return null
     }
