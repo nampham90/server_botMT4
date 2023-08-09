@@ -15,12 +15,13 @@ class GetChuyenNgoaiProcess extends AbsProcess {
         const Chuyenngoai = db.models.chuyenngoai;
         const PNH = db.models.phieunhaphang;
 
-        let cn = await Chuyenngoai.findOne({soodn: data});
+        let cn = await Chuyenngoai.findOne({soodn: data.soODN});
 
-        let lstdetail = await PNH.find({soODN: data});
+        let lstdetail = await PNH.find({soODN: data.soODN});
         let res = {
-            resHeader: cn,
-            listdetail: lstdetail
+            spch00251Header: cn,
+            spch00251Listdetail: lstdetail,
+            mode: data.mode
         }
         return res;
     }

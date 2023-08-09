@@ -103,7 +103,11 @@ exports.PostCreateChuyenngoai = async (req,res) => {
         const getChuyenNgoaiProcess = new GetChuyenNgoaiProcess(dbCon.dbDemo);
         await getChuyenNgoaiProcess.start();
         const session1 = getChuyenNgoaiProcess.transaction;
-        let response = await getChuyenNgoaiProcess.getDetail(soODN,session1);
+        let data = {
+            soODN: soODN,
+            mode: "create"
+        }
+        let response = await getChuyenNgoaiProcess.getDetail(data,session1);
         await getChuyenNgoaiProcess.commit();
         return res.status(200).send(new Response(0,"Data sucess", response));
     } catch (error) {
@@ -113,13 +117,11 @@ exports.PostCreateChuyenngoai = async (req,res) => {
 
 // update 
 exports.PostUpdateChuyenngoai = async (req,res) => {
-    Chuyenngoai.updateOne({_id: req.body.id},{$set: {nguonxe: req.body.nguonxe, biensoxe: req.body.biensoxe, tentaixe: req.body.tentaixe, sodienthoai: req.body.sodienthoai, changduong: req.body.changduong}})
-    .then(data => {
-        console.log(data.modifiedCount + " Update Xe success " + req.body.id);
-        return res.status(200).send(new Response(0,"Data sucess ", data.modifiedCount));
-    }, err => {
-        res.status(200).send(new Response(1001,"Chuyến hàng không tồn tại !", null));
-    })
+    try {
+        
+    } catch (error) {
+        
+    }
 }
 
 // update status
