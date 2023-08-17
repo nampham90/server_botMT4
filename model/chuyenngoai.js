@@ -20,11 +20,17 @@ module.exports = mongoose => {
           type: mongoose.Schema.Types.ObjectId,
           ref:"phieunhaphang"
         }],
-        status01: Number, // 0. chuyến đang hoat động. 1. chuyến đã kết thúc
+        soHDTTXHCN: String, // số hóa đơn thực tế xuất hàng chuyến ngoài
+        status01: Number, // 0. dự dịnh. 1. xuất phiếu thực tế chuyến hàng xe ngoài,
         status02: Number, // 0 cho phep cập nhật chuyến. 1 không cho phep cập nhật chuyến
         status03: Number, // hinh thuc thanh toan.  0 trưc tiếp . 1 ghi nợ
         status04: Number,
         status05: Number,
+        strrsrv1: String,
+        strrsrv2: String,
+        strrsrv3: String,
+        strrsrv4: String,
+        strrsrv5: String,
         ghichu: String
       },
       { timestamps: true }

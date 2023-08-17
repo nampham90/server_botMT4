@@ -24,7 +24,6 @@ class CreateChuyenngoaiProcess extends AbsProcess {
                     status02: element.status02,
                     status03: element.status03
                  }},{session});
-            console.log(rs);
         }
     }
 
@@ -89,7 +88,6 @@ class CreateChuyenngoaiProcess extends AbsProcess {
                 soHDTTCN: null
             }
           let rs =  await Phieunhaphang.collection.insertOne(newPNH,{session});
-          console.log(rs);
         }
 
     }
@@ -112,15 +110,20 @@ class CreateChuyenngoaiProcess extends AbsProcess {
             tentaixe: spch00251Header.tentaixe,
             sodienthoai: spch00251Header.sodienthoai,
             listID: [],
+            soHDTTXHCN: null, // so hoa đon thuc tế xuât hàng
             status01: 0,
             status02: 0,
             status03: 0,
             status04: 0,
             status05: 0,
+            strrsrv1: null,
+            strrsrv2: null,
+            strrsrv3: null,
+            strrsrv4: null,
+            strrsrv5: null,
             ghichu: spch00251Header.ghichu
         });
         let rs = await Chuyenngoai.collection.insertOne(newChuyenngoai,{session});
-        console.log(rs);
         if(rs['insertedId']) {
             let lstUpdate = [];
             let lstCreate = [];

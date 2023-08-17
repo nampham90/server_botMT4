@@ -42,7 +42,7 @@ module.exports = mongoose => {
          makho: String, //mã kho lưu hàng
          hinhthucthanhtoan:Number, // truc tiep => 1,  ghi nhợ=> 2, thanh toan khi nhan hang => 3 , đã thanh toan => 4
          ghichu: String, // ghi chú đơn hàng
-         trangthai: Number, // 0 dự định nhập: 1 Thực tế nhập. 2, dư định xuất, 3 thực tế xuất , 4. đã giao hang
+         trangthai: Number, // 0 dự định nhập: 1 Thực tế nhập. 2, dư định xuất, 3 thực tế xuất , 4. đã giao hang, 5. huy don nhap hang
          chiphidenhang: Number, // sô tiền đền hàng. 
          lydodenhang: String, // cập nhật ly do đền hàng
          status01:Number, // null . 0 đã phát hành, 1 đã thanh toán/  trương công nợ

@@ -1,0 +1,14 @@
+{
+    "name": "demo",
+    "creationDate": {
+        "$$date": 1691814679187
+    },
+    "modificationDate": {
+        "$$date": 1691814679187
+    },
+    "shortid": "sLNcilb",
+    "inheritedReadPermissions": [],
+    "inheritedEditPermissions": [],
+    "_id": "rRblPnJyde1m2n1C",
+    "$entitySet": "folders"
+}

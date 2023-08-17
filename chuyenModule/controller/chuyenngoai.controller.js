@@ -109,18 +109,34 @@ exports.PostCreateChuyenngoai = async (req,res) => {
         }
         let response = await getChuyenNgoaiProcess.getDetail(data,session1);
         await getChuyenNgoaiProcess.commit();
-        return res.status(200).send(new Response(0,"Data sucess", response));
+        return res.status(200).send(new Response(0,"Dada sucess", response));
     } catch (error) {
         return res.status(200).send(new Response(1001,"Lỗi hệ thống", error.message));
     }
 }
 
 // update 
+const UpdateChuyenngoaiProcess = require("../../chuyenModule/process/chuyenngoaiProcess/updateChuyenngoaiProcess");
 exports.PostUpdateChuyenngoai = async (req,res) => {
     try {
-        
+        const updateChuyenngoaiProcess = new UpdateChuyenngoaiProcess(dbCon.dbDemo);
+        await updateChuyenngoaiProcess.start();
+        req.body.iduser = req.userID;
+        const session = updateChuyenngoaiProcess.transaction;
+        let soODN = await updateChuyenngoaiProcess.update(req.body, session);
+        await updateChuyenngoaiProcess.commit();
+        const getChuyenNgoaiProcess = new GetChuyenNgoaiProcess(dbCon.dbDemo);
+        await getChuyenNgoaiProcess.start();
+        const session1 = getChuyenNgoaiProcess.transaction;
+        let data = {
+            soODN: soODN,
+            mode: "update"
+        }
+        let response = await getChuyenNgoaiProcess.getDetail(data,session1);
+        await getChuyenNgoaiProcess.commit();
+        return res.status(200).send(new Response(0,"Dada sucess", response));
     } catch (error) {
-        
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống", error.message));
     }
 }
 
@@ -153,16 +169,19 @@ exports.PostDeleteAllChuyenngoai = async (req,res) => {
 
 // get detail 
 exports.PostGetDetail = async (req,res) => {
-    let cn = await Chuyenngoai.findOne({_id:req.body.id})
-    let lstdetail = await Chitietchuyenngoai.find({idchuyenngoai: req.body.id});
-    let reqdata = {
-        resHeader: cn,
-        listdetail: lstdetail
-    }
-    if(cn) {
-        res.status(200).send(new Response(0,"data success !", reqdata));
-    } else {
-        res.status(200).send(new Response(1001,"Chuyến hàng không tồn tại !", null));
+    try {
+        const getChuyenNgoaiProcess = new GetChuyenNgoaiProcess(dbCon.dbDemo);
+        await getChuyenNgoaiProcess.start();
+        const session = getChuyenNgoaiProcess.transaction;
+        let data = {
+            soODN: req.body.soodn,
+            mode: "update"
+        }
+        let response = await getChuyenNgoaiProcess.getDetail(data,session);
+        await getChuyenNgoaiProcess.commit();
+        return res.status(200).send(new Response(0,"Data sucess", response));
+    } catch (error) {
+        return res.status(200).send(new Response(1001,"Lỗi hệ thống", error.message));
     }
 }
 

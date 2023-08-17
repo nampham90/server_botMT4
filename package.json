@@ -25,6 +25,7 @@
     "joi": "^17.6.0",
     "json2csv": "^6.0.0-alpha.2",
     "jsonwebtoken": "^8.5.1",
+    "jsreport": "^3.13.0",
     "lodash": "^4.17.21",
     "lodash.dropwhile": "^4.6.0",
     "moment": "^2.29.4",
