@@ -117,6 +117,9 @@ require("./routers/tmt010_file.route")(app);
 // khochung
 require("./khochungrouters/kho.route")(app);
 
+// spin00101
+require("./screenpcs/spin00101/router/spin00101Route")(app);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

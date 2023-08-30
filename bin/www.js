@@ -1,4 +1,5 @@
 var app = require('../server');
+const SocketServices = require('../socketService/socket.service')
 var debug = require('debug')('demo-node-js:server');
 var http = require('http');
 const dotenv = require('dotenv');
@@ -9,90 +10,26 @@ var port = normalizePort(process.env.PORT || '3006');
 var server = require("http").Server(app);
 var io = require('socket.io')(server, {
   cors: {
-    origin: "http://localhost:4205",
+    origin: "http://localhost:4201",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true
   }
 });
+
+
+
+global._io = io;
+
+const authSocketMiddleware = require('../middlewares/verifyTokenSocket');
+
+global._io.use((socket,next)=> {
+  authSocketMiddleware(socket,next);
+})
+
+global._io.on('connection', SocketServices.connection)
 app.use(cors());
-
-// function UserDetail() {
-//    this.userId = "";
-//    this.username = "";
-//    this.email = "";
-// }
-
-// var lstUserdetail = [];
-// io.on('connection', (socket) => {
-//     console.log('a user connected',socket.id);
-//     socket.on('client-send-data', (msg) => {
-//       console.log(msg);
-//       io.sockets.emit('server-send-data', msg);
-//     });
-
-//     socket.on('client-register-chat',(userDetail) => {
-//       console.log(userDetail)
-//       var checkAdmin = false;
-//       if(Constant.emailAdmin == userDetail['email']){
-//          checkAdmin = true;
-//       }
-//       if(lstUserdetail.length > 0){
-//         var check = false;
-//         for(let element of lstUserdetail) {
-//           if(element['email'] == userDetail['email']){
-//             check = true;
-//             break;
-//           }
-//         }
-//         if(check === true) {
-//           socket.emit("client-register-chat","1001");
-//         } else {
-//           socket.userdetail = userDetail;
-//           lstUserdetail.push(userDetail);
-//           if(checkAdmin == true) {
-//             const listres = lstUserdetail.filter(item => item['email'] !== Constant.emailAdmin); 
-//             socket.emit("admin-register-chat",listres);
-//           }
-//         }
-//       } else {
-//         socket.userdetail = userDetail;
-//         lstUserdetail.push(userDetail);
-//         if(checkAdmin == true) {
-//           const listres = lstUserdetail.filter(item => item['email'] !== Constant.emailAdmin); 
-//           socket.emit("admin-register-chat",listres);
-//         }
-//       }
-//     })
-
-//     socket.on('disconnect', () => {
-//       if(socket.userdetail){
-//         const index = lstUserdetail.findIndex(item => item['email'] === socket.userdetail['email']); // Tìm vị trí của đối tượng có id là 3 trong mảng
-//         if (index !== -1) {
-//           lstUserdetail.splice(index, 1); // Xóa đối tượng có index là index, chỉ xóa 1 đối tượng
-//         }
-//         console.log(socket.userdetail['username'] + ' disconnected');
-//         console.log(lstUserdetail.length);
-//       } else {
-//         //lstUserdetail = [];
-//         console.log('user disconnected');
-//       }
-      
-//     });
-
-// });
 server.listen(port, ()=>{console.log("server open post:"+ port)});
-
-
-//app.set('port', port);
-
-//var server = http.createServer(app);
-
-//server.listen(port,() => {
-  //  console.log("server open port " + port);
-//});
-//server.on('error', onError);
-//server.on('listening', onListening);
 
 
 function normalizePort(val) {

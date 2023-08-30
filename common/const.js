@@ -7,7 +7,13 @@ const  hangdi = "0";
 const  hangve = "1";
 const  emailAdmin = "namandroid.it@gmail.com";
 const  MSGerrorsystem = "Lỗi hệ thống !";
-const  MSGsucessystem = 'Data Sucess !'
+const  MSGsucessystem = 'Data Sucess !';
+
+// demo socket
+const demoCreatePorduct = "DemoCreatePorduct";
+const demoUpdatePorduct = "DemoUpdatePorduct";
+const demoDeletePorduct = "DemoDeletePorduct";
+const demoListProduct = "DemoListProduct";
 
 
 module.exports = {
@@ -20,5 +26,12 @@ module.exports = {
     hangve,
     emailAdmin,
     MSGerrorsystem,
-    MSGsucessystem
+    MSGsucessystem,
+
+    // demo socket
+    demoCreatePorduct,
+    demoUpdatePorduct,
+    demoDeletePorduct,
+    demoListProduct
+
 }
