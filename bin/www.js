@@ -9,15 +9,13 @@ const cors = require('cors')
 var port = normalizePort(process.env.PORT || '3006');
 var server = require("http").Server(app);
 var io = require('socket.io')(server, {
+  path: "/socket.io/",
   cors: {
     origin: "http://nanp.themenew.net",
     methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
     credentials: true
   }
 });
-
-
 
 global._io = io;
 
