@@ -11,7 +11,7 @@ var server = require("http").Server(app);
 var io = require('socket.io')(server, {
   path: "/socket.io",
   cors: {
-    origin: "http://nanp.themenew.net/",
+    origin: "http://nanp.themenew.net",
     methods: ["GET", "POST"],
     credentials: true
   }
