@@ -2,6 +2,7 @@
 const AbstractProcess = require("../../../process/abstractProcess/AbstractProcess");
 const {ObjectId} = require("mongodb");
 const DemoDetailProcess = require("../process/demoDetailProcess");
+const ListDemoProcess = require("../process/listDemoProcess");
 class DemoProcess extends AbstractProcess {
 
     constructor(dbcon) {
@@ -20,13 +21,8 @@ class DemoProcess extends AbstractProcess {
             price: data.price,
             completed: false
         });
-        let rs =  await Demo.collection.insertOne(newDemo, { session });
-        if(rs.insertedId) {
-            const demoDetailProcess = new DemoDetailProcess(this.database);
-            let resDetail = await demoDetailProcess.detail(rs.insertedId,session);
-            return resDetail;
-        }
-        return null;
+        let rs = await Demo.collection.insertOne(newDemo, { session });
+        return rs;
     }
 }
 
