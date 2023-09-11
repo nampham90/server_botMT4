@@ -9,12 +9,11 @@ const  emailAdmin = "namandroid.it@gmail.com";
 const  MSGerrorsystem = "Lỗi hệ thống !";
 const  MSGsucessystem = 'Data Sucess !';
 
-// demo socket
-const demoCreatePorduct = "DemoCreatePorduct";
-const demoUpdatePorduct = "DemoUpdatePorduct";
-const demoDeletePorduct = "DemoDeletePorduct";
-const demoListProduct = "DemoListProduct";
-
+// demo
+const demoListProduct = "DemoListProduct";//
+const demoCreateProduct = "DemoCreateProduct";
+const demoDeleteProduct = "DemoDeleteProduct";
+const demoUpdateProduct = "DemoUpdateProduct";
 
 module.exports = {
     idKhachhang,
@@ -27,11 +26,15 @@ module.exports = {
     emailAdmin,
     MSGerrorsystem,
     MSGsucessystem,
+    
+    //demo
+    demoListProduct,
+    demoCreateProduct,
+    demoDeleteProduct,
+    demoUpdateProduct
 
-    // demo socket
-    demoCreatePorduct,
-    demoUpdatePorduct,
-    demoDeletePorduct,
-    demoListProduct
+    // chat
+
+    // 
 
 }

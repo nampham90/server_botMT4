@@ -1,4 +1,5 @@
-const Demo = require("../screenpcs/demo/controller/demo.controler")
+const Const = require("../common/const")
+const DemoHandlers = require("../screenpcs/demo/controller/demo.handlers");
 class SocketServices{
     //connection socket
     connection( socket ){
@@ -7,13 +8,16 @@ class SocketServices{
             console.log(`User disconnect id is ${socket.userID}`);
         })
 
-        // on Demo
-        socket.on('DemoListProduct',Demo.list);
-        socket.on('DemoCreatePorduct', Demo.create);
-        socket.on('DemoDeletePorduct', Demo.delete);
-        socket.on('DemoUpdatePorduct', Demo.update);
+        // on demo
+        socket.on(Const.demoListProduct, (req) => {DemoHandlers.handleDemoListProduct(socket,req)});
+        socket.on(Const.demoCreateProduct, (req) => {DemoHandlers.handleDemoCreateProduct(socket,req)});
+        socket.on(Const.demoDeleteProduct, (req) => {DemoHandlers.handleDemoDeleteProduct(socket,req)});
+        socket.on(Const.demoUpdateProduct, (req) => {DemoHandlers.handleDemoUpdateProduct(socket,req)});
 
-        // on room..
+
+        // on chat
+
+        // on 
     }
 }
 
