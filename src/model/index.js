@@ -19,10 +19,10 @@ db.nhatkyhethong = require("./nhatkyhethong")(mongoose);
 db.demo = require("./demo")(mongoose);
 
 // master không thể xóa
-db.tmt030 = require("./tmt030")(mongoose);
-db.tmt050 = require("./tmt050")(mongoose);
-db.tmt100 = require("./tmt100")(mongoose);
-db.tmt101 = require("./tmt101")(mongoose);
+db.tmt030 = require("./tmt030_system")(mongoose);
+db.tmt050 = require("./tmt050_name")(mongoose);
+db.tmt100 = require("./tmt100_inqno")(mongoose);
+db.tmt101 = require("./tmt101_youtube")(mongoose);
 db.tmt010_file = require("./tmt010_file")(mongoose);
 
 

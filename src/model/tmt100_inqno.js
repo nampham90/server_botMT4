@@ -3,6 +3,7 @@ module.exports = mongoose => {
     const dbcon = require("../common/DBConnect");
       let schema = mongoose.Schema(
         {
+          cstmcd: String,
           maghep: {type:String, unique:true}, // Quy định 3 từ và duy nhất : ODS. maghep cho chuyến ngoài, ODT maghe cho chuyến trong 
           startnumber: String,//sô băt đầu 34000 -> 
           endnumber: String, //54999
@@ -12,6 +13,11 @@ module.exports = mongoose => {
           status03: Number, 
           status04: Number,
           status05: Number,
+          entdatetime: Date,
+          entprg: String,
+          updusrcd: String,
+          upddatetime: Date,
+          updprg:String,
         },
         { timestamps: true }
       );
@@ -22,6 +28,6 @@ module.exports = mongoose => {
         return object;
       });
     
-      const tmt100 = dbcon.dbDemo.model("tmt100", schema);
+      const tmt100 = dbcon.dbDemo.model("tmt100_inqno", schema);
       return tmt100;
   };

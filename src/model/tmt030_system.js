@@ -3,6 +3,7 @@ module.exports = mongoose => {
     const dbcon = require("../common/DBConnect");
       let schema = mongoose.Schema(
         {
+          cstmcd: String,
           SYSFLG1: Number, // 1. cho phép tài xế thay đổi trạng thai đơn hàng, 0 . không cho phép
           SYSFLG2: Number,//
           SYSFLG3: Number, //
@@ -23,6 +24,6 @@ module.exports = mongoose => {
         return object;
       });
     
-      const tmt030 = dbcon.dbDemo.model("tmt030", schema);
+      const tmt030 = dbcon.dbDemo.model("tmt030_system", schema);
       return tmt030;
   };

@@ -101,10 +101,10 @@ exports.getDetailMenu = async(req,res)=> {
 }
 
 exports.getDetailMenuFromUrl = async (req,res) => {
- 
+  let lang = req.lang;
   let m = await Menu.findOne({path: req.body.url});
   if(m) {
-    let lst = await Screenpc.find({idmenu:m._id})
+    let lst = await Screenpc.find({idmenu:m._id,lang: lang});
     let tmt101 = await TMT101.findOne({urldisplayid: req.body.url});
     let idyoutube = "";
     if(tmt101) {

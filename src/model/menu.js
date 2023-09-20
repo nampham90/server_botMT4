@@ -2,6 +2,7 @@ module.exports = mongoose => {
   const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
+        lang: String,
         id: Number | String,
         menuName: String,
         code: String,

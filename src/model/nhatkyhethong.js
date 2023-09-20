@@ -3,6 +3,7 @@ module.exports = mongoose => {
   const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
       {
+        cstmcd: String,
         loaithongbao: String, //Thông báo chung, thông báo hệ thống, thông báo về kế hoạch sắp tới notifi | system | vison
         noidung: String,
         iduser: {

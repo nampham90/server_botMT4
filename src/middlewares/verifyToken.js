@@ -4,6 +4,7 @@ let Response = Responses.Response;
 
 module.exports = (request, response, next) => {
     let tokenreq =request.headers.authorization;
+    let lang = request.headers['accept-language'];
     tokenreq = tokenreq.substring(7);
     
     const token = tokenreq;
@@ -17,6 +18,7 @@ module.exports = (request, response, next) => {
                 response.status(200).send(new Response(1012,"Hết hạn đăng nhặp ", null));
             } else {
                 request.userID = decoded.userId;
+                request.lang = lang;
                 request.isLoggedIn = true;
                 let role = decoded.role;
                 next();

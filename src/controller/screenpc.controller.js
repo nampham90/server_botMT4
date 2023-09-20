@@ -15,6 +15,7 @@ const ScreenpcUpdateProcess = require("../process/screenpcProcess/ScreenpcUpdate
 
 exports.getAllDataSC = async (req,res) => {
     try {
+        req.body.lang = req.lang;
         const screenpcSearchProcess = new ScreenpcSearchProcess(dbcon.dbDemo);
         await screenpcSearchProcess.start();
         const session = screenpcSearchProcess.transaction;

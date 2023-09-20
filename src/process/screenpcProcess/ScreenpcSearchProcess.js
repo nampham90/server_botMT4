@@ -12,6 +12,7 @@ class ScreenpcSearchProcess extends AbstractProcess {
     paramsSearch(data){
         let filters = data.filters;
         let search = {};
+        search.lang = data.lang;
         
         if(filters.idmenu) {
             search.idmenu = filters.idmenu
