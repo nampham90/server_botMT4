@@ -1,5 +1,3 @@
-const { string } = require("joi");
-
 module.exports = mongoose => {
   const dbcon = require("../common/DBConnect");
     let schema = mongoose.Schema(
