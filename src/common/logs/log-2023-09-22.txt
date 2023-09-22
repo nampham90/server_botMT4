@@ -1,0 +1,5 @@
+7:36:4: MongoDB :: demo_db menus.findOne({"path":"/default/dashboard/demo"},{"projection":{}})
+7:36:4: MongoDB :: demo_db demos.find({},{"projection":{}})
+7:36:4: MongoDB :: demo_db screenpcs.find({"idmenu":"6333e539021398275a67d83d","lang":"ja"},{"projection":{}})
+7:36:4: MongoDB :: demo_db tmt101_youtubes.findOne({"urldisplayid":"/default/dashboard/demo"},{"projection":{}})
+7:36:4: MongoDB :: demo_db demos.find({},{"limit":10,"skip":0,"projection":{}})

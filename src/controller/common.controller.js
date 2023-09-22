@@ -1,4 +1,5 @@
 const db = require("../model");
+const dbCon = require("../common/DBConnect");
 const Const = require('../common/const');
 let Responses = require('../common/response');
 let Response = Responses.Response
@@ -81,6 +82,25 @@ exports.getHDTTXN = async (req,res) => {
       return res.status(200).send(new Response(0,"sesuces !", hdttxn));
    } else {
       return res.status(200).send(new Response(1001,"null !", null));
+   }
+}
+const XacthucEmailProcess = require('../process/xacthucEmailProcess/xacthucEmailProcess');
+exports.xacthuctaikhoan = async(req, res) => {
+   console.log(req.params.id);
+   try {
+      if(req.params.id !== "") {
+         const xacthucEmailProcess = new XacthucEmailProcess(dbCon.dbDemo);
+         await xacthucEmailProcess.start();
+         const session = xacthucEmailProcess.transaction;
+         await xacthucEmailProcess.xacthucemail(req.params.id,session);
+         await xacthucEmailProcess.commit();
+         res.redirect('http://locahost:4201'); // trang dang nhap
+      } else {
+         res.redirect('http://locahost:4201');// trang error
+      }
+
+   } catch (error) {
+      res.redirect("http://locahost:4201");// trang error
    }
 }
 

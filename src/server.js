@@ -138,4 +138,24 @@ app.use(function (err, req, res, next) {
   });
 });
 
+
+// const sgMail = require('@sendgrid/mail');
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// const msg = {
+//   to: 'namandroid.it@gmail.com', // Change to your recipient
+//   from: 'pv_nam@brycen.com.vn', // Change to your verified sender
+//   subject: 'NANP Pro',
+//   text: 'tôi là nam phạm',
+//   html: `<a href="https://www.w3schools.com">Visit W3Schools.com!</a>`,
+// }
+
+// sgMail
+//   .send(msg)
+//   .then(() => {
+//     console.log('Email sent')
+//   })
+//   .catch((error) => {
+//     console.error(error)
+//   })
+
 module.exports = app;

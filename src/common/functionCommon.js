@@ -262,6 +262,29 @@ exports.minElement = (array,field) => {
 }
 
 
+// function send email
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+exports.sendEmail = (to,from,subject,contenText,contentHtml) => {
+    
+    let msg = {
+        to: to, // Change to your recipient
+        from: from, // Change to your verified sender
+        subject: subject,
+        text: contenText,
+        html: contentHtml,
+    }
+    sgMail
+    .send(msg)
+    .then(() => {
+      console.log('Email sent')
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+}
+
+
 // function send message telegram
 exports.fnSendMessageTelegram =  (idgroup, content, axios) => {
     let url = process.env.URL_TELEGRAM;

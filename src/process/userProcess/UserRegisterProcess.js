@@ -1,6 +1,7 @@
 const AbstractProcess = require('../abstractProcess/AbstractProcess');
 const bcrypt = require('bcryptjs');
-const _ = require("lodash")
+const _ = require("lodash");
+const sendgrid = require("../../common/sendEmail");
 //const db = require("../../model");
 class UserRegisterProcess extends AbstractProcess {
 
@@ -30,9 +31,15 @@ class UserRegisterProcess extends AbstractProcess {
           account_id: [],
           menulist: [],
           phongban_id: data.phongban_id,
-          lastLoginTime:dataNow
+          lastLoginTime:null
       });
-      await User.collection.insertOne(newUser, { session });
+      let rs = await User.collection.insertOne(newUser, { session });
+      if(rs.insertedId){
+        //gui email xac thuc
+
+       const id = rs.insertedId+"";
+       sendgrid.sendEmail(data.email,id);
+      }
       return res;
     }
 }
