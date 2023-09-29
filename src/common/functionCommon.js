@@ -3,6 +3,7 @@ const db = require('../model');
 const _ = require('lodash');
 let Responses = require('../common/response');
 const dotenv = require('dotenv');
+const moment = require('moment');
 dotenv.config();
 const User = db.user;
 const Xe = db.xe;
@@ -192,7 +193,11 @@ exports.checkIdMenu = async (idUser,idmenu) => {
     return false;
  }
 
-
+exports.datePipe = () => {
+    const now = moment();
+    const formattedDate = now.format('YYYY/MM/DD HH:mm:ss.SSS');
+    return formattedDate;
+}
 
 exports.dateNow = () => {
     let date = new Date()
@@ -204,6 +209,8 @@ exports.dateNow = () => {
     nowday = nowday + "" + year + "-" + thang + "-" + day;
     return nowday;
 }
+
+
 exports.take_decimal_number = (num,n) => {
     let base = 10**n;
     let result = Math.round(num * base) / base ;

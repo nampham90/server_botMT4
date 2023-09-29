@@ -29,7 +29,7 @@ function makeNewConnection(uri,type) {
     
         return db;
     } else if(type === 'mysql') {
-        const db = mysql.createConnection(dbconfig.dbMysqlConfig);
+        const db = mysql.createConnection(uri);
 
         db.on('error', (err) => {
             console.error('MySQL :: error:', err);
@@ -48,7 +48,7 @@ function makeNewConnection(uri,type) {
 
 const dbDemo = makeNewConnection(dbconfig.url, 'mongodb');
 const dbKhochung = makeNewConnection(dbconfig.urlkhochung, 'mongodb');
-const dbMySQL = makeNewConnection(dbconfig.urlkhochung, 'mysql');
+const dbMySQL = makeNewConnection(dbconfig.dbMysqlConfigCTY, 'mysql');
 
 module.exports = {
     dbDemo,

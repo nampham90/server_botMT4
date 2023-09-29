@@ -1,5 +1,4 @@
 const AbstractProcess = require('../../../process/abstractProcess/AbstractMysqlPorcess');
-const util = require('util');
 let ErrorDto = require('../../../common/ErrorDto');
 const Spin00101GetUserMysqlResponse = require("../dto/spin00101GetUserMysqlDto/spin00101GetUserMysqlResponse");
 class Spin00101GetUserMysqlProcess extends AbstractProcess {

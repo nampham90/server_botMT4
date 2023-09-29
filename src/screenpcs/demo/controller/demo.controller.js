@@ -2,6 +2,7 @@
 const dbCon = require('../../../common/DBConnect');
 let Responses = require('../../../common/response');
 let Response = Responses.Response
+const Result = require("../../../common/result/Result");
 const DemoGetListProcess = require('../process/demoGetListProcess');
 exports.list = async (req, callback) => {
     try {
@@ -10,9 +11,9 @@ exports.list = async (req, callback) => {
         const session = demoGetListProcess.transaction;
         let res = await demoGetListProcess.listProduct(req,session);
         await demoGetListProcess.commit();
-        callback(new Response(0, 'sussess',res));
+        callback(Result.success(res));
     } catch (error) {
-        callback(new Response(1001, error, null));
+        callback(Result.failure(ErrorCode.SYS_ERR_SEARCH_FAILED));
     }
 }
 
@@ -30,12 +31,12 @@ exports.create = async (req, callback) => {
             const session = demoGetListProcess.transaction;
             let res = await demoGetListProcess.listProduct(req,session);
             await demoGetListProcess.commit();
-            callback(new Response(0, 'sucess', res));
+            callback(Result.success(res));
         } else {
-            callback(new Response(1002, "Lỗi Insert", null));
+            callback(Result.failure(ErrorCode.SYS_ERR_CREATE_FAILED));
         }
     } catch (error) {
-        callback(new Response(1001, error, null));
+        callback(Result.failure(ErrorCode.SYS_ERR_GLOBAL));
     }
 }
 
@@ -53,16 +54,17 @@ exports.update = async (req, callback) => {
             const session = demoGetListProcess.transaction;
             let res = await demoGetListProcess.listProduct(req,session);
             await demoGetListProcess.commit();
-            callback(new Response(0, 'sucess', res));
+            callback(Result.success(res));
         } else {
-            callback(new Response(1002, "Lỗi Update", null));
+            callback(Result.failure(ErrorCode.SYS_ERR_UPDATE_FAILED));
         }
     } catch (error) {
-        callback(new Response(1001, error, null));
+        callback(Result.failure(ErrorCode.SYS_ERR_GLOBAL));
     }
 }
 
 const DemoDeleteProcess = require('../process/demoDeleteProcess');
+const { ErrorCode } = require('../../../common/enums/ErrorCode');
 exports.delete = async (req, callback) => {
     try {
         const demoDeleteProcess = new DemoDeleteProcess(dbCon.dbDemo);
@@ -76,11 +78,11 @@ exports.delete = async (req, callback) => {
             const session = demoGetListProcess.transaction;
             let res = await demoGetListProcess.listProduct(req,session);
             await demoGetListProcess.commit();
-            callback(new Response(0, 'sucess', res));
+            callback(Result.success(res));
         } else {
-            callback(new Response(1002, "Lỗi delete", null));
+            callback(Result.failure(ErrorCode.SYS_ERR_DELETE_FAILED));
         }
     } catch (error) {
-        callback(new Response(1001, error, null));
+        callback(Result.failure(ErrorCode.SYS_ERR_GLOBAL));
     }
 }

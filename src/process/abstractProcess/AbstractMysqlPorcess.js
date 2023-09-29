@@ -22,10 +22,10 @@ class AbstractMysqlProcess {
     await this.connection.rollback();
   }
 
-  async execute(req) {
+  async execute(db,req) {
     try {
       await this.start();
-      const result = await this.process(this.connection,req);
+      const result = await this.process(db,req);
       await this.commit();
       return result;
     } catch (error) {

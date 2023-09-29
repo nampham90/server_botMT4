@@ -9,5 +9,12 @@ module.exports = {
         user: process.env.MSUSER,
         password: process.env.MSPASSWORD,
         database: process.env.MSDATABASE
+    },
+    dbMysqlConfigCTY: {
+        host: process.env.MSHOSTCTY,
+        port: process.env.MSPORTCTY,
+        user: process.env.MSUSERCTY,
+        password: process.env.MSPASSWORDCTY,
+        database: process.env.MSDATABASECTY
     }
 }
