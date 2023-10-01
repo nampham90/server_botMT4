@@ -22,17 +22,17 @@ class AbstractMysqlProcess {
     await this.connection.rollback();
   }
 
-  async execute(db,req) {
+  async execute(req) {
+    await this.start();
     try {
-      await this.start();
-      const result = await this.process(db,req);
-      await this.commit();
+      const result = await this.process(this.connection,req);     
       return result;
     } catch (error) {
       logToFile(error.message);
       await this.rollback();
       throw error;
     } finally {
+        await this.commit();
         if (this.connection) {
             this.connection.end(); // Đóng kết nối sau khi hoàn thành giao dịch
         }

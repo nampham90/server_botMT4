@@ -21,7 +21,7 @@ exports.getUserMysql = async (req,res) => {
         let datares = await exportDataMongo.export("", session);
         await exportDataMongo.commit();
 
-        const importDataMysql = new ImportDataMysql(dbConfig.dbMysqlConfigCTY);
+        const importDataMysql = new ImportDataMysql(dbConfig.dbMysqlConfigNHA);
         await importDataMysql.import(datares);
 
         return res.status(200).send(new Response(0,"sucess", datares));

@@ -1,5 +1,5 @@
 const AbstractProcess = require('../../../process/abstractProcess/AbstractProcess');
-
+const MenuDto = require("../../../../common/dto/menuDto");
 class ExportDataMongo extends AbstractProcess {
     constructor(dbCon) {
         super(dbCon)
@@ -22,7 +22,11 @@ class ExportDataMongo extends AbstractProcess {
         }
 
         res.listUser = await User.find({});
-        res.listMenu = await Menu.find({});
+        let listMenu = await Menu.find({});
+        listMenu.forEach(e => {
+            let menu = new MenuDto(e);
+            res.listMenu.push(menu);
+        })
         res.listRole = await Role.find({});
         res.listDepartment = await Phongban.find({});
 
