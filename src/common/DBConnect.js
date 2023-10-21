@@ -53,5 +53,5 @@ const dbMySQL = makeNewConnection(dbconfig.dbMysqlConfigNHA, 'mysql');
 module.exports = {
     dbDemo,
     dbKhochung,
-    dbMySQL
+    dbMySQL     
 }

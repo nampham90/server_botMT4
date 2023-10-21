@@ -34,7 +34,9 @@ const ErrorCode = {
     SYS_ERR_DEPT_DELETE_USER: [  3041, "Có người trong bộ phận này và không thể xóa được!" ],
     SYS_ERR_DEPT_DELETE_CHILD: [  3041, "Bộ phận này là một bộ phận phụ và không thể xóa được!" ],
     SYS_ERR_MENU_CODE_REPETITION: [  3050, "Tên menu trùng lặp hoặc mã cấp phép!" ],
-    SYS_ERR_DELETE_MENU: [  3051, "Menu này không thể bị xóa!" ]
+    SYS_ERR_DELETE_MENU: [  3051, "Menu này không thể bị xóa!" ],
+
+    SYS_ERR_JSON: [4000, "Json không hợp lệ !"]
 
 };
 

@@ -1,5 +1,6 @@
 const AbstractProcess = require('../../../process/abstractProcess/AbstractProcess');
 let commonfun = require('../../../common/functionCommon');
+const PageInfo = require("../../../common/pageInfo/pageInfo");
 class DemoGetListProcess extends AbstractProcess {
     constructor(dbCon) {
         super(dbCon)
@@ -29,9 +30,9 @@ class DemoGetListProcess extends AbstractProcess {
                 n = req.pageNum - 1;
             }
 
-            let lst = await Demo.find(search).limit(req.pageSize).skip(req.pageSize*n);
-            let res = commonfun.dataReponse(allData,lst,req.pageNum,req.pageSize);
-            return res;
+            const lst = await Demo.find(search).limit(req.pageSize).skip(req.pageSize*n);
+            const pageInfo = new PageInfo(allData.length,lst, req.pageNum,req.pageSize);
+            return pageInfo;
         }
     }
 }
