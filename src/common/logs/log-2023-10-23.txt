@@ -1,0 +1,674 @@
+7:46:51: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+7:46:52: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+7:46:52: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+7:46:52: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+7:46:52: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+7:46:52: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+7:51:30: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+7:51:30: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+7:51:30: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+7:51:30: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+7:51:30: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+7:51:30: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+7:52:33: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+7:52:33: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+7:52:34: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+7:52:34: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+7:52:34: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+7:52:34: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+7:53:52: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+7:53:52: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+7:53:52: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+7:53:52: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+7:53:52: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+7:53:52: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:0:14: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:0:16: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:0:16: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:0:16: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:0:17: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:0:17: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:0:17: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:2:2: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:2:2: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:2:2: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:2:2: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:2:2: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:2:3: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:2:55: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:2:55: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:2:55: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:2:55: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:2:55: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:2:55: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:3:4: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:3:4: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:3:4: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:3:4: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:3:4: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:3:5: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:6:5: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:6:5: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:6:5: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:6:5: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:6:5: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:6:5: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:6:8: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:6:8: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:6:8: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:6:8: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:6:8: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:6:8: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:7:23: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:7:23: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:7:23: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:7:23: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:7:23: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:7:23: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:24:22: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:24:22: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:24:22: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:24:22: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:24:22: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:24:22: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:35:12: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:35:12: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:35:12: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:35:12: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:35:12: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:35:12: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:36:27: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:36:27: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:36:27: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:36:27: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:36:27: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:36:27: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:37:42: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:37:42: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:37:42: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:37:42: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:37:42: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:37:42: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:39:5: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:39:5: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:39:5: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:39:5: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:39:5: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:39:5: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:44:5: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:44:5: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:44:5: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:44:6: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:44:6: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:44:6: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:48:8: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:48:8: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:48:8: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:48:8: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+8:48:8: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:48:8: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:0:29: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:0:29: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:0:29: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:0:30: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:0:30: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:0:30: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:2:13: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:2:13: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:2:13: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:2:13: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:2:13: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:2:14: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:17:10: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:17:10: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:17:10: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:17:10: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:17:10: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:17:11: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:20:48: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:20:48: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:20:48: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:20:48: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:20:48: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:20:48: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:21:39: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:21:40: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:21:40: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:21:40: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:21:40: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:21:40: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:31:53: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:31:54: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:31:54: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:31:54: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:31:54: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:31:54: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:34:5: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:34:5: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:34:5: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:34:5: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:34:6: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:34:6: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:35:29: MongoDB :: demo_db users.findOne({},{"projection":{}})
+9:35:49: MongoDB :: demo_db users.findOne({},{"projection":{}})
+9:36:6: MongoDB :: demo_db users.findOne({},{"projection":{}})
+9:36:11: MongoDB :: demo_db users.findOne({},{"projection":{}})
+9:39:38: MongoDB :: demo_db users.findOne({"email":"namandroid.it@gmail.com"},{"projection":{}})
+9:39:38: MongoDB :: demo_db roles.find({"_id":{"$in":["6331b3ce65e0507984482ba7"]}},{"projection":{}})
+9:39:38: MongoDB :: demo_db roles.findOne({"_id":"6331b3ce65e0507984482ba7"},{"projection":{}})
+9:39:39: MongoDB :: demo_db menus.find({"_id":{"$in":["632aaa31c8093b9a2007d155","632aaa31c8093b9a2007d14b","6333e539021398275a67d83d","632aaa31c8093b9a2007d15f","632aaa31c8093b9a2007d188","632aaa31c8093b9a2007d144","632aaa31c8093b9a2007d16a","64f7fb2e4ab1e8cfb054a14f","64f7fbe14ab1e8cfb054a152","64f7fc234ab1e8cfb054a155","64f7fc514ab1e8cfb054a158","64f7fd0d4ab1e8cfb054a15b","64f7fd444ab1e8cfb054a15e","632aaa31c8093b9a2007d191","632aaa31c8093b9a2007d15b","632aaa31c8093b9a2007d167","632aaa31c8093b9a2007d176","632aaa31c8093b9a2007d18b","632aaa31c8093b9a2007d190","632aaa31c8093b9a2007d193","632aaa31c8093b9a2007d154","632aaa31c8093b9a2007d161","64867f1def5220e488de1d77","64867ffcef5220e488de1d7b","648680f5ef5220e488de1d7f","64868282ef5220e488de1d82","632aaa31c8093b9a2007d194","632aaa31c8093b9a2007d145","632aaa31c8093b9a2007d158","632aaa31c8093b9a2007d164","632aaa31c8093b9a2007d169","632aaa31c8093b9a2007d14c","632aaa31c8093b9a2007d171","632aaa31c8093b9a2007d17d","632aaa31c8093b9a2007d184","632aaa31c8093b9a2007d17f","632aaa31c8093b9a2007d14a","632aaa31c8093b9a2007d16f","632aaa31c8093b9a2007d17b","632aaa31c8093b9a2007d183","632aaa31c8093b9a2007d18a","632aaa31c8093b9a2007d148","632aaa31c8093b9a2007d16d","632aaa31c8093b9a2007d179","632aaa31c8093b9a2007d186","63343f59a5ada435bef9f4d6","63344034a5ada435bef9f4dc","63344067a5ada435bef9f4df","63344084a5ada435bef9f4e2","6423a489bab829e7784d6047","6423d78c2959d50e73fb6767","6423d7b62959d50e73fb676a","6423d7d52959d50e73fb676d","632aaa31c8093b9a2007d199"]}},{"projection":{}})
+9:39:39: MongoDB :: demo_db users.findOne({"_id":"6321fe53c26d4024dd312437"},{"projection":{"password":0,"menulist":0}})
+9:39:39: MongoDB :: demo_db users.findOne({"_id":"6321fe53c26d4024dd312437"},{"projection":{}})
+9:39:39: MongoDB :: demo_db tmt010_files.find({"_id":{"$in":["6533f6facfbffe7158649dd5"]}},{"projection":{}})
+9:39:39: MongoDB :: demo_db roles.find({"_id":{"$in":["6331b3ce65e0507984482ba7"]}},{"projection":{}})
+9:39:39: MongoDB :: demo_db roles.findOne({"_id":"6331b3ce65e0507984482ba7"},{"projection":{}})
+9:39:39: MongoDB :: demo_db menus.find({"_id":{"$in":["632aaa31c8093b9a2007d155","632aaa31c8093b9a2007d14b","6333e539021398275a67d83d","632aaa31c8093b9a2007d15f","632aaa31c8093b9a2007d188","632aaa31c8093b9a2007d144","632aaa31c8093b9a2007d16a","64f7fb2e4ab1e8cfb054a14f","64f7fbe14ab1e8cfb054a152","64f7fc234ab1e8cfb054a155","64f7fc514ab1e8cfb054a158","64f7fd0d4ab1e8cfb054a15b","64f7fd444ab1e8cfb054a15e","632aaa31c8093b9a2007d191","632aaa31c8093b9a2007d15b","632aaa31c8093b9a2007d167","632aaa31c8093b9a2007d176","632aaa31c8093b9a2007d18b","632aaa31c8093b9a2007d190","632aaa31c8093b9a2007d193","632aaa31c8093b9a2007d154","632aaa31c8093b9a2007d161","64867f1def5220e488de1d77","64867ffcef5220e488de1d7b","648680f5ef5220e488de1d7f","64868282ef5220e488de1d82","632aaa31c8093b9a2007d194","632aaa31c8093b9a2007d145","632aaa31c8093b9a2007d158","632aaa31c8093b9a2007d164","632aaa31c8093b9a2007d169","632aaa31c8093b9a2007d14c","632aaa31c8093b9a2007d171","632aaa31c8093b9a2007d17d","632aaa31c8093b9a2007d184","632aaa31c8093b9a2007d17f","632aaa31c8093b9a2007d14a","632aaa31c8093b9a2007d16f","632aaa31c8093b9a2007d17b","632aaa31c8093b9a2007d183","632aaa31c8093b9a2007d18a","632aaa31c8093b9a2007d148","632aaa31c8093b9a2007d16d","632aaa31c8093b9a2007d179","632aaa31c8093b9a2007d186","63343f59a5ada435bef9f4d6","63344034a5ada435bef9f4dc","63344067a5ada435bef9f4df","63344084a5ada435bef9f4e2","6423a489bab829e7784d6047","6423d78c2959d50e73fb6767","6423d7b62959d50e73fb676a","6423d7d52959d50e73fb676d","632aaa31c8093b9a2007d199"]}},{"projection":{}})
+9:39:39: MongoDB :: demo_db menus.findOne({"path":"/default/dashboard/analysis"},{"projection":{}})
+9:39:39: MongoDB :: demo_db screenpcs.find({"idmenu":"632aaa31c8093b9a2007d14b","lang":"vi"},{"projection":{}})
+9:39:39: MongoDB :: demo_db tmt101_youtubes.findOne({"urldisplayid":"/default/dashboard/analysis"},{"projection":{}})
+9:40:13: MongoDB :: demo_db users.findOne({"email":"namandroid.it@gmail.com"},{"projection":{}})
+9:40:13: MongoDB :: demo_db roles.find({"_id":{"$in":["6331b3ce65e0507984482ba7"]}},{"projection":{}})
+9:40:14: MongoDB :: demo_db roles.findOne({"_id":"6331b3ce65e0507984482ba7"},{"projection":{}})
+9:40:14: MongoDB :: demo_db menus.find({"_id":{"$in":["632aaa31c8093b9a2007d155","632aaa31c8093b9a2007d14b","6333e539021398275a67d83d","632aaa31c8093b9a2007d15f","632aaa31c8093b9a2007d188","632aaa31c8093b9a2007d144","632aaa31c8093b9a2007d16a","64f7fb2e4ab1e8cfb054a14f","64f7fbe14ab1e8cfb054a152","64f7fc234ab1e8cfb054a155","64f7fc514ab1e8cfb054a158","64f7fd0d4ab1e8cfb054a15b","64f7fd444ab1e8cfb054a15e","632aaa31c8093b9a2007d191","632aaa31c8093b9a2007d15b","632aaa31c8093b9a2007d167","632aaa31c8093b9a2007d176","632aaa31c8093b9a2007d18b","632aaa31c8093b9a2007d190","632aaa31c8093b9a2007d193","632aaa31c8093b9a2007d154","632aaa31c8093b9a2007d161","64867f1def5220e488de1d77","64867ffcef5220e488de1d7b","648680f5ef5220e488de1d7f","64868282ef5220e488de1d82","632aaa31c8093b9a2007d194","632aaa31c8093b9a2007d145","632aaa31c8093b9a2007d158","632aaa31c8093b9a2007d164","632aaa31c8093b9a2007d169","632aaa31c8093b9a2007d14c","632aaa31c8093b9a2007d171","632aaa31c8093b9a2007d17d","632aaa31c8093b9a2007d184","632aaa31c8093b9a2007d17f","632aaa31c8093b9a2007d14a","632aaa31c8093b9a2007d16f","632aaa31c8093b9a2007d17b","632aaa31c8093b9a2007d183","632aaa31c8093b9a2007d18a","632aaa31c8093b9a2007d148","632aaa31c8093b9a2007d16d","632aaa31c8093b9a2007d179","632aaa31c8093b9a2007d186","63343f59a5ada435bef9f4d6","63344034a5ada435bef9f4dc","63344067a5ada435bef9f4df","63344084a5ada435bef9f4e2","6423a489bab829e7784d6047","6423d78c2959d50e73fb6767","6423d7b62959d50e73fb676a","6423d7d52959d50e73fb676d","632aaa31c8093b9a2007d199"]}},{"projection":{}})
+9:40:48: TypeError: this.models.sys_menu.findAll is not a function
+9:40:48: Error: Error System: TypeError: this.models.sys_menu.findAll is not a function
+9:44:24: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:44:24: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:44:25: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:44:25: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:44:25: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:44:25: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:44:29: TypeError: this.models.sys_menu.findAll is not a function
+9:44:29: Error: Error System: TypeError: this.models.sys_menu.findAll is not a function
+9:47:1: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:47:1: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:47:1: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:47:1: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:47:1: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:47:1: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:47:5: TypeError: this.db.models.sys_menu.findAll is not a function
+9:47:5: Error: Error System: TypeError: this.db.models.sys_menu.findAll is not a function
+9:48:32: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:48:32: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:48:32: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:48:32: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:48:32: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:48:33: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:56:6: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:56:7: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:56:7: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:56:7: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:56:7: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:56:7: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:56:37: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:56:37: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:56:37: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:56:37: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:56:37: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:56:37: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:57:2: TypeError: this.db.models.sys_menu.findAll is not a function
+9:57:2: Error: Error System: TypeError: this.db.models.sys_menu.findAll is not a function
+9:58:24: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+9:58:24: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+9:58:24: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+9:58:25: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+9:58:25: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+9:58:25: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+9:58:36: TypeError: this.db.models.sys_menu.findAll is not a function
+9:58:37: Error: Error System: TypeError: this.db.models.sys_menu.findAll is not a function
+10:1:3: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:1:3: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:1:4: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:1:4: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:1:4: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:1:4: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:4:55: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:4:55: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:4:55: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:4:55: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:4:55: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:4:55: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:7:10: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:7:10: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:7:10: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:7:10: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:7:10: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:7:11: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:7:23: TypeError: this.db.models.sys_menu.findAll is not a function
+10:7:27: Error: Error System: TypeError: this.db.models.sys_menu.findAll is not a function
+10:8:45: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:8:45: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:8:45: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:8:45: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:8:45: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:8:45: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:9:32: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:9:32: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:9:32: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:9:33: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:9:33: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:9:33: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:9:55: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:9:55: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:9:55: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:9:55: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:9:55: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:9:55: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:10:23: TypeError: this.db.models.sys_menu.findAll is not a function
+10:10:23: Error: Error System: TypeError: this.db.models.sys_menu.findAll is not a function
+10:10:45: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:10:45: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:10:45: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:10:46: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:10:46: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:10:46: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:10:52: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:10:52: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:10:52: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:10:52: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:10:52: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:10:52: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:11:37: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:11:37: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:11:37: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:11:37: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:11:37: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:11:37: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:12:12: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:12:12: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:12:12: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:12:13: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:12:13: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:12:13: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:15:10: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:15:10: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:15:10: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:15:11: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:15:11: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:15:11: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:15:45: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:15:45: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:15:45: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:15:45: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:15:45: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:15:45: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:15:53: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:15:53: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:15:53: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:15:53: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:15:53: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:15:53: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:16:14: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:16:15: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:16:15: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:16:15: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:16:15: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:16:15: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:16:40: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:16:40: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:16:40: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:16:40: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:16:41: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:16:41: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:18:39: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:18:39: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:18:39: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:18:39: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:18:39: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:18:39: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:22:4: Executing (default): SELECT 1+1 AS result
+10:22:4: Executing (default): SELECT 1+1 AS result
+10:22:4: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:22:5: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:22:5: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:22:5: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:22:5: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:22:5: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:22:44: Executing (default): SELECT 1+1 AS result
+10:22:44: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+10:22:44: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+10:22:44: Executing (default): SHOW INDEX FROM `sys_menus`
+10:24:50: Executing (default): SELECT 1+1 AS result
+10:24:50: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+10:24:50: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+10:24:50: Executing (default): SHOW INDEX FROM `sys_menus`
+10:26:32: Executing (default): SELECT 1+1 AS result
+10:26:32: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+10:26:32: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+10:26:32: Executing (default): SHOW INDEX FROM `sys_menus`
+10:34:42: Executing (default): SELECT 1+1 AS result
+10:34:42: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+10:34:42: Executing (default): SHOW INDEX FROM `sys_menus`
+10:34:43: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:34:43: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:34:44: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:34:44: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:34:44: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:34:44: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:34:58: Executing (default): SELECT 1+1 AS result
+10:34:58: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+10:34:58: Executing (default): SHOW INDEX FROM `sys_menus`
+10:34:59: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:34:59: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:34:59: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:34:59: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:34:59: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:35:0: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:35:13: TypeError: Cannot read properties of undefined (reading 'sys_menu')
+10:35:13: Error: Error System: TypeError: Cannot read properties of undefined (reading 'sys_menu')
+10:42:12: Executing (default): SELECT 1+1 AS result
+10:42:12: Executing (default): SELECT 1+1 AS result
+10:42:12: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+10:42:13: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+10:42:13: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+10:42:13: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+10:42:13: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+10:42:13: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+10:45:40: TypeError: Cannot read properties of undefined (reading 'sys_menu')
+10:45:40: Error: Error System: TypeError: Cannot read properties of undefined (reading 'sys_menu')
+11:57:57: Executing (default): SELECT 1+1 AS result
+11:57:57: Executing (default): SELECT 1+1 AS result
+11:57:57: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+11:57:57: Executing (default): SHOW INDEX FROM `sys_menus`
+11:57:57: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+11:57:58: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+11:57:58: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+11:57:58: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+11:57:58: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+11:57:58: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+11:58:10: Executing (default): SELECT 1+1 AS result
+11:58:10: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+11:58:31: Executing (default): SELECT 1+1 AS result
+11:58:31: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+11:59:27: Executing (default): SELECT 1+1 AS result
+11:59:27: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+11:59:27: Executing (default): SHOW INDEX FROM `sys_menus`
+11:59:27: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+11:59:28: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+11:59:28: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+11:59:28: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+11:59:28: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+11:59:28: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+11:59:30: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+11:59:34: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+11:59:38: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+11:59:39: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+12:0:6: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+13:1:7: Executing (default): SELECT 1+1 AS result
+13:1:7: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:1:7: Executing (default): SHOW INDEX FROM `sys_menus`
+13:1:7: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:1:8: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:1:8: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:1:8: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:1:8: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:1:8: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:1:13: Executing (default): SELECT * FROM FROM `sys_menus`
+13:1:13: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `sys_menus`' at line 1
+13:1:13: Error: Error System: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `sys_menus`' at line 1
+13:1:27: Executing (default): SELECT 1+1 AS result
+13:1:27: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:1:27: Executing (default): SHOW INDEX FROM `sys_menus`
+13:1:28: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:1:28: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:1:29: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:1:29: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:1:29: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:1:29: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:1:32: Executing (default): SELECT * FROM FROM sys_menus
+13:1:32: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM sys_menus' at line 1
+13:1:32: Error: Error System: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM sys_menus' at line 1
+13:1:45: Executing (default): SELECT 1+1 AS result
+13:1:45: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:1:45: Executing (default): SHOW INDEX FROM `sys_menus`
+13:1:46: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:1:46: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:1:46: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:1:46: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:1:46: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:1:46: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:1:48: Executing (default): SELECT * FROM FROM sys_menu
+13:1:48: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM sys_menu' at line 1
+13:1:48: Error: Error System: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM sys_menu' at line 1
+13:2:2: Executing (default): SELECT 1+1 AS result
+13:2:2: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:2:2: Executing (default): SHOW INDEX FROM `sys_menus`
+13:2:3: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:2:3: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:2:3: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:2:3: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:2:3: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:2:3: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:2:6: Executing (default): SELECT * FROM sys_menus
+13:27:25: Executing (default): SELECT 1+1 AS result
+13:27:25: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:27:25: Executing (default): SHOW INDEX FROM `sys_menus`
+13:27:25: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:27:25: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:27:25: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:27:26: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:27:26: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:27:26: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:36:14: Executing (default): SELECT 1+1 AS result
+13:36:14: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:36:14: Executing (default): SHOW INDEX FROM `sys_menus`
+13:36:14: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:36:15: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:36:15: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:36:15: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:36:15: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:36:15: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:36:35: Executing (default): SELECT 1+1 AS result
+13:36:35: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:36:35: Executing (default): CREATE TABLE IF NOT EXISTS `sys_menus` (`id` VARCHAR(36) NOT NULL , `lang` VARCHAR(3) NOT NULL , `menuName` VARCHAR(50) NOT NULL, `code` VARCHAR(50) NOT NULL, `fatherId` VARCHAR(24) NOT NULL, `orderNum` INTEGER NOT NULL, `path` VARCHAR(100) NOT NULL, `menuType` CHAR(1) NOT NULL, `visible` TINYINT(1) NOT NULL, `status` TINYINT(1) NOT NULL, `icon` VARCHAR(50) NOT NULL, `alIcon` VARCHAR(50) NOT NULL, `newLinkFlag` TINYINT(1) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`, `lang`)) ENGINE=InnoDB;
+13:36:35: Executing (default): SHOW INDEX FROM `sys_menus`
+13:36:35: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:36:36: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:36:36: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:36:36: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:36:36: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:36:36: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:43:30: Executing (default): SELECT 1+1 AS result
+13:43:30: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:43:30: Executing (default): SHOW INDEX FROM `sys_menus`
+13:43:30: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:43:31: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:43:31: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:43:31: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:43:31: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:43:31: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:43:36: TypeError: MenuMongo.findAll is not a function
+13:43:36: Error: Error System: TypeError: MenuMongo.findAll is not a function
+13:45:12: Executing (default): SELECT 1+1 AS result
+13:45:12: Executing (default): SHOW INDEX FROM `sys_menus`
+13:45:12: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:45:12: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:45:13: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:45:13: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:45:13: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:45:13: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:45:13: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:45:19: MongoDB :: demo_db menus.find({},{"projection":{}})
+13:48:56: Executing (default): SELECT 1+1 AS result
+13:48:56: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:48:56: Executing (default): SHOW INDEX FROM `sys_menus`
+13:48:57: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:48:57: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:48:57: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:48:58: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:48:58: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:48:58: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:49:31: MongoDB :: demo_db menus.find({},{"projection":{}})
+13:49:32: Executing (default): INSERT INTO `sys_menus` (`id`,`lang`,`createdAt`,`updatedAt`) VALUES (NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32'),(NULL,NULL,'2023-10-23 06:49:32','2023-10-23 06:49:32');
+13:49:32: SequelizeDatabaseError: Column 'id' cannot be null
+13:49:32: Error: Error System: SequelizeDatabaseError: Column 'id' cannot be null
+13:51:1: Executing (default): SELECT 1+1 AS result
+13:51:1: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+13:51:1: Executing (default): SHOW INDEX FROM `sys_menus`
+13:51:2: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+13:51:2: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+13:51:2: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+13:51:2: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+13:51:2: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+13:51:2: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+13:51:3: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:2:9: Executing (default): SELECT 1+1 AS result
+14:2:9: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:2:9: Executing (default): SHOW INDEX FROM `sys_menus`
+14:2:10: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:2:10: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:2:10: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:2:10: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:2:10: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:2:10: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:2:29: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:3:29: Executing (default): SELECT 1+1 AS result
+14:3:29: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:3:29: Executing (default): SHOW INDEX FROM `sys_menus`
+14:3:29: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:3:30: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:3:30: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:3:30: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:3:30: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:3:30: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:3:32: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:4:13: Executing (default): SELECT 1+1 AS result
+14:4:13: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:4:13: Executing (default): SHOW INDEX FROM `sys_menus`
+14:4:13: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:4:14: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:4:14: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:4:14: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:4:14: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:4:14: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:4:25: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:4:25: Error: Invalid value new ObjectId("632aaa31c8093b9a2007d144")
+14:4:25: Error: Error System: Error: Invalid value new ObjectId("632aaa31c8093b9a2007d144")
+14:4:56: Executing (default): SELECT 1+1 AS result
+14:4:56: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:4:56: Executing (default): SHOW INDEX FROM `sys_menus`
+14:4:57: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:4:57: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:4:58: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:4:58: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:4:58: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:4:58: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:5:2: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:5:2: Error: Invalid value new ObjectId("632aaa31c8093b9a2007d188")
+14:5:2: Error: Error System: Error: Invalid value new ObjectId("632aaa31c8093b9a2007d188")
+14:5:49: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:5:49: Error: Invalid value new ObjectId("632aaa31c8093b9a2007d188")
+14:5:49: Error: Error System: Error: Invalid value new ObjectId("632aaa31c8093b9a2007d188")
+14:6:11: Executing (default): SELECT 1+1 AS result
+14:6:11: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:6:11: Executing (default): SHOW INDEX FROM `sys_menus`
+14:6:12: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:6:12: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:6:12: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:6:12: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:6:12: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:6:12: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:6:15: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:6:16: TypeError: Cannot read properties of undefined (reading 'toString')
+14:6:16: Error: Error System: TypeError: Cannot read properties of undefined (reading 'toString')
+14:7:14: Executing (default): SELECT 1+1 AS result
+14:7:14: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:7:14: Executing (default): SHOW INDEX FROM `sys_menus`
+14:7:15: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:7:15: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:7:15: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:7:15: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:7:15: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:7:15: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:7:17: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:7:17: Executing (default): INSERT INTO `sys_menus` (`id`,`lang`,`menuName`,`code`,`fatherId`,`orderNum`,`path`,`menuType`,`visible`,`status`,`icon`,`alIcon`,`newLinkFlag`,`createdAt`,`updatedAt`) VALUES ('632aaa31c8093b9a2007d144','vi','Trang thành công','default:page-demo:result:success','632aaa31c8093b9a2007d188',1,'/default/page-demo/result/success','C',false,true,'check-circle',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d145','vi','Quản lý tài khoản','default:system:account','632aaa31c8093b9a2007d194',1,'/default/system/account','C',true,true,'user','',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d147','vi','Danh sách tìm kiếm (Các bài báo)','default:page-demo:list:search-list:article','632aaa31c8093b9a2007d151',1,'/default/page-demo/list/search-list/article','C',true,true,'table',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d148','vi','Quản lý bộ phận đã thêm','default:system:dept:add','632aaa31c8093b9a2007d18a',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d14a','vi','Quản lý menu đã được thêm vào','default:system:menu:add','632aaa31c8093b9a2007d17f',1,NULL,'F',true,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d14b','vi','Trang phân tích','default:dashboard:analysis','632aaa31c8093b9a2007d155',1,'/default/dashboard/analysis','C',true,true,'fund','',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d14c','vi','Quản lý vai trò mới','default:system:role-manager:add','632aaa31c8093b9a2007d169',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d142','vi','Người đầu tiên','blank:other-login:login1','632aaa31c8093b9a2007d1a1',1,'/blank/other-login/login1','C',true,true,'highlight',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d155','vi','Dashboard','default:dashboard','0',1,'/default/dashboard','C',true,true,'dashboard','',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d154','vi','Trung tâm cá nhân','default:page-demo:personal:personal-center','632aaa31c8093b9a2007d193',1,'/default/page-demo/personal/personal-center','C',false,true,'user',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d158','vi','Đã thêm quản lý tài khoản','default:system:account:add','632aaa31c8093b9a2007d145',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d15b','vi','403','default:page-demo:except:except403','632aaa31c8093b9a2007d191',1,'/default/page-demo/except/except403','C',false,true,'warning',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d15f','vi','Trang','default:page-demo','0',2,'/default/page-demo','C',true,true,'appstore',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d161','vi','Thiết lập cá nhân','default:page-demo:personal:personal-setting','632aaa31c8093b9a2007d193',2,'/default/page-demo/personal/personal-setting','C',false,true,'user','',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d164','vi','Quản lý tài khoản Edit','default:system:account:edit','632aaa31c8093b9a2007d145',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d169','vi','Quản lý vai trò','default:system:role-manager','632aaa31c8093b9a2007d194',2,'/default/system/role-manager','C',true,true,'up-circle','',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d16a','vi','Trang thất bại','default:page-demo:result:fail','632aaa31c8093b9a2007d188',2,'/default/page-demo/result/fail','C',false,true,'check-circle',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d16c','vi','Danh sách tìm kiếm (mục)','default:page-demo:list:search-list:project','632aaa31c8093b9a2007d151',2,'/default/page-demo/list/search-list/project','C',true,true,'table',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d16d','vi','Biên tập viên quản lý bộ phận','default:system:dept:edit','632aaa31c8093b9a2007d18a',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d16f','vi','Trình chỉnh sửa quản lý menu','default:system:menu:edit','632aaa31c8093b9a2007d17f',2,NULL,'F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d170','vi','Trang giám sát','default:dashboard:monitor','632aaa31c8093b9a2007d155',2,'/default/dashboard/monitor','C',true,true,'fund',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d171','vi','Biên tập viên quản lý vai trò','default:system:role-manager:edit','632aaa31c8093b9a2007d169',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d176','vi','500','default:page-demo:except:except500','632aaa31c8093b9a2007d191',3,'/default/page-demo/except/except500','C',false,true,'warning',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d177','vi','Quản lý tài khoản xóa','default:system:account:del','632aaa31c8093b9a2007d145',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d179','vi','Quản lý bộ phận xóa','default:system:dept:del','632aaa31c8093b9a2007d18a',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d178','vi','Danh sách tìm kiếm (Ứng dụng)','default:page-demo:list:search-list:application','632aaa31c8093b9a2007d151',3,'/default/page-demo/list/search-list/application','C',true,true,'table',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d17b','vi','Quản lý menu xóa','default:system:menu:del','632aaa31c8093b9a2007d17f',3,NULL,'F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d17c','vi','Bàn làm việc','default:dashboard:workbench','632aaa31c8093b9a2007d155',3,'/default/dashboard/workbench','C',true,true,'appstore',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d17d','vi','Quản lý vai trò xóa','default:system:role-manager:del','632aaa31c8093b9a2007d169',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d17f','vi','Quản lý menu','default:system:menu','632aaa31c8093b9a2007d194',3,'/default/system/menu','C',true,true,'menu','',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d183','vi','Quản lý menu thêm cấp dưới','default:system:menu:addlowlevel','632aaa31c8093b9a2007d17f',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d184','vi','Quản lý vai trò thiết lập các vai trò','default:system:role-manager:set-role','632aaa31c8093b9a2007d169',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d186','vi','Thêm cấp dưới vào quản lý bộ phận','default:system:dept:addlowlevel','632aaa31c8093b9a2007d18a',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d167','vi','404','default:page-demo:except:except404','632aaa31c8093b9a2007d191',2,'/default/page-demo/except/except404','C',true,true,'warning',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d188','vi','Trang kết quả','default:page-demo:result','632aaa31c8093b9a2007d15f',4,'/default/page-demo/result','C',false,true,'check-circle',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d18a','vi','Quản lý bộ phận','default:system:dept','632aaa31c8093b9a2007d194',4,'/default/system/dept','C',true,true,'border-outer','',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d18b','vi','Lỗi mạng','default:page-demo:except:network-error','632aaa31c8093b9a2007d191',4,'/default/page-demo/except/network-error','C',false,true,'warning','',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d191','vi','trang ngoại lệ','default:page-demo:except','632aaa31c8093b9a2007d15f',5,'/default/page-demo/except','C',false,true,'warning',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d190','vi','không có dữ liệu','default:page-demo:except:no-data','632aaa31c8093b9a2007d191',5,'/default/page-demo/except/no-data','C',false,true,'warning',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d194','vi','Hệ thống','default:system','0',6,'/default/system','C',true,true,'setting','',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d193','vi','Trang cá nhân','default:page-demo:personal','632aaa31c8093b9a2007d15f',6,'/default/page-demo/personal','C',false,true,'user',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('632aaa31c8093b9a2007d199','vi','About','default:about','0',7,'/default/about','C',true,true,'','icon-medium',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('6333e539021398275a67d83d','vi','Demo','default:dashboard:demo','632aaa31c8093b9a2007d155',4,'/default/dashboard/demo','C',false,false,'up-circle',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('6334016f73116adbaf79bd3c','vi','Demo1','default:dashboard:demo1','undefined',5,'default/dashboard/demo1','C',true,true,'up-circle',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('63340827858087818680f103','vi','Demo1','default:dashboard:demo1','632aaa31c8093b9a2007d155',6,'/default/dashboard/demo1','C',true,true,'up-circle',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('63343f59a5ada435bef9f4d6','vi','Quản lý dữ liệu SC','default:system:datasc','632aaa31c8093b9a2007d194',5,'/default/system/datasc','C',true,true,'diff',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('63344034a5ada435bef9f4dc','vi','Quản lý dữ liệu SC Add','default:system:datasc:add','63343f59a5ada435bef9f4d6',1,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('63344067a5ada435bef9f4df','vi','Quản lý dữ liệu SC Edit','default:system:datasc:edit','63343f59a5ada435bef9f4d6',2,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('63344084a5ada435bef9f4e2','vi','Quản lý dữ liệu SC Del','default:system:datasc:del','63343f59a5ada435bef9f4d6',3,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('6423a489bab829e7784d6047','vi','Hướng dẫn','default:system:huongdan','632aaa31c8093b9a2007d194',8,'/default/system/huongdan','C',true,true,'youtube',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('6423d78c2959d50e73fb6767','vi','Thêm mới','default:system:huongdan:add','6423a489bab829e7784d6047',1,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('6423d7b62959d50e73fb676a','vi','Xóa tất cả','default:system:huongdan:allDel','6423a489bab829e7784d6047',2,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('6423d7d52959d50e73fb676d','vi','Cập nhật','default:system:huongdan:update','6423a489bab829e7784d6047',3,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('64867f1def5220e488de1d77','vi','Sản Phẩm','default:product','0',3,'/default/product','C',true,true,'sketch',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('64867ffcef5220e488de1d7b','vi','Tìm kiếm','default:product:search','64867f1def5220e488de1d77',1,'/default/product/search','C',true,true,'form',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('648680f5ef5220e488de1d7f','vi','Thêm mới','default:product:newproduct','64867f1def5220e488de1d77',2,'/default/product/newproduct','C',true,true,'edit',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('64868282ef5220e488de1d82','vi','Danh mục','default:product:category','64867f1def5220e488de1d77',3,'/default/product/category','C',true,true,'border-outer',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('64f7fb2e4ab1e8cfb054a14f','vi','Danh Sách','default:page-demo:list','632aaa31c8093b9a2007d15f',4,'/default/page-demo/list','C',true,true,'unordered-list',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('64f7fbe14ab1e8cfb054a152','vi','Mẫu','default:page-demo:list:standard-table','64f7fb2e4ab1e8cfb054a14f',1,'/default/page-demo/list/standard-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('64f7fc234ab1e8cfb054a155','vi','Dạng Cây','default:page-demo:list:tree-list','64f7fb2e4ab1e8cfb054a14f',2,'/default/page-demo/list/tree-list','C',true,true,'caret-right','',false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('64f7fc514ab1e8cfb054a158','vi','Danh Sách Thẻ','default:page-demo:list:card-table','64f7fb2e4ab1e8cfb054a14f',3,'/default/page-demo/list/card-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('64f7fd0d4ab1e8cfb054a15b','vi','Tìm kiếm bảng','default:page-demo:list:search-table','64f7fb2e4ab1e8cfb054a14f',4,' /default/page-demo/list/search-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17'),('64f7fd444ab1e8cfb054a15e','vi','Tìm kiếm danh sách','default:page-demo:list:search-list','64f7fb2e4ab1e8cfb054a14f',5,'/default/page-demo/list/search-list','C',true,true,'caret-right',NULL,false,'2023-10-23 07:07:17','2023-10-23 07:07:17');
+14:7:17: SequelizeDatabaseError: Column 'alIcon' cannot be null
+14:7:17: Error: Error System: SequelizeDatabaseError: Column 'alIcon' cannot be null
+14:8:29: Executing (default): SELECT 1+1 AS result
+14:8:29: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:8:29: Executing (default): SHOW INDEX FROM `sys_menus`
+14:8:30: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:8:30: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:8:30: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:8:31: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:8:31: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:8:31: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:9:13: Executing (default): SELECT 1+1 AS result
+14:9:13: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:9:13: Executing (default): CREATE TABLE IF NOT EXISTS `sys_menus` (`id` VARCHAR(36) NOT NULL , `lang` VARCHAR(3) NOT NULL , `menuName` VARCHAR(50) NOT NULL, `code` VARCHAR(50) NOT NULL, `fatherId` VARCHAR(24) NOT NULL, `orderNum` INTEGER NOT NULL, `path` VARCHAR(100) NOT NULL, `menuType` CHAR(1) NOT NULL, `visible` TINYINT(1) NOT NULL, `status` TINYINT(1) NOT NULL, `icon` VARCHAR(50), `alIcon` VARCHAR(50), `newLinkFlag` TINYINT(1) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`, `lang`)) ENGINE=InnoDB;
+14:9:13: Executing (default): SHOW INDEX FROM `sys_menus`
+14:9:14: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:9:14: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:9:15: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:9:15: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:9:15: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:9:15: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:9:23: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:9:24: Executing (default): INSERT INTO `sys_menus` (`id`,`lang`,`menuName`,`code`,`fatherId`,`orderNum`,`path`,`menuType`,`visible`,`status`,`icon`,`alIcon`,`newLinkFlag`,`createdAt`,`updatedAt`) VALUES ('632aaa31c8093b9a2007d144','vi','Trang thành công','default:page-demo:result:success','632aaa31c8093b9a2007d188',1,'/default/page-demo/result/success','C',false,true,'check-circle',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d145','vi','Quản lý tài khoản','default:system:account','632aaa31c8093b9a2007d194',1,'/default/system/account','C',true,true,'user','',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d147','vi','Danh sách tìm kiếm (Các bài báo)','default:page-demo:list:search-list:article','632aaa31c8093b9a2007d151',1,'/default/page-demo/list/search-list/article','C',true,true,'table',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d148','vi','Quản lý bộ phận đã thêm','default:system:dept:add','632aaa31c8093b9a2007d18a',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d14a','vi','Quản lý menu đã được thêm vào','default:system:menu:add','632aaa31c8093b9a2007d17f',1,NULL,'F',true,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d14b','vi','Trang phân tích','default:dashboard:analysis','632aaa31c8093b9a2007d155',1,'/default/dashboard/analysis','C',true,true,'fund','',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d14c','vi','Quản lý vai trò mới','default:system:role-manager:add','632aaa31c8093b9a2007d169',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d142','vi','Người đầu tiên','blank:other-login:login1','632aaa31c8093b9a2007d1a1',1,'/blank/other-login/login1','C',true,true,'highlight',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d155','vi','Dashboard','default:dashboard','0',1,'/default/dashboard','C',true,true,'dashboard','',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d154','vi','Trung tâm cá nhân','default:page-demo:personal:personal-center','632aaa31c8093b9a2007d193',1,'/default/page-demo/personal/personal-center','C',false,true,'user',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d158','vi','Đã thêm quản lý tài khoản','default:system:account:add','632aaa31c8093b9a2007d145',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d15b','vi','403','default:page-demo:except:except403','632aaa31c8093b9a2007d191',1,'/default/page-demo/except/except403','C',false,true,'warning',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d15f','vi','Trang','default:page-demo','0',2,'/default/page-demo','C',true,true,'appstore',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d161','vi','Thiết lập cá nhân','default:page-demo:personal:personal-setting','632aaa31c8093b9a2007d193',2,'/default/page-demo/personal/personal-setting','C',false,true,'user','',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d164','vi','Quản lý tài khoản Edit','default:system:account:edit','632aaa31c8093b9a2007d145',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d169','vi','Quản lý vai trò','default:system:role-manager','632aaa31c8093b9a2007d194',2,'/default/system/role-manager','C',true,true,'up-circle','',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d16a','vi','Trang thất bại','default:page-demo:result:fail','632aaa31c8093b9a2007d188',2,'/default/page-demo/result/fail','C',false,true,'check-circle',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d16c','vi','Danh sách tìm kiếm (mục)','default:page-demo:list:search-list:project','632aaa31c8093b9a2007d151',2,'/default/page-demo/list/search-list/project','C',true,true,'table',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d16d','vi','Biên tập viên quản lý bộ phận','default:system:dept:edit','632aaa31c8093b9a2007d18a',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d16f','vi','Trình chỉnh sửa quản lý menu','default:system:menu:edit','632aaa31c8093b9a2007d17f',2,NULL,'F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d170','vi','Trang giám sát','default:dashboard:monitor','632aaa31c8093b9a2007d155',2,'/default/dashboard/monitor','C',true,true,'fund',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d171','vi','Biên tập viên quản lý vai trò','default:system:role-manager:edit','632aaa31c8093b9a2007d169',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d176','vi','500','default:page-demo:except:except500','632aaa31c8093b9a2007d191',3,'/default/page-demo/except/except500','C',false,true,'warning',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d177','vi','Quản lý tài khoản xóa','default:system:account:del','632aaa31c8093b9a2007d145',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d179','vi','Quản lý bộ phận xóa','default:system:dept:del','632aaa31c8093b9a2007d18a',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d178','vi','Danh sách tìm kiếm (Ứng dụng)','default:page-demo:list:search-list:application','632aaa31c8093b9a2007d151',3,'/default/page-demo/list/search-list/application','C',true,true,'table',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d17b','vi','Quản lý menu xóa','default:system:menu:del','632aaa31c8093b9a2007d17f',3,NULL,'F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d17c','vi','Bàn làm việc','default:dashboard:workbench','632aaa31c8093b9a2007d155',3,'/default/dashboard/workbench','C',true,true,'appstore',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d17d','vi','Quản lý vai trò xóa','default:system:role-manager:del','632aaa31c8093b9a2007d169',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d17f','vi','Quản lý menu','default:system:menu','632aaa31c8093b9a2007d194',3,'/default/system/menu','C',true,true,'menu','',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d183','vi','Quản lý menu thêm cấp dưới','default:system:menu:addlowlevel','632aaa31c8093b9a2007d17f',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d184','vi','Quản lý vai trò thiết lập các vai trò','default:system:role-manager:set-role','632aaa31c8093b9a2007d169',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d186','vi','Thêm cấp dưới vào quản lý bộ phận','default:system:dept:addlowlevel','632aaa31c8093b9a2007d18a',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d167','vi','404','default:page-demo:except:except404','632aaa31c8093b9a2007d191',2,'/default/page-demo/except/except404','C',true,true,'warning',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d188','vi','Trang kết quả','default:page-demo:result','632aaa31c8093b9a2007d15f',4,'/default/page-demo/result','C',false,true,'check-circle',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d18a','vi','Quản lý bộ phận','default:system:dept','632aaa31c8093b9a2007d194',4,'/default/system/dept','C',true,true,'border-outer','',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d18b','vi','Lỗi mạng','default:page-demo:except:network-error','632aaa31c8093b9a2007d191',4,'/default/page-demo/except/network-error','C',false,true,'warning','',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d191','vi','trang ngoại lệ','default:page-demo:except','632aaa31c8093b9a2007d15f',5,'/default/page-demo/except','C',false,true,'warning',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d190','vi','không có dữ liệu','default:page-demo:except:no-data','632aaa31c8093b9a2007d191',5,'/default/page-demo/except/no-data','C',false,true,'warning',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d194','vi','Hệ thống','default:system','0',6,'/default/system','C',true,true,'setting','',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d193','vi','Trang cá nhân','default:page-demo:personal','632aaa31c8093b9a2007d15f',6,'/default/page-demo/personal','C',false,true,'user',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('632aaa31c8093b9a2007d199','vi','About','default:about','0',7,'/default/about','C',true,true,'','icon-medium',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('6333e539021398275a67d83d','vi','Demo','default:dashboard:demo','632aaa31c8093b9a2007d155',4,'/default/dashboard/demo','C',false,false,'up-circle',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('6334016f73116adbaf79bd3c','vi','Demo1','default:dashboard:demo1','undefined',5,'default/dashboard/demo1','C',true,true,'up-circle',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('63340827858087818680f103','vi','Demo1','default:dashboard:demo1','632aaa31c8093b9a2007d155',6,'/default/dashboard/demo1','C',true,true,'up-circle',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('63343f59a5ada435bef9f4d6','vi','Quản lý dữ liệu SC','default:system:datasc','632aaa31c8093b9a2007d194',5,'/default/system/datasc','C',true,true,'diff',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('63344034a5ada435bef9f4dc','vi','Quản lý dữ liệu SC Add','default:system:datasc:add','63343f59a5ada435bef9f4d6',1,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('63344067a5ada435bef9f4df','vi','Quản lý dữ liệu SC Edit','default:system:datasc:edit','63343f59a5ada435bef9f4d6',2,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('63344084a5ada435bef9f4e2','vi','Quản lý dữ liệu SC Del','default:system:datasc:del','63343f59a5ada435bef9f4d6',3,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('6423a489bab829e7784d6047','vi','Hướng dẫn','default:system:huongdan','632aaa31c8093b9a2007d194',8,'/default/system/huongdan','C',true,true,'youtube',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('6423d78c2959d50e73fb6767','vi','Thêm mới','default:system:huongdan:add','6423a489bab829e7784d6047',1,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('6423d7b62959d50e73fb676a','vi','Xóa tất cả','default:system:huongdan:allDel','6423a489bab829e7784d6047',2,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('6423d7d52959d50e73fb676d','vi','Cập nhật','default:system:huongdan:update','6423a489bab829e7784d6047',3,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('64867f1def5220e488de1d77','vi','Sản Phẩm','default:product','0',3,'/default/product','C',true,true,'sketch',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('64867ffcef5220e488de1d7b','vi','Tìm kiếm','default:product:search','64867f1def5220e488de1d77',1,'/default/product/search','C',true,true,'form',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('648680f5ef5220e488de1d7f','vi','Thêm mới','default:product:newproduct','64867f1def5220e488de1d77',2,'/default/product/newproduct','C',true,true,'edit',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('64868282ef5220e488de1d82','vi','Danh mục','default:product:category','64867f1def5220e488de1d77',3,'/default/product/category','C',true,true,'border-outer',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('64f7fb2e4ab1e8cfb054a14f','vi','Danh Sách','default:page-demo:list','632aaa31c8093b9a2007d15f',4,'/default/page-demo/list','C',true,true,'unordered-list',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('64f7fbe14ab1e8cfb054a152','vi','Mẫu','default:page-demo:list:standard-table','64f7fb2e4ab1e8cfb054a14f',1,'/default/page-demo/list/standard-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('64f7fc234ab1e8cfb054a155','vi','Dạng Cây','default:page-demo:list:tree-list','64f7fb2e4ab1e8cfb054a14f',2,'/default/page-demo/list/tree-list','C',true,true,'caret-right','',false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('64f7fc514ab1e8cfb054a158','vi','Danh Sách Thẻ','default:page-demo:list:card-table','64f7fb2e4ab1e8cfb054a14f',3,'/default/page-demo/list/card-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('64f7fd0d4ab1e8cfb054a15b','vi','Tìm kiếm bảng','default:page-demo:list:search-table','64f7fb2e4ab1e8cfb054a14f',4,' /default/page-demo/list/search-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24'),('64f7fd444ab1e8cfb054a15e','vi','Tìm kiếm danh sách','default:page-demo:list:search-list','64f7fb2e4ab1e8cfb054a14f',5,'/default/page-demo/list/search-list','C',true,true,'caret-right',NULL,false,'2023-10-23 07:09:24','2023-10-23 07:09:24');
+14:9:24: SequelizeDatabaseError: Column 'path' cannot be null
+14:9:24: Error: Error System: SequelizeDatabaseError: Column 'path' cannot be null
+14:9:45: Executing (default): SELECT 1+1 AS result
+14:9:45: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:9:45: Executing (default): SHOW INDEX FROM `sys_menus`
+14:9:46: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:9:46: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:9:46: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:9:46: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:9:46: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:9:46: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:10:13: Executing (default): SELECT 1+1 AS result
+14:10:13: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:10:13: Executing (default): CREATE TABLE IF NOT EXISTS `sys_menus` (`id` VARCHAR(36) NOT NULL , `lang` VARCHAR(3) NOT NULL , `menuName` VARCHAR(50) NOT NULL, `code` VARCHAR(50) NOT NULL, `fatherId` VARCHAR(24) NOT NULL, `orderNum` INTEGER NOT NULL, `path` VARCHAR(100), `menuType` CHAR(1) NOT NULL, `visible` TINYINT(1) NOT NULL, `status` TINYINT(1) NOT NULL, `icon` VARCHAR(50), `alIcon` VARCHAR(50), `newLinkFlag` TINYINT(1) NOT NULL, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`, `lang`)) ENGINE=InnoDB;
+14:10:13: Executing (default): SHOW INDEX FROM `sys_menus`
+14:10:13: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:10:14: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:10:14: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:10:14: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:10:14: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:10:14: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:10:38: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:10:38: Executing (default): INSERT INTO `sys_menus` (`id`,`lang`,`menuName`,`code`,`fatherId`,`orderNum`,`path`,`menuType`,`visible`,`status`,`icon`,`alIcon`,`newLinkFlag`,`createdAt`,`updatedAt`) VALUES ('632aaa31c8093b9a2007d144','vi','Trang thành công','default:page-demo:result:success','632aaa31c8093b9a2007d188',1,'/default/page-demo/result/success','C',false,true,'check-circle',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d145','vi','Quản lý tài khoản','default:system:account','632aaa31c8093b9a2007d194',1,'/default/system/account','C',true,true,'user','',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d147','vi','Danh sách tìm kiếm (Các bài báo)','default:page-demo:list:search-list:article','632aaa31c8093b9a2007d151',1,'/default/page-demo/list/search-list/article','C',true,true,'table',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d148','vi','Quản lý bộ phận đã thêm','default:system:dept:add','632aaa31c8093b9a2007d18a',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d14a','vi','Quản lý menu đã được thêm vào','default:system:menu:add','632aaa31c8093b9a2007d17f',1,NULL,'F',true,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d14b','vi','Trang phân tích','default:dashboard:analysis','632aaa31c8093b9a2007d155',1,'/default/dashboard/analysis','C',true,true,'fund','',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d14c','vi','Quản lý vai trò mới','default:system:role-manager:add','632aaa31c8093b9a2007d169',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d142','vi','Người đầu tiên','blank:other-login:login1','632aaa31c8093b9a2007d1a1',1,'/blank/other-login/login1','C',true,true,'highlight',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d155','vi','Dashboard','default:dashboard','0',1,'/default/dashboard','C',true,true,'dashboard','',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d154','vi','Trung tâm cá nhân','default:page-demo:personal:personal-center','632aaa31c8093b9a2007d193',1,'/default/page-demo/personal/personal-center','C',false,true,'user',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d158','vi','Đã thêm quản lý tài khoản','default:system:account:add','632aaa31c8093b9a2007d145',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d15b','vi','403','default:page-demo:except:except403','632aaa31c8093b9a2007d191',1,'/default/page-demo/except/except403','C',false,true,'warning',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d15f','vi','Trang','default:page-demo','0',2,'/default/page-demo','C',true,true,'appstore',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d161','vi','Thiết lập cá nhân','default:page-demo:personal:personal-setting','632aaa31c8093b9a2007d193',2,'/default/page-demo/personal/personal-setting','C',false,true,'user','',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d164','vi','Quản lý tài khoản Edit','default:system:account:edit','632aaa31c8093b9a2007d145',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d169','vi','Quản lý vai trò','default:system:role-manager','632aaa31c8093b9a2007d194',2,'/default/system/role-manager','C',true,true,'up-circle','',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d16a','vi','Trang thất bại','default:page-demo:result:fail','632aaa31c8093b9a2007d188',2,'/default/page-demo/result/fail','C',false,true,'check-circle',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d16c','vi','Danh sách tìm kiếm (mục)','default:page-demo:list:search-list:project','632aaa31c8093b9a2007d151',2,'/default/page-demo/list/search-list/project','C',true,true,'table',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d16d','vi','Biên tập viên quản lý bộ phận','default:system:dept:edit','632aaa31c8093b9a2007d18a',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d16f','vi','Trình chỉnh sửa quản lý menu','default:system:menu:edit','632aaa31c8093b9a2007d17f',2,NULL,'F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d170','vi','Trang giám sát','default:dashboard:monitor','632aaa31c8093b9a2007d155',2,'/default/dashboard/monitor','C',true,true,'fund',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d171','vi','Biên tập viên quản lý vai trò','default:system:role-manager:edit','632aaa31c8093b9a2007d169',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d176','vi','500','default:page-demo:except:except500','632aaa31c8093b9a2007d191',3,'/default/page-demo/except/except500','C',false,true,'warning',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d177','vi','Quản lý tài khoản xóa','default:system:account:del','632aaa31c8093b9a2007d145',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d179','vi','Quản lý bộ phận xóa','default:system:dept:del','632aaa31c8093b9a2007d18a',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d178','vi','Danh sách tìm kiếm (Ứng dụng)','default:page-demo:list:search-list:application','632aaa31c8093b9a2007d151',3,'/default/page-demo/list/search-list/application','C',true,true,'table',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d17b','vi','Quản lý menu xóa','default:system:menu:del','632aaa31c8093b9a2007d17f',3,NULL,'F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d17c','vi','Bàn làm việc','default:dashboard:workbench','632aaa31c8093b9a2007d155',3,'/default/dashboard/workbench','C',true,true,'appstore',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d17d','vi','Quản lý vai trò xóa','default:system:role-manager:del','632aaa31c8093b9a2007d169',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d17f','vi','Quản lý menu','default:system:menu','632aaa31c8093b9a2007d194',3,'/default/system/menu','C',true,true,'menu','',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d183','vi','Quản lý menu thêm cấp dưới','default:system:menu:addlowlevel','632aaa31c8093b9a2007d17f',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d184','vi','Quản lý vai trò thiết lập các vai trò','default:system:role-manager:set-role','632aaa31c8093b9a2007d169',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d186','vi','Thêm cấp dưới vào quản lý bộ phận','default:system:dept:addlowlevel','632aaa31c8093b9a2007d18a',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d167','vi','404','default:page-demo:except:except404','632aaa31c8093b9a2007d191',2,'/default/page-demo/except/except404','C',true,true,'warning',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d188','vi','Trang kết quả','default:page-demo:result','632aaa31c8093b9a2007d15f',4,'/default/page-demo/result','C',false,true,'check-circle',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d18a','vi','Quản lý bộ phận','default:system:dept','632aaa31c8093b9a2007d194',4,'/default/system/dept','C',true,true,'border-outer','',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d18b','vi','Lỗi mạng','default:page-demo:except:network-error','632aaa31c8093b9a2007d191',4,'/default/page-demo/except/network-error','C',false,true,'warning','',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d191','vi','trang ngoại lệ','default:page-demo:except','632aaa31c8093b9a2007d15f',5,'/default/page-demo/except','C',false,true,'warning',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d190','vi','không có dữ liệu','default:page-demo:except:no-data','632aaa31c8093b9a2007d191',5,'/default/page-demo/except/no-data','C',false,true,'warning',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d194','vi','Hệ thống','default:system','0',6,'/default/system','C',true,true,'setting','',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d193','vi','Trang cá nhân','default:page-demo:personal','632aaa31c8093b9a2007d15f',6,'/default/page-demo/personal','C',false,true,'user',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('632aaa31c8093b9a2007d199','vi','About','default:about','0',7,'/default/about','C',true,true,'','icon-medium',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('6333e539021398275a67d83d','vi','Demo','default:dashboard:demo','632aaa31c8093b9a2007d155',4,'/default/dashboard/demo','C',false,false,'up-circle',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('6334016f73116adbaf79bd3c','vi','Demo1','default:dashboard:demo1','undefined',5,'default/dashboard/demo1','C',true,true,'up-circle',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('63340827858087818680f103','vi','Demo1','default:dashboard:demo1','632aaa31c8093b9a2007d155',6,'/default/dashboard/demo1','C',true,true,'up-circle',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('63343f59a5ada435bef9f4d6','vi','Quản lý dữ liệu SC','default:system:datasc','632aaa31c8093b9a2007d194',5,'/default/system/datasc','C',true,true,'diff',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('63344034a5ada435bef9f4dc','vi','Quản lý dữ liệu SC Add','default:system:datasc:add','63343f59a5ada435bef9f4d6',1,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('63344067a5ada435bef9f4df','vi','Quản lý dữ liệu SC Edit','default:system:datasc:edit','63343f59a5ada435bef9f4d6',2,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('63344084a5ada435bef9f4e2','vi','Quản lý dữ liệu SC Del','default:system:datasc:del','63343f59a5ada435bef9f4d6',3,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('6423a489bab829e7784d6047','vi','Hướng dẫn','default:system:huongdan','632aaa31c8093b9a2007d194',8,'/default/system/huongdan','C',true,true,'youtube',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('6423d78c2959d50e73fb6767','vi','Thêm mới','default:system:huongdan:add','6423a489bab829e7784d6047',1,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('6423d7b62959d50e73fb676a','vi','Xóa tất cả','default:system:huongdan:allDel','6423a489bab829e7784d6047',2,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('6423d7d52959d50e73fb676d','vi','Cập nhật','default:system:huongdan:update','6423a489bab829e7784d6047',3,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('64867f1def5220e488de1d77','vi','Sản Phẩm','default:product','0',3,'/default/product','C',true,true,'sketch',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('64867ffcef5220e488de1d7b','vi','Tìm kiếm','default:product:search','64867f1def5220e488de1d77',1,'/default/product/search','C',true,true,'form',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('648680f5ef5220e488de1d7f','vi','Thêm mới','default:product:newproduct','64867f1def5220e488de1d77',2,'/default/product/newproduct','C',true,true,'edit',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('64868282ef5220e488de1d82','vi','Danh mục','default:product:category','64867f1def5220e488de1d77',3,'/default/product/category','C',true,true,'border-outer',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('64f7fb2e4ab1e8cfb054a14f','vi','Danh Sách','default:page-demo:list','632aaa31c8093b9a2007d15f',4,'/default/page-demo/list','C',true,true,'unordered-list',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('64f7fbe14ab1e8cfb054a152','vi','Mẫu','default:page-demo:list:standard-table','64f7fb2e4ab1e8cfb054a14f',1,'/default/page-demo/list/standard-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('64f7fc234ab1e8cfb054a155','vi','Dạng Cây','default:page-demo:list:tree-list','64f7fb2e4ab1e8cfb054a14f',2,'/default/page-demo/list/tree-list','C',true,true,'caret-right','',false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('64f7fc514ab1e8cfb054a158','vi','Danh Sách Thẻ','default:page-demo:list:card-table','64f7fb2e4ab1e8cfb054a14f',3,'/default/page-demo/list/card-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('64f7fd0d4ab1e8cfb054a15b','vi','Tìm kiếm bảng','default:page-demo:list:search-table','64f7fb2e4ab1e8cfb054a14f',4,' /default/page-demo/list/search-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38'),('64f7fd444ab1e8cfb054a15e','vi','Tìm kiếm danh sách','default:page-demo:list:search-list','64f7fb2e4ab1e8cfb054a14f',5,'/default/page-demo/list/search-list','C',true,true,'caret-right',NULL,false,'2023-10-23 07:10:38','2023-10-23 07:10:38');
+14:10:38: SequelizeDatabaseError: Column 'visible' cannot be null
+14:10:38: Error: Error System: SequelizeDatabaseError: Column 'visible' cannot be null
+14:11:13: Executing (default): SELECT 1+1 AS result
+14:11:13: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:11:13: Executing (default): SHOW INDEX FROM `sys_menus`
+14:11:13: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:11:14: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:11:14: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:11:14: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:11:14: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:11:14: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:11:40: Executing (default): SELECT 1+1 AS result
+14:11:40: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:11:40: Executing (default): CREATE TABLE IF NOT EXISTS `sys_menus` (`id` VARCHAR(36) NOT NULL , `lang` VARCHAR(3) NOT NULL , `menuName` VARCHAR(50) NOT NULL, `code` VARCHAR(50) NOT NULL, `fatherId` VARCHAR(24) NOT NULL, `orderNum` INTEGER NOT NULL, `path` VARCHAR(100), `menuType` CHAR(1) NOT NULL, `visible` TINYINT(1), `status` TINYINT(1), `icon` VARCHAR(50), `alIcon` VARCHAR(50), `newLinkFlag` TINYINT(1), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`, `lang`)) ENGINE=InnoDB;
+14:11:40: Executing (default): SHOW INDEX FROM `sys_menus`
+14:11:41: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:11:41: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:11:41: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:11:41: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:11:41: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:11:41: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+14:11:47: MongoDB :: demo_db menus.find({},{"projection":{}})
+14:11:47: Executing (default): INSERT INTO `sys_menus` (`id`,`lang`,`menuName`,`code`,`fatherId`,`orderNum`,`path`,`menuType`,`visible`,`status`,`icon`,`alIcon`,`newLinkFlag`,`createdAt`,`updatedAt`) VALUES ('632aaa31c8093b9a2007d144','vi','Trang thành công','default:page-demo:result:success','632aaa31c8093b9a2007d188',1,'/default/page-demo/result/success','C',false,true,'check-circle',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d145','vi','Quản lý tài khoản','default:system:account','632aaa31c8093b9a2007d194',1,'/default/system/account','C',true,true,'user','',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d147','vi','Danh sách tìm kiếm (Các bài báo)','default:page-demo:list:search-list:article','632aaa31c8093b9a2007d151',1,'/default/page-demo/list/search-list/article','C',true,true,'table',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d148','vi','Quản lý bộ phận đã thêm','default:system:dept:add','632aaa31c8093b9a2007d18a',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d14a','vi','Quản lý menu đã được thêm vào','default:system:menu:add','632aaa31c8093b9a2007d17f',1,NULL,'F',true,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d14b','vi','Trang phân tích','default:dashboard:analysis','632aaa31c8093b9a2007d155',1,'/default/dashboard/analysis','C',true,true,'fund','',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d14c','vi','Quản lý vai trò mới','default:system:role-manager:add','632aaa31c8093b9a2007d169',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d142','vi','Người đầu tiên','blank:other-login:login1','632aaa31c8093b9a2007d1a1',1,'/blank/other-login/login1','C',true,true,'highlight',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d155','vi','Dashboard','default:dashboard','0',1,'/default/dashboard','C',true,true,'dashboard','',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d154','vi','Trung tâm cá nhân','default:page-demo:personal:personal-center','632aaa31c8093b9a2007d193',1,'/default/page-demo/personal/personal-center','C',false,true,'user',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d158','vi','Đã thêm quản lý tài khoản','default:system:account:add','632aaa31c8093b9a2007d145',1,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d15b','vi','403','default:page-demo:except:except403','632aaa31c8093b9a2007d191',1,'/default/page-demo/except/except403','C',false,true,'warning',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d15f','vi','Trang','default:page-demo','0',2,'/default/page-demo','C',true,true,'appstore',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d161','vi','Thiết lập cá nhân','default:page-demo:personal:personal-setting','632aaa31c8093b9a2007d193',2,'/default/page-demo/personal/personal-setting','C',false,true,'user','',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d164','vi','Quản lý tài khoản Edit','default:system:account:edit','632aaa31c8093b9a2007d145',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d169','vi','Quản lý vai trò','default:system:role-manager','632aaa31c8093b9a2007d194',2,'/default/system/role-manager','C',true,true,'up-circle','',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d16a','vi','Trang thất bại','default:page-demo:result:fail','632aaa31c8093b9a2007d188',2,'/default/page-demo/result/fail','C',false,true,'check-circle',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d16c','vi','Danh sách tìm kiếm (mục)','default:page-demo:list:search-list:project','632aaa31c8093b9a2007d151',2,'/default/page-demo/list/search-list/project','C',true,true,'table',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d16d','vi','Biên tập viên quản lý bộ phận','default:system:dept:edit','632aaa31c8093b9a2007d18a',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d16f','vi','Trình chỉnh sửa quản lý menu','default:system:menu:edit','632aaa31c8093b9a2007d17f',2,NULL,'F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d170','vi','Trang giám sát','default:dashboard:monitor','632aaa31c8093b9a2007d155',2,'/default/dashboard/monitor','C',true,true,'fund',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d171','vi','Biên tập viên quản lý vai trò','default:system:role-manager:edit','632aaa31c8093b9a2007d169',2,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d176','vi','500','default:page-demo:except:except500','632aaa31c8093b9a2007d191',3,'/default/page-demo/except/except500','C',false,true,'warning',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d177','vi','Quản lý tài khoản xóa','default:system:account:del','632aaa31c8093b9a2007d145',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d179','vi','Quản lý bộ phận xóa','default:system:dept:del','632aaa31c8093b9a2007d18a',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d178','vi','Danh sách tìm kiếm (Ứng dụng)','default:page-demo:list:search-list:application','632aaa31c8093b9a2007d151',3,'/default/page-demo/list/search-list/application','C',true,true,'table',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d17b','vi','Quản lý menu xóa','default:system:menu:del','632aaa31c8093b9a2007d17f',3,NULL,'F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d17c','vi','Bàn làm việc','default:dashboard:workbench','632aaa31c8093b9a2007d155',3,'/default/dashboard/workbench','C',true,true,'appstore',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d17d','vi','Quản lý vai trò xóa','default:system:role-manager:del','632aaa31c8093b9a2007d169',3,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d17f','vi','Quản lý menu','default:system:menu','632aaa31c8093b9a2007d194',3,'/default/system/menu','C',true,true,'menu','',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d183','vi','Quản lý menu thêm cấp dưới','default:system:menu:addlowlevel','632aaa31c8093b9a2007d17f',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d184','vi','Quản lý vai trò thiết lập các vai trò','default:system:role-manager:set-role','632aaa31c8093b9a2007d169',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d186','vi','Thêm cấp dưới vào quản lý bộ phận','default:system:dept:addlowlevel','632aaa31c8093b9a2007d18a',4,'','F',false,true,NULL,NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d167','vi','404','default:page-demo:except:except404','632aaa31c8093b9a2007d191',2,'/default/page-demo/except/except404','C',true,true,'warning',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d188','vi','Trang kết quả','default:page-demo:result','632aaa31c8093b9a2007d15f',4,'/default/page-demo/result','C',false,true,'check-circle',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d18a','vi','Quản lý bộ phận','default:system:dept','632aaa31c8093b9a2007d194',4,'/default/system/dept','C',true,true,'border-outer','',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d18b','vi','Lỗi mạng','default:page-demo:except:network-error','632aaa31c8093b9a2007d191',4,'/default/page-demo/except/network-error','C',false,true,'warning','',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d191','vi','trang ngoại lệ','default:page-demo:except','632aaa31c8093b9a2007d15f',5,'/default/page-demo/except','C',false,true,'warning',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d190','vi','không có dữ liệu','default:page-demo:except:no-data','632aaa31c8093b9a2007d191',5,'/default/page-demo/except/no-data','C',false,true,'warning',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d194','vi','Hệ thống','default:system','0',6,'/default/system','C',true,true,'setting','',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d193','vi','Trang cá nhân','default:page-demo:personal','632aaa31c8093b9a2007d15f',6,'/default/page-demo/personal','C',false,true,'user',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('632aaa31c8093b9a2007d199','vi','About','default:about','0',7,'/default/about','C',true,true,'','icon-medium',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('6333e539021398275a67d83d','vi','Demo','default:dashboard:demo','632aaa31c8093b9a2007d155',4,'/default/dashboard/demo','C',false,false,'up-circle',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('6334016f73116adbaf79bd3c','vi','Demo1','default:dashboard:demo1','undefined',5,'default/dashboard/demo1','C',true,true,'up-circle',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('63340827858087818680f103','vi','Demo1','default:dashboard:demo1','632aaa31c8093b9a2007d155',6,'/default/dashboard/demo1','C',true,true,'up-circle',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('63343f59a5ada435bef9f4d6','vi','Quản lý dữ liệu SC','default:system:datasc','632aaa31c8093b9a2007d194',5,'/default/system/datasc','C',true,true,'diff',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('63344034a5ada435bef9f4dc','vi','Quản lý dữ liệu SC Add','default:system:datasc:add','63343f59a5ada435bef9f4d6',1,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('63344067a5ada435bef9f4df','vi','Quản lý dữ liệu SC Edit','default:system:datasc:edit','63343f59a5ada435bef9f4d6',2,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('63344084a5ada435bef9f4e2','vi','Quản lý dữ liệu SC Del','default:system:datasc:del','63343f59a5ada435bef9f4d6',3,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('6423a489bab829e7784d6047','vi','Hướng dẫn','default:system:huongdan','632aaa31c8093b9a2007d194',8,'/default/system/huongdan','C',true,true,'youtube',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('6423d78c2959d50e73fb6767','vi','Thêm mới','default:system:huongdan:add','6423a489bab829e7784d6047',1,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('6423d7b62959d50e73fb676a','vi','Xóa tất cả','default:system:huongdan:allDel','6423a489bab829e7784d6047',2,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('6423d7d52959d50e73fb676d','vi','Cập nhật','default:system:huongdan:update','6423a489bab829e7784d6047',3,NULL,'F',NULL,true,NULL,NULL,NULL,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('64867f1def5220e488de1d77','vi','Sản Phẩm','default:product','0',3,'/default/product','C',true,true,'sketch',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('64867ffcef5220e488de1d7b','vi','Tìm kiếm','default:product:search','64867f1def5220e488de1d77',1,'/default/product/search','C',true,true,'form',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('648680f5ef5220e488de1d7f','vi','Thêm mới','default:product:newproduct','64867f1def5220e488de1d77',2,'/default/product/newproduct','C',true,true,'edit',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('64868282ef5220e488de1d82','vi','Danh mục','default:product:category','64867f1def5220e488de1d77',3,'/default/product/category','C',true,true,'border-outer',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('64f7fb2e4ab1e8cfb054a14f','vi','Danh Sách','default:page-demo:list','632aaa31c8093b9a2007d15f',4,'/default/page-demo/list','C',true,true,'unordered-list',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('64f7fbe14ab1e8cfb054a152','vi','Mẫu','default:page-demo:list:standard-table','64f7fb2e4ab1e8cfb054a14f',1,'/default/page-demo/list/standard-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('64f7fc234ab1e8cfb054a155','vi','Dạng Cây','default:page-demo:list:tree-list','64f7fb2e4ab1e8cfb054a14f',2,'/default/page-demo/list/tree-list','C',true,true,'caret-right','',false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('64f7fc514ab1e8cfb054a158','vi','Danh Sách Thẻ','default:page-demo:list:card-table','64f7fb2e4ab1e8cfb054a14f',3,'/default/page-demo/list/card-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('64f7fd0d4ab1e8cfb054a15b','vi','Tìm kiếm bảng','default:page-demo:list:search-table','64f7fb2e4ab1e8cfb054a14f',4,' /default/page-demo/list/search-table','C',true,true,'caret-right',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47'),('64f7fd444ab1e8cfb054a15e','vi','Tìm kiếm danh sách','default:page-demo:list:search-list','64f7fb2e4ab1e8cfb054a14f',5,'/default/page-demo/list/search-list','C',true,true,'caret-right',NULL,false,'2023-10-23 07:11:47','2023-10-23 07:11:47');
+14:57:58: Executing (default): SELECT 1+1 AS result
+14:57:58: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+14:57:58: Executing (default): SHOW INDEX FROM `sys_menus`
+14:57:59: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+14:57:59: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+14:57:59: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+14:57:59: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+14:57:59: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+14:57:59: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+15:59:3: MongoDB :: demo_db users.findOne({"_id":"6321fe53c26d4024dd312437"},{"projection":{"password":0,"menulist":0}})
+15:59:3: MongoDB :: demo_db tmt010_files.find({"_id":{"$in":["6533f6facfbffe7158649dd5"]}},{"projection":{}})
+15:59:3: MongoDB :: demo_db users.findOne({"_id":"6321fe53c26d4024dd312437"},{"projection":{}})
+15:59:3: MongoDB :: demo_db roles.find({"_id":{"$in":["6331b3ce65e0507984482ba7"]}},{"projection":{}})
+15:59:3: MongoDB :: demo_db roles.findOne({"_id":"6331b3ce65e0507984482ba7"},{"projection":{}})
+15:59:3: MongoDB :: demo_db menus.find({"_id":{"$in":["632aaa31c8093b9a2007d155","632aaa31c8093b9a2007d14b","6333e539021398275a67d83d","632aaa31c8093b9a2007d15f","632aaa31c8093b9a2007d188","632aaa31c8093b9a2007d144","632aaa31c8093b9a2007d16a","64f7fb2e4ab1e8cfb054a14f","64f7fbe14ab1e8cfb054a152","64f7fc234ab1e8cfb054a155","64f7fc514ab1e8cfb054a158","64f7fd0d4ab1e8cfb054a15b","64f7fd444ab1e8cfb054a15e","632aaa31c8093b9a2007d191","632aaa31c8093b9a2007d15b","632aaa31c8093b9a2007d167","632aaa31c8093b9a2007d176","632aaa31c8093b9a2007d18b","632aaa31c8093b9a2007d190","632aaa31c8093b9a2007d193","632aaa31c8093b9a2007d154","632aaa31c8093b9a2007d161","64867f1def5220e488de1d77","64867ffcef5220e488de1d7b","648680f5ef5220e488de1d7f","64868282ef5220e488de1d82","632aaa31c8093b9a2007d194","632aaa31c8093b9a2007d145","632aaa31c8093b9a2007d158","632aaa31c8093b9a2007d164","632aaa31c8093b9a2007d169","632aaa31c8093b9a2007d14c","632aaa31c8093b9a2007d171","632aaa31c8093b9a2007d17d","632aaa31c8093b9a2007d184","632aaa31c8093b9a2007d17f","632aaa31c8093b9a2007d14a","632aaa31c8093b9a2007d16f","632aaa31c8093b9a2007d17b","632aaa31c8093b9a2007d183","632aaa31c8093b9a2007d18a","632aaa31c8093b9a2007d148","632aaa31c8093b9a2007d16d","632aaa31c8093b9a2007d179","632aaa31c8093b9a2007d186","63343f59a5ada435bef9f4d6","63344034a5ada435bef9f4dc","63344067a5ada435bef9f4df","63344084a5ada435bef9f4e2","6423a489bab829e7784d6047","6423d78c2959d50e73fb6767","6423d7b62959d50e73fb676a","6423d7d52959d50e73fb676d","632aaa31c8093b9a2007d199"]}},{"projection":{}})
+16:0:17: MongoDB :: demo_db users.findOne({"_id":"6321fe53c26d4024dd312437"},{"projection":{"password":0,"menulist":0}})
+16:0:17: MongoDB :: demo_db users.findOne({"_id":"6321fe53c26d4024dd312437"},{"projection":{}})
+16:0:17: MongoDB :: demo_db tmt010_files.find({"_id":{"$in":["6533f6facfbffe7158649dd5"]}},{"projection":{}})
+16:0:17: MongoDB :: demo_db roles.find({"_id":{"$in":["6331b3ce65e0507984482ba7"]}},{"projection":{}})
+16:0:17: MongoDB :: demo_db roles.findOne({"_id":"6331b3ce65e0507984482ba7"},{"projection":{}})
+16:0:18: MongoDB :: demo_db menus.find({"_id":{"$in":["632aaa31c8093b9a2007d155","632aaa31c8093b9a2007d14b","6333e539021398275a67d83d","632aaa31c8093b9a2007d15f","632aaa31c8093b9a2007d188","632aaa31c8093b9a2007d144","632aaa31c8093b9a2007d16a","64f7fb2e4ab1e8cfb054a14f","64f7fbe14ab1e8cfb054a152","64f7fc234ab1e8cfb054a155","64f7fc514ab1e8cfb054a158","64f7fd0d4ab1e8cfb054a15b","64f7fd444ab1e8cfb054a15e","632aaa31c8093b9a2007d191","632aaa31c8093b9a2007d15b","632aaa31c8093b9a2007d167","632aaa31c8093b9a2007d176","632aaa31c8093b9a2007d18b","632aaa31c8093b9a2007d190","632aaa31c8093b9a2007d193","632aaa31c8093b9a2007d154","632aaa31c8093b9a2007d161","64867f1def5220e488de1d77","64867ffcef5220e488de1d7b","648680f5ef5220e488de1d7f","64868282ef5220e488de1d82","632aaa31c8093b9a2007d194","632aaa31c8093b9a2007d145","632aaa31c8093b9a2007d158","632aaa31c8093b9a2007d164","632aaa31c8093b9a2007d169","632aaa31c8093b9a2007d14c","632aaa31c8093b9a2007d171","632aaa31c8093b9a2007d17d","632aaa31c8093b9a2007d184","632aaa31c8093b9a2007d17f","632aaa31c8093b9a2007d14a","632aaa31c8093b9a2007d16f","632aaa31c8093b9a2007d17b","632aaa31c8093b9a2007d183","632aaa31c8093b9a2007d18a","632aaa31c8093b9a2007d148","632aaa31c8093b9a2007d16d","632aaa31c8093b9a2007d179","632aaa31c8093b9a2007d186","63343f59a5ada435bef9f4d6","63344034a5ada435bef9f4dc","63344067a5ada435bef9f4df","63344084a5ada435bef9f4e2","6423a489bab829e7784d6047","6423d78c2959d50e73fb6767","6423d7b62959d50e73fb676a","6423d7d52959d50e73fb676d","632aaa31c8093b9a2007d199"]}},{"projection":{}})

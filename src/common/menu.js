@@ -2,6 +2,7 @@ function getMenu() {
     return [
         {
                   "id": 114,
+                  "lang": "vi",
                   "menuName": "Menu1",
                   "code": "default:level:menu1",
                   "fatherId": 113,
@@ -18,7 +19,8 @@ function getMenu() {
               },
               {
                   "id": 98,
-                  "menuName": "Người đầu tiên",
+
+"lang": "vi",                  "menuName": "Người đầu tiên",
                   "code": "blank:other-login:login1",
                   "fatherId": 97,
                   "orderNum": 1,
@@ -34,7 +36,8 @@ function getMenu() {
               },
               {
                   "id": 88,
-                  "menuName": "Tài liệu zorro",
+
+"lang": "vi",                  "menuName": "Tài liệu zorro",
                   "code": "default:feat:frame:zorro-doc",
                   "fatherId": 87,
                   "orderNum": 1,
@@ -50,7 +53,8 @@ function getMenu() {
               },
               {
                   "id": 65,
-                  "menuName": "Trang thành công",
+
+"lang": "vi",                  "menuName": "Trang thành công",
                   "code": "default:page-demo:result:success",
                   "fatherId": 64,
                   "orderNum": 1,
@@ -66,6 +70,7 @@ function getMenu() {
               },
               {
                   "id": 121,
+                  "lang": "vi",
                   "menuName": "Quản lý tài khoản",
                   "code": "default:system:account",
                   "fatherId": 120,
@@ -82,6 +87,7 @@ function getMenu() {
               },
               {
                   "id": 116,
+                  "lang": "vi",
                   "menuName": "Menu1-1-1",
                   "code": "default:level:menu1:menu1-1:menu1-1-1",
                   "fatherId": 115,
@@ -98,7 +104,8 @@ function getMenu() {
               },
               {
                   "id": 50,
-                  "menuName": "Danh sách tìm kiếm (Các bài báo)",
+
+"lang": "vi",                  "menuName": "Danh sách tìm kiếm (Các bài báo)",
                   "code": "default:page-demo:list:search-list:article",
                   "fatherId": 49,
                   "orderNum": 1,
@@ -114,6 +121,7 @@ function getMenu() {
               },
               {
                   "id": 130,
+                  "lang": "vi",
                   "menuName": "Quản lý bộ phận đã thêm",
                   "code": "default:system:dept:add",
                   "fatherId": 124,
@@ -130,7 +138,8 @@ function getMenu() {
               },
               {
                   "id": 45,
-                  "menuName": "Hình thức cơ bản",
+
+"lang": "vi",                  "menuName": "Hình thức cơ bản",
                   "code": "default:page-demo:form:base-form",
                   "fatherId": 44,
                   "orderNum": 1,
@@ -146,6 +155,7 @@ function getMenu() {
               },
               {
                   "id": 126,
+                  "lang": "vi",
                   "menuName": "Quản lý menu đã được thêm vào",
                   "code": "default:system:menu:add",
                   "fatherId": 123,
@@ -162,7 +172,8 @@ function getMenu() {
               },
               {
                   "id": 40,
-                  "menuName": "Trang phân tích",
+
+"lang": "vi",                  "menuName": "Trang phân tích",
                   "code": "default:dashboard:analysis",
                   "fatherId": 1,
                   "orderNum": 1,
@@ -178,6 +189,7 @@ function getMenu() {
               },
               {
                   "id": 137,
+                  "lang": "vi",
                   "menuName": "Quản lý vai trò mới",
                   "code": "default:system:role-manager:add",
                   "fatherId": 122,
@@ -194,6 +206,7 @@ function getMenu() {
               },
               {
                   "id": 105,
+                  "lang": "vi",
                   "menuName": "Thành phần cơ bản",
                   "code": "default:comp:basic",
                   "fatherId": 104,
@@ -210,7 +223,8 @@ function getMenu() {
               },
               {
                   "id": 62,
-                  "menuName": "Trang chi tiết cơ bản",
+
+"lang": "vi",                  "menuName": "Trang chi tiết cơ bản",
                   "code": "default:page-demo:detail:base-detail",
                   "fatherId": 61,
                   "orderNum": 1,
@@ -226,7 +240,8 @@ function getMenu() {
               },
               {
                   "id": 75,
-                  "menuName": "Charts",
+
+"lang": "vi",                  "menuName": "Charts",
                   "code": "default:page-demo:flow:flow-chat",
                   "fatherId": 74,
                   "orderNum": 1,
@@ -242,6 +257,7 @@ function getMenu() {
               },
               {
                   "id": 115,
+                  "lang": "vi",
                   "menuName": "Menu1-1",
                   "code": "default:level:menu1:menu1-1",
                   "fatherId": 114,
@@ -258,7 +274,8 @@ function getMenu() {
               },
               {
                   "id": 49,
-                  "menuName": "Danh sách tìm kiếm",
+
+"lang": "vi",                  "menuName": "Danh sách tìm kiếm",
                   "code": "default:page-demo:list:search-list",
                   "fatherId": 48,
                   "orderNum": 1,
@@ -274,7 +291,8 @@ function getMenu() {
               },
               {
                   "id": 77,
-                  "menuName": "Thông báo",
+
+"lang": "vi",                  "menuName": "Thông báo",
                   "code": "default:feat:msg",
                   "fatherId": 76,
                   "orderNum": 1,
@@ -290,7 +308,8 @@ function getMenu() {
               },
               {
                   "id": 44,
-                  "menuName": "Trang biểu mẫu",
+
+"lang": "vi",                  "menuName": "Trang biểu mẫu",
                   "code": "default:page-demo:form",
                   "fatherId": 43,
                   "orderNum": 1,
@@ -306,7 +325,8 @@ function getMenu() {
               },
               {
                   "id": 72,
-                  "menuName": "Trung tâm cá nhân",
+
+"lang": "vi",                  "menuName": "Trung tâm cá nhân",
                   "code": "default:page-demo:personal:personal-center",
                   "fatherId": 71,
                   "orderNum": 1,
@@ -322,7 +342,8 @@ function getMenu() {
               },
               {
                   "id": 1,
-                  "menuName": "Dashboard",
+ 
+ "lang": "vi",                 "menuName": "Dashboard",
                   "code": "default:dashboard",
                   "fatherId": 0,
                   "orderNum": 1,
@@ -338,7 +359,8 @@ function getMenu() {
               },
               {
                   "id": 94,
-                  "menuName": "Vàng",
+
+"lang": "vi",                  "menuName": "Vàng",
                   "code": "default:feat:charts:gaode-map",
                   "fatherId": 93,
                   "orderNum": 1,
@@ -354,6 +376,7 @@ function getMenu() {
               },
               {
                   "id": 109,
+                  "lang": "vi",
                   "menuName": "Các thành phần tải lười cơ bản",
                   "code": "default:comp:lazy:lazy-basic",
                   "fatherId": 108,
@@ -370,6 +393,7 @@ function getMenu() {
               },
               {
                   "id": 134,
+                  "lang": "vi",
                   "menuName": "Đã thêm quản lý tài khoản",
                   "code": "default:system:account:add",
                   "fatherId": 121,
@@ -386,6 +410,7 @@ function getMenu() {
               },
               {
                   "id": 148,
+                  "lang": "vi",
                   "menuName": "Dạng đóng mở",
                   "code": "default:comp:form:shrink-form",
                   "fatherId": 147,
@@ -402,7 +427,8 @@ function getMenu() {
               },
               {
                   "id": 91,
-                  "menuName": "thanh cuộn bộ nhớ cache",
+
+"lang": "vi",                  "menuName": "thanh cuộn bộ nhớ cache",
                   "code": "default:feat:scroll:keep-scroll-page",
                   "fatherId": 90,
                   "orderNum": 1,
@@ -418,7 +444,8 @@ function getMenu() {
               },
               {
                   "id": 68,
-                  "menuName": "403",
+
+"lang": "vi",                  "menuName": "403",
                   "code": "default:page-demo:except:except403",
                   "fatherId": 67,
                   "orderNum": 1,
@@ -434,6 +461,7 @@ function getMenu() {
               },
               {
                   "id": 119,
+                  "lang": "vi",
                   "menuName": "Menu2",
                   "code": "default:level:menu2",
                   "fatherId": 113,
@@ -450,7 +478,8 @@ function getMenu() {
               },
               {
                   "id": 53,
-                  "menuName": "Mẫu yêu cầu",
+
+"lang": "vi",                  "menuName": "Mẫu yêu cầu",
                   "code": "default:page-demo:list:search-table",
                   "fatherId": 48,
                   "orderNum": 2,
@@ -466,7 +495,8 @@ function getMenu() {
               },
               {
                   "id": 48,
-                  "menuName": "Danh sách",
+
+"lang": "vi",                  "menuName": "Danh sách",
                   "code": "default:page-demo:list",
                   "fatherId": 43,
                   "orderNum": 2,
@@ -482,7 +512,8 @@ function getMenu() {
               },
               {
                   "id": 43,
-                  "menuName": "Trang",
+
+"lang": "vi",                  "menuName": "Trang",
                   "code": "default:page-demo",
                   "fatherId": 0,
                   "orderNum": 2,
@@ -498,7 +529,8 @@ function getMenu() {
               },
               {
                   "id": 78,
-                  "menuName": "Icon",
+
+"lang": "vi",                  "menuName": "Icon",
                   "code": "default:feat:icons",
                   "fatherId": 76,
                   "orderNum": 2,
@@ -514,7 +546,8 @@ function getMenu() {
               },
               {
                   "id": 73,
-                  "menuName": "Thiết lập cá nhân",
+
+"lang": "vi",                  "menuName": "Thiết lập cá nhân",
                   "code": "default:page-demo:personal:personal-setting",
                   "fatherId": 71,
                   "orderNum": 2,
@@ -530,7 +563,8 @@ function getMenu() {
               },
               {
                   "id": 95,
-                  "menuName": "Baidu - Map",
+
+"lang": "vi",                  "menuName": "Baidu - Map",
                   "code": "default:feat:charts:baidu-map",
                   "fatherId": 93,
                   "orderNum": 2,
@@ -546,6 +580,7 @@ function getMenu() {
               },
               {
                   "id": 110,
+                  "lang": "vi",
                   "menuName": "Cuộn tải chậm",
                   "code": "default:comp:lazy:lazy-scroll",
                   "fatherId": 108,
@@ -562,6 +597,7 @@ function getMenu() {
               },
               {
                   "id": 135,
+                  "lang": "vi",
                   "menuName": "Quản lý tài khoản Edit",
                   "code": "default:system:account:edit",
                   "fatherId": 121,
@@ -578,6 +614,7 @@ function getMenu() {
               },
               {
                   "id": 118,
+                  "lang": "vi",
                   "menuName": "Menu1-2",
                   "code": "default:level:menu1:menu1-2",
                   "fatherId": 114,
@@ -594,7 +631,8 @@ function getMenu() {
               },
               {
                   "id": 92,
-                  "menuName": "Làm việc với thanh cuộn",
+
+"lang": "vi",                  "menuName": "Làm việc với thanh cuộn",
                   "code": "default:feat:scroll:play-scroll",
                   "fatherId": 90,
                   "orderNum": 2,
@@ -610,7 +648,8 @@ function getMenu() {
               },
               {
                   "id": 69,
-                  "menuName": "404",
+
+"lang": "vi",                  "menuName": "404",
                   "code": "default:page-demo:except:except404",
                   "fatherId": 67,
                   "orderNum": 2,
@@ -626,7 +665,8 @@ function getMenu() {
               },
               {
                   "id": 89,
-                  "menuName": "Liên kết bên ngoài",
+
+"lang": "vi",                  "menuName": "Liên kết bên ngoài",
                   "code": "https://github.com/nampham90/ng-ant-admin",
                   "fatherId": 87,
                   "orderNum": 2,
@@ -642,6 +682,7 @@ function getMenu() {
               },
               {
                   "id": 122,
+                  "lang": "vi",
                   "menuName": "Quản lý vai trò",
                   "code": "default:system:role-manager",
                   "fatherId": 120,
@@ -658,7 +699,8 @@ function getMenu() {
               },
               {
                   "id": 66,
-                  "menuName": "Trang thất bại",
+
+"lang": "vi",                  "menuName": "Trang thất bại",
                   "code": "default:page-demo:result:fail",
                   "fatherId": 64,
                   "orderNum": 2,
@@ -674,6 +716,7 @@ function getMenu() {
               },
               {
                   "id": 117,
+                  "lang": "vi",
                   "menuName": "Menu1-1-2",
                   "code": "default:level:menu1:menu1-1:menu1-1-2",
                   "fatherId": 115,
@@ -690,7 +733,8 @@ function getMenu() {
               },
               {
                   "id": 51,
-                  "menuName": "Danh sách tìm kiếm (mục)",
+
+"lang": "vi",                  "menuName": "Danh sách tìm kiếm (mục)",
                   "code": "default:page-demo:list:search-list:project",
                   "fatherId": 49,
                   "orderNum": 2,
@@ -706,6 +750,7 @@ function getMenu() {
               },
               {
                   "id": 131,
+                  "lang": "vi",
                   "menuName": "Biên tập viên quản lý bộ phận",
                   "code": "default:system:dept:edit",
                   "fatherId": 124,
@@ -722,7 +767,8 @@ function getMenu() {
               },
               {
                   "id": 46,
-                  "menuName": "Biểu mẫu từng bước",
+
+"lang": "vi",                  "menuName": "Biểu mẫu từng bước",
                   "code": "default:page-demo:form:step-form",
                   "fatherId": 44,
                   "orderNum": 2,
@@ -738,6 +784,7 @@ function getMenu() {
               },
               {
                   "id": 127,
+                  "lang": "vi",
                   "menuName": "Trình chỉnh sửa quản lý menu",
                   "code": "default:system:menu:edit",
                   "fatherId": 123,
@@ -754,7 +801,8 @@ function getMenu() {
               },
               {
                   "id": 41,
-                  "menuName": "Trang giám sát",
+
+"lang": "vi",                  "menuName": "Trang giám sát",
                   "code": "default:dashboard:monitor",
                   "fatherId": 1,
                   "orderNum": 2,
@@ -770,6 +818,7 @@ function getMenu() {
               },
               {
                   "id": 138,
+                  "lang": "vi",
                   "menuName": "Biên tập viên quản lý vai trò",
                   "code": "default:system:role-manager:edit",
                   "fatherId": 122,
@@ -786,6 +835,7 @@ function getMenu() {
               },
               {
                   "id": 106,
+                  "lang": "vi",
                   "menuName": "Thành phần hoạt hình",
                   "code": "default:comp:transition",
                   "fatherId": 104,
@@ -802,7 +852,8 @@ function getMenu() {
               },
               {
                   "id": 63,
-                  "menuName": "Trang chi tiết nâng cao",
+
+"lang": "vi",                  "menuName": "Trang chi tiết nâng cao",
                   "code": "default:page-demo:detail:adv-detail",
                   "fatherId": 61,
                   "orderNum": 2,
@@ -818,7 +869,8 @@ function getMenu() {
               },
               {
                   "id": 54,
-                  "menuName": "Dạng cây",
+
+"lang": "vi",                  "menuName": "Dạng cây",
                   "code": "default:page-demo:list:tree-list",
                   "fatherId": 48,
                   "orderNum": 3,
@@ -834,7 +886,8 @@ function getMenu() {
               },
               {
                   "id": 76,
-                  "menuName": "Hàm số",
+
+"lang": "vi",                  "menuName": "Hàm số",
                   "code": "default:feat",
                   "fatherId": 0,
                   "orderNum": 3,
@@ -850,7 +903,8 @@ function getMenu() {
               },
               {
                   "id": 70,
-                  "menuName": "500",
+
+"lang": "vi",                  "menuName": "500",
                   "code": "default:page-demo:except:except500",
                   "fatherId": 67,
                   "orderNum": 3,
@@ -866,6 +920,7 @@ function getMenu() {
               },
               {
                   "id": 136,
+                  "lang": "vi",
                   "menuName": "Quản lý tài khoản xóa",
                   "code": "default:system:account:del",
                   "fatherId": 121,
@@ -882,7 +937,8 @@ function getMenu() {
               },
               {
                   "id": 52,
-                  "menuName": "Danh sách tìm kiếm (Ứng dụng)",
+
+"lang": "vi",                  "menuName": "Danh sách tìm kiếm (Ứng dụng)",
                   "code": "default:page-demo:list:search-list:application",
                   "fatherId": 49,
                   "orderNum": 3,
@@ -898,6 +954,7 @@ function getMenu() {
               },
               {
                   "id": 132,
+                  "lang": "vi",
                   "menuName": "Quản lý bộ phận xóa",
                   "code": "default:system:dept:del",
                   "fatherId": 124,
@@ -914,7 +971,8 @@ function getMenu() {
               },
               {
                   "id": 47,
-                  "menuName": "Biểu mẫu nâng cao",
+
+"lang": "vi",                  "menuName": "Biểu mẫu nâng cao",
                   "code": "default:page-demo:form:advanced-form",
                   "fatherId": 44,
                   "orderNum": 3,
@@ -930,6 +988,7 @@ function getMenu() {
               },
               {
                   "id": 128,
+                  "lang": "vi",
                   "menuName": "Quản lý menu xóa",
                   "code": "default:system:menu:del",
                   "fatherId": 123,
@@ -946,7 +1005,8 @@ function getMenu() {
               },
               {
                   "id": 42,
-                  "menuName": "Bàn làm việc",
+
+"lang": "vi",                  "menuName": "Bàn làm việc",
                   "code": "default:dashboard:workbench",
                   "fatherId": 1,
                   "orderNum": 3,
@@ -962,6 +1022,7 @@ function getMenu() {
               },
               {
                   "id": 139,
+                  "lang": "vi",
                   "menuName": "Quản lý vai trò xóa",
                   "code": "default:system:role-manager:del",
                   "fatherId": 122,
@@ -978,6 +1039,7 @@ function getMenu() {
               },
               {
                   "id": 107,
+                  "lang": "vi",
                   "menuName": "Excel trực tuyến",
                   "code": "default:comp:luckysheet",
                   "fatherId": 104,
@@ -994,6 +1056,7 @@ function getMenu() {
               },
               {
                   "id": 123,
+                  "lang": "vi",
                   "menuName": "Quản lý menu",
                   "code": "default:system:menu",
                   "fatherId": 120,
@@ -1010,7 +1073,8 @@ function getMenu() {
               },
               {
                   "id": 61,
-                  "menuName": "Trang chi tiết",
+
+"lang": "vi",                  "menuName": "Trang chi tiết",
                   "code": "default:page-demo:detail",
                   "fatherId": 43,
                   "orderNum": 3,
@@ -1026,7 +1090,8 @@ function getMenu() {
               },
               {
                   "id": 79,
-                  "menuName": "Nhấp chuột phải vào menu",
+
+"lang": "vi",                  "menuName": "Nhấp chuột phải vào menu",
                   "code": "default:feat:context-menu",
                   "fatherId": 76,
                   "orderNum": 3,
@@ -1042,7 +1107,8 @@ function getMenu() {
               },
               {
                   "id": 96,
-                  "menuName": "Echarts",
+
+"lang": "vi",                  "menuName": "Echarts",
                   "code": "default:feat:charts:echarts",
                   "fatherId": 93,
                   "orderNum": 3,
@@ -1058,6 +1124,7 @@ function getMenu() {
               },
               {
                   "id": 129,
+                  "lang": "vi",
                   "menuName": "Quản lý menu thêm cấp dưới",
                   "code": "default:system:menu:addlowlevel",
                   "fatherId": 123,
@@ -1074,6 +1141,7 @@ function getMenu() {
               },
               {
                   "id": 140,
+                  "lang": "vi",
                   "menuName": "Quản lý vai trò thiết lập các vai trò",
                   "code": "default:system:role-manager:set-role",
                   "fatherId": 122,
@@ -1090,6 +1158,7 @@ function getMenu() {
               },
               {
                   "id": 108,
+                  "lang": "vi",
                   "menuName": "Tải chậm thành phần",
                   "code": "default:comp:lazy",
                   "fatherId": 104,
@@ -1106,6 +1175,7 @@ function getMenu() {
               },
               {
                   "id": 133,
+                  "lang": "vi",
                   "menuName": "Thêm cấp dưới vào quản lý bộ phận",
                   "code": "default:system:dept:addlowlevel",
                   "fatherId": 124,
@@ -1122,7 +1192,8 @@ function getMenu() {
               },
               {
                   "id": 80,
-                  "menuName": "Xem trước hình ảnh",
+
+"lang": "vi",                  "menuName": "Xem trước hình ảnh",
                   "code": "default:feat:img-preview",
                   "fatherId": 76,
                   "orderNum": 4,
@@ -1138,7 +1209,8 @@ function getMenu() {
               },
               {
                   "id": 64,
-                  "menuName": "Trang kết quả",
+
+"lang": "vi",                  "menuName": "Trang kết quả",
                   "code": "default:page-demo:result",
                   "fatherId": 43,
                   "orderNum": 4,
@@ -1154,7 +1226,8 @@ function getMenu() {
               },
               {
                   "id": 55,
-                  "menuName": "mẫu",
+
+"lang": "vi",                  "menuName": "mẫu",
                   "code": "default:page-demo:list:standard-table",
                   "fatherId": 48,
                   "orderNum": 4,
@@ -1170,6 +1243,7 @@ function getMenu() {
               },
               {
                   "id": 124,
+                  "lang": "vi",
                   "menuName": "Quản lý bộ phận",
                   "code": "default:system:dept",
                   "fatherId": 120,
@@ -1186,6 +1260,7 @@ function getMenu() {
               },
               {
                   "id": 146,
+                  "lang": "vi",
                   "menuName": "Lỗi mạng",
                   "code": "default:page-demo:except:network-error",
                   "fatherId": 67,
@@ -1202,6 +1277,7 @@ function getMenu() {
               },
               {
                   "id": 104,
+                  "lang": "vi",
                   "menuName": "các thành phần",
                   "code": "default:comp",
                   "fatherId": 0,
@@ -1218,7 +1294,8 @@ function getMenu() {
               },
               {
                   "id": 81,
-                  "menuName": "toàn màn hình",
+
+"lang": "vi",                  "menuName": "toàn màn hình",
                   "code": "default:feat:full-screen",
                   "fatherId": 76,
                   "orderNum": 5,
@@ -1234,6 +1311,7 @@ function getMenu() {
               },
               {
                   "id": 111,
+                  "lang": "vi",
                   "menuName": "Thành phần chi tiết",
                   "code": "default:comp:desc",
                   "fatherId": 104,
@@ -1250,7 +1328,8 @@ function getMenu() {
               },
               {
                   "id": 56,
-                  "menuName": "danh sách thẻ",
+
+"lang": "vi",                  "menuName": "danh sách thẻ",
                   "code": "default:page-demo:list:card-table",
                   "fatherId": 48,
                   "orderNum": 5,
@@ -1266,6 +1345,7 @@ function getMenu() {
               },
               {
                   "id": 149,
+                  "lang": "vi",
                   "menuName": "không có dữ liệu",
                   "code": "default:page-demo:except:no-data",
                   "fatherId": 67,
@@ -1282,7 +1362,8 @@ function getMenu() {
               },
               {
                   "id": 67,
-                  "menuName": "trang ngoại lệ",
+
+"lang": "vi",                  "menuName": "trang ngoại lệ",
                   "code": "default:page-demo:except",
                   "fatherId": 43,
                   "orderNum": 5,
@@ -1298,6 +1379,7 @@ function getMenu() {
               },
               {
                   "id": 113,
+                  "lang": "vi",
                   "menuName": "menu nhiều cấp",
                   "code": "default:level",
                   "fatherId": 0,
@@ -1314,7 +1396,8 @@ function getMenu() {
               },
               {
                   "id": 71,
-                  "menuName": "trang cá nhân",
+
+"lang": "vi",                  "menuName": "trang cá nhân",
                   "code": "default:page-demo:personal",
                   "fatherId": 43,
                   "orderNum": 6,
@@ -1330,6 +1413,7 @@ function getMenu() {
               },
               {
                   "id": 120,
+                  "lang": "vi",
                   "menuName": "Quản lý hệ thống",
                   "code": "default:system",
                   "fatherId": 0,
@@ -1346,7 +1430,8 @@ function getMenu() {
               },
               {
                   "id": 82,
-                  "menuName": "Tác vụ tab",
+
+"lang": "vi",                  "menuName": "Tác vụ tab",
                   "code": "default:feat:tabs",
                   "fatherId": 76,
                   "orderNum": 6,
@@ -1362,6 +1447,7 @@ function getMenu() {
               },
               {
                   "id": 112,
+                  "lang": "vi",
                   "menuName": "Thành phần kiểm tra độ mạnh của mật khẩu",
                   "code": "default:comp:strength-meter",
                   "fatherId": 104,
@@ -1378,7 +1464,8 @@ function getMenu() {
               },
               {
                   "id": 83,
-                  "menuName": "phương thức modal",
+
+"lang": "vi",                  "menuName": "phương thức modal",
                   "code": "default:feat:ex-modal",
                   "fatherId": 76,
                   "orderNum": 7,
@@ -1394,6 +1481,7 @@ function getMenu() {
               },
               {
                   "id": 147,
+                  "lang": "vi",
                   "menuName": "Form",
                   "code": "default:comp:form",
                   "fatherId": 104,
@@ -1410,6 +1498,7 @@ function getMenu() {
               },
               {
                   "id": 125,
+                  "lang": "vi",
                   "menuName": "About",
                   "code": "default:about",
                   "fatherId": 0,
@@ -1426,7 +1515,8 @@ function getMenu() {
               },
               {
                   "id": 74,
-                  "menuName": "Biên tập đồ họa",
+
+"lang": "vi",                  "menuName": "Biên tập đồ họa",
                   "code": "default:page-demo:flow",
                   "fatherId": 43,
                   "orderNum": 7,
@@ -1442,7 +1532,8 @@ function getMenu() {
               },
               {
                   "id": 84,
-                  "menuName": "ngăn kéo đóng gói",
+
+"lang": "vi",                  "menuName": "ngăn kéo đóng gói",
                   "code": "default:feat:ex-drawer",
                   "fatherId": 76,
                   "orderNum": 8,
@@ -1458,7 +1549,8 @@ function getMenu() {
               },
               {
                   "id": 85,
-                  "menuName": "văn bản đa dạng thức",
+
+"lang": "vi",                  "menuName": "văn bản đa dạng thức",
                   "code": "default:feat:rich-text",
                   "fatherId": 76,
                   "orderNum": 9,
@@ -1474,7 +1566,8 @@ function getMenu() {
               },
               {
                   "id": 86,
-                  "menuName": "clickOutSide",
+
+"lang": "vi",                  "menuName": "clickOutSide",
                   "code": "default:feat:click-out-side",
                   "fatherId": 76,
                   "orderNum": 10,
@@ -1490,7 +1583,8 @@ function getMenu() {
               },
               {
                   "id": 87,
-                  "menuName": "tài liệu bên ngoài",
+
+"lang": "vi",                  "menuName": "tài liệu bên ngoài",
                   "code": "default:feat:frame",
                   "fatherId": 76,
                   "orderNum": 11,
@@ -1506,7 +1600,8 @@ function getMenu() {
               },
               {
                   "id": 90,
-                  "menuName": "thanh cuộn",
+
+"lang": "vi",                  "menuName": "thanh cuộn",
                   "code": "default:feat:scroll",
                   "fatherId": 76,
                   "orderNum": 12,
@@ -1522,7 +1617,8 @@ function getMenu() {
               },
               {
                   "id": 93,
-                  "menuName": "Charts",
+
+"lang": "vi",                  "menuName": "Charts",
                   "code": "default:feat:charts",
                   "fatherId": 76,
                   "orderNum": 13,
@@ -1538,7 +1634,8 @@ function getMenu() {
               },
               {
                   "id": 97,
-                  "menuName": "Các phương thức đăng nhập khác",
+
+"lang": "vi",                  "menuName": "Các phương thức đăng nhập khác",
                   "code": "blank:other-login",
                   "fatherId": 76,
                   "orderNum": 14,
@@ -1554,7 +1651,8 @@ function getMenu() {
               },
               {
                   "id": 99,
-                  "menuName": "công cụ chọn màu",
+
+"lang": "vi",                  "menuName": "công cụ chọn màu",
                   "code": "default:feat:color-sel",
                   "fatherId": 76,
                   "orderNum": 15,
@@ -1570,6 +1668,7 @@ function getMenu() {
               },
               {
                   "id": 100,
+                  "lang": "vi",
                   "menuName": "nước gợn sóng",
                   "code": "default:feat:ripple",
                   "fatherId": 76,
@@ -1586,6 +1685,7 @@ function getMenu() {
               },
               {
                   "id": 101,
+                  "lang": "vi",
                   "menuName": "bìa kẹp hồ sơ",
                   "code": "default:feat:copy",
                   "fatherId": 76,
@@ -1602,6 +1702,7 @@ function getMenu() {
               },
               {
                   "id": 102,
+                  "lang": "vi",
                   "menuName": "Trang trống",
                   "code": "blank:empty-page",
                   "fatherId": 76,
@@ -1618,6 +1719,7 @@ function getMenu() {
               },
               {
                   "id": 103,
+                  "lang": "vi",
                   "menuName": "Trang hướng dẫn",
                   "code": "default:feat:setup",
                   "fatherId": 76,
@@ -1634,6 +1736,7 @@ function getMenu() {
               },
               {
                   "id": 141,
+                  "lang": "vi",
                   "menuName": "Đăng nhập đã hết thời gian",
                   "code": "default:feat:session-timeout",
                   "fatherId": 76,
@@ -1650,6 +1753,7 @@ function getMenu() {
               },
               {
                   "id": 142,
+                  "lang": "vi",
                   "menuName": "websocket",
                   "code": "default:feat:websocket",
                   "fatherId": 76,
@@ -1666,6 +1770,7 @@ function getMenu() {
               },
               {
                   "id": 144,
+                  "lang": "vi",
                   "menuName": "Tải lên tệp",
                   "code": "default:feat:upload",
                   "fatherId": 76,
@@ -1682,6 +1787,7 @@ function getMenu() {
               },
               {
                   "id": 143,
+                  "lang": "vi",
                   "menuName": "tập tin tải về",
                   "code": "default:feat:download",
                   "fatherId": 76,
@@ -1698,6 +1804,7 @@ function getMenu() {
               },
               {
                   "id": 145,
+                  "lang": "vi",
                   "menuName": "biên tập mã",
                   "code": "default:feat:editor",
                   "fatherId": 76,

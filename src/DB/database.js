@@ -1,6 +1,8 @@
 const { Sequelize } = require('sequelize');
+const Logger = require('../common/logFile');
 const dotenv = require('dotenv');
 dotenv.config();
+const MenuModel = require('../DB/model/menu');
 class Database {
   constructor() {
     this.host = process.env.MSHOST,
@@ -13,19 +15,30 @@ class Database {
       host: this.host,
       port: this.port,
       dialect: 'mysql', // Chọn loại cơ sở dữ liệu bạn đang sử dụng (mysql, postgres, sqlite, etc.)
-      logging: false, // Tắt log các câu lệnh SQL nếu bạn không cần chúng
+      logging: (msg) => {
+        Logger(msg);
+      }, // Tắt log các câu lệnh SQL nếu bạn không cần chúng
     });
-
-    this.models = {}; // Chứa các mô hình (models) của cơ sở dữ liệu
+    
+    this.models = {
+        "sys_menu" : MenuModel
+    }; // Chứa các mô hình (models) của cơ sở dữ liệu
+   // this.connect();
+    this.modelsdf();
   }
 
   async connect() {
     try {
       await this.sequelize.authenticate();
       console.log('Kết nối cơ sở dữ liệu thành công');
+      
     } catch (error) {
       console.error('Lỗi kết nối cơ sở dữ liệu:', error);
     }
+  }
+
+  modelsdf() {
+    this.defineModel('sys_menu', MenuModel);
   }
 
   defineModel(modelName, modelDefinition) {

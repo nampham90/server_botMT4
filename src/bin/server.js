@@ -79,7 +79,9 @@ class Server {
 
     syncDatabase() {
         const db = new Database();
-        db.defineModel('menu', MenuModel)
+    //     db.models.sys_menu.findAll({}).then(data => {
+    //         console.log(data)
+    //    });
         db.connect()
         .then(async() => await db.sync({ alter: true }))
         .then(() => {

@@ -1,16 +1,16 @@
 const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   const Menu = sequelize.define(
-    'menu',
+    'sys_menu',
     {
       id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING(36),
             primaryKey: true,
-            autoIncrement: true,
             allowNull: false,
       },
       lang: {
         type: DataTypes.STRING(3),
+        primaryKey: true,
         allowNull: false,
       },
       menuName: {
@@ -31,7 +31,7 @@ module.exports = (sequelize) => {
       },
       path: {
         type: DataTypes.STRING(100),
-        allowNull: false,
+        allowNull: true,
       },
       menuType: {
         type: DataTypes.CHAR(1),
@@ -39,23 +39,23 @@ module.exports = (sequelize) => {
       },
       visible: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        allowNull: true,
       },
       status: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        allowNull: true,
       },
       icon: {
         type: DataTypes.STRING(50),
-        allowNull: false,
+        allowNull: true,
       },
       alIcon: {
         type: DataTypes.STRING(50),
-        allowNull: false,
+        allowNull: true,
       },
       newLinkFlag: {
         type: DataTypes.BOOLEAN,
-        allowNull: false,
+        allowNull: true,
       },
     },
     {
