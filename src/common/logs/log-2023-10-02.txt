@@ -1,0 +1,7 @@
+8:6:57: MongoDB :: demo_db roles.find({},undefined)
+8:6:57: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+8:6:58: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+8:6:58: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+8:6:58: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+8:6:58: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+8:6:58: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
