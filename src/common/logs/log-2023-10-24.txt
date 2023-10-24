@@ -5632,3 +5632,425 @@
 14:31:42: Executing (default): ALTER TABLE `role_menu` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
 14:31:42: Executing (default): ALTER TABLE `role_menu` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
 14:31:42: Executing (default): SHOW INDEX FROM `role_menu`
+18:58:39: Executing (default): SELECT 1+1 AS result
+18:58:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+18:58:39: Executing (default): SHOW INDEX FROM `sys_menus`
+18:58:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_users' AND TABLE_SCHEMA = 'nanp'
+18:58:39: Executing (default): SHOW INDEX FROM `sys_users`
+18:58:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_roles' AND TABLE_SCHEMA = 'nanp'
+18:58:39: Executing (default): SHOW INDEX FROM `sys_roles`
+18:58:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_departments' AND TABLE_SCHEMA = 'nanp'
+18:58:39: Executing (default): SHOW INDEX FROM `sys_departments`
+18:58:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt341_files' AND TABLE_SCHEMA = 'nanp'
+18:58:39: Executing (default): SHOW INDEX FROM `tmt341_files`
+18:58:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt340_formitemnms' AND TABLE_SCHEMA = 'nanp'
+18:58:39: Executing (default): SHOW INDEX FROM `tmt340_formitemnms`
+18:58:40: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'user_role' AND TABLE_SCHEMA = 'nanp'
+18:58:40: Executing (default): SHOW INDEX FROM `user_role`
+18:58:40: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'role_menu' AND TABLE_SCHEMA = 'nanp'
+18:58:40: Executing (default): SHOW INDEX FROM `role_menu`
+18:58:40: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+18:58:40: Executing (default): SHOW FULL COLUMNS FROM `sys_menus`;
+18:58:40: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_menus' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `menuName` `menuName` VARCHAR(50) NOT NULL;
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `code` `code` VARCHAR(50) NOT NULL;
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `fatherId` `fatherId` VARCHAR(24) NOT NULL;
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `orderNum` `orderNum` INTEGER NOT NULL;
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `path` `path` VARCHAR(100);
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `menuType` `menuType` CHAR(1) NOT NULL;
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `visible` `visible` TINYINT(1);
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `status` `status` TINYINT(1);
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `icon` `icon` VARCHAR(50);
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `alIcon` `alIcon` VARCHAR(50);
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `newLinkFlag` `newLinkFlag` TINYINT(1);
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+18:58:40: Executing (default): ALTER TABLE `sys_menus` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+18:58:40: Executing (default): SHOW INDEX FROM `sys_menus`
+18:58:40: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_users' AND TABLE_SCHEMA = 'nanp'
+18:58:40: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_users' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+18:58:40: Executing (default): SHOW FULL COLUMNS FROM `sys_users`;
+18:58:40: Executing (default): ALTER TABLE `sys_users` CHANGE `password` `password` VARCHAR(255) NOT NULL;
+18:58:40: Executing (default): ALTER TABLE `sys_users` CHANGE `sex` `sex` INTEGER;
+18:58:40: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+18:58:40: Executing (default): ALTER TABLE `sys_users` CHANGE `email` `email` VARCHAR(50);
+18:58:40: Executing (default): ALTER TABLE `sys_users` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+18:58:40: Executing (default): ALTER TABLE `sys_users` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+18:58:40: Executing (default): ALTER TABLE `sys_users` CHANGE `sysDepartmentId` `sysDepartmentId` INTEGER;
+18:58:40: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='sys_users' AND constraint_name = 'sys_users_ibfk_1' AND TABLE_SCHEMA = 'nanp';
+18:58:40: Executing (default): ALTER TABLE `sys_users` DROP FOREIGN KEY `sys_users_ibfk_1`;
+18:58:40: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+18:58:40: Executing (default): ALTER TABLE `sys_users` ADD FOREIGN KEY (`avatar`) REFERENCES `tmt341_files` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+18:58:40: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+18:58:41: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+18:58:41: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+18:58:41: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+18:58:41: Executing (default): ALTER TABLE `sys_users` CHANGE `name` `name` VARCHAR(20) NOT NULL;
+18:58:41: Executing (default): ALTER TABLE `sys_users` CHANGE `available` `available` TINYINT(1);
+18:58:41: Executing (default): ALTER TABLE `sys_users` CHANGE `dienthoai` `dienthoai` BIGINT;
+18:58:41: Executing (default): ALTER TABLE `sys_users` CHANGE `lastLoginTime` `lastLoginTime` DATETIME;
+18:58:41: Executing (default): ALTER TABLE `sys_users` CHANGE `phongban_id` `phongban_id` INTEGER;
+18:58:41: Executing (default): SHOW INDEX FROM `sys_users`
+18:58:41: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_roles' AND TABLE_SCHEMA = 'nanp'
+18:58:41: Executing (default): SHOW FULL COLUMNS FROM `sys_roles`;
+18:58:41: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_roles' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+18:58:41: Executing (default): ALTER TABLE `sys_roles` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+18:58:41: Executing (default): ALTER TABLE `sys_roles` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+18:58:41: Executing (default): ALTER TABLE `sys_roles` CHANGE `rolename` `rolename` VARCHAR(50);
+18:58:41: Executing (default): ALTER TABLE `sys_roles` CHANGE `mota` `mota` VARCHAR(100);
+18:58:41: Executing (default): SHOW INDEX FROM `sys_roles`
+18:58:41: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_departments' AND TABLE_SCHEMA = 'nanp'
+18:58:41: Executing (default): SHOW FULL COLUMNS FROM `sys_departments`;
+18:58:41: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_departments' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+18:58:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `state` `state` TINYINT(1);
+18:58:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+18:58:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+18:58:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `tenphongban` `tenphongban` VARCHAR(255);
+18:58:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `fatherId` `fatherId` INTEGER;
+18:58:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `orderNum` `orderNum` INTEGER;
+18:58:41: Executing (default): SHOW INDEX FROM `sys_departments`
+18:58:41: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt341_files' AND TABLE_SCHEMA = 'nanp'
+18:58:41: Executing (default): SHOW FULL COLUMNS FROM `tmt341_files`;
+18:58:41: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'tmt341_files' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+18:58:41: Executing (default): ALTER TABLE `tmt341_files` CHANGE `filename` `filename` VARCHAR(100);
+18:58:42: Executing (default): ALTER TABLE `tmt341_files` CHANGE `path` `path` VARCHAR(100);
+18:58:42: Executing (default): ALTER TABLE `tmt341_files` CHANGE `typefile` `typefile` VARCHAR(20);
+18:58:42: Executing (default): ALTER TABLE `tmt341_files` CHANGE `sizefile` `sizefile` VARCHAR(10);
+18:58:42: Executing (default): ALTER TABLE `tmt341_files` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+18:58:42: Executing (default): ALTER TABLE `tmt341_files` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+18:58:42: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='tmt341_files' AND constraint_name = 'tmt341_files_ibfk_1' AND TABLE_SCHEMA = 'nanp';
+18:58:42: Executing (default): ALTER TABLE `tmt341_files` DROP FOREIGN KEY `tmt341_files_ibfk_1`;
+18:58:42: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='tmt341_files' AND constraint_name = 'tmt341_files_ibfk_2' AND TABLE_SCHEMA = 'nanp';
+18:58:42: Executing (default): ALTER TABLE `tmt341_files` DROP FOREIGN KEY `tmt341_files_ibfk_2`;
+18:58:42: Executing (default): ALTER TABLE `tmt341_files` ADD FOREIGN KEY (`user_id`) REFERENCES `sys_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+18:58:42: Executing (default): ALTER TABLE `tmt341_files` ADD FOREIGN KEY (`sysUserId`) REFERENCES `sys_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+18:58:42: Executing (default): SHOW INDEX FROM `tmt341_files`
+18:58:42: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt340_formitemnms' AND TABLE_SCHEMA = 'nanp'
+18:58:42: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'tmt340_formitemnms' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+18:58:42: Executing (default): SHOW FULL COLUMNS FROM `tmt340_formitemnms`;
+18:58:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `lang` `lang` VARCHAR(3);
+18:58:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `title1` `title1` VARCHAR(100);
+18:58:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `title2` `title2` VARCHAR(100);
+18:58:43: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `status` `status` TINYINT(1);
+18:58:43: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+18:58:43: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+18:58:43: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `menu_id` `menu_id` VARCHAR(36);
+18:58:43: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `sysMenuId` `sysMenuId` VARCHAR(36);
+18:58:43: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `vitri` `vitri` INTEGER;
+18:58:43: Executing (default): SHOW INDEX FROM `tmt340_formitemnms`
+18:58:43: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'user_role' AND TABLE_SCHEMA = 'nanp'
+18:58:43: Executing (default): SHOW FULL COLUMNS FROM `user_role`;
+18:58:43: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'user_role' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+18:58:43: Executing (default): ALTER TABLE `user_role` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+18:58:43: Executing (default): ALTER TABLE `user_role` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+18:58:43: Executing (default): SHOW INDEX FROM `user_role`
+18:58:43: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'role_menu' AND TABLE_SCHEMA = 'nanp'
+18:58:43: Executing (default): SHOW FULL COLUMNS FROM `role_menu`;
+18:58:43: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'role_menu' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+18:58:43: Executing (default): ALTER TABLE `role_menu` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+18:58:43: Executing (default): ALTER TABLE `role_menu` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+18:58:43: Executing (default): SHOW INDEX FROM `role_menu`
+19:6:14: Executing (default): SELECT 1+1 AS result
+19:6:14: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+19:6:14: Executing (default): SHOW INDEX FROM `sys_menus`
+19:6:14: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_users' AND TABLE_SCHEMA = 'nanp'
+19:6:14: Executing (default): SHOW INDEX FROM `sys_users`
+19:6:14: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_roles' AND TABLE_SCHEMA = 'nanp'
+19:6:14: Executing (default): SHOW INDEX FROM `sys_roles`
+19:6:14: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_departments' AND TABLE_SCHEMA = 'nanp'
+19:6:14: Executing (default): SHOW INDEX FROM `sys_departments`
+19:6:14: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt341_files' AND TABLE_SCHEMA = 'nanp'
+19:6:15: Executing (default): SHOW INDEX FROM `tmt341_files`
+19:6:15: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt340_formitemnms' AND TABLE_SCHEMA = 'nanp'
+19:6:15: Executing (default): SHOW INDEX FROM `tmt340_formitemnms`
+19:6:15: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'user_role' AND TABLE_SCHEMA = 'nanp'
+19:6:15: Executing (default): SHOW INDEX FROM `user_role`
+19:6:15: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'role_menu' AND TABLE_SCHEMA = 'nanp'
+19:6:15: Executing (default): SHOW INDEX FROM `role_menu`
+19:6:15: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+19:6:15: Executing (default): SHOW FULL COLUMNS FROM `sys_menus`;
+19:6:15: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_menus' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `menuName` `menuName` VARCHAR(50) NOT NULL;
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `code` `code` VARCHAR(50) NOT NULL;
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `fatherId` `fatherId` VARCHAR(24) NOT NULL;
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `orderNum` `orderNum` INTEGER NOT NULL;
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `path` `path` VARCHAR(100);
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `menuType` `menuType` CHAR(1) NOT NULL;
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `visible` `visible` TINYINT(1);
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `status` `status` TINYINT(1);
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `icon` `icon` VARCHAR(50);
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `alIcon` `alIcon` VARCHAR(50);
+19:6:15: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `newLinkFlag` `newLinkFlag` TINYINT(1);
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:6:15: Executing (default): ALTER TABLE `sys_menus` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:6:15: Executing (default): SHOW INDEX FROM `sys_menus`
+19:6:15: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_users' AND TABLE_SCHEMA = 'nanp'
+19:6:15: Executing (default): SHOW FULL COLUMNS FROM `sys_users`;
+19:6:15: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_users' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:6:15: Executing (default): ALTER TABLE `sys_users` CHANGE `password` `password` VARCHAR(255) NOT NULL;
+19:6:15: Executing (default): ALTER TABLE `sys_users` CHANGE `sex` `sex` INTEGER;
+19:6:15: Executing (default): ALTER TABLE `sys_users` CHANGE `email` `email` VARCHAR(50);
+19:6:15: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+19:6:15: Executing (default): ALTER TABLE `sys_users` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:6:15: Executing (default): ALTER TABLE `sys_users` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:6:15: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+19:6:15: Executing (default): ALTER TABLE `sys_users` CHANGE `sysDepartmentId` `sysDepartmentId` INTEGER;
+19:6:15: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='sys_users' AND constraint_name = 'sys_users_ibfk_1' AND TABLE_SCHEMA = 'nanp';
+19:6:15: Executing (default): ALTER TABLE `sys_users` DROP FOREIGN KEY `sys_users_ibfk_1`;
+19:6:15: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+19:6:15: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+19:6:15: Executing (default): ALTER TABLE `sys_users` ADD FOREIGN KEY (`avatar`) REFERENCES `tmt341_files` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+19:6:16: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+19:6:16: Executing (default): ALTER TABLE `sys_users` CHANGE `name` `name` VARCHAR(20) NOT NULL;
+19:6:16: Executing (default): ALTER TABLE `sys_users` CHANGE `available` `available` TINYINT(1);
+19:6:16: Executing (default): ALTER TABLE `sys_users` CHANGE `dienthoai` `dienthoai` BIGINT;
+19:6:16: Executing (default): ALTER TABLE `sys_users` CHANGE `lastLoginTime` `lastLoginTime` DATETIME;
+19:6:16: Executing (default): ALTER TABLE `sys_users` CHANGE `phongban_id` `phongban_id` INTEGER;
+19:6:16: Executing (default): SHOW INDEX FROM `sys_users`
+19:6:16: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_roles' AND TABLE_SCHEMA = 'nanp'
+19:6:16: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_roles' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:6:16: Executing (default): SHOW FULL COLUMNS FROM `sys_roles`;
+19:6:16: Executing (default): ALTER TABLE `sys_roles` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:6:16: Executing (default): ALTER TABLE `sys_roles` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:6:16: Executing (default): ALTER TABLE `sys_roles` CHANGE `rolename` `rolename` VARCHAR(50);
+19:6:16: Executing (default): ALTER TABLE `sys_roles` CHANGE `mota` `mota` VARCHAR(100);
+19:6:16: Executing (default): SHOW INDEX FROM `sys_roles`
+19:6:16: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_departments' AND TABLE_SCHEMA = 'nanp'
+19:6:16: Executing (default): SHOW FULL COLUMNS FROM `sys_departments`;
+19:6:16: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_departments' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:6:16: Executing (default): ALTER TABLE `sys_departments` CHANGE `state` `state` TINYINT(1);
+19:6:16: Executing (default): ALTER TABLE `sys_departments` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:6:16: Executing (default): ALTER TABLE `sys_departments` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:6:16: Executing (default): ALTER TABLE `sys_departments` CHANGE `tenphongban` `tenphongban` VARCHAR(255);
+19:6:16: Executing (default): ALTER TABLE `sys_departments` CHANGE `fatherId` `fatherId` INTEGER;
+19:6:16: Executing (default): ALTER TABLE `sys_departments` CHANGE `orderNum` `orderNum` INTEGER;
+19:6:17: Executing (default): SHOW INDEX FROM `sys_departments`
+19:6:17: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt341_files' AND TABLE_SCHEMA = 'nanp'
+19:6:17: Executing (default): SHOW FULL COLUMNS FROM `tmt341_files`;
+19:6:17: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'tmt341_files' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:6:17: Executing (default): ALTER TABLE `tmt341_files` CHANGE `filename` `filename` VARCHAR(100);
+19:6:17: Executing (default): ALTER TABLE `tmt341_files` CHANGE `path` `path` VARCHAR(100);
+19:6:17: Executing (default): ALTER TABLE `tmt341_files` CHANGE `typefile` `typefile` VARCHAR(20);
+19:6:17: Executing (default): ALTER TABLE `tmt341_files` CHANGE `sizefile` `sizefile` VARCHAR(10);
+19:6:17: Executing (default): ALTER TABLE `tmt341_files` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:6:17: Executing (default): ALTER TABLE `tmt341_files` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:6:17: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='tmt341_files' AND constraint_name = 'tmt341_files_ibfk_1' AND TABLE_SCHEMA = 'nanp';
+19:6:17: Executing (default): ALTER TABLE `tmt341_files` DROP FOREIGN KEY `tmt341_files_ibfk_1`;
+19:6:17: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='tmt341_files' AND constraint_name = 'tmt341_files_ibfk_2' AND TABLE_SCHEMA = 'nanp';
+19:6:17: Executing (default): ALTER TABLE `tmt341_files` DROP FOREIGN KEY `tmt341_files_ibfk_2`;
+19:6:17: Executing (default): ALTER TABLE `tmt341_files` ADD FOREIGN KEY (`user_id`) REFERENCES `sys_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+19:6:17: Executing (default): ALTER TABLE `tmt341_files` ADD FOREIGN KEY (`sysUserId`) REFERENCES `sys_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+19:6:17: Executing (default): SHOW INDEX FROM `tmt341_files`
+19:6:17: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt340_formitemnms' AND TABLE_SCHEMA = 'nanp'
+19:6:17: Executing (default): SHOW FULL COLUMNS FROM `tmt340_formitemnms`;
+19:6:17: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'tmt340_formitemnms' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:6:17: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `lang` `lang` VARCHAR(3);
+19:6:18: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `title1` `title1` VARCHAR(100);
+19:6:18: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `title2` `title2` VARCHAR(100);
+19:6:18: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `status` `status` TINYINT(1);
+19:6:18: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:6:18: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:6:18: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `menu_id` `menu_id` VARCHAR(36);
+19:6:18: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `sysMenuId` `sysMenuId` VARCHAR(36);
+19:6:18: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `vitri` `vitri` INTEGER;
+19:6:18: Executing (default): SHOW INDEX FROM `tmt340_formitemnms`
+19:6:18: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'user_role' AND TABLE_SCHEMA = 'nanp'
+19:6:18: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'user_role' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:6:18: Executing (default): SHOW FULL COLUMNS FROM `user_role`;
+19:6:18: Executing (default): ALTER TABLE `user_role` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:6:18: Executing (default): ALTER TABLE `user_role` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:6:18: Executing (default): SHOW INDEX FROM `user_role`
+19:6:18: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'role_menu' AND TABLE_SCHEMA = 'nanp'
+19:6:18: Executing (default): SHOW FULL COLUMNS FROM `role_menu`;
+19:6:18: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'role_menu' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:6:18: Executing (default): ALTER TABLE `role_menu` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:6:18: Executing (default): ALTER TABLE `role_menu` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:6:18: Executing (default): SHOW INDEX FROM `role_menu`
+19:45:39: Executing (default): SELECT 1+1 AS result
+19:45:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+19:45:39: Executing (default): SHOW INDEX FROM `sys_menus`
+19:45:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_users' AND TABLE_SCHEMA = 'nanp'
+19:45:39: Executing (default): SHOW INDEX FROM `sys_users`
+19:45:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_roles' AND TABLE_SCHEMA = 'nanp'
+19:45:39: Executing (default): SHOW INDEX FROM `sys_roles`
+19:45:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_departments' AND TABLE_SCHEMA = 'nanp'
+19:45:39: Executing (default): SHOW INDEX FROM `sys_departments`
+19:45:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt341_files' AND TABLE_SCHEMA = 'nanp'
+19:45:39: Executing (default): SHOW INDEX FROM `tmt341_files`
+19:45:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt340_formitemnms' AND TABLE_SCHEMA = 'nanp'
+19:45:39: Executing (default): SHOW INDEX FROM `tmt340_formitemnms`
+19:45:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'user_role' AND TABLE_SCHEMA = 'nanp'
+19:45:39: Executing (default): SHOW INDEX FROM `user_role`
+19:45:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'role_menu' AND TABLE_SCHEMA = 'nanp'
+19:45:39: Executing (default): SHOW INDEX FROM `role_menu`
+19:45:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+19:45:39: Executing (default): SHOW FULL COLUMNS FROM `sys_menus`;
+19:45:39: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_menus' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `menuName` `menuName` VARCHAR(50) NOT NULL;
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `code` `code` VARCHAR(50) NOT NULL;
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `fatherId` `fatherId` VARCHAR(24) NOT NULL;
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `orderNum` `orderNum` INTEGER NOT NULL;
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `path` `path` VARCHAR(100);
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `menuType` `menuType` CHAR(1) NOT NULL;
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `visible` `visible` TINYINT(1);
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `status` `status` TINYINT(1);
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `icon` `icon` VARCHAR(50);
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `alIcon` `alIcon` VARCHAR(50);
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `newLinkFlag` `newLinkFlag` TINYINT(1);
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:45:39: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+19:45:39: Executing (default): ALTER TABLE `sys_menus` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:45:39: Executing (default): SHOW INDEX FROM `sys_menus`
+19:45:39: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_users' AND TABLE_SCHEMA = 'nanp'
+19:45:39: Executing (default): SHOW FULL COLUMNS FROM `sys_users`;
+19:45:39: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_users' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:45:39: Executing (default): ALTER TABLE `sys_users` CHANGE `password` `password` VARCHAR(255) NOT NULL;
+19:45:39: Executing (default): ALTER TABLE `sys_users` CHANGE `sex` `sex` INTEGER;
+19:45:40: Executing (default): ALTER TABLE `sys_users` CHANGE `email` `email` VARCHAR(50);
+19:45:40: Executing (default): ALTER TABLE `sys_users` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:45:40: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+19:45:40: Executing (default): ALTER TABLE `sys_users` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:45:40: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+19:45:40: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+19:45:40: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+19:45:40: Executing (default): ALTER TABLE `sys_users` CHANGE `sysDepartmentId` `sysDepartmentId` INTEGER;
+19:45:40: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='sys_users' AND constraint_name = 'sys_users_ibfk_1' AND TABLE_SCHEMA = 'nanp';
+19:45:40: Executing (default): ALTER TABLE `sys_users` DROP FOREIGN KEY `sys_users_ibfk_1`;
+19:45:40: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+19:45:40: Executing (default): ALTER TABLE `sys_users` ADD FOREIGN KEY (`avatar`) REFERENCES `tmt341_files` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+19:45:40: Executing (default): ALTER TABLE `sys_users` CHANGE `name` `name` VARCHAR(20) NOT NULL;
+19:45:40: Executing (default): ALTER TABLE `sys_users` CHANGE `available` `available` TINYINT(1);
+19:45:40: Executing (default): ALTER TABLE `sys_users` CHANGE `dienthoai` `dienthoai` BIGINT;
+19:45:40: Executing (default): ALTER TABLE `sys_users` CHANGE `lastLoginTime` `lastLoginTime` DATETIME;
+19:45:40: Executing (default): ALTER TABLE `sys_users` CHANGE `phongban_id` `phongban_id` INTEGER;
+19:45:41: Executing (default): SHOW INDEX FROM `sys_users`
+19:45:41: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_roles' AND TABLE_SCHEMA = 'nanp'
+19:45:41: Executing (default): SHOW FULL COLUMNS FROM `sys_roles`;
+19:45:41: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_roles' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:45:41: Executing (default): ALTER TABLE `sys_roles` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:45:41: Executing (default): ALTER TABLE `sys_roles` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:45:41: Executing (default): ALTER TABLE `sys_roles` CHANGE `rolename` `rolename` VARCHAR(50);
+19:45:41: Executing (default): ALTER TABLE `sys_roles` CHANGE `mota` `mota` VARCHAR(100);
+19:45:41: Executing (default): SHOW INDEX FROM `sys_roles`
+19:45:41: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_departments' AND TABLE_SCHEMA = 'nanp'
+19:45:41: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_departments' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:45:41: Executing (default): SHOW FULL COLUMNS FROM `sys_departments`;
+19:45:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `state` `state` TINYINT(1);
+19:45:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:45:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:45:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `tenphongban` `tenphongban` VARCHAR(255);
+19:45:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `fatherId` `fatherId` INTEGER;
+19:45:41: Executing (default): ALTER TABLE `sys_departments` CHANGE `orderNum` `orderNum` INTEGER;
+19:45:41: Executing (default): SHOW INDEX FROM `sys_departments`
+19:45:41: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt341_files' AND TABLE_SCHEMA = 'nanp'
+19:45:41: Executing (default): SHOW FULL COLUMNS FROM `tmt341_files`;
+19:45:41: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'tmt341_files' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:45:41: Executing (default): ALTER TABLE `tmt341_files` CHANGE `filename` `filename` VARCHAR(100);
+19:45:41: Executing (default): ALTER TABLE `tmt341_files` CHANGE `path` `path` VARCHAR(100);
+19:45:41: Executing (default): ALTER TABLE `tmt341_files` CHANGE `typefile` `typefile` VARCHAR(20);
+19:45:41: Executing (default): ALTER TABLE `tmt341_files` CHANGE `sizefile` `sizefile` VARCHAR(10);
+19:45:41: Executing (default): ALTER TABLE `tmt341_files` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:45:41: Executing (default): ALTER TABLE `tmt341_files` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:45:41: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='tmt341_files' AND constraint_name = 'tmt341_files_ibfk_1' AND TABLE_SCHEMA = 'nanp';
+19:45:41: Executing (default): ALTER TABLE `tmt341_files` DROP FOREIGN KEY `tmt341_files_ibfk_1`;
+19:45:41: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='tmt341_files' AND constraint_name = 'tmt341_files_ibfk_2' AND TABLE_SCHEMA = 'nanp';
+19:45:41: Executing (default): ALTER TABLE `tmt341_files` DROP FOREIGN KEY `tmt341_files_ibfk_2`;
+19:45:41: Executing (default): ALTER TABLE `tmt341_files` ADD FOREIGN KEY (`user_id`) REFERENCES `sys_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+19:45:42: Executing (default): ALTER TABLE `tmt341_files` ADD FOREIGN KEY (`sysUserId`) REFERENCES `sys_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+19:45:42: Executing (default): SHOW INDEX FROM `tmt341_files`
+19:45:42: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt340_formitemnms' AND TABLE_SCHEMA = 'nanp'
+19:45:42: Executing (default): SHOW FULL COLUMNS FROM `tmt340_formitemnms`;
+19:45:42: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'tmt340_formitemnms' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:45:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `lang` `lang` VARCHAR(3);
+19:45:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `title1` `title1` VARCHAR(100);
+19:45:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `title2` `title2` VARCHAR(100);
+19:45:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `status` `status` TINYINT(1);
+19:45:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:45:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:45:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `menu_id` `menu_id` VARCHAR(36);
+19:45:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `sysMenuId` `sysMenuId` VARCHAR(36);
+19:45:42: Executing (default): ALTER TABLE `tmt340_formitemnms` CHANGE `vitri` `vitri` INTEGER;
+19:45:42: Executing (default): SHOW INDEX FROM `tmt340_formitemnms`
+19:45:42: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'user_role' AND TABLE_SCHEMA = 'nanp'
+19:45:42: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'user_role' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:45:42: Executing (default): SHOW FULL COLUMNS FROM `user_role`;
+19:45:42: Executing (default): ALTER TABLE `user_role` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:45:42: Executing (default): ALTER TABLE `user_role` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:45:42: Executing (default): SHOW INDEX FROM `user_role`
+19:45:42: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'role_menu' AND TABLE_SCHEMA = 'nanp'
+19:45:42: Executing (default): SHOW FULL COLUMNS FROM `role_menu`;
+19:45:42: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'role_menu' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+19:45:42: Executing (default): ALTER TABLE `role_menu` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+19:45:42: Executing (default): ALTER TABLE `role_menu` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+19:45:42: Executing (default): SHOW INDEX FROM `role_menu`
+21:33:33: Executing (default): SELECT 1+1 AS result
+21:33:33: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+21:33:33: Executing (default): SHOW INDEX FROM `sys_menus`
+21:33:33: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_users' AND TABLE_SCHEMA = 'nanp'
+21:33:33: Executing (default): SHOW INDEX FROM `sys_users`
+21:33:33: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_roles' AND TABLE_SCHEMA = 'nanp'
+21:33:33: Executing (default): SHOW INDEX FROM `sys_roles`
+21:33:33: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_departments' AND TABLE_SCHEMA = 'nanp'
+21:33:33: Executing (default): SHOW INDEX FROM `sys_departments`
+21:33:33: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt341_files' AND TABLE_SCHEMA = 'nanp'
+21:33:33: Executing (default): SHOW INDEX FROM `tmt341_files`
+21:33:33: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'tmt340_formitemnms' AND TABLE_SCHEMA = 'nanp'
+21:33:33: Executing (default): SHOW INDEX FROM `tmt340_formitemnms`
+21:33:33: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'user_role' AND TABLE_SCHEMA = 'nanp'
+21:33:33: Executing (default): SHOW INDEX FROM `user_role`
+21:33:33: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'role_menu' AND TABLE_SCHEMA = 'nanp'
+21:33:33: Executing (default): SHOW INDEX FROM `role_menu`
+21:33:33: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_menus' AND TABLE_SCHEMA = 'nanp'
+21:33:33: Executing (default): SHOW FULL COLUMNS FROM `sys_menus`;
+21:33:33: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_menus' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+21:33:33: Executing (default): ALTER TABLE `sys_menus` CHANGE `menuName` `menuName` VARCHAR(50) NOT NULL;
+21:33:33: Executing (default): ALTER TABLE `sys_menus` CHANGE `code` `code` VARCHAR(50) NOT NULL;
+21:33:33: Executing (default): ALTER TABLE `sys_menus` CHANGE `fatherId` `fatherId` VARCHAR(24) NOT NULL;
+21:33:33: Executing (default): ALTER TABLE `sys_menus` CHANGE `orderNum` `orderNum` INTEGER NOT NULL;
+21:33:33: Executing (default): ALTER TABLE `sys_menus` CHANGE `path` `path` VARCHAR(100);
+21:33:33: Executing (default): ALTER TABLE `sys_menus` CHANGE `menuType` `menuType` CHAR(1) NOT NULL;
+21:33:34: Executing (default): ALTER TABLE `sys_menus` CHANGE `visible` `visible` TINYINT(1);
+21:33:34: Executing (default): ALTER TABLE `sys_menus` CHANGE `status` `status` TINYINT(1);
+21:33:34: Executing (default): ALTER TABLE `sys_menus` CHANGE `icon` `icon` VARCHAR(50);
+21:33:34: Executing (default): ALTER TABLE `sys_menus` CHANGE `alIcon` `alIcon` VARCHAR(50);
+21:33:34: Executing (default): ALTER TABLE `sys_menus` CHANGE `newLinkFlag` `newLinkFlag` TINYINT(1);
+21:33:34: Executing (default): ALTER TABLE `sys_menus` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+21:33:34: MongoDB :: demo_db users.createIndex({"email":1},{"unique":true,"background":true})
+21:33:34: Executing (default): ALTER TABLE `sys_menus` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+21:33:34: Executing (default): SHOW INDEX FROM `sys_menus`
+21:33:34: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_users' AND TABLE_SCHEMA = 'nanp'
+21:33:34: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_users' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+21:33:34: Executing (default): SHOW FULL COLUMNS FROM `sys_users`;
+21:33:34: Executing (default): ALTER TABLE `sys_users` CHANGE `password` `password` VARCHAR(255) NOT NULL;
+21:33:34: Executing (default): ALTER TABLE `sys_users` CHANGE `sex` `sex` INTEGER;
+21:33:34: Executing (default): ALTER TABLE `sys_users` CHANGE `email` `email` VARCHAR(50);
+21:33:34: Executing (default): ALTER TABLE `sys_users` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+21:33:34: MongoDB :: demo_db messages.createIndex({"idmsg":1},{"unique":true,"background":true})
+21:33:34: Executing (default): ALTER TABLE `sys_users` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+21:33:34: MongoDB :: demo_db menus.createIndex({"path":1},{"unique":true,"background":true})
+21:33:34: Executing (default): ALTER TABLE `sys_users` CHANGE `sysDepartmentId` `sysDepartmentId` INTEGER;
+21:33:34: Executing (default): SELECT CONSTRAINT_CATALOG AS constraintCatalog, CONSTRAINT_NAME AS constraintName, CONSTRAINT_SCHEMA AS constraintSchema, CONSTRAINT_TYPE AS constraintType, TABLE_NAME AS tableName, TABLE_SCHEMA AS tableSchema from INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE table_name='sys_users' AND constraint_name = 'sys_users_ibfk_1' AND TABLE_SCHEMA = 'nanp';
+21:33:34: Executing (default): ALTER TABLE `sys_users` DROP FOREIGN KEY `sys_users_ibfk_1`;
+21:33:34: Executing (default): ALTER TABLE `sys_users` ADD FOREIGN KEY (`avatar`) REFERENCES `tmt341_files` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+21:33:34: MongoDB :: demo_db tmt100_inqnos.createIndex({"maghep":1},{"unique":true,"background":true})
+21:33:34: MongoDB :: demo_db tmt101_youtubes.createIndex({"urldisplayid":"text"},{"background":true})
+21:33:34: MongoDB :: demo_db users.createIndex({"name":"text"},{"background":true})
+21:33:35: Executing (default): ALTER TABLE `sys_users` CHANGE `name` `name` VARCHAR(20) NOT NULL;
+21:33:35: Executing (default): ALTER TABLE `sys_users` CHANGE `available` `available` TINYINT(1);
+21:33:35: Executing (default): ALTER TABLE `sys_users` CHANGE `dienthoai` `dienthoai` BIGINT;
+21:33:35: Executing (default): ALTER TABLE `sys_users` CHANGE `lastLoginTime` `lastLoginTime` DATETIME;
+21:33:35: Executing (default): ALTER TABLE `sys_users` CHANGE `phongban_id` `phongban_id` INTEGER;
+21:33:35: Executing (default): SHOW INDEX FROM `sys_users`
+21:33:35: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_roles' AND TABLE_SCHEMA = 'nanp'
+21:33:35: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_roles' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+21:33:35: Executing (default): SHOW FULL COLUMNS FROM `sys_roles`;
+21:33:35: Executing (default): ALTER TABLE `sys_roles` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
+21:33:35: Executing (default): ALTER TABLE `sys_roles` CHANGE `updatedAt` `updatedAt` DATETIME NOT NULL;
+21:33:35: Executing (default): ALTER TABLE `sys_roles` CHANGE `rolename` `rolename` VARCHAR(50);
+21:33:35: Executing (default): ALTER TABLE `sys_roles` CHANGE `mota` `mota` VARCHAR(100);
+21:33:35: Executing (default): SHOW INDEX FROM `sys_roles`
+21:33:35: Executing (default): SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_NAME = 'sys_departments' AND TABLE_SCHEMA = 'nanp'
+21:33:35: Executing (default): SHOW FULL COLUMNS FROM `sys_departments`;
+21:33:35: Executing (default): SELECT CONSTRAINT_NAME as constraint_name,CONSTRAINT_NAME as constraintName,CONSTRAINT_SCHEMA as constraintSchema,CONSTRAINT_SCHEMA as constraintCatalog,TABLE_NAME as tableName,TABLE_SCHEMA as tableSchema,TABLE_SCHEMA as tableCatalog,COLUMN_NAME as columnName,REFERENCED_TABLE_SCHEMA as referencedTableSchema,REFERENCED_TABLE_SCHEMA as referencedTableCatalog,REFERENCED_TABLE_NAME as referencedTableName,REFERENCED_COLUMN_NAME as referencedColumnName FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE where TABLE_NAME = 'sys_departments' AND CONSTRAINT_NAME!='PRIMARY' AND CONSTRAINT_SCHEMA='nanp' AND REFERENCED_TABLE_NAME IS NOT NULL;
+21:33:35: Executing (default): ALTER TABLE `sys_departments` CHANGE `state` `state` TINYINT(1);
+21:33:35: Executing (default): ALTER TABLE `sys_departments` CHANGE `createdAt` `createdAt` DATETIME NOT NULL;
