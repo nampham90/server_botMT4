@@ -8,7 +8,7 @@ class AbstractControllerAPI {
     async execute(res, callback) {
         try {
             const result = await callback();
-            res.status(200).send(Result.success(result));
+            res.status(200).send(result);
         } catch (error) {
             res.status(200).send(Result.failure(ErrorCode.SYS_ERR_GLOBAL));
             console.log(error);
