@@ -16,7 +16,7 @@ class SysUserRoutes {
         this.router.get("/getroles", verifyDevadmin, User.getRoles);
         this.router.get("/menu", verifyToken, User.getMenu);
         this.router.post("/ant100SearchAllUser",verifyToken,User.getAllUser);
-        this.router.get("/ant100GetDetailUser/:id",verifyToken,User.getDetailUser);
+        this.router.get("/ant100GetDetailUser/:id",verifyToken, SysUserController.findById);
         this.router.put("/ant100EditDetailUser",verifyToken,User.editDetailUser);
         this.router.post("/ant100AddDetailUser",verifyToken,User.addDetailUser);
         this.router.post("/ant100CheckEmailUser",verifyToken,User.checkEmail);

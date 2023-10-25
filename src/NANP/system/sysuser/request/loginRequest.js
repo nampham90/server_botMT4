@@ -20,6 +20,8 @@ class LoginRequest extends AbstractRequest {
         const rule = Joi.object({
             email: Joi.string().min(6).max(225).required().email(),
             password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{6,20}$')).required(),
+            remember: Joi.allow(),
+            mobile: Joi.allow()
         })
         return rule.validate(data);
     }
