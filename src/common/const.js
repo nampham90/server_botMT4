@@ -9,7 +9,7 @@ const  emailAdmin = "namandroid.it@gmail.com";
 const  MSGerrorsystem = "Lỗi hệ thống !";
 const  MSGsucessystem = 'Data Sucess !';
 
-// demo
+// demo socket
 const demoListProduct = "DemoListProduct";//
 const demoCreateProduct = "DemoCreateProduct";
 const demoDeleteProduct = "DemoDeleteProduct";

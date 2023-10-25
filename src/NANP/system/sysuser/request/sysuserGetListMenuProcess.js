@@ -1,9 +1,10 @@
 const AbstractRequest = require("../../../../common/abstract/AbstractRequest");
 const Joi = require('joi');
-function ConditionDto(id) {
+function ConditionDto(id,lang) {
     this.id = id;
+    this.lang = lang;
 }
-class SysFindByIdRequest extends AbstractRequest {
+class SysUserGetMenuRequest extends AbstractRequest {
     constructor(req) {
         super(req)
         this.error = "";
@@ -11,7 +12,7 @@ class SysFindByIdRequest extends AbstractRequest {
         if(validate.error) {
             this.error = validate.error.details[0].message;
         } else {
-            this.condition = new ConditionDto(this.userId);
+            this.condition = new ConditionDto(this.userId,this.lang);
         }
     }
 
@@ -19,8 +20,6 @@ class SysFindByIdRequest extends AbstractRequest {
         const rule = Joi.number().integer().required()
         return rule.validate(id);
     }
-
-
 }
 
-module.exports = SysFindByIdRequest;
+module.exports = SysUserGetMenuRequest;

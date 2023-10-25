@@ -2,8 +2,10 @@ const AbstractControllerAPI = require("../../../common/abstract/AbstractControll
 const Result = require("../../../common/result/Result");
 const LoginProcess = require("./process/loginProcess");
 const SysUserFindByIdProcess = require("./process/sysuserFindByIdProcess");
+const SysUserGetListMenuProcess = require("./process/sysuserGetListMenuProcess");
 const LoginRequest = require('./request/loginRequest');
 const SysFindByIdRequest = require('./request/sysuserFindByIdRequest');
+const SysUserGetMenuRequest = require("./request/sysuserGetListMenuProcess");
 class SysUserController extends AbstractControllerAPI {
      async login(req, res){
         await super.execute(res, async () => {
@@ -26,6 +28,17 @@ class SysUserController extends AbstractControllerAPI {
             const result = await sysUserFindByIdProcess.findById(reqFindById.condition);
             if(result.code) Result.failure(result)
             return Result.success(result);;
+        })
+    }
+
+    async gitListMenu(req, res) {
+        await super.execute(res, async() => {
+            const reqGetListMenu = new SysUserGetMenuRequest(req);
+            if(reqGetListMenu.error) 
+                return Result.failure(9999, reqGetListMenu.error);
+            const sysuserGetListMenuProcess = new SysUserGetListMenuProcess();
+            const result = await sysuserGetListMenuProcess.getListMenu(reqGetListMenu.condition);
+            return Result.success(result);
         })
     }
 }
