@@ -18,19 +18,19 @@ class SysMenuFindAllProcess extends AbstractProcess {
         return this.execute(req);
     }
 
-    async addRoleDQ(lst) {
-        lst.forEach( async (item) => {
-            const role = await this.models.sys_role.findOne({where: {rolename: item.rolename}});
-            if(role) {
-                let listmenus = [];
-                item.dacquyen.forEach(async (menu) => {
-                     const m = await this.models.sys_menu.findOne({where: {id: menu._id.toString()}});
-                     listmenus.push(m);
-                })
-                await role.setSys_menus(listmenus);
-            }
-        })
-    }
+    // async addRoleDQ(lst) {
+    //     lst.forEach( async (item) => {
+    //         const role = await this.models.sys_role.findOne({where: {rolename: item.rolename}});
+    //         if(role) {
+    //             let listmenus = [];
+    //             item.dacquyen.forEach(async (menu) => {
+    //                  const m = await this.models.sys_menu.findOne({where: {id: menu._id.toString()}});
+    //                  listmenus.push(m);
+    //             })
+    //             await role.setSys_menus(listmenus);
+    //         }
+    //     })
+    // }
 
     async process(req) {
         let lstusercover = [];

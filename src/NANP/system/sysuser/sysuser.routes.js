@@ -2,6 +2,7 @@ const Router = require("express").Router;
 const User = require("../../../controller/user.controller");
 const verifyToken = require('../../../middlewares/verifyToken');
 const verifyDevadmin = require('../../../middlewares/verifyDevadmin');
+const SysUserController = require('./sysuser.controller');
 class SysUserRoutes {
     constructor() {
         this.router = Router();
@@ -9,7 +10,7 @@ class SysUserRoutes {
     }
 
     intializeRoutes() {
-        this.router.post("/login", User.login);
+        this.router.post("/login", SysUserController.login);
         this.router.post("/demo",User.demo)
         this.router.post("/register", User.register);
         this.router.get("/getroles", verifyDevadmin, User.getRoles);

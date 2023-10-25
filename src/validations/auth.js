@@ -10,4 +10,6 @@ const registerValidator = (data) => {
     return rule.validate(data);
 }
 
-module.exports.registerValidator = registerValidator;
+module.exports = {
+    registerValidator
+};

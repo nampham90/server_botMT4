@@ -1,4 +1,5 @@
 const ErrorCode = {
+    SYS_ERR_VALIDATE_REQUEST: [9999,"%1"],
     SYS_ERR_GLOBAL: [1000, "Lỗi hệ thống chung Ngoại lệ xử lý hệ thống, vui lòng thử lại sau"],
     SYS_ERR_CREATE_FAILED: [1001, "Không thể thêm dữ liệu"],
     SYS_ERR_UPDATE_FAILED: [1002, "Không thể sửa đổi dữ liệu"],
@@ -20,7 +21,11 @@ const ErrorCode = {
     SYS_ERR_VALIDATION_PARAMS_TYPE_ERROR: [3003, "Xác minh tham số yêu cầu không thành công, {0}: loại tham số là {1}"],
     SYS_ERR_VALIDATION_PARAMS_JSON_TYPE_ERROR: [3004, "Xác minh thông số yêu cầu không thành công, {0}: Định dạng JSON không chính xác"],
     SYS_ERR_VALIDATION_BODY_JSON_TYPE_ERROR: [3005, "Việc xác minh tham số yêu cầu không thành công và định dạng JSON của nội dung yêu cầu không chính xác."],
+
     SYS_ERR_LOGIN_FAIL: [3006, "Đăng nhập không thành công, tên người dùng và mật khẩu không chính xác hoặc tài khoản đã bị vô hiệu hóa!"],
+    SYS_ERR_LOGIN_FAIL_EMAIL: [3008, 'Email chưa được đăng ký 1'],
+    SYS_ERR_LOGIN_FAIL_PASSWORD: [3009, 'Mật khâu không đúng !'],
+    SYS_ERR_LOGIN_FAIL_AUTH: [3015, 'Tài khoản này chưa được xác thực. vui lòng check email, xác thực tài khoản của bạn !'],
     SYS_ERR_PHONE: [3007, "Lỗi định dạng điện thoại cố định"],
     SYS_ERR_DEL_ACCOUNT: [3010, "Người dùng không thể xóa tài khoản của chính họ！"],
     SYS_ERR_ACCOUNT: [3011, "Tai khoản nay đa được đăng ky！"],
