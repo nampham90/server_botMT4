@@ -21,7 +21,9 @@ class LoginProcess extends AbstractProcess {
             }
             // check pass 
             if(await this.checkPass(user, req.password) === true) {
-                return await this.getRoleMenu(user);
+                // update lastlogin time
+                await this.models.sys_user.update({lastLoginTime: new Date()},{where: {id:user.id}})
+                return await this.createToken(user);
             } // danh nhap thanh con
             return new ErrorCodeEnum(ErrorCode.SYS_ERR_LOGIN_FAIL_PASSWORD); // password không đúng .
         }
@@ -39,7 +41,7 @@ class LoginProcess extends AbstractProcess {
         return await bcrypt.compare(password, user.password);
     }
 
-    async getRoleMenu(user) {
+    async createToken(user) {
         const strSql = " SELECT DISTINCT m.code FROM user_role ur " +
                        " JOIN role_menu rm ON ur.sysRoleId= rm.sysRoleId " +
                        " JOIN sys_menus m ON rm.sysMenuId = m.id  " +

@@ -1,11 +1,14 @@
 const AbstractControllerAPI = require("../../../common/abstract/AbstractControllerAPI");
+const { ErrorCode } = require("../../../common/enums/ErrorCode");
 const Result = require("../../../common/result/Result");
 const LoginProcess = require("./process/loginProcess");
+const SysUserCreateProcess = require("./process/sysuserCreateProcess");
 const SysUserFindByIdProcess = require("./process/sysuserFindByIdProcess");
 const SysUserGetListMenuProcess = require("./process/sysuserGetListMenuProcess");
 const LoginRequest = require('./request/loginRequest');
+const SysUserCreateRequest = require("./request/sysuserCreateRequest");
 const SysFindByIdRequest = require('./request/sysuserFindByIdRequest');
-const SysUserGetMenuRequest = require("./request/sysuserGetListMenuProcess");
+const SysUserGetMenuRequest = require("./request/sysuserGetListMenuRequest");
 class SysUserController extends AbstractControllerAPI {
      async login(req, res){
         await super.execute(res, async () => {
@@ -31,7 +34,7 @@ class SysUserController extends AbstractControllerAPI {
         })
     }
 
-    async gitListMenu(req, res) {
+    async getListMenu(req, res) {
         await super.execute(res, async() => {
             const reqGetListMenu = new SysUserGetMenuRequest(req);
             if(reqGetListMenu.error) 
@@ -39,6 +42,18 @@ class SysUserController extends AbstractControllerAPI {
             const sysuserGetListMenuProcess = new SysUserGetListMenuProcess();
             const result = await sysuserGetListMenuProcess.getListMenu(reqGetListMenu.condition);
             return Result.success(result);
+        })
+    }
+
+    async create(req, res) {
+        await super.execute(res, async () => {
+            const reqCreate = new SysUserCreateRequest(req);
+            if(reqCreate.error !== "")
+                return Result.failure(9999, reqCreate.error);
+            const sysUserCreateProcess = new SysUserCreateProcess();
+            const result = await sysUserCreateProcess.create(reqCreate.condition);
+            if(result) return Result.success();
+            return Result.failure(ErrorCode.SYS_ERR_CREATE_FAILED);
         })
     }
 }

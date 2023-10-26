@@ -15,14 +15,14 @@ class SysUserRoutes {
         this.router.post("/demo",User.demo)
         this.router.post("/register", User.register);
         this.router.get("/getroles", verifyDevadmin, User.getRoles);
-        this.router.post(UserGetMenu, verifyToken, SysUserController.gitListMenu);
+        this.router.post(UserGetMenu, verifyToken, SysUserController.getListMenu);
         this.router.post(UserFindAll,verifyToken,User.getAllUser);
         this.router.post(UserFindById , verifyToken, SysUserController.findById);
-        this.router.put(UserUpdate ,verifyToken,User.editDetailUser);
-        this.router.post(UserCreate ,verifyToken,User.addDetailUser);
-        this.router.post(UserCheckEmail ,verifyToken,User.checkEmail);
-        this.router.post(UserCheckName ,verifyToken,User.checkName);
-        this.router.put(UserChangePassword ,verifyToken,User.changePassword);
+        this.router.put(UserUpdate ,verifyToken, User.editDetailUser);
+        this.router.post(UserCreate ,verifyToken, SysUserController.create);
+        this.router.post(UserCheckEmail ,verifyToken, User.checkEmail);
+        this.router.post(UserCheckName ,verifyToken, User.checkName);
+        this.router.put(UserChangePassword ,verifyToken, User.changePassword);
     
         // login từ app 
         this.router.post("/login-app", User.loginApp)
