@@ -24,8 +24,7 @@ class SysUserCreateProcess extends AbstractProcess {
             phongban_id: phongban_id
         })
         if(u) {
-            await this.userAddRole(u, roles);
-            await this.userJoinDepartment(u, phongban_id);
+            await Promise.all([ this.userAddRole(u, roles),this.userJoinDepartment(u, phongban_id)]);
             return u;
         }
         return null;

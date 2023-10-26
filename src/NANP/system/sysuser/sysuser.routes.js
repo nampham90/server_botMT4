@@ -16,7 +16,7 @@ class SysUserRoutes {
         this.router.post("/register", User.register);
         this.router.get("/getroles", verifyDevadmin, User.getRoles);
         this.router.post(UserGetMenu, verifyToken, SysUserController.getListMenu);
-        this.router.post(UserFindAll,verifyToken,User.getAllUser);
+        this.router.post(UserFindAll, verifyToken, SysUserController.findAll);
         this.router.post(UserFindById , verifyToken, SysUserController.findById);
         this.router.put(UserUpdate ,verifyToken, User.editDetailUser);
         this.router.post(UserCreate ,verifyToken, SysUserController.create);

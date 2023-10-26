@@ -3,10 +3,12 @@ const { ErrorCode } = require("../../../common/enums/ErrorCode");
 const Result = require("../../../common/result/Result");
 const LoginProcess = require("./process/loginProcess");
 const SysUserCreateProcess = require("./process/sysuserCreateProcess");
+const SysUserFindAllProcess = require("./process/sysuserFindAllProcess");
 const SysUserFindByIdProcess = require("./process/sysuserFindByIdProcess");
 const SysUserGetListMenuProcess = require("./process/sysuserGetListMenuProcess");
 const LoginRequest = require('./request/loginRequest');
 const SysUserCreateRequest = require("./request/sysuserCreateRequest");
+const SysUserFindAllRequest = require("./request/sysuserFindAllRequest");
 const SysFindByIdRequest = require('./request/sysuserFindByIdRequest');
 const SysUserGetMenuRequest = require("./request/sysuserGetListMenuRequest");
 class SysUserController extends AbstractControllerAPI {
@@ -31,6 +33,15 @@ class SysUserController extends AbstractControllerAPI {
             const result = await sysUserFindByIdProcess.findById(reqFindById.condition);
             if(result.code) Result.failure(result)
             return Result.success(result);;
+        })
+    }
+
+    async findAll(req, res) {
+        await super.execute(res, async() => {
+            const reqFindAll = new SysUserFindAllRequest(req)
+            const sysuserFindAllProcess = new SysUserFindAllProcess();
+            const result = await sysuserFindAllProcess.findAll(reqFindAll.condition)
+            return Result.success(result);
         })
     }
 
