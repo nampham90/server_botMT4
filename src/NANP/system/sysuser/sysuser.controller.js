@@ -67,6 +67,12 @@ class SysUserController extends AbstractControllerAPI {
             return Result.failure(ErrorCode.SYS_ERR_CREATE_FAILED);
         })
     }
+
+    async update(req, res) {
+        await super.execute(res,async ()=> {
+            
+        })
+    }
 }
 
 module.exports = new SysUserController()
