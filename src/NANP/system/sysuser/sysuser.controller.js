@@ -19,7 +19,7 @@ class SysUserController extends AbstractControllerAPI {
                 return Result.failure(9999, reqLogin.error);
             const loginProcess = new LoginProcess();
             const result = await loginProcess.login(reqLogin.condition);
-            if(result.code) return Result.failure(result);
+            if(result.code) return Result.failure(result.code, result.message);
             return Result.success(result);
         })
     }
@@ -31,7 +31,7 @@ class SysUserController extends AbstractControllerAPI {
                 return Result.failure(9999, reqLogin.error);
             const sysUserFindByIdProcess = new SysUserFindByIdProcess();
             const result = await sysUserFindByIdProcess.findById(reqFindById.condition);
-            if(result.code) Result.failure(result)
+            if(result.code) Result.failure(result.code, result.message)
             return Result.success(result);;
         })
     }
@@ -64,7 +64,7 @@ class SysUserController extends AbstractControllerAPI {
             const sysUserCreateProcess = new SysUserCreateProcess();
             const result = await sysUserCreateProcess.create(reqCreate.condition);
             if(result) return Result.success();
-            return Result.failure(ErrorCode.SYS_ERR_CREATE_FAILED);
+            return Result.failureCode(ErrorCode.SYS_ERR_CREATE_FAILED);
         })
     }
 

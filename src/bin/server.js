@@ -73,7 +73,7 @@ class Server {
 
             // render the error page
             res.status(err.status || 505);
-            res.json(Result.failure(ErrorCode.SYS_ERR_HTTP_METHOD_NOT_ALLOWED));
+            res.json(Result.failureCode(ErrorCode.SYS_ERR_HTTP_METHOD_NOT_ALLOWED));
         });
     }
 
