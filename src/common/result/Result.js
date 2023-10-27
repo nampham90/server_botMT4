@@ -20,7 +20,7 @@ const CommonConstants = require("../result/CommonConstants")
         return new Result(CommonConstants.ResultCodeStatus.RESULT_FAILURE, CommonConstants.ResultCodeMessage.RESULT_FAILURE_MESSAGE);
     }
 
-    static failure(arrayError) {
+    static failureCode(arrayError) {
         let errorCodeEnum = new ErrorCodeEnum(arrayError)
         return new Result(errorCodeEnum.getCode, errorCodeEnum.getMessage());
     }

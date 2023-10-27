@@ -10,7 +10,7 @@ class AbstractControllerSocket {
             const result = await callback();
             socket.emit(route, result);
         } catch (error) {
-            _io.emit(route, Result.failure(ErrorCode.SYS_ERR_GLOBAL));
+            _io.emit(route, Result.failureCode(ErrorCode.SYS_ERR_GLOBAL));
             console.log(error);
             logToFile(error);
         }

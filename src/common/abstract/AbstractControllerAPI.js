@@ -10,7 +10,7 @@ class AbstractControllerAPI {
             const result = await callback();
             res.status(200).send(result);
         } catch (error) {
-            res.status(200).send(Result.failure(ErrorCode.SYS_ERR_GLOBAL));
+            res.status(200).send(Result.failureCode(ErrorCode.SYS_ERR_GLOBAL));
             console.log(error);
             logToFile(error);
         }

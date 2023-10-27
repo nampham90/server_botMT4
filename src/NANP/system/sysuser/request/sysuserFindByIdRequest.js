@@ -7,12 +7,15 @@ class SysFindByIdRequest extends AbstractRequest {
     constructor(req) {
         super(req)
         this.error = "";
-        const validate = this.Validator(this.userId);
-        if(validate.error) {
-            this.error = validate.error.details[0].message;
-        } else {
-            this.condition = new ConditionDto(this.userId);
-        }
+        if(req.body.id) {
+            const validate = this.Validator(req.body.id);
+            if(validate.error) {
+                this.error = validate.error.details[0].message;
+            } else {
+                this.condition = new ConditionDto(req.body.id);
+            }
+        } 
+       
     }
 
     Validator = (id) => {

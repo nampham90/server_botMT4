@@ -1,6 +1,7 @@
 const Router = require("express").Router;
 const Role = require("../../../controller/role.controller");
 const verifyToken = require('../../../middlewares/verifyToken');
+const SysRoleController = require('./sysrole.controller');
 class SysRoleRoutes {
     constructor() {
         this.router = Router();
@@ -8,8 +9,8 @@ class SysRoleRoutes {
     }
 
     intializeRoutes() {
-        this.router.post("/ant100SearchAllRole",Role.getListRole);
-        this.router.get("/ant100GetSearchAllRole",verifyToken,Role.getSearchAllRole)
+        this.router.post("/ant100SearchAllRole",verifyToken, SysRoleController.findAll);//Role.getListRole
+        this.router.get("/ant100GetSearchAllRole",verifyToken,Role.getSearchAllRole);
         this.router.get("/ant100GetDetailRole/:id",verifyToken,Role.GetDetailRole);
         this.router.put("/ant100EditDetailRole",verifyToken,Role.EditDetailRole);
         this.router.post("/ant100AddDetailRole",Role.AddDetailRole);

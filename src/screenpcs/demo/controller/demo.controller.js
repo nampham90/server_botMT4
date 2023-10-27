@@ -13,7 +13,7 @@ exports.list = async (req, callback) => {
         await demoGetListProcess.commit();
         callback(Result.success(res));
     } catch (error) {
-        callback(Result.failure(ErrorCode.SYS_ERR_SEARCH_FAILED));
+        callback(Result.failureCode(ErrorCode.SYS_ERR_SEARCH_FAILED));
     }
 }
 
@@ -33,10 +33,10 @@ exports.create = async (req, callback) => {
             await demoGetListProcess.commit();
             callback(Result.success(res));
         } else {
-            callback(Result.failure(ErrorCode.SYS_ERR_CREATE_FAILED));
+            callback(Result.failureCode(ErrorCode.SYS_ERR_CREATE_FAILED));
         }
     } catch (error) {
-        callback(Result.failure(ErrorCode.SYS_ERR_GLOBAL));
+        callback(Result.failureCode(ErrorCode.SYS_ERR_GLOBAL));
     }
 }
 
@@ -56,10 +56,10 @@ exports.update = async (req, callback) => {
             await demoGetListProcess.commit();
             callback(Result.success(res));
         } else {
-            callback(Result.failure(ErrorCode.SYS_ERR_UPDATE_FAILED));
+            callback(Result.failureCode(ErrorCode.SYS_ERR_UPDATE_FAILED));
         }
     } catch (error) {
-        callback(Result.failure(ErrorCode.SYS_ERR_GLOBAL));
+        callback(Result.failureCode(ErrorCode.SYS_ERR_GLOBAL));
     }
 }
 
@@ -80,9 +80,9 @@ exports.delete = async (req, callback) => {
             await demoGetListProcess.commit();
             callback(Result.success(res));
         } else {
-            callback(Result.failure(ErrorCode.SYS_ERR_DELETE_FAILED));
+            callback(Result.failureCode(ErrorCode.SYS_ERR_DELETE_FAILED));
         }
     } catch (error) {
-        callback(Result.failure(ErrorCode.SYS_ERR_GLOBAL));
+        callback(Result.failureCode(ErrorCode.SYS_ERR_GLOBAL));
     }
 }

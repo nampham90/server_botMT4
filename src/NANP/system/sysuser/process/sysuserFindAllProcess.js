@@ -16,11 +16,12 @@ class SysUserFindAllProcess extends AbstractProcess {
         if(req.phongban_id){
             condition.phongban_id = req.phongban_id;
         }
-        const {rows, count} = await this.models.sys_user.findAndCountAll(
+        const {count, rows} = await this.models.sys_user.findAndCountAll(
             {
-                where: condition,limit: req.pageSize, offset: req.pageSize*( req.pageNum - 1), 
+                where: condition,
+                include:[{model: this.models.sys_department},{model: this.models.sys_role}],limit: req.pageSize, offset: req.pageSize*( req.pageNum - 1), 
                 attributes: {exclude: ['password']},
-                include:[{model: this.models.sys_department},{model: this.models.sys_role}] 
+                distinct: true
             });
         return new PageInfo(count, rows, req.pageNum, req.pageSize);
     }

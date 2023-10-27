@@ -4,7 +4,7 @@ const Result = require("../common/result/Result");
 
 function handleJsonError(error, req, res, next) {
   if (error instanceof SyntaxError && 'body' in error) {
-    return res.status(200).send(Result.failure(ErrorCode.SYS_ERR_JSON));
+    return res.status(200).send(Result.failureCode(ErrorCode.SYS_ERR_JSON));
   } else {
     next();
   }
