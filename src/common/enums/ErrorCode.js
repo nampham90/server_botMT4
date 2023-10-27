@@ -29,9 +29,10 @@ const ErrorCode = {
     SYS_ERR_PHONE: [3007, "Lỗi định dạng điện thoại cố định"],
     SYS_ERR_DEL_ACCOUNT: [3010, "Người dùng không thể xóa tài khoản của chính họ！"],
     SYS_ERR_ACCOUNT: [3011, "Tai khoản nay đa được đăng ky！"],
-    SYS_ERR_ACCOUNT_NULL: [3012, "Tai khoản nay Không tồn tại！"],
+    SYS_ERR_ACCOUNT_NULL: [3016, "Tai khoản nay Không tồn tại！"],
     SYS_ERR_EXPIRE_CAPTCHA: [  3012, "Mã xác minh đã hết hạn！" ],
     SYS_ERR_CAPTCHA: [  3013, "Mã xác minh không chính xác！" ],
+
     SYS_ERR_PASSWORD_ERROR: [  3014, "Mật khẩu ban đầu được nhập không chính xác！" ],
     SYS_ERR_ROLE_REPETITION: [  3020, "Tên nhân vật trùng lặp！" ],
     SYS_ERR_ROLE_DELETE: [  3021, "Có những người dùng có vai trò này và không thể xóa được!" ],

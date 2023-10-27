@@ -3,14 +3,18 @@ const { ErrorCode } = require("../../../common/enums/ErrorCode");
 const Result = require("../../../common/result/Result");
 const LoginProcess = require("./process/loginProcess");
 const SysUserCreateProcess = require("./process/sysuserCreateProcess");
+const SysUserDeleteProcess = require("./process/sysuserDeleteProcess");
 const SysUserFindAllProcess = require("./process/sysuserFindAllProcess");
 const SysUserFindByIdProcess = require("./process/sysuserFindByIdProcess");
 const SysUserGetListMenuProcess = require("./process/sysuserGetListMenuProcess");
+const SysUserUpdateProcess = require("./process/sysuserUpdateProcess");
 const LoginRequest = require('./request/loginRequest');
 const SysUserCreateRequest = require("./request/sysuserCreateRequest");
+const SysUserDeleteRequest = require("./request/sysuserDeleteRequest");
 const SysUserFindAllRequest = require("./request/sysuserFindAllRequest");
 const SysFindByIdRequest = require('./request/sysuserFindByIdRequest');
 const SysUserGetMenuRequest = require("./request/sysuserGetListMenuRequest");
+const SysUserUpdateRequest = require("./request/sysuserUpdateRequest");
 class SysUserController extends AbstractControllerAPI {
      async login(req, res){
         await super.execute(res, async () => {
@@ -70,7 +74,23 @@ class SysUserController extends AbstractControllerAPI {
 
     async update(req, res) {
         await super.execute(res,async ()=> {
-            
+            const reqUpdate = new SysUserUpdateRequest(req);
+            if(reqUpdate.error !== "")
+               return Result.failure(9999, reqUpdate.error);
+            const sysUserUpdateProcess = new SysUserUpdateProcess();
+            const result = await sysUserUpdateProcess.update(reqUpdate.condition);
+            if(result) return Result.success()
+            return Result.failureCode(ErrorCode.SYS_ERR_UPDATE_FAILED);
+        })
+    }
+
+    async delete(req, res) {
+        await super.execute(res, async() => {
+            const reqDeletes = new SysUserDeleteRequest(req);
+            if(reqDeletes.error !== "") return Result.failure(9999,reqDeletes.error);
+            const sysUserDeleteProcess = new SysUserDeleteProcess();
+            const result = await sysUserDeleteProcess.delete(reqDeletes.condition);
+            return Result.success(result);
         })
     }
 }
