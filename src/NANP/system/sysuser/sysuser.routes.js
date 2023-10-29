@@ -21,9 +21,9 @@ class SysUserRoutes {
         this.router.put(UserUpdate ,verifyToken, SysUserController.update);
         this.router.post(UserCreate ,verifyToken, SysUserController.create);
         this.router.post(UserDelete ,verifyToken, SysUserController.delete);
-        this.router.post(UserCheckEmail ,verifyToken, User.checkEmail);
-        this.router.post(UserCheckName ,verifyToken, User.checkName);
-        this.router.put(UserChangePassword ,verifyToken, User.changePassword);
+        this.router.post(UserCheckEmail ,verifyToken, SysUserController.checkEmail);
+        this.router.post(UserCheckName ,verifyToken, SysUserController.checkName);
+        this.router.put(UserChangePassword ,verifyToken, SysUserController.changePassword);
     
         // login từ app 
         this.router.post("/login-app", User.loginApp)

@@ -2,6 +2,9 @@ const AbstractControllerAPI = require("../../../common/abstract/AbstractControll
 const { ErrorCode } = require("../../../common/enums/ErrorCode");
 const Result = require("../../../common/result/Result");
 const LoginProcess = require("./process/loginProcess");
+const SysUserChangePasswordProcess = require("./process/sysuserChangePasswordProcess");
+const SysUserCheckEmailProcess = require("./process/sysuserCheckEmailProcess");
+const SysUserCheckNameProcess = require("./process/sysuserCheckNameProcess");
 const SysUserCreateProcess = require("./process/sysuserCreateProcess");
 const SysUserDeleteProcess = require("./process/sysuserDeleteProcess");
 const SysUserFindAllProcess = require("./process/sysuserFindAllProcess");
@@ -9,6 +12,9 @@ const SysUserFindByIdProcess = require("./process/sysuserFindByIdProcess");
 const SysUserGetListMenuProcess = require("./process/sysuserGetListMenuProcess");
 const SysUserUpdateProcess = require("./process/sysuserUpdateProcess");
 const LoginRequest = require('./request/loginRequest');
+const SysUserChangePasswordRequest = require("./request/sysuserChangePasswrodRequest");
+const SysUserCheckEmailRequest = require("./request/sysuserCheckEmailRequest");
+const SysUserCheckNameRequest = require("./request/sysuserCheckNameRequest");
 const SysUserCreateRequest = require("./request/sysuserCreateRequest");
 const SysUserDeleteRequest = require("./request/sysuserDeleteRequest");
 const SysUserFindAllRequest = require("./request/sysuserFindAllRequest");
@@ -91,6 +97,38 @@ class SysUserController extends AbstractControllerAPI {
             const sysUserDeleteProcess = new SysUserDeleteProcess();
             const result = await sysUserDeleteProcess.delete(reqDeletes.condition);
             return Result.success(result);
+        })
+    }
+
+    async checkEmail(req, res){
+        await super.execute(res, async() => {
+            const reqCheckEmail = new SysUserCheckEmailRequest(req);
+            if(reqCheckEmail.error !== "") return Result.failure(9999,reqCheckEmail.error);
+            const sysUserCheckEmailProcess = new SysUserCheckEmailProcess();
+            const result = await sysUserCheckEmailProcess.checkEmail(reqCheckEmail.condition);
+            return  Result.success(result);
+        })
+    } 
+
+    async checkName(req, res) {
+        await super.execute(res, async() => {
+            const reqCheckName = new SysUserCheckNameRequest(req);
+            if(reqCheckName.error !== "") return Result.failure(9999,reqCheckName.error);
+            const sysUserCheckNameProcess = new SysUserCheckNameProcess();
+            const result = await sysUserCheckNameProcess.checkName(reqCheckName.condition);
+            return Result.success(result);
+        })
+    }
+
+    async changePassword(req,res) {
+        await super.execute(res, async () => {
+            const reqChangepass = new SysUserChangePasswordRequest(req);
+            if(reqChangepass.error !== "")
+               return Result.failure(9999, reqChangepass.error);
+            const sysUserChangePasswordProcess = new SysUserChangePasswordProcess();
+            const result = await sysUserChangePasswordProcess.changePassword(reqChangepass);
+            if(result.code) return Result.failure(result.code, result.message);
+            return Result.success();
         })
     }
 }

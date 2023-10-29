@@ -7,6 +7,16 @@ class AbstractProcess {
          this.models = this.db.models;
     }
 
+    async executeModel(request ,model) {
+        try {
+            return await this.process(request, model);
+        } catch (error) {
+            logToFile(error);
+            throw new Error("Error System: "+ error);
+        }
+
+    }
+
     async execute(request) {
         try {
             return await this.process(request);
@@ -14,7 +24,6 @@ class AbstractProcess {
             logToFile(error);
             throw new Error("Error System: "+ error);
         }
-
     }
 
     async process(request) {}

@@ -18,7 +18,19 @@ class SysMenuFindAllProcess extends AbstractProcess {
         return this.execute(req);
     }
 
-    // async addRoleDQ(lst) {
+    async process(req) {
+        const { count, rows } = await this.models.sys_menu.findAndCountAll({});
+        const data = {
+            "total": count,
+            "list": rows
+        }
+        return data;
+    }
+}
+
+module.exports = SysMenuFindAllProcess;
+
+ // async addRoleDQ(lst) {
     //     lst.forEach( async (item) => {
     //         const role = await this.models.sys_role.findOne({where: {rolename: item.rolename}});
     //         if(role) {
@@ -32,129 +44,123 @@ class SysMenuFindAllProcess extends AbstractProcess {
     //     })
     // }
 
-    async process(req) {
-        let lstusercover = [];
-        let lstphongbancover = [];
-        let lstrolecover = [];
-        const lstMenuMongo = await MenuMongo.find({});
-        const lstUserMongo = await UserMongo.find({});
-        const lstPhongbanMongo = await PhongbanMongo.find({});
-        const lsSc = await Sc.find({});
-        let lstdataInsert = [];
-        // for(let element of lsSc) {
-        //     let scone = {
-        //         lang: element.lang,
-        //         title1: element.title1,
-        //         title2: element.title2,
-        //         vitri: element.vitri,
-        //         status: element.status,
-        //         menu_id: element.idmenu,
-        //         sysMenuId: element.idmenu
-        //     }
-        //     lstdataInsert.push(scone);
-        // }
-        // await this.models.TMT340FORMITEMNM.bulkCreate(lstdataInsert);
-        // lstPhongbanMongo.forEach(phongban => {
-        //     let phongbanvover = {
-        //         lang: 'vi',
-        //         tenphongban: phongban.tenphongban,
-        //         state: phongban.state,
-        //         fatherId: 0,
-        //         orderNum: phongban.orderNum
-        //     }
-        //     lstphongbancover.push(phongbanvover)
-        // })
-       // await this.models.sys_department.bulkCreate(lstphongbancover);
-        
-        // const lstRole = await RoleMongo.find({}).populate('dacquyen');
-        // let lstrole_dq = [];
-        // for(let element of lstRole) {
-        //     // const rl = await this.sequelize.query("SELECT * FROM sys_roles WHERE  rolename = ?", {
-        //     //     replacements: ['Admin'],
-        //     //     type: QueryTypes.SELECT
-        //     // });
-        //     const rlOne = await this.models.sys_role.findOne({where : {rolename: element.rolename}});
-        //     if(rlOne) {
-        //         let listmenus = [];
-        //         for(let e of element.dacquyen) {
-        //             console.log(e._id.toString())
-        //             const m = await this.models.sys_menu.findOne({where: {id: e._id.toString()}});
-        //             listmenus.push(m);
-        //         }
-        //         await rlOne.setSys_menus(listmenus);
-        //     }
-        // }
-       
-       // await this.models.sys_role.bulkCreate(lstrolecover);
-       // await this.addRoleDQ(lstrole_dq);
-        // const strSql = "SELECT * FROM sys_menus";
-        // const rlOne = await this.models.sys_role.findOne({where : {rolename: "Dev"}});
-        // const rl = await this.sequelize.query("SELECT * FROM sys_roles WHERE  rolename = ?", {
-        //     replacements: ['Admin'],
-        //     type: QueryTypes.SELECT
-        // });
-        // console.log(rl);
-        // let lstmenucover = []
-        for(let user of lstUserMongo) {
-            // let ucover = {
-            //     name: user.name,
-            //     password: user.password,
-            //     available: user.available,
-            //     sex: user.sex,
-            //     dienthoai: user.dienthoai,
-            //     email: user.email,
-            //     lastLoginTime: user.lastLoginTime,
-            //     avatar: null,
-            //     phongban_id: 1,
-            //     sysDepartmentId: 1
-            // }
-
-            // const u =  await this.models.sys_user.findOne({where: {email: user.email}});
-            // if(u) {
-            //     const lstUrAll = [1,2,3,4];
-            //     if(u.email === "namandroid.it@gmail.com") {
-            //         // const lstAllrole = await this.models.sys_role.findAll({});
-            //         // u.setSys_roles(lstAllrole);
-            //     } else {
-            //         const roUser = await this.models.sys_role.findOne({where: {id: 2}});
-            //         u.setSys_roles(roUser);
-            //     }
-            // }
-
-            //lstusercover.push(ucover);
-        }
-        //await this.models.sys_user.bulkCreate(lstusercover);
-
-
-       
-        // lstMenuMongo.forEach(menu => {
-        //     let menucover = {
-        //         id: menu._id.toString(),
-        //         lang: menu.lang,
-        //         menuName: menu.menuName,
-        //         code: menu.code,
-        //         fatherId: menu.fatherId + "",
-        //         orderNum: menu.orderNum,
-        //         path: menu.path,
-        //         menuType: menu.menuType,
-        //         visible: menu.visible,
-        //         status: menu.status,
-        //         icon: menu.icon,
-        //         alIcon: menu.alIcon,
-        //         newLinkFlag: menu.newLinkFlag
-        //     }
-        //     lstmenucover.push(menucover);
-        // })
-    
-        //await this.models.sys_menu.bulkCreate(lstmenucover);
-        //return  this.models.sys_menu.findAll({});
-        return 0;
-    }
-}
-
-module.exports = SysMenuFindAllProcess;
-
 //http://localhost:3006/api/menu/demofindAllMenu
+
+// let lstusercover = [];
+// let lstphongbancover = [];
+// let lstrolecover = [];
+// const lstMenuMongo = await MenuMongo.find({});
+// const lstUserMongo = await UserMongo.find({});
+// const lstPhongbanMongo = await PhongbanMongo.find({});
+// const lsSc = await Sc.find({});
+// let lstdataInsert = [];
+// for(let element of lsSc) {
+//     let scone = {
+//         lang: element.lang,
+//         title1: element.title1,
+//         title2: element.title2,
+//         vitri: element.vitri,
+//         status: element.status,
+//         menu_id: element.idmenu,
+//         sysMenuId: element.idmenu
+//     }
+//     lstdataInsert.push(scone);
+// }
+// await this.models.TMT340FORMITEMNM.bulkCreate(lstdataInsert);
+// lstPhongbanMongo.forEach(phongban => {
+//     let phongbanvover = {
+//         lang: 'vi',
+//         tenphongban: phongban.tenphongban,
+//         state: phongban.state,
+//         fatherId: 0,
+//         orderNum: phongban.orderNum
+//     }
+//     lstphongbancover.push(phongbanvover)
+// })
+// await this.models.sys_department.bulkCreate(lstphongbancover);
+
+// const lstRole = await RoleMongo.find({}).populate('dacquyen');
+// let lstrole_dq = [];
+// for(let element of lstRole) {
+//     // const rl = await this.sequelize.query("SELECT * FROM sys_roles WHERE  rolename = ?", {
+//     //     replacements: ['Admin'],
+//     //     type: QueryTypes.SELECT
+//     // });
+//     const rlOne = await this.models.sys_role.findOne({where : {rolename: element.rolename}});
+//     if(rlOne) {
+//         let listmenus = [];
+//         for(let e of element.dacquyen) {
+//             console.log(e._id.toString())
+//             const m = await this.models.sys_menu.findOne({where: {id: e._id.toString()}});
+//             listmenus.push(m);
+//         }
+//         await rlOne.setSys_menus(listmenus);
+//     }
+// }
+
+// await this.models.sys_role.bulkCreate(lstrolecover);
+// await this.addRoleDQ(lstrole_dq);
+// const strSql = "SELECT * FROM sys_menus";
+// const rlOne = await this.models.sys_role.findOne({where : {rolename: "Dev"}});
+// const rl = await this.sequelize.query("SELECT * FROM sys_roles WHERE  rolename = ?", {
+//     replacements: ['Admin'],
+//     type: QueryTypes.SELECT
+// });
+// console.log(rl);
+// let lstmenucover = []
+// for(let user of lstUserMongo) {
+    // let ucover = {
+    //     name: user.name,
+    //     password: user.password,
+    //     available: user.available,
+    //     sex: user.sex,
+    //     dienthoai: user.dienthoai,
+    //     email: user.email,
+    //     lastLoginTime: user.lastLoginTime,
+    //     avatar: null,
+    //     phongban_id: 1,
+    //     sysDepartmentId: 1
+    // }
+
+    // const u =  await this.models.sys_user.findOne({where: {email: user.email}});
+    // if(u) {
+    //     const lstUrAll = [1,2,3,4];
+    //     if(u.email === "namandroid.it@gmail.com") {
+    //         // const lstAllrole = await this.models.sys_role.findAll({});
+    //         // u.setSys_roles(lstAllrole);
+    //     } else {
+    //         const roUser = await this.models.sys_role.findOne({where: {id: 2}});
+    //         u.setSys_roles(roUser);
+    //     }
+    // }
+
+    //lstusercover.push(ucover);
+//}
+//await this.models.sys_user.bulkCreate(lstusercover);
+
+
+
+// lstMenuMongo.forEach(menu => {
+//     let menucover = {
+//         id: menu._id.toString(),
+//         lang: menu.lang,
+//         menuName: menu.menuName,
+//         code: menu.code,
+//         fatherId: menu.fatherId + "",
+//         orderNum: menu.orderNum,
+//         path: menu.path,
+//         menuType: menu.menuType,
+//         visible: menu.visible,
+//         status: menu.status,
+//         icon: menu.icon,
+//         alIcon: menu.alIcon,
+//         newLinkFlag: menu.newLinkFlag
+//     }
+//     lstmenucover.push(menucover);
+// })
+
+//await this.models.sys_menu.bulkCreate(lstmenucover);
+//return  this.models.sys_menu.findAll({});
 
 /* 
     SELECT m.code AS mCode FROM sys_roles r 
