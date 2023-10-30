@@ -11,6 +11,8 @@ const CreateProcess = require("../../common/process/saveProcess");
 const { ErrorCode } = require("../../../common/enums/ErrorCode");
 const SysRoleUpdateRequest = require("./request/sysroleUpdateRequest");
 const UpdateProcess = require("../../common/process/updateProcess");
+const DeleteRequest = require("../../common/request/deleteRequest");
+const DeleteIdLangProcess = require("../../common/process/deleteIdProcess");
 
 class SysRoleController extends AbstractControllerAPI {
 
@@ -65,6 +67,10 @@ class SysRoleController extends AbstractControllerAPI {
     
     async delete(req, res) {
         await super.execute(res, async () => {
+            const reqDelete = new DeleteRequest(req);
+            if(reqDelete.error !== "") return Result.failure(9999, reqDelete.error);
+            const deleteProcess = new DeleteIdLangProcess();
+            const result = await deleteProcess.delete(reqDelete, Const.RoleModel);
             
         })
     }

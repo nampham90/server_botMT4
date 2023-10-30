@@ -12,7 +12,7 @@ class DeleteIdLangProcess extends AbstractProcess {
     }
 
     async process(req, model) {
-        const deletes = await this.models[model].destroy({where: {id: req.condition.ids, lang: req.lang}});
+        const deletes = await this.models[model].destroy({where: {id: req.condition.ids}});
         return deletes[0];
     }
 }
