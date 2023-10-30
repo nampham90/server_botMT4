@@ -22,7 +22,7 @@ const CommonConstants = require("../result/CommonConstants")
 
     static failureCode(arrayError) {
         let errorCodeEnum = new ErrorCodeEnum(arrayError)
-        return new Result(errorCodeEnum.getCode, errorCodeEnum.getMessage());
+        return new Result(errorCodeEnum.getCode(), errorCodeEnum.getMessage());
     }
 
     static failure(code, message) {

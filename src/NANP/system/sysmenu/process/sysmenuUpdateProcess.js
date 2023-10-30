@@ -11,7 +11,7 @@ class SysMenuUpdateProcess extends AbstractProcess {
     }
 
     async process(req) {
-        const {id,menuName, code, fatherId, orderNum, path, menuType, visible,status,icon , alIcon, newLinkFlag} = req.conditon;
+        const {id,menuName, code, fatherId, orderNum, path, menuType, visible,status,icon , alIcon, newLinkFlag} = req.condition;
 
         const menu = await this.models.sys_menu.findByPk(id);
         if(menu) {

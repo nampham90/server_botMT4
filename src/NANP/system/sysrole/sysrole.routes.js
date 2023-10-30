@@ -2,6 +2,7 @@ const Router = require("express").Router;
 const Role = require("../../../controller/role.controller");
 const verifyToken = require('../../../middlewares/verifyToken');
 const SysRoleController = require('./sysrole.controller');
+const {RoleCreate,RoleUpdate,RoleFindById,RoleFindAll,RoleSearchAll,RoleDelete,RoleGetMenu,RolePutMenu}  = require('../../../common/constAPI')
 class SysRoleRoutes {
     constructor() {
         this.router = Router();
@@ -9,14 +10,14 @@ class SysRoleRoutes {
     }
 
     intializeRoutes() {
-        this.router.post("/ant100SearchAllRole",verifyToken, SysRoleController.findAll);//Role.getListRole
-        this.router.get("/ant100GetSearchAllRole",verifyToken, Role.getSearchAllRole);
-        this.router.post("/ant100GetDetailRole",verifyToken, SysRoleController.findById);
-        this.router.put("/ant100EditDetailRole",verifyToken, Role.EditDetailRole);
-        this.router.post("/ant100AddDetailRole", Role.AddDetailRole);
-        this.router.post("/ant100DelDetailRole",verifyToken, Role.DelDetailRole);
-        this.router.get("/ant100GetpermissionRole/:id",verifyToken, Role.GetpermissionRole);
-        this.router.put("/ant100PutpermissionRole",verifyToken, Role.PutpermissionRole);
+        this.router.post(RoleFindAll ,verifyToken, SysRoleController.findAll);//Role.getListRole
+        this.router.get(RoleSearchAll ,verifyToken, SysRoleController.searchAll);
+        this.router.post(RoleFindById, verifyToken, SysRoleController.findById);
+        this.router.put(RoleUpdate, verifyToken, SysRoleController.update);
+        this.router.post(RoleCreate, verifyToken, SysRoleController.create);
+        this.router.post(RoleDelete, verifyToken, Role.DelDetailRole);
+        this.router.get(RoleGetMenu, verifyToken, Role.GetpermissionRole);
+        this.router.put(RolePutMenu, verifyToken, Role.PutpermissionRole);
     }
 }
 

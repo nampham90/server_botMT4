@@ -1,6 +1,6 @@
-const AbstractProcess = require("../../../../common/abstract/AbstractProcess");
+const AbstractProcess = require("../../../common/abstract/AbstractProcess");
 const ObjectId = require('mongodb').ObjectId;
-class SysMenuCreateProcess extends AbstractProcess {
+class CreateProcess extends AbstractProcess {
     constructor() {
         super()
     }
@@ -10,10 +10,11 @@ class SysMenuCreateProcess extends AbstractProcess {
     }
 
     async process(req, model) {
-        const m = await this.models[model].create(req.condition)
+        const m = await this.models[model].create(req.dataCreate)
         if(m) return m;
         return null;
     }
 }
+// dateCreate phải được kiểm trả ở request
 
-module.exports = SysMenuCreateProcess
+module.exports = CreateProcess

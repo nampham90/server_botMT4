@@ -1,20 +1,20 @@
 const AbstractProcess = require("../../../common/abstract/AbstractProcess");
 const { ErrorCodeEnum, ErrorCode } = require("../../../../common/enums/ErrorCode");
 const { QueryTypes } = require('sequelize');
-
-class DeleteIdProcess extends AbstractProcess {
+const PageInfo = require('../../../../common/pageInfo/pageInfo');
+class SearchAllLangProcess extends AbstractProcess {
     constructor(){
         super()
     }
 
-    async delete(req,model) {
+    async searchAll(req, model) {
         return this.executeModel(req, model);
     }
 
     async process(req, model) {
-        const deletes = await this.models[model].destroy({where: {id: req.condition.ids, lang: req.lang}});
-        return deletes[0];
+        const lstRole = await this.models[model].findAll({where: {lang: req.lang}});
+        return lstRole;
     }
 }
 
-module.exports = DeleteIdProcess;
+module.exports = SearchAllLangProcess;

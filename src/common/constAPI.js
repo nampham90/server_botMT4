@@ -20,3 +20,13 @@ module.exports.MenuFindAll = '/ant100ListMenu';
 module.exports.MenuFindAllParams = '/getListMenuParams';
 module.exports.MenuFindAllURl = '/ant100PostUrlParams';
 
+// role 
+module.exports.RoleCreate = '/ant100AddDetailRole';
+module.exports.RoleUpdate = '/ant100EditDetailRole';
+module.exports.RoleDelete = '/ant100DelDetailRole';
+module.exports.RoleFindById = '/ant100GetDetailRole';
+module.exports.RoleFindAll = '/ant100SearchAllRole';//
+module.exports.RoleSearchAll = '/ant100GetSearchAllRole';// không có phân trang
+module.exports.RoleGetMenu = '/ant100GetpermissionRole/:id';//
+module.exports.RolePutMenu = '/ant100PutpermissionRole';//
+

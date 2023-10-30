@@ -1,4 +1,4 @@
-const AbstractProcess = require("../../../../common/abstract/AbstractProcess");
+const AbstractProcess = require("../../../common/abstract/AbstractProcess");
 const { ErrorCodeEnum, ErrorCode } = require("../../../../common/enums/ErrorCode");
 const { QueryTypes } = require('sequelize');
 

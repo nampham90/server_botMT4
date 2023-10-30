@@ -15,6 +15,17 @@ const demoCreateProduct = "DemoCreateProduct";
 const demoDeleteProduct = "DemoDeleteProduct";
 const demoUpdateProduct = "DemoUpdateProduct";
 
+// sys model
+const RoleModel = "sys_role";
+const UserModel = "sys_user";
+const MenuModel = "sys_menu";
+const DepartmentModel = "sys_department";
+// tmt model
+const TMT341FILEModel = "TMT341FILE";
+const TMT340FORMITEMNMModel = "TMT340FORMITEMNM"
+
+// 
+
 module.exports = {
     idKhachhang,
     idTaixe,
@@ -31,10 +42,16 @@ module.exports = {
     demoListProduct,
     demoCreateProduct,
     demoDeleteProduct,
-    demoUpdateProduct
+    demoUpdateProduct,
 
-    // chat
+    // sys model 
+    RoleModel,
+    UserModel,
+    MenuModel,
+    DepartmentModel,
 
-    // 
+    // tmt modle
+    TMT341FILEModel,
+    TMT340FORMITEMNMModel
 
 }
