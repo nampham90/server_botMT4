@@ -13,7 +13,10 @@ const SysRoleUpdateRequest = require("./request/sysroleUpdateRequest");
 const UpdateProcess = require("../../common/process/updateProcess");
 const DeleteRequest = require("../../common/request/deleteRequest");
 const DeleteIdLangProcess = require("../../common/process/deleteIdProcess");
-
+const SysRoleGetMenuRequest = require("./request/sysroleGetMenuRequest");
+const SysRoleGetMenuProcess = require("./process/sysroleGetMenuProcess")
+const SysRolePutMenuRequest = require("./request/sysrolePutMenuRequest");
+const SysRolePutMenuProcess = require("./process/sysrolePutMenuProcess")
 class SysRoleController extends AbstractControllerAPI {
 
     async findAll(req, res) {
@@ -71,19 +74,29 @@ class SysRoleController extends AbstractControllerAPI {
             if(reqDelete.error !== "") return Result.failure(9999, reqDelete.error);
             const deleteProcess = new DeleteIdLangProcess();
             const result = await deleteProcess.delete(reqDelete, Const.RoleModel);
+            return Result.success(result)
             
         })
     }
 
     async GetpermissionRole(req,res) {
         await super.execute(res, async () => {
-            
+            const reqGetMenu = new SysRoleGetMenuRequest(req);
+            if(reqGetMenu.error !== "") return Result.failure(9999, reqDelete.error);
+            const sysroleGetMenuProcess = new SysRoleGetMenuProcess();
+            const result = await sysroleGetMenuProcess.getMenu(reqGetMenu);
+            return Result.success(result);
         })
     }
 
     async PutpermissionRole(req,res) {
         await super.execute(res, async () => {
-            
+            const reqPutMenu = new SysRolePutMenuRequest(req);
+            if(reqPutMenu.error !== "") return Result.failure(9999, reqDelete.error);
+            const sysrolePutMenuProcess = new SysRolePutMenuProcess();
+            const result = await sysrolePutMenuProcess.putMenu(reqPutMenu);
+            if(result > 0) return Result.failureCode(ErrorCode.SYS_ERR_UPDATE_FAILED)
+            return Result.success()
         })
     }
 }
