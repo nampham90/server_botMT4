@@ -13,6 +13,10 @@ const SysRoleUpdateRequest = require("./request/sysroleUpdateRequest");
 const UpdateProcess = require("../../common/process/updateProcess");
 const DeleteRequest = require("../../common/request/deleteRequest");
 const DeleteIdLangProcess = require("../../common/process/deleteIdProcess");
+const SysRoleGetMenuRequest = require("./request/sysroleGetMenuRequest");
+const SysRoleGetMenuProcess = require("./process/sysroleGetMenuProcess");
+const SysRolePutMenuRequest = require("./request/sysrolePutMenuRequest");
+const SysRolePutMenuProcess = require("./process/sysrolePutMenuProcess");
 
 class SysRoleController extends AbstractControllerAPI {
 
@@ -71,19 +75,28 @@ class SysRoleController extends AbstractControllerAPI {
             if(reqDelete.error !== "") return Result.failure(9999, reqDelete.error);
             const deleteProcess = new DeleteIdLangProcess();
             const result = await deleteProcess.delete(reqDelete, Const.RoleModel);
-            
+
         })
     }
 
     async GetpermissionRole(req,res) {
         await super.execute(res, async () => {
-            
+            const reqGetMenuRole = new SysRoleGetMenuRequest(req);
+            if(reqGetMenuRole.error !== "") return Result.failure(9999, reqGetMenuRole.error);
+            const sysRoleGetMenuProcess = new SysRoleGetMenuProcess();
+            const result = await sysRoleGetMenuProcess.getMenu(reqGetMenuRole);
+            return Result.success(result);
         })
     }
 
     async PutpermissionRole(req,res) {
         await super.execute(res, async () => {
-            
+            const reqPutMenuRole = new SysRolePutMenuRequest(req);
+            if(reqPutMenuRole.error !== "") return Result.failure(9999, reqPutMenuRole.error);
+            const sysrolePutMenuProcess = new SysRolePutMenuProcess();
+            const result = await sysrolePutMenuProcess.putMenu(reqPutMenuRole);
+            if(result > 0) return Result.failureCode(ErrorCode.SYS_ERR_UPDATE_FAILED);
+            return Result.success();
         })
     }
 }

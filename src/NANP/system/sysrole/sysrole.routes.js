@@ -15,9 +15,9 @@ class SysRoleRoutes {
         this.router.post(RoleFindById, verifyToken, SysRoleController.findById);
         this.router.put(RoleUpdate, verifyToken, SysRoleController.update);
         this.router.post(RoleCreate, verifyToken, SysRoleController.create);
-        this.router.post(RoleDelete, verifyToken, Role.DelDetailRole);
-        this.router.get(RoleGetMenu, verifyToken, Role.GetpermissionRole);
-        this.router.put(RolePutMenu, verifyToken, Role.PutpermissionRole);
+        this.router.post(RoleDelete, verifyToken, SysRoleController.delete);
+        this.router.get(RoleGetMenu, verifyToken, SysRoleController.GetpermissionRole);
+        this.router.put(RolePutMenu, verifyToken, SysRoleController.PutpermissionRole);
     }
 }
 
