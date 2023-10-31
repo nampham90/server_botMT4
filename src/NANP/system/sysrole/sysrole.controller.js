@@ -75,7 +75,7 @@ class SysRoleController extends AbstractControllerAPI {
             if(reqDelete.error !== "") return Result.failure(9999, reqDelete.error);
             const deleteProcess = new DeleteIdLangProcess();
             const result = await deleteProcess.delete(reqDelete, Const.RoleModel);
-
+            return Result.success(result)
         })
     }
 

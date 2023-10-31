@@ -13,7 +13,7 @@ class SysRoleFindAllProcess extends AbstractProcess {
 
     async process(req) {
         let condition = {};
-        if(req.condition){
+        if(req.condition.rolename){
             condition.rolename = req.condition.rolename;
         }
         const {rows, count} = await this.models.sys_role.findAndCountAll(
