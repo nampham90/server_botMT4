@@ -12,7 +12,6 @@ const bodyParser = require("body-parser");
 const authSocketMiddleware = require('../middlewares/verifyTokenSocket');
 const SocketServices = require('../socketService/socket.service')
 const handleJsonError = require('../middlewares/verifyJson');
-const MenuModel = require('../DB/model/menu');
 const Result = require('../common/result/Result');
 const { ErrorCode } = require('../common/enums/ErrorCode');
 

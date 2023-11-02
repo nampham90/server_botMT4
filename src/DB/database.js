@@ -2,20 +2,20 @@ const { Sequelize } = require('sequelize');
 const Logger = require('../common/logFile');
 const dotenv = require('dotenv');
 dotenv.config();
-const MenuModel = require('../DB/model/menu');
-const UserModel = require('../DB/model/user');
-const RoleModel = require('../DB/model/role');
-const DepartmentModel = require('../DB/model/department');
+const MenuModel = require('./model/system/menu');
+const UserModel = require('./model/system/user');
+const RoleModel = require('./model/system/role');
+const DepartmentModel = require('./model/system/department');
 const TMT340FORMITEMNMModel = require('../DB/model/master/tmt340_formItemnm');
 const TMT341FILEModel = require('../DB/model/master/tmt341_file');
 
 class Database {
   constructor() {
-    this.host = process.env.MSHOST,
-    this.port = process.env.MSPORT,
-    this.user = process.env.MSUSER,
-    this.password = process.env.MSPASSWORD,
-    this.database = process.env.MSDATABASE
+    this.host = process.env.MSHOSTCTY,
+    this.port = process.env.MSPORTCTY,
+    this.user = process.env.MSUSERCTY,
+    this.password = process.env.MSPASSWORDCTY,
+    this.database = process.env.MSDATABASECTY
 
     this.sequelize = new Sequelize(this.database, this.user, this.password, {
       host: this.host,
