@@ -8,6 +8,12 @@ const RoleModel = require('./model/system/role');
 const DepartmentModel = require('./model/system/department');
 const TMT340FORMITEMNMModel = require('../DB/model/master/tmt340_formItemnm');
 const TMT341FILEModel = require('../DB/model/master/tmt341_file');
+const productModel = require('./model/product/product.model');
+const prodcutcategoryModel = require('./model/product/productcategory.model');
+const productvariationModel = require('./model/product/productvariation.model');
+const productcolorModel = require('./model/product/productcolor.model');
+const productsizeModel = require('./model/product/productsize.model');
+const tmt120_branchModel = require('./model/master/tmt120_branch.model');
 
 class Database {
   constructor() {
@@ -27,6 +33,7 @@ class Database {
     });
     
     this.models = {
+        // system
         "sys_menu" : MenuModel,
         "sys_user": UserModel,
         "sys_role": RoleModel,
@@ -34,7 +41,16 @@ class Database {
 
         // table maste
         "TMT340FORMITEMNM": TMT340FORMITEMNMModel,
-        "TMT341FILE":TMT341FILEModel
+        "TMT341FILE":TMT341FILEModel,
+        "Tmt120Branch": tmt120_branchModel,
+
+        // product
+        "Product": productModel,
+        "ProductCategory": prodcutcategoryModel,
+        "ProductVariation": productvariationModel,
+        "ProductColor": productcolorModel,
+        "ProductSize": productsizeModel
+
     }; // Chứa các mô hình (models) của cơ sở dữ liệu
     //this.connect();
     this.modelsdf();
@@ -52,12 +68,23 @@ class Database {
   }
 
   modelsdf() {
+    // system
     this.defineModel('sys_menu', MenuModel);
     this.defineModel('sys_user', UserModel);
     this.defineModel('sys_role', RoleModel);
     this.defineModel('sys_department', DepartmentModel);
+    // master
     this.defineModel('TMT341FILE', TMT341FILEModel);
     this.defineModel('TMT340FORMITEMNM', TMT340FORMITEMNMModel);
+    this.defineModel('Tmt120Branch', tmt120_branchModel);
+    
+    // product
+    this.defineModel('Product', productModel);
+    this.defineModel('ProductCategory', prodcutcategoryModel);
+    this.defineModel('ProductVariation', productvariationModel);
+    this.defineModel('ProductSize', productsizeModel);
+    this.defineModel('ProductColor', productcolorModel);
+    // 
   }
 
   defineModel(modelName, modelDefinition) {
@@ -93,6 +120,23 @@ class Database {
     this.models.TMT341FILE.hasOne(this.models.sys_user, {
       foreignKey: 'avatar'
     })
+
+    //relationship product
+    // quan hệ 1 nhiều giưa product : productCategory
+    this.models.ProductCategory.hasMany(this.models.Product,  {foreignKey: 'category_id'});
+    this.models.Product.belongsTo(this.models.ProductCategory);
+
+    // quan hệ 1 sản phẩm có nhiều biến thế. 
+    this.models.Product.hasMany(this.models.ProductVariation, {foreignKey: 'product_id'});
+    this.models.ProductVariation.belongsTo(this.models.Product);
+
+    // quan hệ nhiều nhiều giữa biết thể và màu sắc.
+    this.models.ProductVariation.belongsToMany(this.models.ProductColor, {through: "variation_color"});
+    this.models.ProductColor.belongsToMany(this.models.ProductVariation,  {through: "variation_color"});
+
+    // quan hệ nhiều nhiều giữa biết thể và size.
+    this.models.ProductVariation.belongsToMany(this.models.ProductSize, {through: "variation_size"});
+    this.models.ProductSize.belongsToMany(this.models.ProductVariation,  {through: "variation_size"});
 
   }
 
