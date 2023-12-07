@@ -5,3 +5,5 @@ class RoleDto {
         this.role_desc = RoleEntity.role_desc;
     }
 }
+
+module.exports = RoleDto;

@@ -13,9 +13,12 @@ class SysDepartmentFindAllProcess extends AbstractProcess {
 
     async process(req) {
         let condition = {};
-        if(req.condition){
-            condition.tenphongban = req.condition.tenphongban;
+        if(req.condition) {
+            if(req.condition.tenphongban){
+                condition.tenphongban = req.condition.tenphongban;
+            }
         }
+
         const {rows, count} = await this.models.sys_department.findAndCountAll(
             { where: condition,limit: req.pageSize, offset: req.pageSize*( req.pageNum - 1)});
         return new PageInfo(count, rows, req.pageNum, req.pageSize);

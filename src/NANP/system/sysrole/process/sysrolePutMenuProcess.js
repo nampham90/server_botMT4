@@ -12,7 +12,7 @@ class SysRolePutMenuProcess extends AbstractProcess {
     }
 
     async process(req) {
-        const rlOne = await this.models.sys_role.findOne({where : {id: req.roleId, lang : req.lang}});
+        const rlOne = await this.models.sys_role.findOne({where : {id: req.condition.roleId, lang : req.lang}});
         if(rlOne) {
             let listmenus = [];
             for(let idRole of req.condition.permissionIds) {

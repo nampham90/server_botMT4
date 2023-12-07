@@ -1,6 +1,8 @@
 const Router = require("express").Router;
 const Datasc = require("../../../controller/screenpc.controller");
 const verifyToken = require('../../../middlewares/verifyToken');
+const DatascController = require('./sysdatasc.controller');
+const {DatascFindById, DatascFindAll, DatascCreate, DatascUpdate, DatascDelete} =  require('../../../common/constAPI')
 class SysDatascRoutes {
     constructor() {
         this.router = Router();
@@ -8,11 +10,11 @@ class SysDatascRoutes {
     }
 
     intializeRoutes() {
-        this.router.post("/ant100SearchAllDatasc",verifyToken,Datasc.getAllDataSC);
-        this.router.post("/ant100AddListDatasc",verifyToken,Datasc.addListDatasc);
-        this.router.put("/ant100EditDatasc",verifyToken,Datasc.updateDataSC);
-        this.router.post("/ant100DetailDatasc",verifyToken,Datasc.getDetailDataSC);
-        this.router.post("/ant100DelDatasc",verifyToken,Datasc.deletelDataSC);
+        this.router.post(DatascFindAll ,verifyToken, DatascController.findAll);
+        this.router.post(DatascCreate ,verifyToken,Datasc.addListDatasc);
+        this.router.put(DatascUpdate ,verifyToken,Datasc.updateDataSC);
+        this.router.post(DatascFindById ,verifyToken,Datasc.getDetailDataSC);
+        this.router.post(DatascDelete ,verifyToken,Datasc.deletelDataSC);
     }
 }
 

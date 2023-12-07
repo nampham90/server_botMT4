@@ -1,0 +1,14 @@
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-24 07:02:29', '2023-10-24 07:02:29', 1, 1);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-24 07:02:29', '2023-10-24 07:02:29', 1, 2);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-24 07:02:29', '2023-10-24 07:02:29', 1, 3);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-24 07:02:29', '2023-10-24 07:02:29', 1, 4);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-24 07:03:37', '2023-10-24 07:03:37', 2, 2);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-24 07:03:38', '2023-10-24 07:03:38', 3, 2);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-24 07:03:40', '2023-10-24 07:03:40', 4, 2);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-24 07:03:41', '2023-10-24 07:03:41', 5, 2);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-24 07:03:42', '2023-10-24 07:03:42', 6, 2);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-24 07:03:44', '2023-10-24 07:03:44', 7, 2);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-26 02:13:10', '2023-10-26 02:13:10', 8, 2);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-26 02:17:53', '2023-10-26 02:17:53', 9, 2);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-27 07:44:39', '2023-10-27 07:44:39', 17, 2);
+INSERT INTO `user_role` (`createdAt`, `updatedAt`, `sysUserId`, `sysRoleId`) VALUES ('2023-10-27 10:29:56', '2023-10-27 10:29:56', 18, 2);

@@ -17,7 +17,7 @@ module.exports.MenuUpdate = '/ant100EditMenu';
 module.exports.MenuDelete = '/ant100DelMenu';
 module.exports.MenuFindByID = '/ant100PostDetailMenu';
 module.exports.MenuFindAll = '/ant100ListMenu';
-module.exports.MenuFindAllParams = '/getListMenuParams';
+module.exports.MenuFindAllParams = '/ant100ListMenuParams';//ant100ListMenuParams
 module.exports.MenuFindAllURl = '/ant100PostUrlParams';
 
 // role 
@@ -29,4 +29,12 @@ module.exports.RoleFindAll = '/ant100SearchAllRole';//
 module.exports.RoleSearchAll = '/ant100GetSearchAllRole';// không có phân trang
 module.exports.RoleGetMenu = '/ant100GetpermissionRole/:id';//
 module.exports.RolePutMenu = '/ant100PutpermissionRole';//
+
+// datasc
+module.exports.DatascFindById = '/ant100DetailDatasc';
+module.exports.DatascFindAll = '/ant100SearchAllDatasc';//
+module.exports.DatascCreate = '/ant100AddListDatasc';
+module.exports.DatascUpdate = '/ant100EditDatasc';
+module.exports.DatascDelete = '/ant100DelDatasc';
+
 

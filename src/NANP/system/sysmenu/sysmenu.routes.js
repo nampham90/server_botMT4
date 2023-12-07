@@ -16,7 +16,7 @@ class SysMenuRoutes {
         this.router.post( MenuDelete, verifyToken, SysMenuController.delete)
         this.router.post( MenuFindByID, verifyToken, SysMenuController.findById);
         this.router.post( MenuFindAll, verifyToken, SysMenuController.findAll);
-        this.router.post( MenuFindAllParams, verifyToken, Menu.getListMenuParams);
+        this.router.post( MenuFindAllParams, verifyToken, SysMenuController.findAll);
         this.router.post( MenuFindAllURl, verifyToken, Menu.getDetailMenuFromUrl);
         this.router.post("/demofindAllMenu", verifyToken, SysMenuController.findAll);
     }
