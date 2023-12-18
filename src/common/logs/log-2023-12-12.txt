@@ -1,0 +1,4 @@
+11:29:7: Executing (default): SELECT count(*) AS `count` FROM `sys_menus` AS `sys_menu`;
+11:29:7: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;
+11:57:29: Executing (default): SELECT count(*) AS `count` FROM `sys_menus` AS `sys_menu`;
+11:57:29: Executing (default): SELECT `id`, `lang`, `menuName`, `code`, `fatherId`, `orderNum`, `path`, `menuType`, `visible`, `status`, `icon`, `alIcon`, `newLinkFlag`, `createdAt`, `updatedAt` FROM `sys_menus` AS `sys_menu`;

@@ -17,11 +17,11 @@ const tmt120_branchModel = require('./model/master/tmt120_branch.model');
 
 class Database {
   constructor() {
-    this.host = process.env.MSHOST,
-    this.port = process.env.MSPORT,
-    this.user = process.env.MSUSER,
-    this.password = process.env.MSPASSWORD,
-    this.database = process.env.MSDATABASE
+    this.host = process.env.MSHOSTCTY,
+    this.port = process.env.MSPORTCTY,
+    this.user = process.env.MSUSERCTY,
+    this.password = process.env.MSPASSWORDCTY,
+    this.database = process.env.MSDATABASECTY
 
     this.sequelize = new Sequelize(this.database, this.user, this.password, {
       host: this.host,

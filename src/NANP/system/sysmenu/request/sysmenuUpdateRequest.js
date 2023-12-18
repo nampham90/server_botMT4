@@ -28,7 +28,7 @@ class SysMenuUpdateRequest extends AbstractRequest {
 
     Validator = (condition) => {
         const rule = Joi.object({
-            id: Joi.number().integer().required(),
+            id: Joi.string().max(24).required(),
             menuName: Joi.string().max(50).required(),
             code: Joi.string().max(50).required(),
             orderNum: Joi.number().integer().required(),
@@ -36,9 +36,9 @@ class SysMenuUpdateRequest extends AbstractRequest {
             visible: Joi.boolean().required(),
             path: Joi.string().max(100).required(),
             status: Joi.boolean().required(),
-            newLinkFlag: JoiJoi.boolean().required(),
+            newLinkFlag: Joi.boolean().required(),
             icon: Joi.string().max(50).required(),
-            alIcon: Joi.string().max(50).required(),
+            alIcon: Joi.allow(),
             fatherId: Joi.string().max(24).required()
         });
         return rule.validate(condition);

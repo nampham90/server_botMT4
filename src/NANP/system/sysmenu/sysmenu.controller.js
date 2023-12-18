@@ -5,6 +5,7 @@ const SysMenuCreateProcess = require("./process/sysmenuCreateProcess");
 const SysMenuDeleteProcess = require("./process/sysmenuDeleteprocess");
 const SysMenuFindAllProcess = require("./process/sysmenuFindAllProcess");
 const SysMenuFindByIdProcess = require("./process/sysmenuFindByIdProcess");
+const SysMenuGetFromUrlProcess = require("./process/sysmenuGetFromUrlProcess");
 const SysMenuUpdateProcess = require("./process/sysmenuUpdateProcess");
 const SysMenuCreateRequest = require("./request/sysmenuCreateRequest");
 const SysMenuDeleteRequest = require("./request/sysmenuDeleteRequest");
@@ -61,6 +62,15 @@ class SysMenuController extends AbstractControllerAPI {
             return Result.success(result);
         }) 
     }
+
+    async getDetailMenuFromUrl(req, res) {
+        await super.execute(res, async() => {
+            const sysmenuGetFromUrl = new  SysMenuGetFromUrlProcess();
+            const result =  await sysmenuGetFromUrl.getMenuFromUrl(req);
+            return Result.success(result);
+        })
+    }
+
 }
 
 module.exports = new SysMenuController()
