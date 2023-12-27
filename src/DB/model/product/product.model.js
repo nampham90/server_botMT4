@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
     const Product = sequelize.define('product', {
         // ma san pham
         id: {
-            type: DataTypes.STRING(10),//  Danh muc + ten viet sản phẩm (BPE12312312)
+            type: DataTypes.STRING(10),//  Danh muc + ten viet tắt sản phẩm (BPE12312312)
             primaryKey: true
         },
 
@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
         },
 
-        // đánh dấu sản phẩm gộp
+        // đánh dấu sản phẩm gộp / 1 là sản phẩm gộp/ 
         is_composite: {
             type: DataTypes.BOOLEAN,
         },
