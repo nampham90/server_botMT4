@@ -16,6 +16,9 @@ class SysDatascController extends AbstractControllerAPI {
     }
 
     async addList(req, res) {
+        await super.execute(req, async() => {
+            
+        })
 
     }
 

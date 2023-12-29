@@ -5,7 +5,7 @@ const Result = require('../result/Result');
 class AbstractControllerSocket {
     constructor() {}
 
-    async execute(route,socket, callback) {
+    async execute(route, socket, callback) {
         try {
             const result = await callback();
             socket.emit(route, result);
