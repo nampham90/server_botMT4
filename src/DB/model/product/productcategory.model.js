@@ -22,7 +22,11 @@ module.exports = (sequelize) => {
         // mô tả danh mục
         description: {
             type: DataTypes.STRING(255)
-        }
+        },
+
+        fatherId: {
+            type: DataTypes.INTEGER
+        },
     },
     {
       timestamps: true,
