@@ -11,10 +11,10 @@ class SysDatascRoutes {
 
     intializeRoutes() {
         this.router.post(DatascFindAll ,verifyToken, DatascController.findAll);
-        this.router.post(DatascCreate ,verifyToken,Datasc.addListDatasc);
-        this.router.put(DatascUpdate ,verifyToken,Datasc.updateDataSC);
-        this.router.post(DatascFindById ,verifyToken,Datasc.getDetailDataSC);
-        this.router.post(DatascDelete ,verifyToken,Datasc.deletelDataSC);
+        this.router.post(DatascCreate ,verifyToken, Datasc.addListDatasc);
+        this.router.put(DatascUpdate ,verifyToken, Datasc.updateDataSC);
+        this.router.post(DatascFindById ,verifyToken, Datasc.getDetailDataSC);
+        this.router.post(DatascDelete ,verifyToken, Datasc.deletelDataSC);
     }
 }
 
