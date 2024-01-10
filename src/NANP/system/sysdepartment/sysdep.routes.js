@@ -9,11 +9,11 @@ class SysDepRoutes {
     }
 
     intializeRoutes() {
-        this.router.post("/ant100addPhongban",verifyToken,Department.addPhongban);
-        this.router.put("/ant100editPhongban",verifyToken,Department.editPhongban);
-        this.router.post("/ant100delPhongban",verifyToken,Department.delPhongban);
-        this.router.post("/ant100getAllPhongban",verifyToken, SysDepController.findAll);
-        this.router.post("/ant100getIdPhongban",verifyToken,Department.getIdPhongban);
+        this.router.post("/ant100addPhongban", verifyToken, SysDepController.create);
+        this.router.put("/ant100editPhongban", verifyToken, SysDepController.update);
+        this.router.post("/ant100delPhongban", verifyToken, SysDepController.delete);
+        this.router.post("/ant100getAllPhongban", verifyToken, SysDepController.findAll);
+        this.router.post("/ant100getIdPhongban", verifyToken, SysDepController.findById);
     }
 }
 

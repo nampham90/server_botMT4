@@ -45,6 +45,8 @@ const ErrorCode = {
 
     SYS_ERR_JSON: [4000, "Json không hợp lệ !"]
 
+    
+
 };
 
 class ErrorCodeEnum {

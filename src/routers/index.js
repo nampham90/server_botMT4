@@ -14,6 +14,8 @@ const tmt001Routes = require('../NANP/master/tmt001_syslog/tmt001.routes');
 const tmt002Routes = require('../NANP/master/tmt002_video/tmt002.routes');
 const tmt003Routes = require('../NANP/master/tmt003_file/tmt003.routes');
 
+const apiRouter = require('../NANP/master/api/api.routes');
+const spot00101Routes = require('../NANP/out/spot00101/spot00101.routes');
 class Routes {
     constructor(app) {
         // routes child system
@@ -42,6 +44,11 @@ class Routes {
 
         // route tmt003_file
         app.use('/api/tmt010', tmt003Routes);
+
+        app.use('/api/master', apiRouter);
+
+        // xuat hang 
+        app.use('/api/spot00101', spot00101Routes);
 
         // router master san pham
         // spmt00900

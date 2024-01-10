@@ -2,19 +2,23 @@ const { Sequelize } = require('sequelize');
 const Logger = require('../common/logFile');
 const dotenv = require('dotenv');
 dotenv.config();
+// system
 const MenuModel = require('./model/system/menu');
 const UserModel = require('./model/system/user');
 const RoleModel = require('./model/system/role');
 const DepartmentModel = require('./model/system/department');
-const TMT340FORMITEMNMModel = require('../DB/model/master/tmt340_formItemnm');
-const TMT341FILEModel = require('../DB/model/master/tmt341_file');
+// product
 const productModel = require('./model/product/product.model');
 const prodcutcategoryModel = require('./model/product/productcategory.model');
 const productvariationModel = require('./model/product/productvariation.model');
 const productcolorModel = require('./model/product/productcolor.model');
 const productsizeModel = require('./model/product/productsize.model');
+//tmt
 const tmt120_branchModel = require('./model/master/tmt120_branch.model');
-
+const TMT340FORMITEMNMModel = require('../DB/model/master/tmt340_formItemnm');
+const TMT341FILEModel = require('../DB/model/master/tmt341_file');
+//tcc
+const tcc030_seqno = require('../DB/model/tcc/tcc030_seqno.model');
 class Database {
   constructor() {
     this.host = process.env.MSHOSTNHA,
@@ -49,7 +53,10 @@ class Database {
         "ProductCategory": prodcutcategoryModel,
         "ProductVariation": productvariationModel,
         "ProductColor": productcolorModel,
-        "ProductSize": productsizeModel
+        "ProductSize": productsizeModel,
+
+        //tcc
+        "TCC030SEQNO":tcc030_seqno
 
     }; // Chứa các mô hình (models) của cơ sở dữ liệu
     //this.connect();
@@ -85,6 +92,10 @@ class Database {
     this.defineModel('ProductSize', productsizeModel);
     this.defineModel('ProductColor', productcolorModel);
     // 
+
+    // tcc
+    this.defineModel('TCC030SEQNO', tcc030_seqno);
+
   }
 
   defineModel(modelName, modelDefinition) {

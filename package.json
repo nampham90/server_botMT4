@@ -34,6 +34,7 @@
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.6.0",
     "nodemon": "^2.0.19",
+    "pad-left": "^2.1.0",
     "sequelize": "^6.33.0",
     "socket.io": "^4.6.1",
     "uuid": "^9.0.1"
