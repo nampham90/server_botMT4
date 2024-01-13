@@ -17,8 +17,16 @@ const productsizeModel = require('./model/product/productsize.model');
 const tmt120_branchModel = require('./model/master/tmt120_branch.model');
 const TMT340FORMITEMNMModel = require('../DB/model/master/tmt340_formItemnm');
 const TMT341FILEModel = require('../DB/model/master/tmt341_file');
+const Tmt050Name = require('../DB/model/master/tmt050_name.model');
+const tmt170_delimthd = require('./model/master/tmt170_delimthd');
+const tmt171_paymethd = require('./model/master/tmt171_paymethd');
 //tcc
 const tcc030_seqno = require('../DB/model/tcc/tcc030_seqno.model');
+//tot
+const tot010_stsModel = require('./model/out/tot010_sts.model');
+const tot020_ordhedModel = require('./model/out/tot020_ordhed.model');
+const tot040_orddtlModel = require('./model/out/tot040_orddtl.model');
+
 class Database {
   constructor() {
     this.host = process.env.MSHOSTNHA,
@@ -47,6 +55,9 @@ class Database {
         "TMT340FORMITEMNM": TMT340FORMITEMNMModel,
         "TMT341FILE":TMT341FILEModel,
         "Tmt120Branch": tmt120_branchModel,
+        "Tmt050Name": Tmt050Name,
+        "Tmt170Delimthd": tmt170_delimthd,
+        "Tmt171Paymethd": tmt171_paymethd,
 
         // product
         "Product": productModel,
@@ -56,7 +67,13 @@ class Database {
         "ProductSize": productsizeModel,
 
         //tcc
-        "TCC030SEQNO":tcc030_seqno
+        "TCC030SEQNO":tcc030_seqno,
+
+
+        //tot
+        "Tot010Sts": tot010_stsModel,
+        "Tot020Ordhed": tot020_ordhedModel,
+        "Tot040Orddtl": tot040_orddtlModel,
 
     }; // Chứa các mô hình (models) của cơ sở dữ liệu
     //this.connect();
@@ -84,7 +101,11 @@ class Database {
     this.defineModel('TMT341FILE', TMT341FILEModel);
     this.defineModel('TMT340FORMITEMNM', TMT340FORMITEMNMModel);
     this.defineModel('Tmt120Branch', tmt120_branchModel);
+    this.defineModel('Tmt050Name', Tmt050Name);
+    this.defineModel('Tmt170Delimthd', tmt170_delimthd);
+    this.defineModel('Tmt171Paymethd', tmt171_paymethd);
     
+
     // product
     this.defineModel('Product', productModel);
     this.defineModel('ProductCategory', prodcutcategoryModel);
@@ -95,6 +116,12 @@ class Database {
 
     // tcc
     this.defineModel('TCC030SEQNO', tcc030_seqno);
+
+    // tot
+    this.defineModel('Tot010Sts', tot010_stsModel);
+    this.defineModel('Tot020Ordhed', tot020_ordhedModel);
+    this.defineModel('Tot040Orddtl', tot040_orddtlModel);
+
 
   }
 
@@ -148,6 +175,34 @@ class Database {
     // quan hệ nhiều nhiều giữa biết thể và size.
     this.models.ProductVariation.belongsToMany(this.models.ProductSize, {through: "variation_size"});
     this.models.ProductSize.belongsToMany(this.models.ProductVariation,  {through: "variation_size"});
+
+
+    // 1 trang thái đơn hàng có 1 đơn hàng
+    this.models.Tot010Sts.hasOne(this.models.Tot020Ordhed, {foreignKey: 'SOODNO'});
+    this.models.Tot020Ordhed.belongsTo(this.models.Tot010Sts);
+
+    // 1 đơn hàng có 1 phương thức vận chuyển, 1 ptvc có ở nhiều đơn hàng
+    this.models.Tmt170Delimthd.hasMany(this.models.Tot020Ordhed, {foreignKey: "DELIMTHDCD"});
+    this.models.Tot020Ordhed.belongsTo(this.models.Tmt170Delimthd);
+    
+    // 1 đơn hàng có 1 phương thức thanh toán, 1 pttt có ở nhiều đơn hang
+    this.models.Tmt171Paymethd.hasMany(this.models.Tot020Ordhed, { foreignKey: "PAYMETHDCD"});
+    this.models.Tot020Ordhed.belongsTo(this.models.Tmt171Paymethd);
+
+    // 1 nhân viên ơ nhiều đơn hàng, 1 đơn hàng có 1 nhân viên
+    this.models.sys_user.hasMany(this.models.Tot020Ordhed, {foreignKey: 'USERCD'});
+    this.models.Tot020Ordhed.belongsTo(this.models.sys_user);
+
+    // 1 khách khàng ở nhiều đơn hàng, 1 đơn hàng có 1 khách hàng
+    this.models.sys_user.hasMany(this.models.Tot020Ordhed, {foreignKey: 'CSTMCD'});
+
+    // 1 đơn hàng có nhiều chi tiết, 
+    this.models.Tot020Ordhed.hasMany(this.models.Tot040Orddtl, {foreignKey: "SOODNO"});
+    this.models.Tot040Orddtl.belongsTo(this.models.Tot020Ordhed);
+
+    // 1 sản phẩm ở một chi tiết.
+    this.models.Product.hasOne(this.models.Tot040Orddtl, {foreignKey: 'PRODUCTCD'});
+    this.models.Tot040Orddtl.belongsTo(this.models.Product);
 
   }
 
