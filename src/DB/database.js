@@ -26,6 +26,9 @@ const tcc030_seqno = require('../DB/model/tcc/tcc030_seqno.model');
 const tot010_stsModel = require('./model/out/tot010_sts.model');
 const tot020_ordhedModel = require('./model/out/tot020_ordhed.model');
 const tot040_orddtlModel = require('./model/out/tot040_orddtl.model');
+const tst010_stckModel = require('./model/tst/tst010_stck.model');
+const tmt130_lctnModel = require('./model/master/tmt130_lctn.model');
+const tmt140_qualityModel = require('./model/master/tmt140_quality.model');
 
 class Database {
   constructor() {
@@ -58,6 +61,8 @@ class Database {
         "Tmt050Name": Tmt050Name,
         "Tmt170Delimthd": tmt170_delimthd,
         "Tmt171Paymethd": tmt171_paymethd,
+        "Tmt130Lctn": tmt130_lctnModel,
+        "Tmt140Quality": tmt140_qualityModel,
 
         // product
         "Product": productModel,
@@ -74,6 +79,9 @@ class Database {
         "Tot010Sts": tot010_stsModel,
         "Tot020Ordhed": tot020_ordhedModel,
         "Tot040Orddtl": tot040_orddtlModel,
+
+        // tst // trong kho
+        "Tst010Stck": tst010_stckModel,
 
     }; // Chứa các mô hình (models) của cơ sở dữ liệu
     //this.connect();
@@ -104,6 +112,8 @@ class Database {
     this.defineModel('Tmt050Name', Tmt050Name);
     this.defineModel('Tmt170Delimthd', tmt170_delimthd);
     this.defineModel('Tmt171Paymethd', tmt171_paymethd);
+    this.defineModel('Tmt130Lctn', tmt130_lctnModel);
+    this.defineModel('Tmt140Quality', tmt140_qualityModel);
     
 
     // product
@@ -112,6 +122,7 @@ class Database {
     this.defineModel('ProductVariation', productvariationModel);
     this.defineModel('ProductSize', productsizeModel);
     this.defineModel('ProductColor', productcolorModel);
+
     // 
 
     // tcc
@@ -121,6 +132,9 @@ class Database {
     this.defineModel('Tot010Sts', tot010_stsModel);
     this.defineModel('Tot020Ordhed', tot020_ordhedModel);
     this.defineModel('Tot040Orddtl', tot040_orddtlModel);
+
+    // tst
+    this.defineModel('Tst010Stck', tst010_stckModel);
 
 
   }
@@ -203,6 +217,36 @@ class Database {
     // 1 sản phẩm ở một chi tiết.
     this.models.Product.hasOne(this.models.Tot040Orddtl, {foreignKey: 'PRODUCTCD'});
     this.models.Tot040Orddtl.belongsTo(this.models.Product);
+
+    // 1 kho có nhiều sản phẩm (PRODUCTCD)
+    this.models.Product.hasMany(this.models.Tst010Stck, {foreignKey: "PRODUCTCD"});
+    this.models.Tst010Stck.belongsTo(this.models.Product);
+
+    // 1 khó có nhiều nhánh (BRNCHCD)
+    this.models.Tmt120Branch.hasMany(this.models.Tst010Stck, {foreignKey: "BRNCHCD"});
+    this.models.Tst010Stck.belongsTo(this.models.Tmt120Branch);
+    // 1 kho có nhiều nhà cung cấp (SUPPLYCD)
+    this.models.sys_user.hasMany(this.models.Tst010Stck, {foreignKey: "SUPPLYCD"});
+    this.models.Tst010Stck.belongsTo(this.models.sys_user);
+    // 1 kho có nhiều hãng sản xuất (MANUFACTTURECD)
+    this.models.sys_user.hasMany(this.models.Tst010Stck, {foreignKey: "MANUFACTTURECD"});
+    // 1 kho có nhiều nhân viên nhập hàng (EMPLOYEECD )
+    this.models.sys_user.hasMany(this.models.Tst010Stck, {foreignKey: "EMPLOYEECD"});
+    // 1 kho có nhiều vị trí lưu trử hàng hóa
+    this.models.Tmt130Lctn.hasMany(this.models.Tst010Stck, {foreignKey: "LCTNCD"});
+    this.models.Tst010Stck.belongsTo(this.models.Tmt130Lctn);
+
+    // 1 branch cd có nhiều vị trí
+    this.models.Tmt120Branch.hasMany(this.models.Tmt130Lctn, {foreignKey: "BRNCHCD"});
+    this.models.Tmt130Lctn.belongsTo(this.models.Tmt120Branch);
+
+    // 
+    this.models.Tmt140Quality.hasMany(this.models.Tst010Stck, {foreignKey: "QTYCD"});
+    this.models.Tst010Stck.belongsTo(this.models.Tmt140Quality);
+
+    //
+    this.models.Tmt140Quality.hasMany(this.models.Tot040Orddtl, {foreignKey: "QTYCD"});
+    this.models.Tot040Orddtl.belongsTo(this.models.Tmt140Quality)
 
   }
 
