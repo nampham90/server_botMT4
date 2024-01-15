@@ -1,9 +1,10 @@
 const { Router } = require("express");
 const verifyToken = require("../../../middlewares/verifyToken");
-const spot00101Controller = require("./spot00101.controller");
+const tmt140Controller = require("./tmt140.controller");
 
 
-class Spot00101Router {
+
+class Tmt14QualityRoutes {
     constructor() {
         this.router = Router();
         this.intializeRoutes();
@@ -11,8 +12,8 @@ class Spot00101Router {
     }
 
     intializeRoutes() {
-        this.router.post('/spot00101FindByOrder', verifyToken, spot00101Controller.createOrder);
+        this.router.post('/tmt140getlistqty', verifyToken, tmt140Controller.findAll)
     }
 }
 
-module.exports = new Spot00101Router().router;
+module.exports = new Tmt14QualityRoutes().router;

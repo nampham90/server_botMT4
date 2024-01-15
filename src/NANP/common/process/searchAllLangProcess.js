@@ -1,7 +1,5 @@
 const AbstractProcess = require("../../../common/abstract/AbstractProcess");
-const { ErrorCodeEnum, ErrorCode } = require("../../../../common/enums/ErrorCode");
-const { QueryTypes } = require('sequelize');
-const PageInfo = require('../../../../common/pageInfo/pageInfo');
+
 class SearchAllLangProcess extends AbstractProcess {
     constructor(){
         super()

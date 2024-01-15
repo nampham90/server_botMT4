@@ -17,6 +17,9 @@ const tmt003Routes = require('../NANP/master/tmt003_file/tmt003.routes');
 const apiRouter = require('../NANP/master/api/api.routes');
 const spot00101Routes = require('../NANP/out/spot00101/spot00101.routes');
 const tmt050Routes = require('../NANP/master/tmt050_name/tmt050.routes');
+const stockRoutes = require('../NANP/stock/stock.routes');
+const productRoutes = require('../NANP/product/product.routes');
+const tmt140Routes = require('../NANP/master/tmt140_qualiti/tmt140.routes');
 class Routes {
     constructor(app) {
         // routes child system
@@ -44,7 +47,7 @@ class Routes {
         app.use('/api/tmt101', tmt002Routes);
         app.use('/api/tmt010', tmt003Routes);
         app.use('/api/tmt050', tmt050Routes);
-
+        app.use('/api/tmt140', tmt140Routes);
 
         // Api
         app.use('/api/master', apiRouter);
@@ -53,9 +56,12 @@ class Routes {
         // xuat hang 
         app.use('/api/spot00101', spot00101Routes);
 
-        // router master san pham
-        // spmt00900
-       // app.use("/api/product", spmt00900Routes);
+        // stock (trong kho)
+        app.use('/api/stock', stockRoutes);
+
+        // product (sản phẩm)
+        app.use('/api/product', productRoutes);
+
     }
 }
 

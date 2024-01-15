@@ -1,5 +1,7 @@
 const  idKhachhang = "632ebaf77e9ad9aeef4e3d27";
 const  idTaixe = "636cf775974c56587047691e";
+const  manufactureID = 9;
+const  supplyID = 10;
 const  ip = "117.2.198.251";
 const  mauvang = "\xF0\x9F\x8C\x95 ";
 const  lengthId = 24;
@@ -27,8 +29,8 @@ const TMT340FORMITEMNMModel = "TMT340FORMITEMNM"
 // 
 
 module.exports = {
-    idKhachhang,
-    idTaixe,
+    manufactureID,
+    supplyID,
     ip,
     mauvang,
     lengthId,
