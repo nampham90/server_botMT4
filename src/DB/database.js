@@ -32,11 +32,11 @@ const tmt140_qualityModel = require('./model/master/tmt140_quality.model');
 
 class Database {
   constructor() {
-    this.host = process.env.MSHOSTCTY,
-    this.port = process.env.MSPORTCTY,
-    this.user = process.env.MSUSERCTY,
-    this.password = process.env.MSPASSWORDCTY,
-    this.database = process.env.MSDATABASECTY
+    this.host = process.env.MSHOSTNHA,
+    this.port = process.env.MSPORTNHA,
+    this.user = process.env.MSUSERNHA,
+    this.password = process.env.MSPASSWORDNHA,
+    this.database = process.env.MSDATABASENHA
 
     this.sequelize = new Sequelize(this.database, this.user, this.password, {
       host: this.host,

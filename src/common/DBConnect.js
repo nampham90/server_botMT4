@@ -41,14 +41,11 @@ function makeNewConnection(uri,type) {
 
         return db;
     }
-
 }
-
-// Use
 
 const dbDemo = makeNewConnection(dbconfig.url, 'mongodb');
 const dbKhochung = makeNewConnection(dbconfig.urlkhochung, 'mongodb');
-const dbMySQL = makeNewConnection(dbconfig.dbMysqlConfigCTY, 'mysql');
+const dbMySQL = makeNewConnection(dbconfig.dbMysqlConfigNHA, 'mysql');
 
 module.exports = {
     dbDemo,
