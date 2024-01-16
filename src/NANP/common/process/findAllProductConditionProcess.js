@@ -17,6 +17,7 @@ class FindAllProductConditionProcess extends AbstractProcess {
         if(!req.conditions.MANUFACTTURECD) delete req.conditions.MANUFACTTURECD;
         const {rows, count} = await this.models.Tst010Stck.findAndCountAll({
             attributes: [
+                [this.sequelize.literal('CONCAT(PRODUCTCD,QTYCD)'), 'PRODUCTCD'],
                 [this.sequelize.literal('SUM(ALLWQTY)'), 'TOTALALLWQTY'],
                 'SELLPIRCE',
                 'LIMITDATE',
