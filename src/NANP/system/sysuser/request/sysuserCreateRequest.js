@@ -26,9 +26,9 @@ class SysUserCreateRequest extends AbstractRequest {
         const rule = Joi.object({
             name: Joi.string().min(6).max(20).required(),
             password: Joi.string().pattern(new RegExp('^[a-zA-Z0-9]{6,20}$')).required(),
-            available: Joi.boolean().required(),
-            sex: Joi.number().integer().required(),
-            dienthoai: Joi.string().max(12).pattern(new RegExp('^[0-9]{10}$')).required(),
+            available: Joi.boolean(),
+            sex: Joi.number().integer(),
+            dienthoai: Joi.string().max(12),
             email: Joi.string().required().email(),
             phongban_id: Joi.number().integer().required(),
             role_id: Joi.array().items(Joi.number())

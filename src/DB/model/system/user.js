@@ -21,11 +21,32 @@ module.exports = (sequelize) => {
         sex: {
             type: DataTypes.INTEGER
         },
+        taxcd: { // mã số thuế
+            type: DataTypes.STRING(15)
+        },
         dienthoai: {
-            type: DataTypes.BIGINT
+            type: DataTypes.STRING(12)
+        },
+        desc: { // mo tả khách hàng
+            type: DataTypes.STRING(256)
+        },
+        BUYERNMENC: {
+            type: DataTypes.STRING(256)
+        },
+        BUYERADRS1ENC : {
+            type: DataTypes.STRING(256)
+        },
+        BUYERADRS2ENC: {
+            type: DataTypes.STRING(256)
+        },
+        BUYERADRS3ENC: {
+            type: DataTypes.STRING(256)
         },
         email: {
             type: DataTypes.STRING(50)
+        },
+        sinhnhat: {
+            type: DataTypes.DATE
         },
         lastLoginTime: {
             type: DataTypes.DATE

@@ -1,5 +1,6 @@
 const AbstractProcess = require("../../../../common/abstract/AbstractProcess");
 const bcrypt = require('bcryptjs');
+const {encrypt} = require('../../../../validations/auth');
 
 class SysUserCreateProcess extends AbstractProcess {
     constructor() {
@@ -11,7 +12,7 @@ class SysUserCreateProcess extends AbstractProcess {
     }
 
     async process(req) {
-        const {name, available, password, sex, email, dienthoai, roles,phongban_id} = req;
+        const {name, available, password, sex, email, dienthoai, roles,phongban_id,taxcd,desc,area,province,city,street,mobile} = req;
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(password, salt);
         const u = await this.models.sys_user.create({
@@ -19,9 +20,15 @@ class SysUserCreateProcess extends AbstractProcess {
             password: hashPassword,
             available: available,
             sex: sex,
-            email: email,
-            dienthoai:dienthoai,
-            phongban_id: phongban_id
+            email: email == null? "" : encrypt(email),
+            dienthoai:dienthoai ==null? "" : encrypt(mobile),
+            phongban_id: phongban_id,
+            BUYERNMENC: street == null? "" : encrypt(street),
+            BUYERADRS1ENC: city == null? "" : encrypt(city),
+            BUYERADRS2ENC: province == null? "":  encrypt(province),
+            BUYERADRS3ENC: area == null? "" : encrypt(area),
+            taxcd: taxcd == null? "" : encrypt(taxcd),
+            desc: desc == null? "": encrypt(desc)
         })
         if(u) {
             await Promise.all([ this.userAddRole(u, roles),this.userJoinDepartment(u, phongban_id)]);

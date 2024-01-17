@@ -16,7 +16,11 @@ class SysUserFindByIdProcess extends AbstractProcess {
         //     replacements: [req.id],
         //     type: QueryTypes.SELECT
         // })
-        const user = await this.models.sys_user.findOne({where: {id : parseInt(req.id)},include: {model:this.models.sys_role}});
+        const user = await this.models.sys_user.findOne({
+                    where: {id : parseInt(req.id)},
+                    include: {
+                        model:this.models.sys_role
+                    }});
         if(!user) return new ErrorCodeEnum(ErrorCode.SYS_ERR_ACCOUNT_NULL);
         return user
     }

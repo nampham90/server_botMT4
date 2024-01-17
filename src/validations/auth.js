@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const jwt = require('jsonwebtoken');
 
 const registerValidator = (data) => {
     const rule = Joi.object({
@@ -10,6 +11,24 @@ const registerValidator = (data) => {
     return rule.validate(data);
 }
 
+const encrypt = (string) => {
+    // Tạo một payload chứa chuỗi string
+    const payload = { data: string };
+    // Tạo một token bằng cách mã hóa payload với chuỗi bí mật
+    const token = jwt.sign(payload, process.env.SECRET)
+    return token;
+}
+
+const decrypt = (token) => {
+    const verified = jwt.verify(token, process.env.SECRET);
+    if (verified) {
+        return verified.data;
+    }
+    return null;
+}
+
 module.exports = {
-    registerValidator
+    registerValidator,
+    encrypt,
+    decrypt
 };

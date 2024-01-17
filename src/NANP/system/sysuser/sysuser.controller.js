@@ -73,7 +73,7 @@ class SysUserController extends AbstractControllerAPI {
                 return Result.failure(9999, reqCreate.error);
             const sysUserCreateProcess = new SysUserCreateProcess();
             const result = await sysUserCreateProcess.create(reqCreate.condition);
-            if(result) return Result.success();
+            if(result) return Result.success(result);
             return Result.failureCode(ErrorCode.SYS_ERR_CREATE_FAILED);
         })
     }
