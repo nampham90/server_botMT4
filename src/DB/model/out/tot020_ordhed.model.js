@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
             type: DataTypes.DATE,//  ngay van chuyen
         },
         DELIPLNDATE: {
-            type: DataTypes.DATE,//  ngay du kien hang den
+            type: DataTypes.DATE,//  ngay du kien giao hang
         },
         DEPOSIT: {
             type: DataTypes.INTEGER,//  Đặt cọc

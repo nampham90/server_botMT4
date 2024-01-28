@@ -9,6 +9,12 @@ function ConditionDto(condition) {
     this.dienthoai = condition.dienthoai;
     this.roles = condition.role_id;
     this.phongban_id = condition.phongban_id;
+    this.taxcd = condition.taxcd;
+    this.area = condition.area;
+    this.desc = condition.desc;
+    this.city = condition.city;
+    this.province = condition.province;
+    this.street = condition.street;
 }
 class SysUserCreateRequest extends AbstractRequest {
     constructor(req) {
@@ -31,7 +37,14 @@ class SysUserCreateRequest extends AbstractRequest {
             dienthoai: Joi.string().max(12),
             email: Joi.string().required().email(),
             phongban_id: Joi.number().integer().required(),
-            role_id: Joi.array().items(Joi.number())
+            role_id: Joi.array().items(Joi.number()),
+            taxcd: Joi.string().allow(null, ''),
+            area: Joi.string().allow(null, ''),
+            desc: Joi.string().allow(null, ''),
+            city: Joi.number().allow(null, ''),
+            mobile: Joi.string().allow(null, ''),
+            province: Joi.number().allow(null, ''),
+            street: Joi.string().allow(null, ''),
         });
         return rule.validate(condition);
     }

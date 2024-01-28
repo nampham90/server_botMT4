@@ -22,10 +22,10 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER
         },
         taxcd: { // mã số thuế
-            type: DataTypes.STRING(15)
+            type: DataTypes.STRING(256)
         },
         dienthoai: {
-            type: DataTypes.STRING(12)
+            type: DataTypes.STRING(256)
         },
         desc: { // mo tả khách hàng
             type: DataTypes.STRING(256)
@@ -43,7 +43,7 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING(256)
         },
         email: {
-            type: DataTypes.STRING(50)
+            type: DataTypes.STRING(256)
         },
         sinhnhat: {
             type: DataTypes.DATE

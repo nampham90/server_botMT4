@@ -27,8 +27,29 @@ const decrypt = (token) => {
     return null;
 }
 
+const mergeUser = (user) => {
+    const muser = {
+        id: user.id,
+        name: user.name,
+        dienthoai: decrypt(user.dienthoai),
+        phongban_id: user.phongban_id,
+        BUYERNMENC: decrypt(user.BUYERNMENC),
+        BUYERADRS1ENC: decrypt(user.BUYERADRS1ENC),
+        BUYERADRS2ENC: decrypt(user.BUYERADRS2ENC),
+        BUYERADRS3ENC: decrypt(user.BUYERADRS3ENC),
+        taxcd: decrypt(user.taxcd),
+        desc: user.desc,
+        updatedAt: user.updatedAt,
+        createdAt: user.createdAt,
+        sysDepartmentId: user.sysDepartmentId
+    }
+
+    return muser;
+}
+
 module.exports = {
     registerValidator,
     encrypt,
-    decrypt
+    decrypt,
+    mergeUser
 };

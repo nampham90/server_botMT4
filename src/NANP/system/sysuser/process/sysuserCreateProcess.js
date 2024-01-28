@@ -1,6 +1,6 @@
 const AbstractProcess = require("../../../../common/abstract/AbstractProcess");
 const bcrypt = require('bcryptjs');
-const {encrypt} = require('../../../../validations/auth');
+const {encrypt, mergeUser} = require('../../../../validations/auth');
 
 class SysUserCreateProcess extends AbstractProcess {
     constructor() {
@@ -21,7 +21,7 @@ class SysUserCreateProcess extends AbstractProcess {
             available: available,
             sex: sex,
             email: email == null? "" : encrypt(email),
-            dienthoai:dienthoai ==null? "" : encrypt(mobile),
+            dienthoai:dienthoai == undefined? "" : encrypt(dienthoai),
             phongban_id: phongban_id,
             BUYERNMENC: street == null? "" : encrypt(street),
             BUYERADRS1ENC: city == null? "" : encrypt(city),
@@ -32,7 +32,7 @@ class SysUserCreateProcess extends AbstractProcess {
         })
         if(u) {
             await Promise.all([ this.userAddRole(u, roles),this.userJoinDepartment(u, phongban_id)]);
-            return u;
+            return mergeUser(u);
         }
         return null;
     }
