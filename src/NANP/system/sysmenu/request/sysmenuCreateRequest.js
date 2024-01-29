@@ -32,13 +32,13 @@ class SysMenuCreateRequest extends AbstractRequest {
             code: Joi.string().max(50).required(),
             orderNum: Joi.number().integer().required(),
             menuType: Joi.string().length(1).required(),
-            visible: Joi.boolean().required(),
-            path: Joi.string().max(100).required(),
+            visible: Joi.boolean(),
+            path: Joi.string().max(100),
             status: Joi.boolean().required(),
-            newLinkFlag: Joi.boolean().required(),
-            icon: Joi.string().max(50).required(),
+            newLinkFlag: Joi.boolean(),
+            icon: Joi.string().max(50),
             alIcon: Joi.allow(),
-            fatherId: Joi.string().max(24).required()
+            fatherId: Joi.string().max(24)
         });
         return rule.validate(condition);
     }

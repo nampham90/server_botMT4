@@ -7,19 +7,19 @@ module.exports = (sequelize) => {
             primaryKey: true
         },
         ORDERDATE: {
-            type: DataTypes.DATE,//  ngay dat hang
+            type: DataTypes.DATE,//  ngay dat hang // hệ thống
         },
         PAYOFDATE: {
-            type: DataTypes.DATE,//  ngay thanh toan
+            type: DataTypes.DATE,//  ngay thanh toan// hệ thống
         },
         SHIPDATE: {
-            type: DataTypes.DATE,//  ngay xuat hang
+            type: DataTypes.DATE,//  ngay xuat hang// Quản lý chọn ngày xuất hàng tùy theo hàng trong kho. có thể gia hàng ngày xuất kho
         },
         SOPLNDATE: {
-            type: DataTypes.DATE,//  ngay van chuyen
+            type: DataTypes.DATE,//  ngay van chuyen// chọn
         },
         DELIPLNDATE: {
-            type: DataTypes.DATE,//  ngay du kien giao hang
+            type: DataTypes.DATE,//  ngay du kien giao hang// chọn
         },
         DEPOSIT: {
             type: DataTypes.INTEGER,//  Đặt cọc

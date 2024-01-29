@@ -1,4 +1,4 @@
-const demoRoutes = require('../screenpcs/demo/demo.routes');
+
 // const sysuserRoutes = require('@nanp/system/sysuser/sysuser.routes');
 // const sysdepartmentRoutes = require('@nanp/system/sysdepartment/sysdepartment.routes');
 // const SysPermissionRoutes = require('@nanp/system/syspermisstion/syspermisstion.routes');
@@ -22,8 +22,6 @@ const productRoutes = require('../NANP/product/product.routes');
 const tmt140Routes = require('../NANP/master/tmt140_qualiti/tmt140.routes');
 class Routes {
     constructor(app) {
-        // routes child system
-        app.use("/api", demoRoutes);
 
         // route Sys Department
         app.use("/api/phongban", sysdepartmentRoutes);
