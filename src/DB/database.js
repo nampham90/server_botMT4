@@ -1,6 +1,8 @@
 const { Sequelize } = require('sequelize');
 const Logger = require('../common/logFile');
 const dotenv = require('dotenv');
+const dbconfig = require('./dbproviders');
+const model = require('./dbmodel');
 dotenv.config();
 // system
 const MenuModel = require('./model/system/menu');
@@ -30,60 +32,14 @@ const tst010_stckModel = require('./model/tst/tst010_stck.model');
 const tmt130_lctnModel = require('./model/master/tmt130_lctn.model');
 const tmt140_qualityModel = require('./model/master/tmt140_quality.model');
 
+
 class Database {
   constructor() {
-    this.host = process.env.MSHOSTNHA,
-    this.port = process.env.MSPORTNHA,
-    this.user = process.env.MSUSERNHA,
-    this.password = process.env.MSPASSWORDNHA,
-    this.database = process.env.MSDATABASENHA
 
-    this.sequelize = new Sequelize(this.database, this.user, this.password, {
-      host: this.host,
-      port: this.port,
-      dialect: 'mysql', // Chọn loại cơ sở dữ liệu bạn đang sử dụng (mysql, postgres, sqlite, etc.)
-      logging: (msg) => {
-        Logger(msg);
-      }, // Tắt log các câu lệnh SQL nếu bạn không cần chúng
-    });
+    const dbConfig = dbconfig();
+    this.sequelize = new Sequelize(dbConfig);
     
-    this.models = {
-        // system
-        "sys_menu" : MenuModel,
-        "sys_user": UserModel,
-        "sys_role": RoleModel,
-        "sys_department": DepartmentModel,
-
-        // table maste
-        "TMT340FORMITEMNM": TMT340FORMITEMNMModel,
-        "TMT341FILE":TMT341FILEModel,
-        "Tmt120Branch": tmt120_branchModel,
-        "Tmt050Name": Tmt050Name,
-        "Tmt170Delimthd": tmt170_delimthd,
-        "Tmt171Paymethd": tmt171_paymethd,
-        "Tmt130Lctn": tmt130_lctnModel,
-        "Tmt140Quality": tmt140_qualityModel,
-
-        // product
-        "Product": productModel,
-        "ProductCategory": prodcutcategoryModel,
-        "ProductVariation": productvariationModel,
-        "ProductColor": productcolorModel,
-        "ProductSize": productsizeModel,
-
-        //tcc
-        "TCC030SEQNO":tcc030_seqno,
-
-
-        //tot
-        "Tot010Sts": tot010_stsModel,
-        "Tot020Ordhed": tot020_ordhedModel,
-        "Tot040Orddtl": tot040_orddtlModel,
-
-        // tst // trong kho
-        "Tst010Stck": tst010_stckModel,
-
-    }; // Chứa các mô hình (models) của cơ sở dữ liệu
+    this.models = model // Chứa các mô hình (models) của cơ sở dữ liệu
     //this.connect();
     this.modelsdf();
     this.associateModels();
