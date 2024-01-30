@@ -4,6 +4,7 @@ const FindAllProductConditionProcess = require("../../common/process/FindAllProd
 const FindAllProductConditionRequest = require("../../common/request/FindAllProductConditionRequest");
 const SequenceProcess = require("../../tcc/process/SequenceProcess");
 const Spot00101FindByOrderRequest = require("../../tcc/request/SequenceRequest");
+const Spot00101ListOrderProcess = require("./process/spot00101ListOrderProcess");
 const Spot00101NewOrderProcess = require("./process/spot00101NewOrderProcess");
 
 
@@ -18,11 +19,13 @@ class Spot00101Controller extends AbstractControllerAPI {
             const sequenceProcess = new SequenceProcess();
             const OD = await sequenceProcess.getSequence(reqFindByOrder);
             req.newOD = OD;
-            const spot00101NewOrderProcess = new Spot00101NewOrderProcess();
-            const result = await spot00101NewOrderProcess.newOrder(req);
+            // const spot00101NewOrderProcess = new Spot00101NewOrderProcess();
+            // const result = await spot00101NewOrderProcess.newOrder(req);
 
-
-            return Result.success(result);
+            // get list od
+            const spot00101ListOrderProcess = new Spot00101ListOrderProcess();
+            const lstOD = await spot00101ListOrderProcess.getListOrder(req);
+            return Result.success(lstOD);
         });
     }
 
