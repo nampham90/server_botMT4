@@ -19,14 +19,22 @@ class Spot00101Controller extends AbstractControllerAPI {
             const sequenceProcess = new SequenceProcess();
             const OD = await sequenceProcess.getSequence(reqFindByOrder);
             req.newOD = OD;
-            // const spot00101NewOrderProcess = new Spot00101NewOrderProcess();
-            // const result = await spot00101NewOrderProcess.newOrder(req);
+            const spot00101NewOrderProcess = new Spot00101NewOrderProcess();
+            const result = await spot00101NewOrderProcess.newOrder(req);
 
             // get list od
             const spot00101ListOrderProcess = new Spot00101ListOrderProcess();
             const lstOD = await spot00101ListOrderProcess.getListOrder(req);
             return Result.success(lstOD);
         });
+    }
+
+    async orderStatus(req, res) {
+        await super.execute(res, async () => {
+            const spot00101ListOrderProcess = new Spot00101ListOrderProcess();
+            const lstOD = await spot00101ListOrderProcess.getListOrder(req);
+            return Result.success(lstOD);
+        })
     }
 
     async listProductInStck(req, res) {

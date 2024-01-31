@@ -11,6 +11,7 @@ class Spot00101ListOrderProcess extends AbstractProcess {
     }
 
     async process(req) {
+        const usercd = req.userID;
         let result = {
             lstnewOd : [],
             lstQTESTS : [],
@@ -19,14 +20,14 @@ class Spot00101ListOrderProcess extends AbstractProcess {
             lstPAYSTS: [],
             lstSHIPSTS: []
         }
-        result.lstnewOd = await this.getlstnewOd();
+        result.lstnewOd = await this.getlstnewOd(usercd);
 
         return result;
     }
 
-    async getlstnewOd() {
+    async getlstnewOd(usercd) {
         const lstnewOd = await this.models.Tot010Sts.findAll({
-            where: { QTESTS : 0},
+            where: { QTESTS : 0,},
             include: [
                 {
                     model: this.models.Tot020Ordhed,
@@ -34,7 +35,10 @@ class Spot00101ListOrderProcess extends AbstractProcess {
                         {
                             model: this.models.Tot040Orddtl
                         }
-                    ]
+                    ],
+                    where: {
+                        USERCD : usercd
+                    }
                 }
             ]
         });
