@@ -20,6 +20,8 @@ const tmt050Routes = require('../NANP/master/tmt050_name/tmt050.routes');
 const stockRoutes = require('../NANP/stock/stock.routes');
 const productRoutes = require('../NANP/product/product.routes');
 const tmt140Routes = require('../NANP/master/tmt140_qualiti/tmt140.routes');
+const tmt170Routes = require('../NANP/master/tmt170_delimthd/tmt170.routes');
+const tmt171Routes = require('../NANP/master/tmt171_paymethd/tmt171.routes');
 class Routes {
     constructor(app) {
 
@@ -46,6 +48,9 @@ class Routes {
         app.use('/api/tmt010', tmt003Routes);
         app.use('/api/tmt050', tmt050Routes);
         app.use('/api/tmt140', tmt140Routes);
+        app.use('/api/tmt170', tmt170Routes);
+        app.use('/api/tmt171', tmt171Routes);
+        
 
         // Api
         app.use('/api/master', apiRouter);
