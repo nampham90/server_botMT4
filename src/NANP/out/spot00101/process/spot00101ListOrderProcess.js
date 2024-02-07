@@ -27,6 +27,19 @@ class Spot00101ListOrderProcess extends AbstractProcess {
 
     async getlstnewOd(usercd) {
         const lstnewOd = await this.models.Tot010Sts.findAll({
+            attributes: {
+                include: [
+                    [this.sequelize.literal(` CASE WHEN RSLTSENDFLG = 1 THEN 'Đã xuất hàng'
+                        WHEN SHIPSTS = 1  THEN  'Dự định xuất kho'
+                        WHEN PAYSTS = 1  THEN  'Thanh toán'
+                        WHEN ORDAPPSTS = 1  THEN  'Duyệt đặt hàng'
+                        WHEN ORDSTS = 1  THEN  'Đặt hàng'
+                        WHEN QTESTS = 1  THEN  'Báo giá'
+                        WHEN QTESTS = 0  THEN  'Khởi tạo'
+                    END
+                    `), 'STSNM']
+                ]
+            },
             where: { QTESTS : 0,},
             include: [
                 {
