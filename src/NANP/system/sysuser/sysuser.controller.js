@@ -1,6 +1,7 @@
 const AbstractControllerAPI = require("../../../common/abstract/AbstractControllerAPI");
 const { ErrorCode } = require("../../../common/enums/ErrorCode");
 const Result = require("../../../common/result/Result");
+const FindAllConditionProcess = require("../../common/process/findAllConditionProcess");
 const LoginProcess = require("./process/loginProcess");
 const SysUserChangePasswordProcess = require("./process/sysuserChangePasswordProcess");
 const SysUserCheckEmailProcess = require("./process/sysuserCheckEmailProcess");
@@ -18,6 +19,7 @@ const SysUserCheckNameRequest = require("./request/sysuserCheckNameRequest");
 const SysUserCreateRequest = require("./request/sysuserCreateRequest");
 const SysUserDeleteRequest = require("./request/sysuserDeleteRequest");
 const SysUserFindAllRequest = require("./request/sysuserFindAllRequest");
+const SysUserFindByDepartmentIdRequest = require("./request/sysuserFindByDepartmentIdRequest");
 const SysFindByIdRequest = require('./request/sysuserFindByIdRequest');
 const SysUserGetMenuRequest = require("./request/sysuserGetListMenuRequest");
 const SysUserUpdateRequest = require("./request/sysuserUpdateRequest");
@@ -51,6 +53,16 @@ class SysUserController extends AbstractControllerAPI {
             const reqFindAll = new SysUserFindAllRequest(req)
             const sysuserFindAllProcess = new SysUserFindAllProcess();
             const result = await sysuserFindAllProcess.findAll(reqFindAll.condition)
+            return Result.success(result);
+        })
+    }
+
+    async findByDepartmentId(req,res) {
+        await super.execute(res, async() => {
+            const reqFindByDepartmentId = new SysUserFindByDepartmentIdRequest(req);
+            if(reqFindByDepartmentId.error !== "") return Result.failure(9999, reqFindByDepartmentId.error);
+            const sysuserFindByDepartmentIdProcess = new FindAllConditionProcess();
+            const result = await sysuserFindByDepartmentIdProcess.findAllCondition(reqFindByDepartmentId, "sys_user");
             return Result.success(result);
         })
     }

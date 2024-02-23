@@ -3,6 +3,7 @@
 module.exports.UserLogin = '/login';
 module.exports.UserGetMenu = '/menu';
 module.exports.UserFindById = '/ant100GetDetailUser';
+module.exports.UserFindByDepartmentId = '/ant100userfindbydepartmentid';
 module.exports.UserUpdate = '/ant100EditDetailUser';
 module.exports.UserCreate = '/ant100AddDetailUser';
 module.exports.UserCheckEmail = '/ant100CheckEmailUser';

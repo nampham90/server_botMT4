@@ -17,8 +17,9 @@ class FindAllProductConditionProcess extends AbstractProcess {
         if(!req.conditions.MANUFACTTURECD) delete req.conditions.MANUFACTTURECD;
         const {rows, count} = await this.models.Tst010Stck.findAndCountAll({
             attributes: [
-                [this.sequelize.literal('CONCAT(PRODUCTCD,QTYCD)'), 'PRODUCTCD'],
+                [this.sequelize.literal('CONCAT(PRODUCTCD,QTYCD,PURPIRCE)'), 'PRODUCTCD'],
                 [this.sequelize.literal('SUM(ALLWQTY)'), 'TOTALALLWQTY'],
+                'PURPIRCE',
                 'SELLPIRCE',
                 'LIMITDATE',
                 'QTYCD',
@@ -35,7 +36,7 @@ class FindAllProductConditionProcess extends AbstractProcess {
                 STATUS: 0,
                 ...req.conditions, // Thêm điều kiện tìm kiếm nếu có
             },
-            group: ['PRODUCTCD', 'QTYCD'],
+            group: ['PRODUCTCD', 'QTYCD', 'PURPIRCE'],
             limit: req.pageSize, 
             offset: req.pageSize*( req.pageNum - 1)
         });

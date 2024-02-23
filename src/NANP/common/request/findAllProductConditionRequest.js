@@ -19,7 +19,7 @@ class FindAllProductConditionRequest extends AbstractRequest {
     validator = (inputObject) => {
         const rule = Joi.object({
             QTYCD: Joi.string().allow(null, ''),
-            CATCD: Joi.string().allow(null, ''),
+            CATCD: Joi.number().allow(null, ''),
             SUPPLYCD: Joi.number().allow(null, ''),
             MANUFACTTURECD: Joi.number().allow(null, ''),
         });
