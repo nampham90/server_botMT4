@@ -54,6 +54,7 @@ class Server {
         this.app.use(express.json());
         this.app.use(bodyParser.urlencoded({extended:false}));
         this.app.use('/public',express.static(path.join(__dirname, '../../public')));
+       
         this.app.use(handleJsonError);
         
     }
@@ -84,6 +85,7 @@ class Server {
         db.connect()
         .then(async() => await db.sync({ alter: true }))
         .then(() => {
+            console.log(path.join(__dirname, '../../public'));
             // Bây giờ bạn có thể sử dụng các mô hình User và Role để thao tác với cơ sở dữ liệu
         })
         .catch(error => {

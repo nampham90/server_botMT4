@@ -22,6 +22,7 @@ const productRoutes = require('../NANP/product/product.routes');
 const tmt140Routes = require('../NANP/master/tmt140_qualiti/tmt140.routes');
 const tmt170Routes = require('../NANP/master/tmt170_delimthd/tmt170.routes');
 const tmt171Routes = require('../NANP/master/tmt171_paymethd/tmt171.routes');
+const reportRoutes = require('../NANP/report/report.routes');
 class Routes {
     constructor(app) {
 
@@ -64,6 +65,10 @@ class Routes {
 
         // product (sản phẩm)
         app.use('/api/product', productRoutes);
+
+
+        // report
+        app.use('/api/report', reportRoutes);
 
     }
 }

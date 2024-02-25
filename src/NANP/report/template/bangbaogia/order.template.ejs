@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title><%= title %></title>
+
+    <style>
+
+
+        .pdf-page {
+            page-break-before: always; /* Phân trang trước mỗi đối tượng */
+            width: 21cm; /* Chiều rộng tương đương với kích thước A4 */
+            height: 25.7cm; /* Chiều cao tương đương với kích thước A4 */
+            margin: 1cm auto; /* Canh lề tự động để đưa vào giữa trang */
+            padding: 1cm; /* Khoảng cách giữa nội dung và mép trang */
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            color: rgb(18, 18, 17);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 1cm;
+            left: 1cm;
+            right: 1cm;
+            text-align: center;
+            font-size: 0.8em;
+            color: #555;
+            border-top: 1px solid #000;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="pdf-page">
+        <% if (pageNum == 1) { %>
+            <!-- Nội dung khi điều kiện đúng -->
+            <h1><%= title %></h1>
+            <p><%= content %></p>
+            <img id="logo" src="<%= logo %>" alt="logo" width="50px" height="50px"/>
+        <% }  %>
+
+          
+           
+        <% for (let i = 0; i < rows.length; i++) { %>
+            <h1><%= rows[i].name %>: <%= rows[i].price %></h1>
+        <% } %>
+        <div class="footer">
+            <p>Page <%= pageNum %> of <%= pageSize %></p>
+        </div>
+    </div>
+
+</body>
+</html>
