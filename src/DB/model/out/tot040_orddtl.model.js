@@ -6,6 +6,10 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING(16),//  mã hóa đơn
             primaryKey: true
         },
+        // giúp xác định số lượng sản phẩm trong kho có cùng productcd, qtycd, gia nhap
+        PRODUCTGROUPCD: { // group productcd, qtycd, gia nhap
+            type: DataTypes.STRING(20),
+        },
         SODTLNO: {
             type: DataTypes.INTEGER,//  số thứ tự trong đơn
             primaryKey: true

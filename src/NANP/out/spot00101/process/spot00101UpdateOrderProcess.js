@@ -57,10 +57,11 @@ class Spot00101UpdateOrderProcess extends AbstractProcess {
                 SHIPMNTORDREMAINQTY: element.SHIPMNTORDREMAINQTY,
                 SOREMARK: element.SOREMARK,
                 tot020OrdhedSOODNO: element.SOODNO,
-                PRODUCTCD: element.PRODUCTCD.id,
-                productId: element.PRODUCTCD.id,
+                PRODUCTCD: element.product.id,
+                productId: element.product.id,
                 QTYCD: element.QTYCD,
-                tmt140QualityQTYCD: element.QTYCD
+                tmt140QualityQTYCD: element.QTYCD,
+                PRODUCTGROUPCD: element.PRODUCTCD
             }
             listTot040.push(item);
         }

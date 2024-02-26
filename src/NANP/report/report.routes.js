@@ -9,7 +9,7 @@ class ReportRouter {
     }
 
     intializeRoutes() {
-        this.router.post('/inbaogiareport', reportController.inbaogiaReport);
+        this.router.post('/inbaogiareport',  reportController.inbaogiaReport);
 
     }
 }

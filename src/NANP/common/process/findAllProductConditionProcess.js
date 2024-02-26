@@ -20,6 +20,7 @@ class FindAllProductConditionProcess extends AbstractProcess {
                 [this.sequelize.literal('CONCAT(PRODUCTCD,QTYCD,PURPIRCE)'), 'PRODUCTCD'],
                 [this.sequelize.literal('SUM(ALLWQTY)'), 'TOTALALLWQTY'],
                 'PURPIRCE',
+                'TECHNICALPRICE',
                 'SELLPIRCE',
                 'LIMITDATE',
                 'QTYCD',

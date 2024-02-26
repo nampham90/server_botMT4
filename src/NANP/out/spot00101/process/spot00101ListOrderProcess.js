@@ -1,5 +1,7 @@
 
+const { JSON } = require("sequelize");
 const AbstractProcess = require("../../../../common/abstract/AbstractProcess");
+const { json } = require("body-parser");
 
 class Spot00101ListOrderProcess extends AbstractProcess {
     constructor() {
@@ -12,6 +14,7 @@ class Spot00101ListOrderProcess extends AbstractProcess {
 
     async process(req) {
         const usercd = req.userID;
+        let conditions = {};
         let result = {
             lstnewOd : [],
             lstQTESTS : [],
@@ -20,12 +23,44 @@ class Spot00101ListOrderProcess extends AbstractProcess {
             lstPAYSTS: [],
             lstSHIPSTS: []
         }
-        result.lstnewOd = await this.getlstnewOd(usercd);
+        conditions = {
+            QTESTS : 0
+        }
+        result.lstnewOd = await this.getlstSTS(usercd, conditions);
+
+        conditions = {
+            QTESTS : 1,
+            ORDSTS: 0
+        }
+        result.lstQTESTS = await this.getlstSTS(usercd, conditions);
+
+        conditions = {
+            ORDSTS: 1,
+            ORDAPPSTS : 0
+        }
+        result.lstORDSTS = await this.getlstSTS(usercd, conditions);
+
+        conditions = {
+            ORDAPPSTS: 1,
+            PAYSTS : 0
+        }
+        result.lstORDAPPSTS = await this.getlstSTS(usercd, conditions);
+
+        conditions = {
+            PAYSTS: 1,
+            SHIPSTS : 0
+        }
+        result.lstPAYSTS = await this.getlstSTS(usercd, conditions);
+
+        conditions = {
+            SHIPSTS : 1
+        }
+        result.lstSHIPSTS = await this.getlstSTS(usercd, conditions);
 
         return result;
     }
 
-    async getlstnewOd(usercd) {
+    async getlstSTS(usercd, conditions) {
         const lstnewOd = await this.models.Tot010Sts.findAll({
             attributes: {
                 include: [
@@ -40,13 +75,18 @@ class Spot00101ListOrderProcess extends AbstractProcess {
                     `), 'STSNM']
                 ]
             },
-            where: { QTESTS : 0,},
+            where: conditions,
             include: [
                 {
                     model: this.models.Tot020Ordhed,
                     include: [
                         {
-                            model: this.models.Tot040Orddtl
+                            model: this.models.Tot040Orddtl,
+                            include: [
+                                {
+                                    model: this.models.Product
+                                }
+                            ]
                         }
                     ],
                     where: {
@@ -59,6 +99,41 @@ class Spot00101ListOrderProcess extends AbstractProcess {
         return lstnewOd;
 
     }
+
+    // async getlstnewOd(usercd) {
+    //     const lstnewOd = await this.models.Tot010Sts.findAll({
+    //         attributes: {
+    //             include: [
+    //                 [this.sequelize.literal(` CASE WHEN RSLTSENDFLG = 1 THEN 'Đã xuất hàng'
+    //                     WHEN SHIPSTS = 1  THEN  'Dự định xuất kho'
+    //                     WHEN PAYSTS = 1  THEN  'Thanh toán'
+    //                     WHEN ORDAPPSTS = 1  THEN  'Duyệt đặt hàng'
+    //                     WHEN ORDSTS = 1  THEN  'Đặt hàng'
+    //                     WHEN QTESTS = 1  THEN  'Báo giá'
+    //                     WHEN QTESTS = 0  THEN  'Khởi tạo'
+    //                 END
+    //                 `), 'STSNM']
+    //             ]
+    //         },
+    //         where: { QTESTS : 0,},
+    //         include: [
+    //             {
+    //                 model: this.models.Tot020Ordhed,
+    //                 include: [
+    //                     {
+    //                         model: this.models.Tot040Orddtl
+    //                     }
+    //                 ],
+    //                 where: {
+    //                     USERCD : usercd
+    //                 }
+    //             }
+    //         ]
+    //     });
+
+    //     return lstnewOd;
+
+    // }
 }
 
 module.exports = Spot00101ListOrderProcess;

@@ -16,7 +16,12 @@ module.exports = (sequelize) => {
             type: DataTypes.DOUBLE,
         },
 
-        SELLPIRCE: {// gia bán
+        TECHNICALPRICE: { // giá kỷ thuật
+            type: DataTypes.DOUBLE,
+            defaultValue: 0
+        },
+
+        SELLPIRCE: {// gia bán le 
             type: DataTypes.DOUBLE,
         },
 
