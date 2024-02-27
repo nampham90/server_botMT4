@@ -1,13 +1,16 @@
 const AbstractControllerAPI = require("../../../common/abstract/AbstractControllerAPI");
 const Result = require("../../../common/result/Result");
 const FindAllProductConditionProcess = require("../../common/process/FindAllProductConditionProcess");
+const DeleteConditionProcess = require("../../common/process/deleteconditionProcess");
 const FindAllProductConditionRequest = require("../../common/request/FindAllProductConditionRequest");
 const SequenceProcess = require("../../tcc/process/SequenceProcess");
 const Spot00101FindByOrderRequest = require("../../tcc/request/SequenceRequest");
 const Spot00101ListOrderProcess = require("./process/spot00101ListOrderProcess");
 const Spot00101NewOrderProcess = require("./process/spot00101NewOrderProcess");
 const Spot00101UpdateOrderProcess = require("./process/spot00101UpdateOrderProcess");
+const Spot00101DeleteOrderRequest = require("./request/spot00101DeleteOrderRequest");
 const Spot00101UpdateOrderRequest = require("./request/spot00101UpdateOrderRequest");
+
 const client = require("@jsreport/nodejs-client")("http://localhost:5488", "admin", "Nampham90");
 
 class Spot00101Controller extends AbstractControllerAPI {
@@ -29,6 +32,16 @@ class Spot00101Controller extends AbstractControllerAPI {
             const lstOD = await spot00101ListOrderProcess.getListOrder(req);
             return Result.success(lstOD);
         });
+    }
+
+    async deleteOrder(req, res) {
+        await super.execute(res, async()=> {
+            const reqDeleteOrder = new Spot00101DeleteOrderRequest(req);
+            if(reqDeleteOrder.error !== "") return Result.failure(9999, reqDeleteOrder.error);
+            const spot00101DeleteOrderProcess = new DeleteConditionProcess();
+            const result = await spot00101DeleteOrderProcess.deleteCondition(req, "Tot010Sts");
+            return Result.success(result);
+        })
     }
 
     async orderStatus(req, res) {

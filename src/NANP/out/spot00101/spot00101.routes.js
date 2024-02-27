@@ -12,6 +12,7 @@ class Spot00101Router {
 
     intializeRoutes() {
         this.router.post('/spot00101neworder', verifyToken, spot00101Controller.createOrder);
+        this.router.post('/spot00101deleteorder', verifyToken, spot00101Controller.deleteOrder);
         this.router.post('/spot00101orderstatus', verifyToken, spot00101Controller.orderStatus);
         this.router.post('/spot00101updateorder', verifyToken, spot00101Controller.updateOreder);
         this.router.post('/spot00101inbaogia', verifyToken, spot00101Controller.inbaogia);
