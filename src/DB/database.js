@@ -160,11 +160,12 @@ class Database {
     this.models.Tot020Ordhed.belongsTo(this.models.Tmt171Paymethd);
 
     // 1 nhân viên ơ nhiều đơn hàng, 1 đơn hàng có 1 nhân viên
-    this.models.sys_user.hasMany(this.models.Tot020Ordhed, {foreignKey: 'USERCD'});
-    this.models.Tot020Ordhed.belongsTo(this.models.sys_user);
+    this.models.sys_user.hasMany(this.models.Tot020Ordhed, {foreignKey: 'USERCD', as: 'employee'});
+    this.models.Tot020Ordhed.belongsTo(this.models.sys_user, {foreignKey: 'USERCD', as: 'employee'});
 
     // 1 khách khàng ở nhiều đơn hàng, 1 đơn hàng có 1 khách hàng
-    this.models.sys_user.hasMany(this.models.Tot020Ordhed, {foreignKey: 'CSTMCD'});
+    this.models.sys_user.hasMany(this.models.Tot020Ordhed, {foreignKey: 'CSTMCD', as: 'customer'});
+    this.models.Tot020Ordhed.belongsTo(this.models.sys_user, {foreignKey: 'CSTMCD', as: 'customer'});
 
     // 1 đơn hàng có nhiều chi tiết, 
     this.models.Tot020Ordhed.hasMany(this.models.Tot040Orddtl, {foreignKey: "SOODNO"});

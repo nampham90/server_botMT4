@@ -12,6 +12,7 @@ class Spot00101UpdateOrderProcess extends AbstractProcess {
 
     async process(req) {
         const soodno = req.order.SOODNO;
+        const order = req.order;
         const tot020 = req.order.tot020_ordhed;
         const litTot040 = tot020.tot040_orddtls;
         const t = await this.sequelize.transaction();
@@ -21,10 +22,11 @@ class Spot00101UpdateOrderProcess extends AbstractProcess {
             // insert tot040
             await this.insertTot040(litTot040, t);
             // update tot020
-           // await this.updateTot020(req.order, t);
+            // await this.updateTot020(order, t);
             // update tot010
             await this.updateTot010(soodno, t);
             (await t).commit();
+            await this.updateTot020(order);
             return soodno;
         } catch (error) {
             console.log(error);
@@ -68,7 +70,7 @@ class Spot00101UpdateOrderProcess extends AbstractProcess {
         return listTot040;
     }
 
-    async updateTot020(order, t) {
+    async updateTot020(order) {
         const {SOODNO, CSTMCD, DELIMTHDCD, PAYMETHDCD, DELIPLNDATE, ORDERDATE, PAYOFDATE, SHIPDATE, SOPLNDATE, DEPOSIT, PACKQTY, INSTALLFEE, ODDISCONT,TAX,POSTPAIDFLG,SOREMARK ,USERCD} = order.tot020_ordhed;
         const affectedRows = await this.models.Tot020Ordhed.update({
             ORDERDATE: ORDERDATE,
@@ -89,7 +91,7 @@ class Spot00101UpdateOrderProcess extends AbstractProcess {
             tmt171PaymethdPAYMETHDCD: PAYMETHDCD,
             USERCD: USERCD,
             CSTMCD: CSTMCD
-        }, {where : {SOODNO: SOODNO}}, {transaction: t});
+        }, {where : {SOODNO: SOODNO}});
         return affectedRows[0];
 
     }

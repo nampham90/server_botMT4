@@ -55,8 +55,6 @@ class Spot00101Controller extends AbstractControllerAPI {
             const spot00101UpdateOrderProcess = new Spot00101UpdateOrderProcess();
             let result = await spot00101UpdateOrderProcess.updateOrder(reqUpdateOrder);
             return Result.success(result);
-
-
         })
     }
 
