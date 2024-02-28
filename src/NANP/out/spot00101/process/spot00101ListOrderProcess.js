@@ -82,13 +82,17 @@ class Spot00101ListOrderProcess extends AbstractProcess {
                         {
                             model: this.models.sys_user,
                             as: 'customer', // sử dụng tên đã đặt cho quan hệ theo CSTMCD
-                            attributes: ['name'] // chỉ lấy các trường cần thiết
+                            attributes: ['name', 'dienthoai', 'email'] // chỉ lấy các trường cần thiết
                         },
                         {
                             model: this.models.Tot040Orddtl,
                             include: [
                                 {
-                                    model: this.models.Product
+                                    model: this.models.Product,
+                                    include: [{
+                                        model: this.models.ProductCategory,
+                                        attributes: ['name']
+                                    }]
                                 }
                             ]
                         }

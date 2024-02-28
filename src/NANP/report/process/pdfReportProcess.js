@@ -19,7 +19,7 @@ class PdfReportProcess {
 
 
     generatePDF = async (dataPage) => {
-        const { title, content, pathFile, filename } = dataPage;
+        const { title, now, header ,content, pathFile, filename } = dataPage;
         let pathfile = path.join(__dirname, pathFile) //'./template/order/'
         const ejsTemplate = await fs.readFile(pathfile + filename, 'utf-8');
         const browser = await puppeteer.launch();
@@ -29,6 +29,7 @@ class PdfReportProcess {
             const { rows ,rowsPerPage, firstPageRows} = dataPage;
             // Tính toán số lượng trang
             const totalBooks = rows.length;
+            if(totalBooks < firstPageRows) return 1;
             const totalPages = Math.ceil((totalBooks - firstPageRows) / (rowsPerPage - firstPageRows));
             return totalPages;
         }, dataPage);
@@ -51,13 +52,16 @@ class PdfReportProcess {
             
               // Ở đây bạn có thể sử dụng booksForCurrentPage cho mỗi trang
             
+              
             const data = {
                 logo: '/public/img/logo_hipc.jpg',
-                pageNum: currentPage,
-                pageSize: totalPages,
-                title:  title,
-                content: content,
-                rows: booksForCurrentPage
+                pageNum: currentPage, // page hiện tại
+                pageSize: totalPages, // tông số lương page
+                title:  title, // titile là chuổi string
+                content: content,  // content là một object 
+                now: now, // ngày giờ hiện tại
+                header: header, // phần data header
+                rows: booksForCurrentPage // phần data list
                 // ... thêm các trường dữ liệu khác cần thiết
             };
             const htmlContent = ejs.render(ejsTemplate, data);
