@@ -19,6 +19,12 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING(100)
         },
 
+        // mã viết tắt danh mục tối đa 3 ký tự, được viết tăt theo tên tiêng anh củ kinh kiện đó
+        // vd : bàn phim . KB
+        catid: {
+            type: DataTypes.STRING(3)
+        },
+
         // mô tả danh mục
         description: {
             type: DataTypes.STRING(255)

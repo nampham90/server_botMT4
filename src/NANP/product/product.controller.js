@@ -12,6 +12,7 @@ class ProductController extends AbstractControllerAPI {
             return Result.success(result);
         })
     }
+
 }
 
 module.exports = new ProductController();

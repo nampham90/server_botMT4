@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
     const TCC030 = sequelize.define('tcc030_seqno', {
         prefix: {
-            type: DataTypes.STRING(2),//  
+            type: DataTypes.STRING(3),//  
             primaryKey: true
         },
 

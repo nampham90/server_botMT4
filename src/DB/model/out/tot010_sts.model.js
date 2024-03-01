@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
-module.exports = (sequlize) => {
-    const Tot010STS = sequlize.define('tot010_sts', {
+module.exports = (sequelize) => {
+    const Tot010STS = sequelize.define('tot010_sts', {
         SOODNO: {
             type: DataTypes.STRING(16),//  
             primaryKey: true
