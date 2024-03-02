@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
 
         // Tên sản phẩm
         product_name: {
-            type: DataTypes.STRING(100)
+            type: DataTypes.STRING(255)
         },
 
         // mô tả sản phẩm 

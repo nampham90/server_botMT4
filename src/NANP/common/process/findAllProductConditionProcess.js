@@ -30,6 +30,12 @@ class FindAllProductConditionProcess extends AbstractProcess {
             include: [
                 {
                     model: this.models.Product,
+                    include: [
+                        {
+                            model: this.models.ProductCategory,
+                            attributes: ['name']
+                        }
+                    ],
                     where: dynamicCondition
                 }
             ],

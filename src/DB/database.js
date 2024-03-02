@@ -31,6 +31,10 @@ const tot040_orddtlModel = require('./model/out/tot040_orddtl.model');
 const tst010_stckModel = require('./model/tst/tst010_stck.model');
 const tmt130_lctnModel = require('./model/master/tmt130_lctn.model');
 const tmt140_qualityModel = require('./model/master/tmt140_quality.model');
+const tin010_stsModel = require('./model/in/tin010_sts.model');
+const tin020_planhedModel = require('./model/in/tin020_planhed.model');
+const tin040_plandtlModel = require('./model/in/tin040_plandtl.model');
+const tmt150_supplyModel = require('./model/master/tmt150_supply.model');
 
 
 class Database {
@@ -70,6 +74,7 @@ class Database {
     this.defineModel('Tmt171Paymethd', tmt171_paymethd);
     this.defineModel('Tmt130Lctn', tmt130_lctnModel);
     this.defineModel('Tmt140Quality', tmt140_qualityModel);
+    // this.defineModel('Tmt150Supply', tmt150_supplyModel);
     
 
     // product
@@ -83,6 +88,11 @@ class Database {
 
     // tcc
     this.defineModel('TCC030SEQNO', tcc030_seqno);
+
+    // tin
+    this.defineModel('Tin010Sts', tin010_stsModel);
+    this.defineModel('Tin020Planhed' , tin020_planhedModel);
+    this.defineModel('Tin040Plandtl', tin040_plandtlModel);
 
     // tot
     this.defineModel('Tot010Sts', tot010_stsModel);
@@ -146,6 +156,29 @@ class Database {
     this.models.ProductVariation.belongsToMany(this.models.ProductSize, {through: "variation_size"});
     this.models.ProductSize.belongsToMany(this.models.ProductVariation,  {through: "variation_size"});
 
+    // 1 trang thai đơn hàng nhập có 1 đơn hàng hang nhâp: 1:1
+    this.models.Tin010Sts.hasOne(this.models.Tin020Planhed, {foreignKey: 'SIPLNNO'});
+    this.models.Tin020Planhed.belongsTo(this.models.Tin010Sts);
+
+    // 1 nhà cung cấp ơ nhiều đơn hàng nhap, 1 đơn hàng có 1 nhà cungc câp
+    this.models.sys_user.hasMany(this.models.Tin020Planhed, {foreignKey: 'SPPLYCD', as: 'supplier'});
+    this.models.Tin020Planhed.belongsTo(this.models.sys_user, {foreignKey: 'SPPLYCD', as: 'supplier'});
+
+    // 1 nhân viên ơ nhiều đơn hàng nhập, 1 đơn hàng nhập có 1 nhân viên
+    this.models.sys_user.hasMany(this.models.Tin020Planhed, {foreignKey: 'USERCD', as: 'employe'});
+    this.models.Tin020Planhed.belongsTo(this.models.sys_user, {foreignKey: 'USERCD', as: 'employe'});
+
+    // 1 đơn hang nhập có nhiều chi tiết, 
+    this.models.Tin020Planhed.hasMany(this.models.Tin040Plandtl, {foreignKey: "SIPLNNO"});
+    this.models.Tin040Plandtl.belongsTo(this.models.Tin020Planhed);
+
+    // 1 sản phẩm ở nhiều chi tiết. 1 chi tiết có 1 sản phẩm
+    this.models.Product.hasMany(this.models.Tin040Plandtl, {foreignKey: 'PRODUCTCD'});
+    this.models.Tin040Plandtl.belongsTo(this.models.Product);
+
+    // 1 chất lượng sản phẩm có ở nhiều chi tiết, 1 chi tiết có 1 chât lượng
+    this.models.Tmt140Quality.hasMany(this.models.Tin040Plandtl, {foreignKey: "QTYCD"});
+    this.models.Tin040Plandtl.belongsTo(this.models.Tmt140Quality)
 
     // 1 trang thái đơn hàng có 1 đơn hàng
     this.models.Tot010Sts.hasOne(this.models.Tot020Ordhed, {foreignKey: 'SOODNO'});
@@ -171,8 +204,8 @@ class Database {
     this.models.Tot020Ordhed.hasMany(this.models.Tot040Orddtl, {foreignKey: "SOODNO"});
     this.models.Tot040Orddtl.belongsTo(this.models.Tot020Ordhed);
 
-    // 1 sản phẩm ở một chi tiết.
-    this.models.Product.hasOne(this.models.Tot040Orddtl, {foreignKey: 'PRODUCTCD'});
+    // 1 sản phẩm ở nhiều chi tiết xuất. 1 chi tiết chỉ có 1 sản phẩm
+    this.models.Product.hasMany(this.models.Tot040Orddtl, {foreignKey: 'PRODUCTCD'});
     this.models.Tot040Orddtl.belongsTo(this.models.Product);
 
     // 1 kho có nhiều sản phẩm (PRODUCTCD)
@@ -182,7 +215,8 @@ class Database {
     // 1 khó có nhiều nhánh (BRNCHCD)
     this.models.Tmt120Branch.hasMany(this.models.Tst010Stck, {foreignKey: "BRNCHCD"});
     this.models.Tst010Stck.belongsTo(this.models.Tmt120Branch);
-    // 1 kho có nhiều nhà cung cấp (SUPPLYCD)
+
+    // 1 kho có nhiều nhà cung cấp (SUPPLYCD). 1 nhà cung cấp ở nhiều kho
     this.models.sys_user.hasMany(this.models.Tst010Stck, {foreignKey: "SUPPLYCD"});
     this.models.Tst010Stck.belongsTo(this.models.sys_user);
     // 1 kho có nhiều hãng sản xuất (MANUFACTTURECD)
@@ -204,6 +238,8 @@ class Database {
     //
     this.models.Tmt140Quality.hasMany(this.models.Tot040Orddtl, {foreignKey: "QTYCD"});
     this.models.Tot040Orddtl.belongsTo(this.models.Tmt140Quality)
+
+    // 
 
   }
 
