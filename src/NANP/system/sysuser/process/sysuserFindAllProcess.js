@@ -2,6 +2,7 @@ const AbstractProcess = require("../../../../common/abstract/AbstractProcess");
 const { ErrorCodeEnum, ErrorCode } = require("../../../../common/enums/ErrorCode");
 const { QueryTypes } = require('sequelize');
 const PageInfo = require('../../../../common/pageInfo/pageInfo');
+const { mergeListUser } = require("../../../../validations/auth");
 class SysUserFindAllProcess extends AbstractProcess {
     constructor(){
         super()
@@ -23,7 +24,9 @@ class SysUserFindAllProcess extends AbstractProcess {
                 attributes: {exclude: ['password']},
                 distinct: true
             });
-        return new PageInfo(count, rows, req.pageNum, req.pageSize);
+        let mergeUser = mergeListUser(rows);
+        console.log(mergeUser);
+        return new PageInfo(count, mergeUser, req.pageNum, req.pageSize);
     }
 }
 

@@ -20,24 +20,29 @@ const encrypt = (string) => {
 }
 
 const decrypt = (token) => {
-    const verified = jwt.verify(token, process.env.SECRET);
-    if (verified) {
+    try {
+        const verified = jwt.verify(token, process.env.SECRET);
         return verified.data;
+    } catch (error) {
+        return null;
     }
-    return null;
 }
+
 
 const mergeUser = (user) => {
     const muser = {
         id: user.id,
         name: user.name,
-        dienthoai: decrypt(user.dienthoai),
+        available: item.available,
+        sex: item.sex,
+        dienthoai: decrypt(user.dienthoai) == null? user.dienthoai : decrypt(user.dienthoai),
+        email: decrypt(item.email) == null? item.email : decrypt(item.email),
         phongban_id: user.phongban_id,
-        BUYERNMENC: decrypt(user.BUYERNMENC),
-        BUYERADRS1ENC: decrypt(user.BUYERADRS1ENC),
-        BUYERADRS2ENC: decrypt(user.BUYERADRS2ENC),
-        BUYERADRS3ENC: decrypt(user.BUYERADRS3ENC),
-        taxcd: decrypt(user.taxcd),
+        BUYERNMENC: decrypt(user.BUYERNMENC) == null? user.BUYERNMENC : decrypt(user.BUYERNMENC),
+        BUYERADRS1ENC: decrypt(user.BUYERADRS1ENC) == null? user.BUYERADRS1ENC : decrypt(user.BUYERADRS1ENC),
+        BUYERADRS2ENC: decrypt(user.BUYERADRS2ENC) == null? user.BUYERADRS2ENC : decrypt(user.BUYERADRS2ENC),
+        BUYERADRS3ENC: decrypt(user.BUYERADRS3ENC) == null? user.BUYERADRS3ENC : decrypt(user.BUYERADRS3ENC),
+        taxcd: decrypt(user.taxcd) == null? user.taxcd :  decrypt(user.taxcd),
         desc: user.desc,
         updatedAt: user.updatedAt,
         createdAt: user.createdAt,
@@ -47,9 +52,36 @@ const mergeUser = (user) => {
     return muser;
 }
 
+const mergeListUser = (listuser) => {
+    let newListUser = [];
+    for(let item of listuser) {
+        const muser = {
+            id: item.id,
+            name: item.name,
+            available: item.available,
+            sex: item.sex,
+            dienthoai: decrypt(item.dienthoai) == null? item.dienthoai : decrypt(item.dienthoai),
+            email: decrypt(item.email) == null? item.email : decrypt(item.email),
+            phongban_id: item.phongban_id,
+            BUYERNMENC: decrypt(item.BUYERNMENC) == null? item.BUYERNMENC : decrypt(item.BUYERNMENC),
+            BUYERADRS1ENC: decrypt(item.BUYERADRS1ENC) == null? item.BUYERADRS1ENC : decrypt(item.BUYERADRS1ENC),
+            BUYERADRS2ENC: decrypt(item.BUYERADRS2ENC) == null? item.BUYERADRS2ENC : decrypt(item.BUYERADRS2ENC),
+            BUYERADRS3ENC: decrypt(item.BUYERADRS3ENC) == null? item.BUYERADRS3ENC : decrypt(item.BUYERADRS3ENC),
+            taxcd: decrypt(item.taxcd) == null? item.taxcd :  decrypt(item.taxcd),
+            desc: item.desc,
+            updatedAt: item.updatedAt,
+            createdAt: item.createdAt,
+            sysDepartmentId: item.sysDepartmentId
+        }
+        newListUser.push(muser);
+    }
+    return newListUser
+}
+
 module.exports = {
     registerValidator,
     encrypt,
     decrypt,
-    mergeUser
+    mergeUser,
+    mergeListUser
 };
