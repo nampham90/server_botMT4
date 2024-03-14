@@ -1,7 +1,7 @@
 const AbstractRequest = require("../../../../common/abstract/AbstractRequest");
 const Joi = require('joi');
 function ConditionDto(condition) {
-    this.email = condition.email;
+    this.name = condition.name;
 }
 class SysUserCheckNameRequest extends AbstractRequest {
     constructor(req) {
