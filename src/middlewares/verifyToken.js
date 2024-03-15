@@ -18,6 +18,7 @@ module.exports = (request, response, next) => {
                 response.status(200).send(new Response(1012,"Hết hạn đăng nhặp ", null));
             } else {
                 request.userID = decoded.userId;
+                request.cmpnyCD = decoded.cmpnycd;
                 request.lang = lang;
                 request.isLoggedIn = true;
                 let role = decoded.role;

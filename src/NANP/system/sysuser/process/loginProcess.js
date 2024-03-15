@@ -33,7 +33,8 @@ class LoginProcess extends AbstractProcess {
     async checkEmail(email) {
         return await this.models.sys_user.findOne({where: {email: email}, include: [
             {model: this.models.sys_role},
-            {model: this.models.sys_department}
+            {model: this.models.sys_department},
+            {model: this.models.Tmt010Company}
         ]})
     }
 
@@ -42,6 +43,7 @@ class LoginProcess extends AbstractProcess {
     }
 
     async createToken(user) {
+        const companycd = user.tmt010_company.CMPNYCD;
         const strSql = " SELECT DISTINCT m.code FROM user_role ur " +
                        " JOIN role_menu rm ON ur.sysRoleId= rm.sysRoleId " +
                        " JOIN sys_menus m ON rm.sysMenuId = m.id  " +
@@ -58,7 +60,8 @@ class LoginProcess extends AbstractProcess {
             userId: user.id,
             rol: strCode,
             username: user.name,
-            email: user.email
+            email: user.email,
+            cmpnycd: companycd
          };
         const token = await jwt.sign(payload, process.env.TOKEN_SECRET, { expiresIn: 60*60*24});
         return token;

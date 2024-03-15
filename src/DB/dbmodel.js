@@ -29,6 +29,8 @@ const tin010_stsModel = require('./model/in/tin010_sts.model');
 const tin020_planhedModel = require('./model/in/tin020_planhed.model');
 const tin040_plandtlModel = require('./model/in/tin040_plandtl.model');
 const tmt150_supplyModel = require('./model/master/tmt150_supply.model');
+const tmt280_divModel = require('./model/master/tmt280_div.model');
+const tmt010_companyModel = require('./model/master/tmt010_company.model');
 
 const model = {
      // system
@@ -38,6 +40,7 @@ const model = {
      "sys_department": DepartmentModel,
 
      // table master
+     "Tmt010Company": tmt010_companyModel,
      "TMT340FORMITEMNM": TMT340FORMITEMNMModel,
      "TMT341FILE":TMT341FILEModel,
      "Tmt120Branch": tmt120_branchModel,
@@ -46,6 +49,7 @@ const model = {
      "Tmt171Paymethd": tmt171_paymethd,
      "Tmt130Lctn": tmt130_lctnModel,
      "Tmt140Quality": tmt140_qualityModel,
+     "Tmt280Div": tmt280_divModel,
      // "Tmt150Supply": tmt150_supplyModel,
 
      // product

@@ -35,6 +35,8 @@ const tin010_stsModel = require('./model/in/tin010_sts.model');
 const tin020_planhedModel = require('./model/in/tin020_planhed.model');
 const tin040_plandtlModel = require('./model/in/tin040_plandtl.model');
 const tmt150_supplyModel = require('./model/master/tmt150_supply.model');
+const tmt280_divModel = require('./model/master/tmt280_div.model');
+const tmt010_companyModel = require('./model/master/tmt010_company.model');
 
 
 class Database {
@@ -66,6 +68,7 @@ class Database {
     this.defineModel('sys_role', RoleModel);
     this.defineModel('sys_department', DepartmentModel);
     // master
+    this.defineModel('Tmt010Company', tmt010_companyModel);
     this.defineModel('TMT341FILE', TMT341FILEModel);
     this.defineModel('TMT340FORMITEMNM', TMT340FORMITEMNMModel);
     this.defineModel('Tmt120Branch', tmt120_branchModel);
@@ -74,6 +77,7 @@ class Database {
     this.defineModel('Tmt171Paymethd', tmt171_paymethd);
     this.defineModel('Tmt130Lctn', tmt130_lctnModel);
     this.defineModel('Tmt140Quality', tmt140_qualityModel);
+    this.defineModel('Tmt280Div', tmt280_divModel);
     // this.defineModel('Tmt150Supply', tmt150_supplyModel);
     
 
@@ -115,6 +119,15 @@ class Database {
     // Ví dụ:
     // this.models.User.hasMany(this.models.Post);
     // this.models.Post.belongsTo(this.models.User);
+
+    // 1 công ty có nhiều user, 1 user chi co 1 công ty
+    this.models.Tmt010Company.hasMany(this.models.sys_user, {foreignKey: 'CMPNYCD'});
+    this.models.sys_user.belongsTo(this.models.Tmt010Company);
+
+    // 1 công ty có nhiều kho hàng, 1 kho hàng chỉ có 1 công ty
+    this.models.Tmt010Company.hasMany(this.models.Tmt120Branch, {foreignKey: "CMPNYCD"});
+    this.models.Tmt120Branch.belongsTo(this.models.Tmt010Company);
+
     // quan he nhieu nhieu . user role
     this.models.sys_user.belongsToMany(this.models.sys_role, {through: 'user_role'});
     this.models.sys_role.belongsToMany(this.models.sys_user, {through: 'user_role'});
@@ -171,6 +184,10 @@ class Database {
     // 1 đơn hang nhập có nhiều chi tiết, 
     this.models.Tin020Planhed.hasMany(this.models.Tin040Plandtl, {foreignKey: "SIPLNNO"});
     this.models.Tin040Plandtl.belongsTo(this.models.Tin020Planhed);
+
+    // 1 đơn đơn hàng nhập có 1 Phương thức thanh toán, 1 phương thương thức thanh toán có ở nhiều đơn hàng nhập
+    this.models.Tmt280Div.hasMany(this.models.Tin020Planhed, {foreignKey: "DIVKBN"});
+    this.models.Tin020Planhed.belongsTo(this.models.Tmt280Div);
 
     // 1 sản phẩm ở nhiều chi tiết. 1 chi tiết có 1 sản phẩm
     this.models.Product.hasMany(this.models.Tin040Plandtl, {foreignKey: 'PRODUCTCD'});
