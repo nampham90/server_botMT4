@@ -27,21 +27,35 @@ class SysMenuUpdateRequest extends AbstractRequest {
     }
 
     Validator = (condition) => {
-        const rule = Joi.object({
-            id: Joi.string().max(24).required(),
-            menuName: Joi.string().max(50).required(),
-            code: Joi.string().max(50).required(),
-            orderNum: Joi.number().integer().required(),
-            menuType: Joi.string().length(1).required(),
-            visible: Joi.boolean().required(),
-            path: Joi.string().max(100).required(),
-            status: Joi.boolean().required(),
-            newLinkFlag: Joi.boolean().required(),
-            icon: Joi.string().max(50).required(),
-            alIcon: Joi.allow(),
-            fatherId: Joi.string().max(24).required()
-        });
-        return rule.validate(condition);
+        if(condition.menuType === "C") {
+            const rule = Joi.object({
+                id: Joi.string().max(24).required(),
+                menuName: Joi.string().max(50).required(),
+                code: Joi.string().max(50).required(),
+                orderNum: Joi.number().integer().required(),
+                menuType: Joi.string().length(1).required(),
+                visible: Joi.boolean().required(),
+                path: Joi.string().max(100).required(),
+                status: Joi.boolean().required(),
+                newLinkFlag: Joi.boolean().required(),
+                icon: Joi.string().max(50).required(),
+                alIcon: Joi.allow(),
+                fatherId: Joi.string().max(24).required()
+            });
+            return rule.validate(condition);
+        } else {
+            const rule = Joi.object({
+                id: Joi.string().max(24).required(),
+                menuName: Joi.string().max(50).required(),
+                code: Joi.string().max(50).required(),
+                orderNum: Joi.number().integer().required(),
+                menuType: Joi.string().length(1).required(),
+                status: Joi.boolean().required(),
+                fatherId: Joi.string().max(24).required()
+            });
+            return rule.validate(condition);
+        }
+        
     }
 
 

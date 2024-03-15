@@ -1,18 +1,17 @@
 const { Router } = require("express");
+const tmt280Controller = require("./tmt280.controller");
 const verifyToken = require("../../../middlewares/verifyToken");
-const tmt171Controller = require("./tmt171.controller");
 
 
-class Tmt171Router {
+class Tmt280Router {
     constructor() {
         this.router = Router();
         this.intializeRoutes();
-
     }
 
     intializeRoutes() {
-        this.router.post("/tmt171listpaymethd", verifyToken, tmt171Controller.findAll);
+        this.router.post("/tmt280listdivkbn", verifyToken, tmt280Controller.findAll);
     }
 }
 
-module.exports = new Tmt171Router().router;
+module.exports = new Tmt280Router().router;

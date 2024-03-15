@@ -1,9 +1,8 @@
 const { Router } = require("express");
 const verifyToken = require("../../../middlewares/verifyToken");
-const tmt171Controller = require("./tmt171.controller");
+const spin00101Controller = require("./spin00101.controller");
 
-
-class Tmt171Router {
+class Spin00101Routes {
     constructor() {
         this.router = Router();
         this.intializeRoutes();
@@ -11,8 +10,8 @@ class Tmt171Router {
     }
 
     intializeRoutes() {
-        this.router.post("/tmt171listpaymethd", verifyToken, tmt171Controller.findAll);
+        this.router.post('/spin00101create', verifyToken, spin00101Controller.create);
     }
 }
 
-module.exports = new Tmt171Router().router;
+module.exports = new Spin00101Routes().router;
