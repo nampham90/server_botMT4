@@ -33,10 +33,10 @@ const mergeUser = (user) => {
     const muser = {
         id: user.id,
         name: user.name,
-        available: item.available,
-        sex: item.sex,
+        available: user.available,
+        sex: user.sex,
         dienthoai: decrypt(user.dienthoai) == null? user.dienthoai : decrypt(user.dienthoai),
-        email: decrypt(item.email) == null? item.email : decrypt(item.email),
+        email: decrypt(user.email) == null? user.email : decrypt(user.email),
         phongban_id: user.phongban_id,
         BUYERNMENC: decrypt(user.BUYERNMENC) == null? user.BUYERNMENC : decrypt(user.BUYERNMENC),
         BUYERADRS1ENC: decrypt(user.BUYERADRS1ENC) == null? user.BUYERADRS1ENC : decrypt(user.BUYERADRS1ENC),
