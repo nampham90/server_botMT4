@@ -20,7 +20,7 @@ class Spin00101FindOnePlanProcess extends AbstractProcess {
                     [this.sequelize.literal(`
                           CASE WHEN RSLTSENDFLG = 1 THEN 'Đã nhập hàng'
                                WHEN SICOMPFLG = 1  THEN  'Hoàn thành nhập hàng'
-                               WHEN ARVLCOMPFLG = 1  THEN  'Khởi tạo'
+                               WHEN ARVLCOMPFLG = 1  THEN  'Đăng ký'
                           END
                     `), 'STSNM']
                 ]
@@ -29,6 +29,7 @@ class Spin00101FindOnePlanProcess extends AbstractProcess {
             include: [
                 {model: this.models.Tin010Sts},
                 {model: this.models.Tin040Plandtl},
+                {model: this.models.Tmt280Div}
             ]
         })
         return result

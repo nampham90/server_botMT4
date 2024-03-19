@@ -26,6 +26,7 @@ const reportRoutes = require('../NANP/report/report.routes');
 const spmt00101Routes = require('../NANP/product/spmt00101/spmt00101.routes');
 const tmt280Routes = require('../NANP/master/tmt280_div/tmt280.routes');
 const spin00101Routes = require('../NANP/in/spin00101/spin00101.routes');
+const spin00201Routes = require('../NANP/in/spin00201/spin00201.routes');
 class Routes {
     constructor(app) {
 
@@ -61,7 +62,8 @@ class Routes {
         app.use('/api/master', apiRouter);
 
         // xuat hang
-        app.use('/api/spin00101', spin00101Routes)
+        app.use('/api/spin00101', spin00101Routes);
+        app.use('/api/spin00201', spin00201Routes);
 
         // xuat hang 
         app.use('/api/spot00101', spot00101Routes);
