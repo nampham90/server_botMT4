@@ -31,6 +31,8 @@ const tin040_plandtlModel = require('./model/in/tin040_plandtl.model');
 const tmt150_supplyModel = require('./model/master/tmt150_supply.model');
 const tmt280_divModel = require('./model/master/tmt280_div.model');
 const tmt010_companyModel = require('./model/master/tmt010_company.model');
+const tin050_rslthedModel = require('./model/in/tin050_rslthed.model');
+const tin060_rsltdtlModel = require('./model/in/tin060_rsltdtl.model');
 
 const model = {
      // system
@@ -66,6 +68,8 @@ const model = {
      "Tin010Sts": tin010_stsModel,
      "Tin020Planhed": tin020_planhedModel,
      "Tin040Plandtl": tin040_plandtlModel,
+     "Tin050Rslthed": tin050_rslthedModel,
+     "Tin060Rsltdtl": tin060_rsltdtlModel,
 
 
      //tot

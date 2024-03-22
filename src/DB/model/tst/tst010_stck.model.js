@@ -8,6 +8,10 @@ module.exports = (sequelize) => {
             autoIncrement: true
         },
 
+        INSTRCD: {
+            type: DataTypes.STRING(16),//  Mã sản phẩm trong kho (IS)
+        },
+
         SERIALNUM: {// số serial number
             type: DataTypes.STRING(16),
         },
@@ -68,6 +72,14 @@ module.exports = (sequelize) => {
         STRRSRV5: {
             type: DataTypes.STRING(256)
         }
+    }, {
+        indexes: [
+            // Create a unique index on SERIALNUM
+            {
+                unique: true,
+                fields: ['SERIALNUM']
+            },
+        ]
     })
 
     return Tst010Stck;

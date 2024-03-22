@@ -36,7 +36,7 @@ class Spin00201FindConditionProcess extends AbstractProcess {
             attributes: {
                 include: [
                     [this.sequelize.literal(`
-                          CASE WHEN RSLTSENDFLG = 1 THEN 'Đã nhập hàng'
+                          CASE WHEN RSLTSENDFLG = 1 THEN 'Trả hàng'
                                WHEN SICOMPFLG = 1  THEN  'Hoàn thành nhập hàng'
                                WHEN ARVLCOMPFLG = 1  THEN  'Đăng ký'
                           END

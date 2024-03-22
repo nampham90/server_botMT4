@@ -1,23 +1,28 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    const Tin040Plandtl = sequelize.define('tin040_plandtl', {
+    const Tin060Rsltdtl = sequelize.define('tin060_rsltdtl', {
         SIPLNNO: {
-            type: DataTypes.STRING(16),//  
+            type: DataTypes.STRING(16),//  mã đơn hàng nhập
             primaryKey: true
         },
 
-        SODTLNO: {
-            type: DataTypes.INTEGER,//  số thứ tự trong đơn
+        INSTRCD: {
+            type: DataTypes.STRING(16),//  Mã sản phẩm trong kho (IS), tạo ra khi có mỗi lần nhập hàng
+            primaryKey: true
+        },
+
+        SIDTLNO: {
+            type: DataTypes.INTEGER,//  mã số lần nhập
             primaryKey: true
         },
 
         ARVLPLNQTY: {
-            type: DataTypes.INTEGER,//số lượng dự kiến đến
+            type: DataTypes.INTEGER,//số lượng dự kiến
         },
 
-        ARVLPLNREMAINQTY: {
-            type: DataTypes.INTEGER,//số lượng dự kiến còn lại() =số lượng dự kiến đến - số lượng thực tế Tin060 
+        ARVLRSLTQTY: {
+            type: DataTypes.INTEGER,//số lượng Thực tế đã nhận
         },
 
         LIMITDATE: {  // ngày hết hạn
@@ -51,5 +56,5 @@ module.exports = (sequelize) => {
         ]
     })
 
-    return Tin040Plandtl;
+    return Tin060Rsltdtl;
 }

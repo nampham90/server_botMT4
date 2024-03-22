@@ -37,6 +37,8 @@ const tin040_plandtlModel = require('./model/in/tin040_plandtl.model');
 const tmt150_supplyModel = require('./model/master/tmt150_supply.model');
 const tmt280_divModel = require('./model/master/tmt280_div.model');
 const tmt010_companyModel = require('./model/master/tmt010_company.model');
+const tin050_rslthedModel = require('./model/in/tin050_rslthed.model');
+const tin060_rsltdtlModel = require('./model/in/tin060_rsltdtl.model');
 
 
 class Database {
@@ -95,8 +97,10 @@ class Database {
 
     // tin
     this.defineModel('Tin010Sts', tin010_stsModel);
-    this.defineModel('Tin020Planhed' , tin020_planhedModel);
+    this.defineModel('Tin020Planhed', tin020_planhedModel);
     this.defineModel('Tin040Plandtl', tin040_plandtlModel);
+    this.defineModel('Tin050Rslthed', tin050_rslthedModel);
+    this.defineModel('Tin060Rsltdtl', tin060_rsltdtlModel);
 
     // tot
     this.defineModel('Tot010Sts', tot010_stsModel);
@@ -169,6 +173,7 @@ class Database {
     this.models.ProductVariation.belongsToMany(this.models.ProductSize, {through: "variation_size"});
     this.models.ProductSize.belongsToMany(this.models.ProductVariation,  {through: "variation_size"});
 
+    //                          TIN                                   
     // 1 trang thai đơn hàng nhập có 1 đơn hàng hang nhâp: 1:1
     this.models.Tin010Sts.hasOne(this.models.Tin020Planhed, {foreignKey: 'SIPLNNO'});
     this.models.Tin020Planhed.belongsTo(this.models.Tin010Sts);
@@ -185,6 +190,7 @@ class Database {
     this.models.Tin020Planhed.hasMany(this.models.Tin040Plandtl, {foreignKey: "SIPLNNO"});
     this.models.Tin040Plandtl.belongsTo(this.models.Tin020Planhed);
 
+
     // 1 đơn đơn hàng nhập có 1 Phương thức thanh toán, 1 phương thương thức thanh toán có ở nhiều đơn hàng nhập
     this.models.Tmt280Div.hasMany(this.models.Tin020Planhed, {foreignKey: "DIVKBN"});
     this.models.Tin020Planhed.belongsTo(this.models.Tmt280Div);
@@ -197,6 +203,45 @@ class Database {
     this.models.Tmt140Quality.hasMany(this.models.Tin040Plandtl, {foreignKey: "QTYCD"});
     this.models.Tin040Plandtl.belongsTo(this.models.Tmt140Quality)
 
+    // quan hệ 1: 1 giữa tin020 , tin050
+    this.models.Tin020Planhed.hasOne(this.models.Tin050Rslthed, {foreignKey: 'SIPLNNO'});
+    this.models.Tin050Rslthed.belongsTo(this.models.Tin020Planhed);
+
+    // quan hệ 1: n giữa tin050, tin060
+    this.models.Tin050Rslthed.hasMany(this.models.Tin060Rsltdtl, {foreignKey: 'SIPLNNO'});
+    this.models.Tin060Rsltdtl.belongsTo(this.models.Tin050Rslthed);
+
+    //quan hệ 1: n giưa tin060: TST010
+    this.models.Tin060Rsltdtl.hasMany(this.models.Tst010Stck, {foreignKey: 'INSTRCD'});
+    this.models.Tst010Stck.belongsTo(this.models.Tin060Rsltdtl);
+
+    // quan hệ 1: n giứ  product vơi Tin060
+    this.models.Product.hasMany(this.models.Tin060Rsltdtl, {foreignKey: 'PRODUCTCD'});
+    this.models.Tin060Rsltdtl.belongsTo(this.models.Product);
+
+    // quan hệ 1: n giữa Tmt140 : tin060
+    this.models.Tmt140Quality.hasMany(this.models.Tin060Rsltdtl, {foreignKey: "QTYCD"});
+    this.models.Tin060Rsltdtl.belongsTo(this.models.Tmt140Quality);
+
+    // quan hệ 1: n giữa sys_user : tin050
+    this.models.sys_user.hasMany(this.models.Tin050Rslthed, {foreignKey: 'USERCD', as: 'rsltemploye'});
+    this.models.Tin050Rslthed.belongsTo(this.models.sys_user, {foreignKey: 'USERCD', as: 'rsltemploye'});
+
+    // quan hệ 1: n giứa Tmt280 : tin050
+    this.models.Tmt280Div.hasMany(this.models.Tin050Rslthed, {foreignKey: "DIVKBN"});
+    this.models.Tin050Rslthed.belongsTo(this.models.Tmt280Div);
+
+    // quan hê 1: n giưa nhà cung cấp : tin050
+    this.models.sys_user.hasMany(this.models.Tin050Rslthed, {foreignKey: 'SPPLYCD', as: 'rsltsupplier'});
+    this.models.Tin050Rslthed.belongsTo(this.models.sys_user, {foreignKey: 'SPPLYCD', as: 'rsltsupplier'});
+
+    // quan hê 1: n người kiểm hàng cấp : tin050
+    this.models.sys_user.hasMany(this.models.Tin050Rslthed, {foreignKey: 'SIUSRCD', as: 'rsltusercd'});
+    this.models.Tin050Rslthed.belongsTo(this.models.sys_user, {foreignKey: 'SIUSRCD', as: 'rsltusercd'});
+
+
+
+//                          TOT                                   
     // 1 trang thái đơn hàng có 1 đơn hàng
     this.models.Tot010Sts.hasOne(this.models.Tot020Ordhed, {foreignKey: 'SOODNO'});
     this.models.Tot020Ordhed.belongsTo(this.models.Tot010Sts);

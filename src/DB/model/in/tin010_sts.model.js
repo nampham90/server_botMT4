@@ -7,15 +7,15 @@ module.exports = (sequelize) => {
             primaryKey: true
         },
         ARVLCOMPFLG: {
-            type: DataTypes.STRING(1),//  
+            type: DataTypes.STRING(1),//  0: Chưa hoàn thành, 1: Đã hoàn thành, 2: Hoàn thành một phần
             defaultValue: '0'
         },
         SICOMPFLG: {
-            type: DataTypes.STRING(1),//  
+            type: DataTypes.STRING(1),//  0: Chưa hoàn thành, 1: Đã hoàn thành, 2: Hoàn thành một phần
             defaultValue: '0'
         }, 
         RSLTSENDFLG: {
-            type: DataTypes.STRING(1),//  
+            type: DataTypes.STRING(1),//  0: Chưa hoàn thành, 1: Đã hoàn thành
             defaultValue: '0'
         }
     })
