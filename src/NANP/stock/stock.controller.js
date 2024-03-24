@@ -1,7 +1,7 @@
 const AbstractControllerAPI = require("../../common/abstract/AbstractControllerAPI");
 const Result = require("../../common/result/Result");
-const FindAllProductConditionProcess = require("../common/process/FindAllProductConditionProcess");
-const FindAllProductConditionRequest = require("../common/request/FindAllProductConditionRequest");
+const FindAllProductConditionProcess = require("../common/process/findAllProductConditionProcess");
+const FindAllProductConditionRequest = require("../common/request/findAllProductConditionRequest");
 
 class StockController extends AbstractControllerAPI {
     async listProductInStck(req, res) {

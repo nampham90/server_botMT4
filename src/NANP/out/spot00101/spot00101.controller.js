@@ -1,14 +1,14 @@
 const AbstractControllerAPI = require("../../../common/abstract/AbstractControllerAPI");
 const Result = require("../../../common/result/Result");
-const FindAllProductConditionProcess = require("../../common/process/FindAllProductConditionProcess");
-const FindAllProductConditionRequest = require("../../common/request/FindAllProductConditionRequest");
+const FindAllProductConditionProcess = require("../../common/process/findAllProductConditionProcess");
+const FindAllProductConditionRequest = require("../../common/request/findAllProductConditionRequest");
 const SequenceProcess = require("../../tcc/process/SequenceProcess");
 const Spot00101FindByOrderRequest = require("../../tcc/request/SequenceRequest");
 const Spot00101ListOrderProcess = require("./process/spot00101ListOrderProcess");
 const Spot00101NewOrderProcess = require("./process/spot00101NewOrderProcess");
 const Spot00101UpdateOrderProcess = require("./process/spot00101UpdateOrderProcess");
 const Spot00101UpdateOrderRequest = require("./request/spot00101UpdateOrderRequest");
-const client = require("@jsreport/nodejs-client")("http://localhost:5488", "admin", "@Nampham90");
+const client = require("@jsreport/nodejs-client")("http://localhost:5488", "admin", "nampham90");
 
 class Spot00101Controller extends AbstractControllerAPI {
 
@@ -65,7 +65,7 @@ class Spot00101Controller extends AbstractControllerAPI {
         //const data = reqUpdateOrder.order;
         let data = reqUpdateOrder.order;
         client.render({
-            template: {name: 'book-main'},
+            template: {name: 'book-main', recipe: "chrome-pdf" , engine: 'handlebars'},
             data: data,
         }).then(response => {
             response.body().then(data => {
