@@ -41,7 +41,7 @@ class Server {
 
     config() {
         const corsOptions = {
-            origin: "http://localhost:4201",
+            origin: "http://nanp.themenew.net",
             methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
             credentials: true,
             optionsSuccessStatus: 204
