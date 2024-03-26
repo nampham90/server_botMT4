@@ -21,8 +21,10 @@ class PdfReportProcess {
     generatePDF = async (dataPage) => {
         const { title, now, header ,content, pathFile, filename } = dataPage;
         let pathfile = path.join(__dirname, pathFile) //'./template/order/'
+        console.log({msg: "link file", data: pathfile});
         const ejsTemplate = await fs.readFile(pathfile + filename, 'utf-8');
-        const browser = await puppeteer.launch();
+        console.log({msg: 'read template', data: ejsTemplate});
+        const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
         const page = await browser.newPage();
         // tông page
         const totalPages = await page.evaluate(async (dataPage) => {

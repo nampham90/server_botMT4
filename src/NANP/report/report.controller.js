@@ -26,6 +26,7 @@ class ReportController {
             now: dateNow(),
             rows: listDetail,
         };
+        console.log({msg:"du lieu gui len template", data: data});
         const result = new PdfReportProcess();
         await result.init(data);
         if(result.pdfBuffer) {
