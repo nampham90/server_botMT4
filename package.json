@@ -37,7 +37,7 @@
     "nodemon": "^2.0.19",
     "pad-left": "^2.1.0",
     "pdf-lib": "^1.17.1",
-    "puppeteer": "^19.11.1",
+    "puppeteer": "^19.9.0",
     "sequelize": "^6.33.0",
     "socket.io": "^4.6.1",
     "uuid": "^9.0.1"
