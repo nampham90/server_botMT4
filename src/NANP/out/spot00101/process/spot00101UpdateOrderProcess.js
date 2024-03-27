@@ -1,5 +1,5 @@
 const AbstractProcess = require("../../../../common/abstract/AbstractProcess");
-
+const moment = require('moment');
 
 class Spot00101UpdateOrderProcess extends AbstractProcess {
     constructor(){
@@ -50,7 +50,13 @@ class Spot00101UpdateOrderProcess extends AbstractProcess {
 
     mergerlistTot040(list) {
         let listTot040 = []
+        const sysDateMoment = moment();
+        const nowDate = sysDateMoment.toDate();
         for(let element of list) {
+            let ngayHetHan = nowDate;
+            if(element.WARRANTY> 0) {
+                ngayHetHan = sysDateMoment.clone().add(element.WARRANTY, 'months');
+            }
             let item = {
                 SOODNO: element.SOODNO,
                 SODTLNO: element.SODTLNO,
@@ -63,7 +69,9 @@ class Spot00101UpdateOrderProcess extends AbstractProcess {
                 productId: element.product.id,
                 QTYCD: element.QTYCD,
                 tmt140QualityQTYCD: element.QTYCD,
-                PRODUCTGROUPCD: element.PRODUCTCD
+                PRODUCTGROUPCD: element.PRODUCTCD,
+                ORDLIMITDATE: ngayHetHan,
+                WARRANTY: element.WARRANTY
             }
             listTot040.push(item);
         }

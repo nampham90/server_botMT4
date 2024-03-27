@@ -12,7 +12,7 @@ class SysUserCreateProcess extends AbstractProcess {
     }
 
     async process(req) {
-        const {name, available, password, sex, email, dienthoai, roles,phongban_id,taxcd,desc,area,province,city,street,mobile} = req;
+        const {name, available, password, sex, email, dienthoai, roles,phongban_id,taxcd,desc,area,province,city,street,mobile, cmpnyCd} = req;
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(password, salt);
         const u = await this.models.sys_user.create({
@@ -28,7 +28,9 @@ class SysUserCreateProcess extends AbstractProcess {
             BUYERADRS2ENC: province == null? "":  encrypt(province),
             BUYERADRS3ENC: area == null? "" : encrypt(area),
             taxcd: taxcd == null? "" : encrypt(taxcd),
-            desc: desc == null? "": encrypt(desc)
+            desc: desc == null? "": encrypt(desc),
+            CMPNYCD: cmpnyCd,
+            tmt010CompanyCMPNYCD: cmpnyCd,
         })
         if(u) {
             await Promise.all([ this.userAddRole(u, roles),this.userJoinDepartment(u, phongban_id)]);
