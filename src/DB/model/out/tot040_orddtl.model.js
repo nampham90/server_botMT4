@@ -17,11 +17,18 @@ module.exports = (sequelize) => {
         SOPRICE: {
             type: DataTypes.DOUBLE,//  giá bán 
         },
+
+        ORDLIMITDATE: {
+            type: DataTypes.DATE,
+        },
         SHIPMNTORDQTY: {
             type: DataTypes.INTEGER,// số lượng đặt hàng
         },
         SHIPMNTORDREMAINQTY: {
             type: DataTypes.INTEGER,// số lượng cho phép
+        },
+        WARRANTY: {
+            type: DataTypes.INTEGER,// số thang bao hanh
         },
         SOREMARK: {
             type: DataTypes.STRING(256)// ngày hết hạn
