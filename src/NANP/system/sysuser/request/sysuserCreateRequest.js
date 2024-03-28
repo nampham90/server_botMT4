@@ -25,6 +25,7 @@ class SysUserCreateRequest extends AbstractRequest {
             this.error = validate.error.details[0].message;
         } else {
             this.condition = new ConditionDto(req.body);
+            this.condition.cmpnyCd= this.cmpnyCd
         }
     }
 
@@ -35,7 +36,7 @@ class SysUserCreateRequest extends AbstractRequest {
             available: Joi.boolean(),
             sex: Joi.number().integer(),
             dienthoai: Joi.string().max(12),
-            email: Joi.string().required().email(),
+            email: Joi.string().email().allow(null, ''),
             phongban_id: Joi.number().integer().required(),
             role_id: Joi.array().items(Joi.number()),
             taxcd: Joi.string().allow(null, ''),

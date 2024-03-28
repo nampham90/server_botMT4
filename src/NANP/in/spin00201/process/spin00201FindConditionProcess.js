@@ -45,7 +45,14 @@ class Spin00201FindConditionProcess extends AbstractProcess {
             },
             include: [
                 {model: this.models.Tin010Sts, where: conditionSTS},
-                {model: this.models.Tin040Plandtl},
+                {
+                    model: this.models.Tin040Plandtl,
+                    include: [
+                        {
+                            model: this.models.Product
+                        }
+                    ]
+                },
                 {model: this.models.sys_user, as : 'supplier',attributes: ['id','name']},
                 {model: this.models.sys_user, as : 'employe',attributes: ['id','name']},
             ],
